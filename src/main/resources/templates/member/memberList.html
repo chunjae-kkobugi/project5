@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+
+  <!-- ** Basic Page Needs ** -->
+  <meta charset="utf-8">
+  <title>Member List</title>
+
+	<th:block th:replace="/include/head.html :: head"></th:block>
+
+</head>
+
+<body class="body-wrapper">
+<th:block th:replace="/include/header.html :: header"></th:block>
+
+<!--================================
+=            Page Title            =
+=================================-->
+<section class="page-title">
+	<!-- Container Start -->
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8 offset-md-2 text-center">
+				<!-- Title text -->
+				<h3>Blog Page</h3>
+			</div>
+		</div>
+	</div>
+	<!-- Container End -->
+</section>
+
+<div class="container contenter">
+	<div th:replace="/include/searchList.html :: fragment-search('/member/memberList', 'title:제목,content:내용,author:작성자')"></div>
+	<table class="table text-center" th:if="${not #lists.isEmpty(memberList)}">
+		<thead>
+		<tr>
+			<th>번호</th>
+			<th>아이디</th>
+			<th>이름</th>
+			<th>전화번호</th>
+			<th>등록일</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr th:each="member, about : ${memberList}">
+			<td th:text="${about.count}"></td>
+			<td><a th:text="${member.id}" th:href="@{/member/memberGet(id=${member.id})}"></a></td>
+			<td th:text="${member.name}"></td>
+			<td th:text="${member.tel}"></td>
+			<td th:text="${#dates.format(member.createAt, 'yyyy-MM-dd')}"></td>
+		</tr>
+		</tbody>
+	</table>
+	<th:block th:if="${not #lists.isEmpty(memberList)}"><div th:replace="/include/pagination.html :: fragment-pagination('/member/memberList')"></div></th:block>
+	<div th:if="${#lists.isEmpty(memberList)}" class="text-center">목록이 비어있습니다.</div>
+</div>
+
+<th:block th:replace="/include/footer.html :: footer"></th:block>
+</body>
+
+</html>
+

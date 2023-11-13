@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<div class="d-flex justify-content-end" th:fragment="fragment-search(pageLink, options)">
+    <form class="d-flex mb-3" role="search" method="post" style="max-width: 60%;" th:action="${pageLink}">
+        <div class="input-group">
+            <input class="form-control" type="search" placeholder="검색어 입력" aria-label="search" name="keyword" required th:value="${keyword}">
+            <select class="form-select" id="type" name="type" required>
+                <option value="">검색 옵션</option>
+            </select>
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </div>
+    </form>
+    <script th:inline="javascript">
+/*        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0'); // 0부터 시작하므로 1을 더함
+        var yyyy = today.getFullYear();
+        today = yyyy + '-' + mm + '-' + dd;
+        $("#enddate").value("max", today);
+        $("#enddate").setAttribute("max", today);*/
+
+
+        /*<![CDATA[*/
+        var options = /*[[${options}]]*/ 'default';
+        var type = /*[[${type}]]*/ 'default';
+        options = options.split(",");
+        for(i in options){
+            var option = options[i].split(":");
+            var newoption;
+            if(type===option[0]){
+                newoption = `<option value="${option[0]}" selected>${option[1]}</option>`;
+            } else {
+                newoption = `<option value="${option[0]}">${option[1]}</option>`;
+            }
+            $("#type").append(newoption);
+        }
+        /*]]>*/
+    </script>
+</div>
+</html>
