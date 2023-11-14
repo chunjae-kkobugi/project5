@@ -45,4 +45,20 @@ public class MemberCtrl {
         model.addAttribute("memberList", memberList);
         return "member/memberList";
     }
+
+    @GetMapping("login")
+    public String login(){
+        return "member/login";
+    }
+
+    @PostMapping("login")
+    public String login(HttpServletRequest request, Model model){
+        String id = request.getParameter("id");
+        String pw = request.getParameter("pw");
+        boolean keepId = Boolean.parseBoolean(request.getParameter("keepId"));
+
+
+
+        return "index";
+    }
 }
