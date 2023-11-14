@@ -621,24 +621,24 @@ java.sql.SQLSyntaxErrorException: (conn=650) Unknown database 'team45'
 	at java.base/java.lang.Thread.run(Thread.java:833)
 2023-11-13 17:42:53.357 INFO  [http-nio-8080-exec-5] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Starting...
 2023-11-13 17:42:53.369 INFO  [http-nio-8080-exec-5] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Start completed.
-2023-11-13 17:42:53.526 WARN  [http-nio-8080-exec-6] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/font-awesome/css/font-awesome.min.css
-2023-11-13 17:42:53.526 WARN  [http-nio-8080-exec-4] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/bootstrap/bootstrap-slider.css
-2023-11-13 17:42:53.526 WARN  [http-nio-8080-exec-3] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/slick/slick.css
-2023-11-13 17:42:53.526 WARN  [http-nio-8080-exec-8] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/bootstrap/bootstrap.min.css
-2023-11-13 17:42:53.526 WARN  [http-nio-8080-exec-7] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/slick/slick-theme.css
-2023-11-13 17:42:53.540 WARN  [http-nio-8080-exec-2] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/jquery-nice-select/css/nice-select.css
+2023-11-13 17:42:53.526 WARN  [http-nio-8080-exec-6] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/font-awesome/css/font-awesome.min.css
+2023-11-13 17:42:53.526 WARN  [http-nio-8080-exec-4] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/bootstrap/bootstrap-slider.css
+2023-11-13 17:42:53.526 WARN  [http-nio-8080-exec-3] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/slick/slick.css
+2023-11-13 17:42:53.526 WARN  [http-nio-8080-exec-8] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/bootstrap/bootstrap.min.css
+2023-11-13 17:42:53.526 WARN  [http-nio-8080-exec-7] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/slick/slick-theme.css
+2023-11-13 17:42:53.540 WARN  [http-nio-8080-exec-2] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/jquery-nice-select/css/nice-select.css
 2023-11-13 17:42:53.555 WARN  [http-nio-8080-exec-1] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/common.css
-2023-11-13 17:42:53.555 WARN  [http-nio-8080-exec-9] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/css/style.css
+2023-11-13 17:42:53.555 WARN  [http-nio-8080-exec-9] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/css/style.css
 2023-11-13 17:42:53.555 WARN  [http-nio-8080-exec-10] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/js/cleditor/jquery.cleditor.css
-2023-11-13 17:42:53.555 WARN  [http-nio-8080-exec-5] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/jquery/jquery.min.js
-2023-11-13 17:42:53.555 WARN  [http-nio-8080-exec-3] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/bootstrap/bootstrap.min.js
-2023-11-13 17:42:53.556 WARN  [http-nio-8080-exec-2] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/bootstrap/popper.min.js
-2023-11-13 17:42:53.562 WARN  [http-nio-8080-exec-6] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/raty/jquery.raty-fa.js
-2023-11-13 17:42:53.562 WARN  [http-nio-8080-exec-1] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/jquery-nice-select/js/jquery.nice-select.min.js
-2023-11-13 17:42:53.562 WARN  [http-nio-8080-exec-4] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/bootstrap/bootstrap-slider.js
-2023-11-13 17:42:53.562 WARN  [http-nio-8080-exec-7] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/slick/slick.min.js
-2023-11-13 17:42:53.562 WARN  [http-nio-8080-exec-8] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/tether/js/tether.min.js
-2023-11-13 17:42:53.563 WARN  [http-nio-8080-exec-5] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/js/script.js
+2023-11-13 17:42:53.555 WARN  [http-nio-8080-exec-5] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/jquery/jquery.min.js
+2023-11-13 17:42:53.555 WARN  [http-nio-8080-exec-3] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/bootstrap/bootstrap.min.js
+2023-11-13 17:42:53.556 WARN  [http-nio-8080-exec-2] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/bootstrap/popper.min.js
+2023-11-13 17:42:53.562 WARN  [http-nio-8080-exec-6] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/raty/jquery.raty-fa.js
+2023-11-13 17:42:53.562 WARN  [http-nio-8080-exec-1] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/jquery-nice-select/js/jquery.nice-select.min.js
+2023-11-13 17:42:53.562 WARN  [http-nio-8080-exec-4] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/bootstrap/bootstrap-slider.js
+2023-11-13 17:42:53.562 WARN  [http-nio-8080-exec-7] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/slick/slick.min.js
+2023-11-13 17:42:53.562 WARN  [http-nio-8080-exec-8] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/tether/js/tether.min.js
+2023-11-13 17:42:53.563 WARN  [http-nio-8080-exec-5] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/js/script.js
 2023-11-13 17:42:53.567 WARN  [http-nio-8080-exec-3] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/js/cleditor/jquery.cleditor.js
 2023-11-13 17:42:53.567 WARN  [http-nio-8080-exec-10] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/images/footer_logo.png
 2023-11-13 17:42:53.567 WARN  [http-nio-8080-exec-9] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/images/main_logo.png
@@ -669,45 +669,45 @@ java.sql.SQLSyntaxErrorException: (conn=650) Unknown database 'team45'
 2023-11-13 17:45:32.561 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 0 ms
 2023-11-13 17:45:32.598 INFO  [http-nio-8080-exec-1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Starting...
 2023-11-13 17:45:32.641 INFO  [http-nio-8080-exec-1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Start completed.
-2023-11-13 17:45:32.810 WARN  [http-nio-8080-exec-5] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/slick/slick.css
-2023-11-13 17:45:32.810 WARN  [http-nio-8080-exec-2] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/bootstrap/bootstrap.min.css
-2023-11-13 17:45:32.810 WARN  [http-nio-8080-exec-4] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/font-awesome/css/font-awesome.min.css
-2023-11-13 17:45:32.810 WARN  [http-nio-8080-exec-3] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/bootstrap/bootstrap-slider.css
-2023-11-13 17:45:32.810 WARN  [http-nio-8080-exec-6] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/slick/slick-theme.css
-2023-11-13 17:45:32.812 WARN  [http-nio-8080-exec-7] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/jquery-nice-select/css/nice-select.css
-2023-11-13 17:45:32.844 WARN  [http-nio-8080-exec-1] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/jquery/jquery.min.js
-2023-11-13 17:45:32.844 WARN  [http-nio-8080-exec-3] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/bootstrap/popper.min.js
+2023-11-13 17:45:32.810 WARN  [http-nio-8080-exec-5] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/slick/slick.css
+2023-11-13 17:45:32.810 WARN  [http-nio-8080-exec-2] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/bootstrap/bootstrap.min.css
+2023-11-13 17:45:32.810 WARN  [http-nio-8080-exec-4] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/font-awesome/css/font-awesome.min.css
+2023-11-13 17:45:32.810 WARN  [http-nio-8080-exec-3] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/bootstrap/bootstrap-slider.css
+2023-11-13 17:45:32.810 WARN  [http-nio-8080-exec-6] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/slick/slick-theme.css
+2023-11-13 17:45:32.812 WARN  [http-nio-8080-exec-7] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/jquery-nice-select/css/nice-select.css
+2023-11-13 17:45:32.844 WARN  [http-nio-8080-exec-1] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/jquery/jquery.min.js
+2023-11-13 17:45:32.844 WARN  [http-nio-8080-exec-3] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/bootstrap/popper.min.js
 2023-11-13 17:45:32.844 WARN  [http-nio-8080-exec-9] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/js/cleditor/jquery.cleditor.css
 2023-11-13 17:45:32.844 WARN  [http-nio-8080-exec-10] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/common.css
-2023-11-13 17:45:32.844 WARN  [http-nio-8080-exec-4] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/bootstrap/bootstrap.min.js
-2023-11-13 17:45:32.844 WARN  [http-nio-8080-exec-8] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/css/style.css
-2023-11-13 17:45:32.847 WARN  [http-nio-8080-exec-5] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/bootstrap/bootstrap-slider.js
-2023-11-13 17:45:32.848 WARN  [http-nio-8080-exec-6] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/tether/js/tether.min.js
-2023-11-13 17:45:32.848 WARN  [http-nio-8080-exec-2] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/raty/jquery.raty-fa.js
-2023-11-13 17:45:32.848 WARN  [http-nio-8080-exec-7] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/slick/slick.min.js
-2023-11-13 17:45:32.849 WARN  [http-nio-8080-exec-9] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/js/script.js
-2023-11-13 17:45:32.849 WARN  [http-nio-8080-exec-4] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/jquery-nice-select/js/jquery.nice-select.min.js
+2023-11-13 17:45:32.844 WARN  [http-nio-8080-exec-4] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/bootstrap/bootstrap.min.js
+2023-11-13 17:45:32.844 WARN  [http-nio-8080-exec-8] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/css/style.css
+2023-11-13 17:45:32.847 WARN  [http-nio-8080-exec-5] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/bootstrap/bootstrap-slider.js
+2023-11-13 17:45:32.848 WARN  [http-nio-8080-exec-6] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/tether/js/tether.min.js
+2023-11-13 17:45:32.848 WARN  [http-nio-8080-exec-2] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/raty/jquery.raty-fa.js
+2023-11-13 17:45:32.848 WARN  [http-nio-8080-exec-7] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/slick/slick.min.js
+2023-11-13 17:45:32.849 WARN  [http-nio-8080-exec-9] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/js/script.js
+2023-11-13 17:45:32.849 WARN  [http-nio-8080-exec-4] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/jquery-nice-select/js/jquery.nice-select.min.js
 2023-11-13 17:45:32.851 WARN  [http-nio-8080-exec-1] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/js/cleditor/jquery.cleditor.js
 2023-11-13 17:45:32.852 WARN  [http-nio-8080-exec-10] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/images/main_logo.png
 2023-11-13 17:45:32.852 WARN  [http-nio-8080-exec-3] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/images/footer_logo.png
-2023-11-13 17:45:34.789 WARN  [http-nio-8080-exec-6] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/bootstrap/bootstrap.min.css
-2023-11-13 17:45:34.789 WARN  [http-nio-8080-exec-2] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/bootstrap/bootstrap-slider.css
-2023-11-13 17:45:34.789 WARN  [http-nio-8080-exec-5] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/font-awesome/css/font-awesome.min.css
-2023-11-13 17:45:34.790 WARN  [http-nio-8080-exec-7] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/slick/slick.css
-2023-11-13 17:45:34.790 WARN  [http-nio-8080-exec-4] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/slick/slick-theme.css
-2023-11-13 17:45:34.791 WARN  [http-nio-8080-exec-9] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/jquery-nice-select/css/nice-select.css
-2023-11-13 17:45:34.793 WARN  [http-nio-8080-exec-1] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/css/style.css
+2023-11-13 17:45:34.789 WARN  [http-nio-8080-exec-6] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/bootstrap/bootstrap.min.css
+2023-11-13 17:45:34.789 WARN  [http-nio-8080-exec-2] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/bootstrap/bootstrap-slider.css
+2023-11-13 17:45:34.789 WARN  [http-nio-8080-exec-5] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/font-awesome/css/font-awesome.min.css
+2023-11-13 17:45:34.790 WARN  [http-nio-8080-exec-7] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/slick/slick.css
+2023-11-13 17:45:34.790 WARN  [http-nio-8080-exec-4] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/slick/slick-theme.css
+2023-11-13 17:45:34.791 WARN  [http-nio-8080-exec-9] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/jquery-nice-select/css/nice-select.css
+2023-11-13 17:45:34.793 WARN  [http-nio-8080-exec-1] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/css/style.css
 2023-11-13 17:45:34.794 WARN  [http-nio-8080-exec-3] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/js/cleditor/jquery.cleditor.css
 2023-11-13 17:45:34.794 WARN  [http-nio-8080-exec-10] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/common.css
-2023-11-13 17:45:34.794 WARN  [http-nio-8080-exec-8] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/jquery/jquery.min.js
-2023-11-13 17:45:34.795 WARN  [http-nio-8080-exec-6] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/bootstrap/popper.min.js
-2023-11-13 17:45:34.796 WARN  [http-nio-8080-exec-2] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/bootstrap/bootstrap.min.js
-2023-11-13 17:45:34.800 WARN  [http-nio-8080-exec-5] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/bootstrap/bootstrap-slider.js
-2023-11-13 17:45:34.800 WARN  [http-nio-8080-exec-4] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/raty/jquery.raty-fa.js
-2023-11-13 17:45:34.800 WARN  [http-nio-8080-exec-7] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/tether/js/tether.min.js
-2023-11-13 17:45:34.800 WARN  [http-nio-8080-exec-9] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/slick/slick.min.js
-2023-11-13 17:45:34.800 WARN  [http-nio-8080-exec-1] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/jquery-nice-select/js/jquery.nice-select.min.js
-2023-11-13 17:45:34.800 WARN  [http-nio-8080-exec-3] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/js/script.js
+2023-11-13 17:45:34.794 WARN  [http-nio-8080-exec-8] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/jquery/jquery.min.js
+2023-11-13 17:45:34.795 WARN  [http-nio-8080-exec-6] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/bootstrap/popper.min.js
+2023-11-13 17:45:34.796 WARN  [http-nio-8080-exec-2] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/bootstrap/bootstrap.min.js
+2023-11-13 17:45:34.800 WARN  [http-nio-8080-exec-5] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/bootstrap/bootstrap-slider.js
+2023-11-13 17:45:34.800 WARN  [http-nio-8080-exec-4] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/raty/jquery.raty-fa.js
+2023-11-13 17:45:34.800 WARN  [http-nio-8080-exec-7] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/tether/js/tether.min.js
+2023-11-13 17:45:34.800 WARN  [http-nio-8080-exec-9] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/slick/slick.min.js
+2023-11-13 17:45:34.800 WARN  [http-nio-8080-exec-1] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/jquery-nice-select/js/jquery.nice-select.min.js
+2023-11-13 17:45:34.800 WARN  [http-nio-8080-exec-3] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/js/script.js
 2023-11-13 17:45:34.803 WARN  [http-nio-8080-exec-10] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/js/cleditor/jquery.cleditor.js
 2023-11-13 17:45:34.804 WARN  [http-nio-8080-exec-8] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/images/main_logo.png
 2023-11-13 17:45:34.804 WARN  [http-nio-8080-exec-6] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/images/footer_logo.png
@@ -733,76 +733,76 @@ java.sql.SQLSyntaxErrorException: (conn=650) Unknown database 'team45'
 2023-11-13 17:46:06.969 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 0 ms
 2023-11-13 17:46:07.006 INFO  [http-nio-8080-exec-1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Starting...
 2023-11-13 17:46:07.049 INFO  [http-nio-8080-exec-1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Start completed.
-2023-11-13 17:46:07.212 WARN  [http-nio-8080-exec-2] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/bootstrap/bootstrap.min.css
-2023-11-13 17:46:07.212 WARN  [http-nio-8080-exec-5] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/bootstrap/bootstrap-slider.css
-2023-11-13 17:46:07.212 WARN  [http-nio-8080-exec-3] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/slick/slick.css
-2023-11-13 17:46:07.212 WARN  [http-nio-8080-exec-4] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/font-awesome/css/font-awesome.min.css
-2023-11-13 17:46:07.213 WARN  [http-nio-8080-exec-6] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/slick/slick-theme.css
-2023-11-13 17:46:07.226 WARN  [http-nio-8080-exec-7] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/jquery-nice-select/css/nice-select.css
+2023-11-13 17:46:07.212 WARN  [http-nio-8080-exec-2] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/bootstrap/bootstrap.min.css
+2023-11-13 17:46:07.212 WARN  [http-nio-8080-exec-5] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/bootstrap/bootstrap-slider.css
+2023-11-13 17:46:07.212 WARN  [http-nio-8080-exec-3] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/slick/slick.css
+2023-11-13 17:46:07.212 WARN  [http-nio-8080-exec-4] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/font-awesome/css/font-awesome.min.css
+2023-11-13 17:46:07.213 WARN  [http-nio-8080-exec-6] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/slick/slick-theme.css
+2023-11-13 17:46:07.226 WARN  [http-nio-8080-exec-7] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/jquery-nice-select/css/nice-select.css
 2023-11-13 17:46:07.248 WARN  [http-nio-8080-exec-9] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/js/cleditor/jquery.cleditor.css
-2023-11-13 17:46:07.248 WARN  [http-nio-8080-exec-4] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/bootstrap/popper.min.js
+2023-11-13 17:46:07.248 WARN  [http-nio-8080-exec-4] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/bootstrap/popper.min.js
 2023-11-13 17:46:07.248 WARN  [http-nio-8080-exec-10] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/common.css
-2023-11-13 17:46:07.248 WARN  [http-nio-8080-exec-8] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/css/style.css
-2023-11-13 17:46:07.248 WARN  [http-nio-8080-exec-3] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/bootstrap/bootstrap.min.js
-2023-11-13 17:46:07.248 WARN  [http-nio-8080-exec-1] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/jquery/jquery.min.js
-2023-11-13 17:46:07.251 WARN  [http-nio-8080-exec-2] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/bootstrap/bootstrap-slider.js
-2023-11-13 17:46:07.251 WARN  [http-nio-8080-exec-5] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/tether/js/tether.min.js
-2023-11-13 17:46:07.251 WARN  [http-nio-8080-exec-6] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/raty/jquery.raty-fa.js
-2023-11-13 17:46:07.252 WARN  [http-nio-8080-exec-7] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/slick/slick.min.js
-2023-11-13 17:46:07.252 WARN  [http-nio-8080-exec-1] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/js/script.js
-2023-11-13 17:46:07.252 WARN  [http-nio-8080-exec-8] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/jquery-nice-select/js/jquery.nice-select.min.js
+2023-11-13 17:46:07.248 WARN  [http-nio-8080-exec-8] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/css/style.css
+2023-11-13 17:46:07.248 WARN  [http-nio-8080-exec-3] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/bootstrap/bootstrap.min.js
+2023-11-13 17:46:07.248 WARN  [http-nio-8080-exec-1] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/jquery/jquery.min.js
+2023-11-13 17:46:07.251 WARN  [http-nio-8080-exec-2] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/bootstrap/bootstrap-slider.js
+2023-11-13 17:46:07.251 WARN  [http-nio-8080-exec-5] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/tether/js/tether.min.js
+2023-11-13 17:46:07.251 WARN  [http-nio-8080-exec-6] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/raty/jquery.raty-fa.js
+2023-11-13 17:46:07.252 WARN  [http-nio-8080-exec-7] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/slick/slick.min.js
+2023-11-13 17:46:07.252 WARN  [http-nio-8080-exec-1] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/js/script.js
+2023-11-13 17:46:07.252 WARN  [http-nio-8080-exec-8] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/jquery-nice-select/js/jquery.nice-select.min.js
 2023-11-13 17:46:07.254 WARN  [http-nio-8080-exec-9] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/js/cleditor/jquery.cleditor.js
 2023-11-13 17:46:07.255 WARN  [http-nio-8080-exec-4] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/images/main_logo.png
 2023-11-13 17:46:07.255 WARN  [http-nio-8080-exec-10] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/images/footer_logo.png
-2023-11-13 17:46:14.310 WARN  [http-nio-8080-exec-4] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/bootstrap/bootstrap.min.css
-2023-11-13 17:46:14.311 WARN  [http-nio-8080-exec-3] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/font-awesome/css/font-awesome.min.css
-2023-11-13 17:46:14.312 WARN  [http-nio-8080-exec-10] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/bootstrap/bootstrap-slider.css
-2023-11-13 17:46:14.312 WARN  [http-nio-8080-exec-5] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/slick/slick-theme.css
-2023-11-13 17:46:14.311 WARN  [http-nio-8080-exec-2] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/slick/slick.css
-2023-11-13 17:46:14.314 WARN  [http-nio-8080-exec-4] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/jquery-nice-select/css/nice-select.css
-2023-11-13 17:46:14.314 WARN  [http-nio-8080-exec-1] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/css/style.css
+2023-11-13 17:46:14.310 WARN  [http-nio-8080-exec-4] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/bootstrap/bootstrap.min.css
+2023-11-13 17:46:14.311 WARN  [http-nio-8080-exec-3] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/font-awesome/css/font-awesome.min.css
+2023-11-13 17:46:14.312 WARN  [http-nio-8080-exec-10] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/bootstrap/bootstrap-slider.css
+2023-11-13 17:46:14.312 WARN  [http-nio-8080-exec-5] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/slick/slick-theme.css
+2023-11-13 17:46:14.311 WARN  [http-nio-8080-exec-2] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/slick/slick.css
+2023-11-13 17:46:14.314 WARN  [http-nio-8080-exec-4] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/jquery-nice-select/css/nice-select.css
+2023-11-13 17:46:14.314 WARN  [http-nio-8080-exec-1] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/css/style.css
 2023-11-13 17:46:14.317 WARN  [http-nio-8080-exec-4] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/js/cleditor/jquery.cleditor.css
-2023-11-13 17:46:14.317 WARN  [http-nio-8080-exec-10] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/jquery/jquery.min.js
-2023-11-13 17:46:14.318 WARN  [http-nio-8080-exec-8] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/bootstrap/popper.min.js
+2023-11-13 17:46:14.317 WARN  [http-nio-8080-exec-10] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/jquery/jquery.min.js
+2023-11-13 17:46:14.318 WARN  [http-nio-8080-exec-8] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/bootstrap/popper.min.js
 2023-11-13 17:46:14.317 WARN  [http-nio-8080-exec-5] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/common.css
-2023-11-13 17:46:14.321 WARN  [http-nio-8080-exec-3] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/raty/jquery.raty-fa.js
-2023-11-13 17:46:14.322 WARN  [http-nio-8080-exec-6] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/tether/js/tether.min.js
-2023-11-13 17:46:14.323 WARN  [http-nio-8080-exec-3] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/slick/slick.min.js
-2023-11-13 17:46:14.323 WARN  [http-nio-8080-exec-4] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/jquery-nice-select/js/jquery.nice-select.min.js
-2023-11-13 17:46:14.323 WARN  [http-nio-8080-exec-6] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/bootstrap/bootstrap-slider.js
-2023-11-13 17:46:14.319 WARN  [http-nio-8080-exec-8] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/bootstrap/bootstrap.min.js
-2023-11-13 17:46:14.325 WARN  [http-nio-8080-exec-3] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/js/script.js
+2023-11-13 17:46:14.321 WARN  [http-nio-8080-exec-3] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/raty/jquery.raty-fa.js
+2023-11-13 17:46:14.322 WARN  [http-nio-8080-exec-6] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/tether/js/tether.min.js
+2023-11-13 17:46:14.323 WARN  [http-nio-8080-exec-3] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/slick/slick.min.js
+2023-11-13 17:46:14.323 WARN  [http-nio-8080-exec-4] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/jquery-nice-select/js/jquery.nice-select.min.js
+2023-11-13 17:46:14.323 WARN  [http-nio-8080-exec-6] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/bootstrap/bootstrap-slider.js
+2023-11-13 17:46:14.319 WARN  [http-nio-8080-exec-8] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/bootstrap/bootstrap.min.js
+2023-11-13 17:46:14.325 WARN  [http-nio-8080-exec-3] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/js/script.js
 2023-11-13 17:46:14.325 WARN  [http-nio-8080-exec-7] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/js/cleditor/jquery.cleditor.js
 2023-11-13 17:46:14.325 WARN  [http-nio-8080-exec-4] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/images/main_logo.png
 2023-11-13 17:46:14.327 WARN  [http-nio-8080-exec-8] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/images/footer_logo.png
-2023-11-13 17:46:15.375 WARN  [http-nio-8080-exec-7] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/bootstrap/bootstrap.min.css
-2023-11-13 17:46:15.375 WARN  [http-nio-8080-exec-1] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/slick/slick.css
-2023-11-13 17:46:15.375 WARN  [http-nio-8080-exec-4] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/bootstrap/bootstrap-slider.css
-2023-11-13 17:46:15.377 WARN  [http-nio-8080-exec-1] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/jquery-nice-select/css/nice-select.css
-2023-11-13 17:46:15.378 WARN  [http-nio-8080-exec-7] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/slick/slick-theme.css
+2023-11-13 17:46:15.375 WARN  [http-nio-8080-exec-7] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/bootstrap/bootstrap.min.css
+2023-11-13 17:46:15.375 WARN  [http-nio-8080-exec-1] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/slick/slick.css
+2023-11-13 17:46:15.375 WARN  [http-nio-8080-exec-4] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/bootstrap/bootstrap-slider.css
+2023-11-13 17:46:15.377 WARN  [http-nio-8080-exec-1] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/jquery-nice-select/css/nice-select.css
+2023-11-13 17:46:15.378 WARN  [http-nio-8080-exec-7] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/slick/slick-theme.css
 2023-11-13 17:46:15.380 WARN  [http-nio-8080-exec-1] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/common.css
-2023-11-13 17:46:15.381 WARN  [http-nio-8080-exec-2] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/font-awesome/css/font-awesome.min.css
-2023-11-13 17:46:15.381 WARN  [http-nio-8080-exec-4] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/css/style.css
+2023-11-13 17:46:15.381 WARN  [http-nio-8080-exec-2] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/font-awesome/css/font-awesome.min.css
+2023-11-13 17:46:15.381 WARN  [http-nio-8080-exec-4] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/css/style.css
 2023-11-13 17:46:15.381 WARN  [http-nio-8080-exec-10] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/js/cleditor/jquery.cleditor.css
-2023-11-13 17:46:17.400 WARN  [http-nio-8080-exec-7] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/bootstrap/bootstrap.min.css
-2023-11-13 17:46:17.400 WARN  [http-nio-8080-exec-3] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/bootstrap/bootstrap-slider.css
-2023-11-13 17:46:17.402 WARN  [http-nio-8080-exec-7] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/slick/slick-theme.css
-2023-11-13 17:46:17.402 WARN  [http-nio-8080-exec-5] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/slick/slick.css
-2023-11-13 17:46:17.403 WARN  [http-nio-8080-exec-3] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/jquery-nice-select/css/nice-select.css
-2023-11-13 17:46:17.405 WARN  [http-nio-8080-exec-4] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/font-awesome/css/font-awesome.min.css
-2023-11-13 17:46:17.405 WARN  [http-nio-8080-exec-2] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/css/style.css
+2023-11-13 17:46:17.400 WARN  [http-nio-8080-exec-7] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/bootstrap/bootstrap.min.css
+2023-11-13 17:46:17.400 WARN  [http-nio-8080-exec-3] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/bootstrap/bootstrap-slider.css
+2023-11-13 17:46:17.402 WARN  [http-nio-8080-exec-7] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/slick/slick-theme.css
+2023-11-13 17:46:17.402 WARN  [http-nio-8080-exec-5] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/slick/slick.css
+2023-11-13 17:46:17.403 WARN  [http-nio-8080-exec-3] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/jquery-nice-select/css/nice-select.css
+2023-11-13 17:46:17.405 WARN  [http-nio-8080-exec-4] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/font-awesome/css/font-awesome.min.css
+2023-11-13 17:46:17.405 WARN  [http-nio-8080-exec-2] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/css/style.css
 2023-11-13 17:46:17.406 WARN  [http-nio-8080-exec-3] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/common.css
 2023-11-13 17:46:17.407 WARN  [http-nio-8080-exec-6] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/js/cleditor/jquery.cleditor.css
-2023-11-13 17:46:17.408 WARN  [http-nio-8080-exec-9] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/bootstrap/popper.min.js
-2023-11-13 17:46:17.408 WARN  [http-nio-8080-exec-2] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/jquery/jquery.min.js
-2023-11-13 17:46:17.409 WARN  [http-nio-8080-exec-3] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/bootstrap/bootstrap.min.js
-2023-11-13 17:46:17.410 WARN  [http-nio-8080-exec-5] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/bootstrap/bootstrap-slider.js
-2023-11-13 17:46:17.411 WARN  [http-nio-8080-exec-5] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/raty/jquery.raty-fa.js
-2023-11-13 17:46:17.412 WARN  [http-nio-8080-exec-4] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/slick/slick.min.js
-2023-11-13 17:46:17.413 WARN  [http-nio-8080-exec-6] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/tether/js/tether.min.js
-2023-11-13 17:46:17.415 WARN  [http-nio-8080-exec-8] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/js/script.js
+2023-11-13 17:46:17.408 WARN  [http-nio-8080-exec-9] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/bootstrap/popper.min.js
+2023-11-13 17:46:17.408 WARN  [http-nio-8080-exec-2] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/jquery/jquery.min.js
+2023-11-13 17:46:17.409 WARN  [http-nio-8080-exec-3] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/bootstrap/bootstrap.min.js
+2023-11-13 17:46:17.410 WARN  [http-nio-8080-exec-5] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/bootstrap/bootstrap-slider.js
+2023-11-13 17:46:17.411 WARN  [http-nio-8080-exec-5] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/raty/jquery.raty-fa.js
+2023-11-13 17:46:17.412 WARN  [http-nio-8080-exec-4] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/slick/slick.min.js
+2023-11-13 17:46:17.413 WARN  [http-nio-8080-exec-6] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/tether/js/tether.min.js
+2023-11-13 17:46:17.415 WARN  [http-nio-8080-exec-8] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/js/script.js
 2023-11-13 17:46:17.415 WARN  [http-nio-8080-exec-5] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/js/cleditor/jquery.cleditor.js
-2023-11-13 17:46:17.415 WARN  [http-nio-8080-exec-1] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/jquery-nice-select/js/jquery.nice-select.min.js
+2023-11-13 17:46:17.415 WARN  [http-nio-8080-exec-1] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/jquery-nice-select/js/jquery.nice-select.min.js
 2023-11-13 17:46:17.420 WARN  [http-nio-8080-exec-9] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/images/main_logo.png
 2023-11-13 17:46:17.421 WARN  [http-nio-8080-exec-7] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/images/footer_logo.png
 2023-11-13 17:46:17.431 WARN  [http-nio-8080-exec-3] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/images/favicon/favicon-16x16.png
@@ -832,24 +832,24 @@ java.sql.SQLSyntaxErrorException: (conn=650) Unknown database 'team45'
 2023-11-13 17:47:51.866 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 1 ms
 2023-11-13 17:47:51.904 INFO  [http-nio-8080-exec-1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Starting...
 2023-11-13 17:47:51.949 INFO  [http-nio-8080-exec-1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Start completed.
-2023-11-13 17:47:52.106 WARN  [http-nio-8080-exec-2] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/static/css/theme/plugins/bootstrap/bootstrap.min.css
-2023-11-13 17:47:52.106 WARN  [http-nio-8080-exec-3] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/static/css/theme/plugins/slick/slick.css
-2023-11-13 17:47:52.106 WARN  [http-nio-8080-exec-6] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/static/css/theme/plugins/font-awesome/css/font-awesome.min.css
-2023-11-13 17:47:52.106 WARN  [http-nio-8080-exec-5] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/static/css/theme/plugins/bootstrap/bootstrap-slider.css
-2023-11-13 17:47:52.107 WARN  [http-nio-8080-exec-4] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/static/css/theme/plugins/slick/slick-theme.css
-2023-11-13 17:47:52.131 WARN  [http-nio-8080-exec-7] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/static/css/theme/plugins/jquery-nice-select/css/nice-select.css
+2023-11-13 17:47:52.106 WARN  [http-nio-8080-exec-2] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/static/css/classimax/theme/plugins/bootstrap/bootstrap.min.css
+2023-11-13 17:47:52.106 WARN  [http-nio-8080-exec-3] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/static/css/classimax/theme/plugins/slick/slick.css
+2023-11-13 17:47:52.106 WARN  [http-nio-8080-exec-6] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/static/css/classimax/theme/plugins/font-awesome/css/font-awesome.min.css
+2023-11-13 17:47:52.106 WARN  [http-nio-8080-exec-5] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/static/css/classimax/theme/plugins/bootstrap/bootstrap-slider.css
+2023-11-13 17:47:52.107 WARN  [http-nio-8080-exec-4] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/static/css/classimax/theme/plugins/slick/slick-theme.css
+2023-11-13 17:47:52.131 WARN  [http-nio-8080-exec-7] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/static/css/classimax/theme/plugins/jquery-nice-select/css/nice-select.css
 2023-11-13 17:47:52.143 WARN  [http-nio-8080-exec-9] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/static/js/cleditor/jquery.cleditor.css
-2023-11-13 17:47:52.143 WARN  [http-nio-8080-exec-8] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/static/css/theme/css/style.css
+2023-11-13 17:47:52.143 WARN  [http-nio-8080-exec-8] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/static/css/classimax/theme/css/style.css
 2023-11-13 17:47:52.143 WARN  [http-nio-8080-exec-10] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/static/css/common.css
-2023-11-13 17:47:52.143 WARN  [http-nio-8080-exec-2] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/bootstrap/popper.min.js
-2023-11-13 17:47:52.143 WARN  [http-nio-8080-exec-1] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/tether/js/tether.min.js
-2023-11-13 17:47:52.143 WARN  [http-nio-8080-exec-3] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/jquery/jquery.min.js
-2023-11-13 17:47:52.149 WARN  [http-nio-8080-exec-4] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/slick/slick.min.js
-2023-11-13 17:47:52.149 WARN  [http-nio-8080-exec-7] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/bootstrap/bootstrap.min.js
-2023-11-13 17:47:52.150 WARN  [http-nio-8080-exec-6] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/raty/jquery.raty-fa.js
-2023-11-13 17:47:52.149 WARN  [http-nio-8080-exec-1] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/js/script.js
-2023-11-13 17:47:52.150 WARN  [http-nio-8080-exec-5] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/bootstrap/bootstrap-slider.js
-2023-11-13 17:47:52.150 WARN  [http-nio-8080-exec-2] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/theme/plugins/jquery-nice-select/js/jquery.nice-select.min.js
+2023-11-13 17:47:52.143 WARN  [http-nio-8080-exec-2] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/bootstrap/popper.min.js
+2023-11-13 17:47:52.143 WARN  [http-nio-8080-exec-1] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/tether/js/tether.min.js
+2023-11-13 17:47:52.143 WARN  [http-nio-8080-exec-3] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/jquery/jquery.min.js
+2023-11-13 17:47:52.149 WARN  [http-nio-8080-exec-4] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/slick/slick.min.js
+2023-11-13 17:47:52.149 WARN  [http-nio-8080-exec-7] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/bootstrap/bootstrap.min.js
+2023-11-13 17:47:52.150 WARN  [http-nio-8080-exec-6] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/raty/jquery.raty-fa.js
+2023-11-13 17:47:52.149 WARN  [http-nio-8080-exec-1] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/js/script.js
+2023-11-13 17:47:52.150 WARN  [http-nio-8080-exec-5] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/bootstrap/bootstrap-slider.js
+2023-11-13 17:47:52.150 WARN  [http-nio-8080-exec-2] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/css/classimax/theme/plugins/jquery-nice-select/js/jquery.nice-select.min.js
 2023-11-13 17:47:52.156 WARN  [http-nio-8080-exec-10] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/js/cleditor/jquery.cleditor.js
 2023-11-13 17:47:52.161 WARN  [http-nio-8080-exec-8] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/images/footer_logo.png
 2023-11-13 17:47:52.161 WARN  [http-nio-8080-exec-9] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/images/main_logo.png
@@ -963,6 +963,7 @@ java.sql.SQLSyntaxErrorException: (conn=650) Unknown database 'team45'
 2023-11-13 19:06:50.539 WARN  [http-nio-8080-exec-5] [o.s.web.servlet.PageNotFound] - No mapping for GET /member/js/cleditor/jquery.cleditor.css
 2023-11-13 19:07:19.457 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown initiated...
 2023-11-13 19:07:19.459 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown completed.
+<<<<<<< HEAD
 2023-11-14 09:09:15.327 INFO  [background-preinit] [o.h.validator.internal.util.Version] - HV000001: Hibernate Validator 6.2.5.Final
 2023-11-14 09:09:15.337 INFO  [restartedMain] [com.team45.Team45Application] - Starting Team45Application using Java 17.0.7 on FULL8-019 with PID 15272 (D:\kyo\team45\build\classes\java\main started by db400tea in D:\kyo\team45)
 2023-11-14 09:09:15.338 INFO  [restartedMain] [com.team45.Team45Application] - No active profile set, falling back to 1 default profile: "default"
@@ -1021,6 +1022,676 @@ java.sql.SQLSyntaxErrorException: (conn=650) Unknown database 'team45'
 2023-11-14 10:43:36.909 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
 2023-11-14 10:43:36.910 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 0 ms
 2023-11-14 10:44:12.206 ERROR [http-nio-8080-exec-3] [org.thymeleaf.TemplateEngine] - [THYMELEAF][http-nio-8080-exec-3] Exception processing template "member/login": An error happened during template parsing (template: "class path resource [templates/member/login.html]")
+=======
+2023-11-13 19:26:15.884 INFO  [background-preinit] [o.h.validator.internal.util.Version] - HV000001: Hibernate Validator 6.2.5.Final
+2023-11-13 19:26:15.886 INFO  [restartedMain] [com.team45.Team45Application] - Starting Team45Application using Java 17.0.7 on stu-08-019 with PID 15684 (D:\sangmin0816\kkobugi\team45\build\classes\java\main started by db400tea in D:\sangmin0816\kkobugi\team45)
+2023-11-13 19:26:15.887 INFO  [restartedMain] [com.team45.Team45Application] - No active profile set, falling back to 1 default profile: "default"
+2023-11-13 19:26:15.914 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-11-13 19:26:15.914 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-11-13 19:26:16.525 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8080 (http)
+2023-11-13 19:26:16.531 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8080"]
+2023-11-13 19:26:16.532 INFO  [restartedMain] [org.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2023-11-13 19:26:16.532 INFO  [restartedMain] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/9.0.82]
+2023-11-13 19:26:16.568 INFO  [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2023-11-13 19:26:16.568 INFO  [restartedMain] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 653 ms
+2023-11-13 19:26:16.887 INFO  [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] - LiveReload server is running on port 35729
+2023-11-13 19:26:16.901 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8080"]
+2023-11-13 19:26:16.911 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8080 (http) with context path ''
+2023-11-13 19:26:16.917 INFO  [restartedMain] [com.team45.Team45Application] - Started Team45Application in 1.237 seconds (JVM running for 1.632)
+2023-11-13 19:26:22.330 INFO  [http-nio-8080-exec-1] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-13 19:26:22.331 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+2023-11-13 19:26:22.331 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 0 ms
+2023-11-13 20:06:46.907 WARN  [http-nio-8080-exec-9] [o.s.web.servlet.PageNotFound] - No mapping for GET /dashboard.html
+2023-11-13 20:06:46.936 WARN  [http-nio-8080-exec-10] [o.s.web.servlet.PageNotFound] - No mapping for GET /favicon.ico
+2023-11-13 20:09:00.400 INFO  [background-preinit] [o.h.validator.internal.util.Version] - HV000001: Hibernate Validator 6.2.5.Final
+2023-11-13 20:09:00.402 INFO  [restartedMain] [com.team45.Team45Application] - Starting Team45Application using Java 17.0.7 on stu-08-019 with PID 11460 (D:\sangmin0816\kkobugi\team45\build\classes\java\main started by db400tea in D:\sangmin0816\kkobugi\team45)
+2023-11-13 20:09:00.403 INFO  [restartedMain] [com.team45.Team45Application] - No active profile set, falling back to 1 default profile: "default"
+2023-11-13 20:09:00.428 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-11-13 20:09:00.428 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-11-13 20:09:00.984 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8080 (http)
+2023-11-13 20:09:00.988 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8080"]
+2023-11-13 20:09:00.988 INFO  [restartedMain] [org.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2023-11-13 20:09:00.988 INFO  [restartedMain] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/9.0.82]
+2023-11-13 20:09:01.021 INFO  [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2023-11-13 20:09:01.022 INFO  [restartedMain] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 594 ms
+2023-11-13 20:09:01.335 INFO  [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] - LiveReload server is running on port 35729
+2023-11-13 20:09:01.348 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8080"]
+2023-11-13 20:09:01.358 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8080 (http) with context path ''
+2023-11-13 20:09:01.363 INFO  [restartedMain] [com.team45.Team45Application] - Started Team45Application in 1.147 seconds (JVM running for 1.515)
+2023-11-13 20:09:05.251 INFO  [http-nio-8080-exec-1] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-13 20:09:05.251 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+2023-11-13 20:09:05.251 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 0 ms
+2023-11-13 20:09:05.389 ERROR [http-nio-8080-exec-1] [org.thymeleaf.TemplateEngine] - [THYMELEAF][http-nio-8080-exec-1] Exception processing template "index": An error happened during template parsing (template: "class path resource [templates/index.html]")
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/index.html]")
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1406)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1150)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:529)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:928)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1794)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: org.attoparser.ParseException: Could not parse as expression: "product/list" (template: "/include/header.html" - line 23, col 53)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	... 40 common frames omitted
+Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as expression: "product/list" (template: "/include/header.html" - line 23, col 53)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:131)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:62)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:44)
+	at org.thymeleaf.engine.EngineEventUtils.parseAttributeExpression(EngineEventUtils.java:220)
+	at org.thymeleaf.engine.EngineEventUtils.computeAttributeExpression(EngineEventUtils.java:207)
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:125)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314)
+	at org.thymeleaf.engine.OpenElementTag.beHandled(OpenElementTag.java:205)
+	at org.thymeleaf.engine.Model.process(Model.java:282)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1587)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124)
+	at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109)
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	... 42 common frames omitted
+2023-11-13 20:09:05.390 ERROR [http-nio-8080-exec-1] [o.a.c.c.C.[.[.[/].[dispatcherServlet]] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/index.html]")] with root cause
+org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as expression: "product/list" (template: "/include/header.html" - line 23, col 53)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:131)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:62)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:44)
+	at org.thymeleaf.engine.EngineEventUtils.parseAttributeExpression(EngineEventUtils.java:220)
+	at org.thymeleaf.engine.EngineEventUtils.computeAttributeExpression(EngineEventUtils.java:207)
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:125)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314)
+	at org.thymeleaf.engine.OpenElementTag.beHandled(OpenElementTag.java:205)
+	at org.thymeleaf.engine.Model.process(Model.java:282)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1587)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124)
+	at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109)
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1406)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1150)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:529)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:928)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1794)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-11-13 20:09:06.222 ERROR [http-nio-8080-exec-4] [org.thymeleaf.TemplateEngine] - [THYMELEAF][http-nio-8080-exec-4] Exception processing template "index": An error happened during template parsing (template: "class path resource [templates/index.html]")
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/index.html]")
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1406)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1150)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:529)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:928)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1794)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: org.attoparser.ParseException: Could not parse as expression: "product/list" (template: "/include/header.html" - line 23, col 53)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	... 40 common frames omitted
+Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as expression: "product/list" (template: "/include/header.html" - line 23, col 53)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:131)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:62)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:44)
+	at org.thymeleaf.engine.EngineEventUtils.parseAttributeExpression(EngineEventUtils.java:220)
+	at org.thymeleaf.engine.EngineEventUtils.computeAttributeExpression(EngineEventUtils.java:207)
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:125)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314)
+	at org.thymeleaf.engine.OpenElementTag.beHandled(OpenElementTag.java:205)
+	at org.thymeleaf.engine.Model.process(Model.java:282)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1587)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124)
+	at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109)
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	... 42 common frames omitted
+2023-11-13 20:09:06.222 ERROR [http-nio-8080-exec-4] [o.a.c.c.C.[.[.[/].[dispatcherServlet]] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/index.html]")] with root cause
+org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as expression: "product/list" (template: "/include/header.html" - line 23, col 53)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:131)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:62)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:44)
+	at org.thymeleaf.engine.EngineEventUtils.parseAttributeExpression(EngineEventUtils.java:220)
+	at org.thymeleaf.engine.EngineEventUtils.computeAttributeExpression(EngineEventUtils.java:207)
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:125)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314)
+	at org.thymeleaf.engine.OpenElementTag.beHandled(OpenElementTag.java:205)
+	at org.thymeleaf.engine.Model.process(Model.java:282)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1587)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124)
+	at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109)
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1406)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1150)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:529)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:928)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1794)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-11-13 20:09:08.537 ERROR [http-nio-8080-exec-2] [org.thymeleaf.TemplateEngine] - [THYMELEAF][http-nio-8080-exec-2] Exception processing template "index": An error happened during template parsing (template: "class path resource [templates/index.html]")
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/index.html]")
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1406)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1150)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:529)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:928)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1794)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: org.attoparser.ParseException: Could not parse as expression: "product/list" (template: "/include/header.html" - line 23, col 53)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	... 40 common frames omitted
+Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as expression: "product/list" (template: "/include/header.html" - line 23, col 53)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:131)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:62)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:44)
+	at org.thymeleaf.engine.EngineEventUtils.parseAttributeExpression(EngineEventUtils.java:220)
+	at org.thymeleaf.engine.EngineEventUtils.computeAttributeExpression(EngineEventUtils.java:207)
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:125)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314)
+	at org.thymeleaf.engine.OpenElementTag.beHandled(OpenElementTag.java:205)
+	at org.thymeleaf.engine.Model.process(Model.java:282)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1587)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124)
+	at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109)
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	... 42 common frames omitted
+2023-11-13 20:09:08.537 ERROR [http-nio-8080-exec-2] [o.a.c.c.C.[.[.[/].[dispatcherServlet]] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/index.html]")] with root cause
+org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as expression: "product/list" (template: "/include/header.html" - line 23, col 53)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:131)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:62)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:44)
+	at org.thymeleaf.engine.EngineEventUtils.parseAttributeExpression(EngineEventUtils.java:220)
+	at org.thymeleaf.engine.EngineEventUtils.computeAttributeExpression(EngineEventUtils.java:207)
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:125)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314)
+	at org.thymeleaf.engine.OpenElementTag.beHandled(OpenElementTag.java:205)
+	at org.thymeleaf.engine.Model.process(Model.java:282)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1587)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124)
+	at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109)
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1406)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1150)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:529)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:928)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1794)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-11-13 20:09:51.670 INFO  [background-preinit] [o.h.validator.internal.util.Version] - HV000001: Hibernate Validator 6.2.5.Final
+2023-11-13 20:09:51.670 INFO  [restartedMain] [com.team45.Team45Application] - Starting Team45Application using Java 17.0.7 on stu-08-019 with PID 3788 (D:\sangmin0816\kkobugi\team45\build\classes\java\main started by db400tea in D:\sangmin0816\kkobugi\team45)
+2023-11-13 20:09:51.672 INFO  [restartedMain] [com.team45.Team45Application] - No active profile set, falling back to 1 default profile: "default"
+2023-11-13 20:09:51.697 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-11-13 20:09:51.698 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-11-13 20:09:52.262 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8080 (http)
+2023-11-13 20:09:52.267 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8080"]
+2023-11-13 20:09:52.268 INFO  [restartedMain] [org.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2023-11-13 20:09:52.268 INFO  [restartedMain] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/9.0.82]
+2023-11-13 20:09:52.299 INFO  [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2023-11-13 20:09:52.300 INFO  [restartedMain] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 602 ms
+2023-11-13 20:09:52.604 INFO  [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] - LiveReload server is running on port 35729
+2023-11-13 20:09:52.617 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8080"]
+2023-11-13 20:09:52.628 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8080 (http) with context path ''
+2023-11-13 20:09:52.634 INFO  [restartedMain] [com.team45.Team45Application] - Started Team45Application in 1.149 seconds (JVM running for 1.51)
+2023-11-13 20:09:55.741 INFO  [http-nio-8080-exec-1] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-13 20:09:55.741 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+2023-11-13 20:09:55.741 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 0 ms
+2023-11-13 20:09:55.871 ERROR [http-nio-8080-exec-1] [org.thymeleaf.TemplateEngine] - [THYMELEAF][http-nio-8080-exec-1] Exception processing template "index": An error happened during template parsing (template: "class path resource [templates/index.html]")
+org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/index.html]")
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1406)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1150)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:529)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:928)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1794)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+Caused by: org.attoparser.ParseException: Could not parse as expression: "member/join" (template: "/include/header.html" - line 32, col 75)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:393)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	... 40 common frames omitted
+Caused by: org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as expression: "member/join" (template: "/include/header.html" - line 32, col 75)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:131)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:62)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:44)
+	at org.thymeleaf.engine.EngineEventUtils.parseAttributeExpression(EngineEventUtils.java:220)
+	at org.thymeleaf.engine.EngineEventUtils.computeAttributeExpression(EngineEventUtils.java:207)
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:125)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314)
+	at org.thymeleaf.engine.OpenElementTag.beHandled(OpenElementTag.java:205)
+	at org.thymeleaf.engine.Model.process(Model.java:282)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1587)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124)
+	at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109)
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	... 42 common frames omitted
+2023-11-13 20:09:55.872 ERROR [http-nio-8080-exec-1] [o.a.c.c.C.[.[.[/].[dispatcherServlet]] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/index.html]")] with root cause
+org.thymeleaf.exceptions.TemplateProcessingException: Could not parse as expression: "member/join" (template: "/include/header.html" - line 32, col 75)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:131)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:62)
+	at org.thymeleaf.standard.expression.StandardExpressionParser.parseExpression(StandardExpressionParser.java:44)
+	at org.thymeleaf.engine.EngineEventUtils.parseAttributeExpression(EngineEventUtils.java:220)
+	at org.thymeleaf.engine.EngineEventUtils.computeAttributeExpression(EngineEventUtils.java:207)
+	at org.thymeleaf.standard.processor.AbstractStandardExpressionAttributeTagProcessor.doProcess(AbstractStandardExpressionAttributeTagProcessor.java:125)
+	at org.thymeleaf.processor.element.AbstractAttributeTagProcessor.doProcess(AbstractAttributeTagProcessor.java:74)
+	at org.thymeleaf.processor.element.AbstractElementTagProcessor.process(AbstractElementTagProcessor.java:95)
+	at org.thymeleaf.util.ProcessorConfigurationUtils$ElementTagProcessorWrapper.process(ProcessorConfigurationUtils.java:633)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1314)
+	at org.thymeleaf.engine.OpenElementTag.beHandled(OpenElementTag.java:205)
+	at org.thymeleaf.engine.Model.process(Model.java:282)
+	at org.thymeleaf.engine.ProcessorTemplateHandler.handleOpenElement(ProcessorTemplateHandler.java:1587)
+	at org.thymeleaf.engine.TemplateHandlerAdapterMarkupHandler.handleOpenElementEnd(TemplateHandlerAdapterMarkupHandler.java:304)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler$InlineMarkupAdapterPreProcessorHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:278)
+	at org.thymeleaf.standard.inline.OutputExpressionInlinePreProcessorHandler.handleOpenElementEnd(OutputExpressionInlinePreProcessorHandler.java:186)
+	at org.thymeleaf.templateparser.markup.InlinedOutputExpressionMarkupHandler.handleOpenElementEnd(InlinedOutputExpressionMarkupHandler.java:124)
+	at org.attoparser.HtmlElement.handleOpenElementEnd(HtmlElement.java:109)
+	at org.attoparser.HtmlMarkupHandler.handleOpenElementEnd(HtmlMarkupHandler.java:297)
+	at org.attoparser.MarkupEventProcessorHandler.handleOpenElementEnd(MarkupEventProcessorHandler.java:402)
+	at org.attoparser.ParsingElementMarkupUtil.parseOpenElement(ParsingElementMarkupUtil.java:159)
+	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
+	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
+	at org.attoparser.MarkupParser.parse(MarkupParser.java:257)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:230)
+	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
+	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:666)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
+	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
+	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366)
+	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190)
+	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1406)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1150)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:529)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:623)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:168)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:481)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:342)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:390)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:928)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1794)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-11-13 20:10:10.436 INFO  [background-preinit] [o.h.validator.internal.util.Version] - HV000001: Hibernate Validator 6.2.5.Final
+2023-11-13 20:10:10.439 INFO  [restartedMain] [com.team45.Team45Application] - Starting Team45Application using Java 17.0.7 on stu-08-019 with PID 16452 (D:\sangmin0816\kkobugi\team45\build\classes\java\main started by db400tea in D:\sangmin0816\kkobugi\team45)
+2023-11-13 20:10:10.439 INFO  [restartedMain] [com.team45.Team45Application] - No active profile set, falling back to 1 default profile: "default"
+2023-11-13 20:10:10.464 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-11-13 20:10:10.464 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-11-13 20:10:11.016 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8080 (http)
+2023-11-13 20:10:11.020 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8080"]
+2023-11-13 20:10:11.021 INFO  [restartedMain] [org.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2023-11-13 20:10:11.021 INFO  [restartedMain] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/9.0.82]
+2023-11-13 20:10:11.054 INFO  [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2023-11-13 20:10:11.054 INFO  [restartedMain] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 590 ms
+2023-11-13 20:10:11.368 INFO  [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] - LiveReload server is running on port 35729
+2023-11-13 20:10:11.383 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8080"]
+2023-11-13 20:10:11.393 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8080 (http) with context path ''
+2023-11-13 20:10:11.399 INFO  [restartedMain] [com.team45.Team45Application] - Started Team45Application in 1.147 seconds (JVM running for 1.519)
+2023-11-13 20:10:21.958 INFO  [background-preinit] [o.h.validator.internal.util.Version] - HV000001: Hibernate Validator 6.2.5.Final
+2023-11-13 20:10:21.960 INFO  [restartedMain] [com.team45.Team45Application] - Starting Team45Application using Java 17.0.7 on stu-08-019 with PID 16180 (D:\sangmin0816\kkobugi\team45\build\classes\java\main started by db400tea in D:\sangmin0816\kkobugi\team45)
+2023-11-13 20:10:21.961 INFO  [restartedMain] [com.team45.Team45Application] - No active profile set, falling back to 1 default profile: "default"
+2023-11-13 20:10:21.982 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-11-13 20:10:21.983 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-11-13 20:10:22.546 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8080 (http)
+2023-11-13 20:10:22.551 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8080"]
+2023-11-13 20:10:22.551 INFO  [restartedMain] [org.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2023-11-13 20:10:22.551 INFO  [restartedMain] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/9.0.82]
+2023-11-13 20:10:22.582 INFO  [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2023-11-13 20:10:22.582 INFO  [restartedMain] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 599 ms
+2023-11-13 20:10:22.907 INFO  [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] - LiveReload server is running on port 35729
+2023-11-13 20:10:22.963 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8080"]
+2023-11-13 20:10:22.973 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8080 (http) with context path ''
+2023-11-13 20:10:22.980 INFO  [restartedMain] [com.team45.Team45Application] - Started Team45Application in 1.203 seconds (JVM running for 1.553)
+2023-11-13 20:10:36.941 INFO  [http-nio-8080-exec-1] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-13 20:10:36.941 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+2023-11-13 20:10:36.942 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 1 ms
+2023-11-13 20:21:44.381 INFO  [background-preinit] [o.h.validator.internal.util.Version] - HV000001: Hibernate Validator 6.2.5.Final
+2023-11-13 20:21:44.381 INFO  [restartedMain] [com.team45.Team45Application] - Starting Team45Application using Java 17.0.7 on stu-08-019 with PID 19408 (D:\sangmin0816\kkobugi\team45\build\classes\java\main started by db400tea in D:\sangmin0816\kkobugi\team45)
+2023-11-13 20:21:44.382 INFO  [restartedMain] [com.team45.Team45Application] - No active profile set, falling back to 1 default profile: "default"
+2023-11-13 20:21:44.405 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-11-13 20:21:44.405 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-11-13 20:21:45.000 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8080 (http)
+2023-11-13 20:21:45.004 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8080"]
+2023-11-13 20:21:45.005 INFO  [restartedMain] [org.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2023-11-13 20:21:45.005 INFO  [restartedMain] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/9.0.82]
+2023-11-13 20:21:45.038 INFO  [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2023-11-13 20:21:45.038 INFO  [restartedMain] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 633 ms
+2023-11-13 20:21:45.344 INFO  [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] - LiveReload server is running on port 35729
+2023-11-13 20:21:45.360 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8080"]
+2023-11-13 20:21:45.371 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8080 (http) with context path ''
+2023-11-13 20:21:45.377 INFO  [restartedMain] [com.team45.Team45Application] - Started Team45Application in 1.186 seconds (JVM running for 1.59)
+2023-11-13 20:21:54.436 INFO  [http-nio-8080-exec-1] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-13 20:21:54.436 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+2023-11-13 20:21:54.436 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 0 ms
+2023-11-13 20:22:01.278 ERROR [http-nio-8080-exec-5] [org.thymeleaf.TemplateEngine] - [THYMELEAF][http-nio-8080-exec-5] Exception processing template "member/login": An error happened during template parsing (template: "class path resource [templates/member/login.html]")
+>>>>>>> d53f39c147c5d60ea807e0a4708922bb65174b5b
 org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/member/login.html]")
 	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241)
 	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
@@ -1087,7 +1758,11 @@ Caused by: org.thymeleaf.exceptions.TemplateInputException: Error resolving frag
 	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
 	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
 	... 42 common frames omitted
+<<<<<<< HEAD
 2023-11-14 10:44:12.208 ERROR [http-nio-8080-exec-3] [o.a.c.c.C.[.[.[/].[dispatcherServlet]] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/member/login.html]")] with root cause
+=======
+2023-11-13 20:22:01.280 ERROR [http-nio-8080-exec-5] [o.a.c.c.C.[.[.[/].[dispatcherServlet]] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/member/login.html]")] with root cause
+>>>>>>> d53f39c147c5d60ea807e0a4708922bb65174b5b
 org.thymeleaf.exceptions.TemplateInputException: Error resolving fragment: "~{'/include/head.html' :: fragment-head}": template or fragment could not be resolved (template: "member/login" - line 6, col 10)
 	at org.thymeleaf.standard.expression.FragmentExpression.resolveExecutedFragmentExpression(FragmentExpression.java:619)
 	at org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor.computeFragment(AbstractStandardFragmentInsertionTagProcessor.java:379)
@@ -1148,6 +1823,7 @@ org.thymeleaf.exceptions.TemplateInputException: Error resolving fragment: "~{'/
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
+<<<<<<< HEAD
 2023-11-14 10:44:57.681 INFO  [restartedMain] [com.team45.Team45Application] - Starting Team45Application using Java 17.0.7 on FULL8-019 with PID 7216 (D:\kyo\team45\build\classes\java\main started by db400tea in D:\kyo\team45)
 2023-11-14 10:44:57.681 INFO  [background-preinit] [o.h.validator.internal.util.Version] - HV000001: Hibernate Validator 6.2.5.Final
 2023-11-14 10:44:57.682 INFO  [restartedMain] [com.team45.Team45Application] - No active profile set, falling back to 1 default profile: "default"
@@ -1167,6 +1843,27 @@ org.thymeleaf.exceptions.TemplateInputException: Error resolving fragment: "~{'/
 2023-11-14 10:45:03.103 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
 2023-11-14 10:45:03.104 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 1 ms
 2023-11-14 10:45:09.399 ERROR [http-nio-8080-exec-3] [org.thymeleaf.TemplateEngine] - [THYMELEAF][http-nio-8080-exec-3] Exception processing template "member/login": An error happened during template parsing (template: "class path resource [templates/member/login.html]")
+=======
+2023-11-13 20:22:48.399 INFO  [background-preinit] [o.h.validator.internal.util.Version] - HV000001: Hibernate Validator 6.2.5.Final
+2023-11-13 20:22:48.401 INFO  [restartedMain] [com.team45.Team45Application] - Starting Team45Application using Java 17.0.7 on stu-08-019 with PID 3676 (D:\sangmin0816\kkobugi\team45\build\classes\java\main started by db400tea in D:\sangmin0816\kkobugi\team45)
+2023-11-13 20:22:48.402 INFO  [restartedMain] [com.team45.Team45Application] - No active profile set, falling back to 1 default profile: "default"
+2023-11-13 20:22:48.426 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-11-13 20:22:48.426 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-11-13 20:22:48.971 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8080 (http)
+2023-11-13 20:22:48.975 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8080"]
+2023-11-13 20:22:48.976 INFO  [restartedMain] [org.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2023-11-13 20:22:48.976 INFO  [restartedMain] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/9.0.82]
+2023-11-13 20:22:49.012 INFO  [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2023-11-13 20:22:49.012 INFO  [restartedMain] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 585 ms
+2023-11-13 20:22:49.325 INFO  [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] - LiveReload server is running on port 35729
+2023-11-13 20:22:49.338 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8080"]
+2023-11-13 20:22:49.348 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8080 (http) with context path ''
+2023-11-13 20:22:49.355 INFO  [restartedMain] [com.team45.Team45Application] - Started Team45Application in 1.138 seconds (JVM running for 1.488)
+2023-11-13 20:22:52.597 INFO  [http-nio-8080-exec-1] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-13 20:22:52.597 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+2023-11-13 20:22:52.597 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 0 ms
+2023-11-13 20:22:59.801 ERROR [http-nio-8080-exec-6] [org.thymeleaf.TemplateEngine] - [THYMELEAF][http-nio-8080-exec-6] Exception processing template "member/login": An error happened during template parsing (template: "class path resource [templates/member/login.html]")
+>>>>>>> d53f39c147c5d60ea807e0a4708922bb65174b5b
 org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/member/login.html]")
 	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parse(AbstractMarkupTemplateParser.java:241)
 	at org.thymeleaf.templateparser.markup.AbstractMarkupTemplateParser.parseStandalone(AbstractMarkupTemplateParser.java:100)
@@ -1233,7 +1930,11 @@ Caused by: org.thymeleaf.exceptions.TemplateInputException: Error resolving frag
 	at org.attoparser.MarkupParser.parseBuffer(MarkupParser.java:710)
 	at org.attoparser.MarkupParser.parseDocument(MarkupParser.java:301)
 	... 42 common frames omitted
+<<<<<<< HEAD
 2023-11-14 10:45:09.401 ERROR [http-nio-8080-exec-3] [o.a.c.c.C.[.[.[/].[dispatcherServlet]] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/member/login.html]")] with root cause
+=======
+2023-11-13 20:22:59.804 ERROR [http-nio-8080-exec-6] [o.a.c.c.C.[.[.[/].[dispatcherServlet]] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: An error happened during template parsing (template: "class path resource [templates/member/login.html]")] with root cause
+>>>>>>> d53f39c147c5d60ea807e0a4708922bb65174b5b
 org.thymeleaf.exceptions.TemplateInputException: Error resolving fragment: "~{'/include/head.html' :: fragment-head}": template or fragment could not be resolved (template: "member/login" - line 6, col 10)
 	at org.thymeleaf.standard.expression.FragmentExpression.resolveExecutedFragmentExpression(FragmentExpression.java:619)
 	at org.thymeleaf.standard.processor.AbstractStandardFragmentInsertionTagProcessor.computeFragment(AbstractStandardFragmentInsertionTagProcessor.java:379)
@@ -1294,6 +1995,7 @@ org.thymeleaf.exceptions.TemplateInputException: Error resolving fragment: "~{'/
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
+<<<<<<< HEAD
 2023-11-14 10:47:09.822 INFO  [restartedMain] [com.team45.Team45Application] - Starting Team45Application using Java 17.0.7 on FULL8-019 with PID 17960 (D:\kyo\team45\build\classes\java\main started by db400tea in D:\kyo\team45)
 2023-11-14 10:47:09.819 INFO  [background-preinit] [o.h.validator.internal.util.Version] - HV000001: Hibernate Validator 6.2.5.Final
 2023-11-14 10:47:09.822 INFO  [restartedMain] [com.team45.Team45Application] - No active profile set, falling back to 1 default profile: "default"
@@ -8539,3 +9241,5 @@ org.springframework.expression.spel.SpelEvaluationException: EL1007E: Property o
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:833)
 2023-11-14 13:07:13.443 ERROR [http-nio-8080-exec-4] [o.s.b.a.w.s.e.ErrorMvcAutoConfiguration$StaticView] - Cannot render error page for request [/] and exception [An error happened during template parsing (template: "class path resource [templates/index.html]")] as the response has already been committed. As a result, the response may have the wrong status code.
+=======
+>>>>>>> d53f39c147c5d60ea807e0a4708922bb65174b5b
