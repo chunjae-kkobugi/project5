@@ -13,6 +13,19 @@
     box-shadow: none;
   }
 
+  #toggle-btn {
+    border: 0;
+    color: inherit;
+    font-size: 1.25rem;
+    padding: 0;
+    border-radius: 0;
+    transform: rotate(0deg);
+    @include transition(transform .3s linear);
+    .sidebar-icon-only & {
+      transform: rotate(180deg);
+    }
+  }
+
   .navbar-brand-wrapper {
     background: $white;
     .sidebar-dark & {
@@ -59,6 +72,7 @@
       }
     }
   }
+
 
   .navbar-menu-wrapper {
     background: $navbar-default-bg;

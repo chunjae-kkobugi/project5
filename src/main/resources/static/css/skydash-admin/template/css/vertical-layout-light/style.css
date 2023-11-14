@@ -28879,9 +28879,23 @@ div.tagsinput span.tag a {
   }
 }
 
+.sidebar-icon-only #toggle-btn {
+    transform: rotate(180deg);
+}
+
+#toggle-btn:not(.sidebar-icon-only) {
+    -webkit-transition: transform 0.3s linear;
+    -moz-transition: transform 0.3s linear;
+    -ms-transition: transform 0.3s linear;
+    -o-transition: transform 0.3s linear;
+    transition: transform 0.3s linear;
+}
+
 .sidebar-icon-only .navbar .navbar-menu-wrapper .navbar-toggler:not(.navbar-toggler-right) {
   transform: rotate(180deg);
 }
+
+
 
 @media (max-width: 991px) {
   .navbar .navbar-menu-wrapper .navbar-toggler.navbar-toggler-right {
