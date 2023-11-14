@@ -47,8 +47,11 @@ public class MemberServiceImpl implements MemberService{
     }
 
     @Override
-    public int idCheck(String id) {
-        return memberMapper.idCheck(id);
+    public boolean idCheck(String id) {
+        boolean pass = true;
+        int cnt = memberMapper.idCheck(id);
+        if(cnt > 0) pass = false;
+        return pass;
     }
 
     @Override

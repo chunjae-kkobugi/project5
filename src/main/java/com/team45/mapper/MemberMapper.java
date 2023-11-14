@@ -18,7 +18,7 @@ public interface MemberMapper {
     @Select("SELECT * FROM member WHERE id=#{id}")
     public Member memberGet(String id);
 
-    @Insert("INSERT INTO member (id, pw, name, tel, email, addr1, addr2, addr3, postcode) VALUES (#{id}, #{pw}, #{name}, #{tel}, #{email}, #{addr1}, #{addr2}, #{addr3}, #{postcode})")
+    @Insert("INSERT INTO member (id, pw, name, tel, email, birth, addr1, addr2, addr3, postcode) VALUES (#{id}, #{pw}, #{name}, #{tel}, #{email}, #{birth}, #{addr1}, #{addr2}, #{addr3}, #{postcode})")
     public int memberInsert(Member member);
 
     @Update("UPDATE member SET pw=#{pw}, name=#{name}, tel=#{tel}, email=#{email}, addr1=#{addr1}, addr2=#{addr2}, addr3=#{addr3}, postcode=#{postcode} WHERE id=#{id}")

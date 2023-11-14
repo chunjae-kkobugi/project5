@@ -5,6 +5,7 @@
  * GITHUB: https://github.com/themefisher/
  */
 
+
 /*=== MEDIA QUERY ===*/
 @import url("https://fonts.googleapis.com/css?family=Muli:300,400,600,700,800,900");
 body {
@@ -54,6 +55,14 @@ label {
   letter-spacing: 0;
   color: #848484;
 }
+
+.btn{
+  background-color: #0b7dfd;
+  color:#fff;
+  padding:0 3.5rem;
+  line-height:3;
+}
+
 
 .nav-pills .nav-link {
   font-size: 16px;
