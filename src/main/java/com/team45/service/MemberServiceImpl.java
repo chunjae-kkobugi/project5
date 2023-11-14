@@ -4,6 +4,7 @@ import com.team45.entity.Member;
 import com.team45.mapper.MemberMapper;
 import com.team45.util.Page;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,6 +13,8 @@ import java.util.List;
 public class MemberServiceImpl implements MemberService{
     @Autowired
     private MemberMapper memberMapper;
+
+    BCryptPasswordEncoder pwEncoder = new BCryptPasswordEncoder();
 
     @Override
     public List<Member> memberList(Page page) {
@@ -41,5 +44,20 @@ public class MemberServiceImpl implements MemberService{
     @Override
     public int memberDelete(String id) {
         return memberMapper.memberDelete(id);
+    }
+
+    @Override
+    public int idCheck(String id) {
+        return memberMapper.idCheck(id);
+    }
+
+    @Override
+    public boolean loginPro(String id, String pw) {
+        Boolean pass = false;
+        Member mem = memberMapper.memberGet(id);
+        if(mem != null){
+            pass = pwEncoder.matches(pw, mem.getPw());
+        }
+        return pass;
     }
 }

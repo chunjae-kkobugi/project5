@@ -11,4 +11,9 @@ public class HomeCtrl {
     public String home(Model model){
         return "index";
     }
+
+    @GetMapping("/login")
+    public String login(Model model){
+        return "member/login";
+    }
 }

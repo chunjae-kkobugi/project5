@@ -16,4 +16,7 @@ public interface MemberService {
     public int memberUpdate(Member member);
     public int memberRemoveUpdate(String id);
     public int memberDelete(String id);
+    public int idCheck (String id);
+    public boolean loginPro(String id, String pw);
+
 }

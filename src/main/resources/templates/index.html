@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html lang="en"
-      xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <th:block th:replace="/include/head.html :: head"></th:block>
+    <th:block th:replace="include/head :: head" ></th:block>
+
     <title>타이틀</title>
 </head>
 <body>
-<th:block th:replace="/include/header.html :: header"></th:block>
+<th:block th:replace="include/header :: header"></th:block>
+
 
 <!--===============================
 =            Hero Area            =
 ================================-->
 
 <section class="hero-area bg-1 text-center overly">
+<!--    <h1>[[${session.member.id}]]</h1>-->
     <!-- Container Start -->
     <div class="container">
         <div class="row">
@@ -256,6 +257,6 @@
     </div>
 </section>
 
-<th:block th:replace="/include/footer.html :: footer"></th:block>
+<th:block th:replace="include/footer :: footer"></th:block>
 </body>
 </html>
