@@ -14,8 +14,30 @@ public interface ProductMapper {
             "status!='REMOVE'"+
                     "ORDER BY createAt ASC LIMIT #{postStart}, #{postCount}","</script>"})
     public List<Product> productList(Page page);
-    @Select("SELECT * FROM product WHERE seller=#{seller}")
-    public List<Product> productListBySeller(String seller);
+
+    @Select({
+            "<script>",
+            "SELECT * FROM product WHERE seller = #{seller}",
+            "<if test='page.searchType != null and page.searchType != \"\"'>",
+            "   AND ${page.searchType} LIKE CONCAT('%', #{page.searchKeyword}, '%')",
+            "</if>",
+            "ORDER BY createAt ASC LIMIT #{page.postStart}, #{page.postScreen}",
+            "</script>"
+    })
+    public List<Product> productListBySeller(@Param("seller") String seller, @Param("page") Page page);
+
+    @Select({
+            "<script>",
+            "SELECT COUNT(*) FROM product WHERE seller = #{seller}",
+            "<if test='page.searchType != null and page.searchType != \"\"'>",
+            "   AND ${page.searchType} LIKE CONCAT('%', #{page.searchKeyword}, '%')",
+            "</if>",
+            "ORDER BY createAt ASC LIMIT #{page.postStart}, #{page.postScreen}",
+            "</script>"
+    })
+    public int productCountBySeller(@Param("seller") String seller, @Param("page") Page page);
+
+
     @Select("SELECT * FROM product WHERE pno=#{pno}")
     public Product productGet(Long pno);
 

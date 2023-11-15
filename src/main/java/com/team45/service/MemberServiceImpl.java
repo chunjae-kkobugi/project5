@@ -76,29 +76,18 @@ public class MemberServiceImpl implements MemberService{
     public int loginPro(String id, String pw) {
         int pass = 0;
         Member mem = memberMapper.memberGet(id);
-        Timestamp date1 = Timestamp.valueOf(LocalDateTime.now().minusDays(30));
-        logger.info("답 11ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ" + date1);
-
-        Timestamp date2 = Timestamp.valueOf(mem.getStatus());
-        logger.info("답 22ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ" + date2);
-
-        if (date1.after(date2)) {
-            memberMapper.change(id);
-            pass = 4;
-        } else {
-            if (mem != null && pwEncoder.matches(pw, mem.getPw())) {
-                if (mem.getStatus().equals("ACTIVE")) {
-                    pass = 1;
-                } else if (mem.getStatus().equals("REST")) {
-                    pass = 2;
-                } else if (mem.getStatus().equals("OUTSIDE")) {
-                    pass = 3;
-                }
-            } else {
-                pass = 0;
+        // 임시로 수정해둠
+        if (mem != null && pwEncoder.matches(pw, mem.getPw())) {
+            if (mem.getStatus().equals("ACTIVE")) {
+                pass = 1;
+            } else if (mem.getStatus().equals("REST")) {
+                pass = 2;
+            } else if (mem.getStatus().equals("OUTSIDE")) {
+                pass = 3;
             }
+        } else {
+            pass = 0;
         }
-        logger.info("답 33ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ" + pass);
         return pass;
     }
 

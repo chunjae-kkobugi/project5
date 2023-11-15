@@ -19,8 +19,13 @@ public class ProductServiceImpl implements ProductService{
     }
 
     @Override
-    public List<Product> productListBySeller(String seller) {
-        return productMapper.productListBySeller(seller);
+    public List<Product> productListBySeller(String seller, Page page) {
+        return productMapper.productListBySeller(seller, page);
+    }
+
+    @Override
+    public int productCountBySeller(String seller, Page page) {
+        return productMapper.productCountBySeller(seller, page);
     }
 
     @Override

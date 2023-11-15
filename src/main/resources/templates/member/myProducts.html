@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <th:block th:replace="include/head :: head" ></th:block>
-  <th:block th:replace="include/head2 :: head2" ></th:block>
+  <th:block th:replace="/include/head :: head" ></th:block>
+  <th:block th:replace="/include/head2 :: head2" ></th:block>
 
   <title>마이페이지</title>
 </head>
 <body>
-<th:block th:replace="include/header :: header"></th:block>
+<th:block th:replace="/include/header :: header"></th:block>
 
 <!--==================================
 =            User Profile            =
@@ -60,6 +60,9 @@
           <div th:if="${#lists.isEmpty(products)}" class="text-center">판매 상품이 존재하지 않습니다.</div>
 
           <div th:unless="${#lists.isEmpty(products)}">
+            <div th:replace="/include/searchList.html :: fragment-search('/member/myshop/products', 'pname:상품명')"></div>
+            <!-- include하는 main화면에서 options를 넘겨줄 때 하나의 옵션을 ,(반점)으로 구분한다. -->
+            <!-- 이때 콜론 왼쪽에는 DB 테이블의 컬럼 이름이, 오른쪽에는 사용자에게 표시될 이름을 입력한다. -->
             <table class="table table-responsive product-dashboard-table">
               <thead>
               <tr>
@@ -111,31 +114,9 @@
           </div>
         </div>
 
-        <div th:if="${not #lists.isEmpty(products)}" class="text-center">
-          <!-- pagination -->
-          <div class="pagination justify-content-center">
-            <nav aria-label="Page navigation example">
-              <ul class="pagination">
-                <li class="page-item">
-                  <a class="page-link" href="dashboard.html" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                    <span class="sr-only">Previous</span>
-                  </a>
-                </li>
-                <li class="page-item active"><a class="page-link" href="dashboard.html">1</a></li>
-                <li class="page-item"><a class="page-link" href="dashboard.html">2</a></li>
-                <li class="page-item"><a class="page-link" href="dashboard.html">3</a></li>
-                <li class="page-item">
-                  <a class="page-link" href="dashboard.html" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                    <span class="sr-only">Next</span>
-                  </a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-          <!-- pagination -->
-        </div>
+        <th:block th:if="${not #lists.isEmpty(products)}">
+          <div th:replace="/include/pagination.html :: fragment-pagination('/member/myshop/products')"></div>
+        </th:block>
 
       </div>
     </div>
@@ -145,6 +126,6 @@
 </section>
 
 
-<th:block th:replace="include/footer :: footer"></th:block>
+<th:block th:replace="/include/footer :: footer"></th:block>
 </body>
 </html>

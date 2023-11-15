@@ -38,25 +38,27 @@ public class MemberCtrl {
 
     @GetMapping("list")
     public String memberList(HttpServletRequest request, Model model){
-        Page page = Page.pageStart(request, model);
-        List<Member> memberList = memberService.memberList(page);
-
-        int total = memberList.size();
-        Page.pageEnd(request, model, page, total);
-
-        model.addAttribute("memberList", memberList);
+        // 임시 주석 처리
+//        Page page = Page.pageStart(request, model);
+//        List<Member> memberList = memberService.memberList(page);
+//
+//        int total = memberList.size();
+//        Page.pageEnd(request, model, page, total);
+//
+//        model.addAttribute("memberList", memberList);
         return "member/memberList";
     }
 
     @PostMapping("list")
     public String memberListPost(HttpServletRequest request, Model model){
-        Page page = Page.pageStart(request, model);
-        List<Member> memberList = memberService.memberList(page);
-
-        int total = memberList.size();
-        Page.pageEnd(request, model, page, total);
-
-        model.addAttribute("memberList", memberList);
+        // 임시 주석 처리
+//        Page page = Page.pageStart(request, model);
+//        List<Member> memberList = memberService.memberList(page);
+//
+//        int total = memberList.size();
+//        Page.pageEnd(request, model, page, total);
+//
+//        model.addAttribute("memberList", memberList);
         return "member/memberList";
     }
 
@@ -196,14 +198,34 @@ public class MemberCtrl {
     }
 
     @GetMapping("myshop/products")
-    public String myProducts(Model model) {
+    public String myProducts(HttpServletRequest request, Model model) {
         String sid = (String) session.getAttribute("sid");
         Member member = memberService.memberGet(sid);
         model.addAttribute("member", member);
-        List<Product> products = productService.productListBySeller(sid);
-        //System.out.println("내 상품 : " + products);
-        model.addAttribute("products", products);
 
+        // 페이징 처리
+        Page page = new Page();
+
+        String searchType = request.getParameter("type");
+        String searchKeyword = request.getParameter("keyword");
+        int pageNow = request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")) : 1;
+
+        page.setSearchType(searchType);
+        page.setSearchKeyword(searchKeyword);
+        page.setPageNow(pageNow);
+        System.out.println(page.getPageNow());
+
+        model.addAttribute("type", searchType);
+        model.addAttribute("keyword", searchKeyword);
+        //model.addAttribute("page", pageNow);
+        // 추가해야됨
+        page.setPostTotal(productService.productCountBySeller(sid, page));
+        page.makePage();
+        model.addAttribute("page", page);
+
+        List<Product> products = productService.productListBySeller(sid, page);
+        model.addAttribute("products", products);
+        //System.out.println("내 상품 : " + products);
         return "/member/myProducts";
     }
 
