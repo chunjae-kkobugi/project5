@@ -113,12 +113,12 @@ public class MemberCtrl {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-    @GetMapping("mypage")
-    public String myPage() {
-        return "redirect:mypage/products";
+    @GetMapping("myshop")
+    public String myShop() {
+        return "redirect:myshop/products";
     }
 
-    @GetMapping("mypage/products")
+    @GetMapping("myshop/products")
     public String myProducts(Model model) {
         String sid = (String) session.getAttribute("sid");
         Member member = memberService.memberGet(sid);
@@ -130,7 +130,7 @@ public class MemberCtrl {
         return "/member/myProducts";
     }
 
-    @GetMapping("mypage/wish")
+    @GetMapping("myshop/wish")
     public String myWish(Model model) {
         String sid = (String) session.getAttribute("sid");
         Member member = memberService.memberGet(sid);
