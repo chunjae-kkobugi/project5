@@ -913,8 +913,8 @@
                             </div>
 
                             <div class="form-check d-flex justify-content-center mb-5">
-                                <input type="checkbox" id="allCheck" name="allCheck" class="mr-2">
-                                <label onclick="protocol()" for="allCheck" class="form-check-label">전체 약관에 동의</label>
+                                <input type="checkbox" id="allCheck" name="allCheck" class="mr-2" onclick="protocol()">
+                                <label for="allCheck" class="form-check-label">전체 약관에 동의</label>
                             </div>
 
                             <div class="d-flex justify-content-center">
@@ -927,41 +927,40 @@
                                 let ck_item1 = document.getElementById("ck_item1");
                                 let ck_item2 = document.getElementById("ck_item2");
 
-                                $(document).ready(function(){
-                                    // $("#ck_item1").click(function(){
-                                    //     if(ck_item2.val() !== null){
-                                    //         $("#allCheck").click()
-                                    //     }
-                                    // })
-                                    // $("#ck_item2").click(function(){
-                                    //     if(ck_item1.val() !== null){
-                                    //         $("#allCheck").click()
-                                    //     }
-                                    // })
-                                    if( ck_item1.checked && ck_item2.checked) {
-                                        allcheck.checked == true
+                                if( ck_item1.checked && ck_item2.checked) {
+                                    allcheck.checked == true
+                                }
+
+                                $("#in_btn1").click(function(){
+                                    if (ck_item1.checked && ck_item2.checked) {
+                                        location.href = "/member/join";
+                                    } else {
+                                        alert("약관 및 개인정보처리 방침에 동의하지 않으셨습니다.");
+                                        return;
                                     }
-
-                                    $("#in_btn1").click(function(){
-                                        if (ck_item1.checked && ck_item2.checked) {
-                                            location.href = "/member/join";
-                                        } else {
-                                            alert("약관 및 개인정보처리 방침에 동의하지 않으셨습니다.");
-                                            return;
-                                        }
-                                        })
-
                                 })
 
                                 function protocol() {
                                     if (allcheck.checked) {
-                                        ck_item1.checked = false;
-                                        ck_item2.checked = false;
-                                    } else {
                                         ck_item1.checked = true;
                                         ck_item2.checked = true;
+                                    } else {
+                                        ck_item1.checked = false;
+                                        ck_item2.checked = false;
                                     }
                                 }
+
+                                function checkAll() {
+                                    if (ck_item1.checked && ck_item2.checked) {
+                                        allcheck.checked = true;
+                                    } else {
+                                        allcheck.checked = false;
+                                    }
+                                }
+
+                                ck_item1.addEventListener("change", checkAll);
+                                ck_item2.addEventListener("change", checkAll);
+
                             </script>
                         </div>
                     </div>

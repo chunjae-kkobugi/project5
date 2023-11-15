@@ -48,23 +48,25 @@
                                 </div>
 
                                 <div class="form-outline mb-4">
-                                    <input type="email" name="email" id="email" placeholder="이메일 입력" class="form-control" required>
-                                    <label class="form-label blind" for="email">이메일</label>
-                                </div>
-
-                                <div class="form-outline mb-4">
-                                    <input type="date" name="birth" id="birth" placeholder="생년월일 입력" class="form-control" required>
-                                    <label class="form-label blind" for="birth">생년월일</label>
-                                </div>
-
-                                <div class="form-outline mb-4">
                                     <input type="tel" name="tel" id="tel" maxlength="13" placeholder="전화번호 숫자만 입력 000-0000-0000" class="form-control" required>
                                     <label class="form-label blind" for="tel">전화번호</label>
                                 </div>
 
                                 <div class="form-outline mb-4">
+                                    <input type="email" name="email" id="email" placeholder="이메일 입력" class="form-control" required>
+                                    <label class="form-label blind" for="email">이메일</label>
+                                </div>
+
+<!--                                <div class="form-outline mb-4">-->
+<!--                                    <input type="date" name="birth" id="birth" placeholder="생년월일 입력" class="form-control" required>-->
+<!--                                    <label class="form-label blind" for="birth">생년월일</label>-->
+<!--                                </div>-->
+
+
+                                <div class="form-outline mb-4">
                                     <input type="text" name="addr1" id="address1" placeholder="기본 주소 입력" class="form-control" required />
                                     <input type="text" name="addr2" id="address2" placeholder="상세 주소 입력" class="form-control" required />
+                                    <input type="hidden" name="addr3" id="address3" class="form-control"/>
                                     <input type="text" name="postcode" id="postcode" placeholder="우편번호" class="form-control">
                                     <button type="button" id="post_btn" onclick="findAddr()" class="btn">우편번호 검색</button>
                                     <label class="form-label blind" for="address1">주소</label>

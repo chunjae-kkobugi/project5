@@ -11,4 +11,9 @@ public class AdminCtrl {
     public String adminhome(){
         return "admin/home";
     }
+
+    @GetMapping("memberList")
+    public String memberList(){
+        return "admin/memberList";
+    }
 }
