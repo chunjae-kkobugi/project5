@@ -2,10 +2,6 @@ package com.team45.service;
 
 import com.team45.entity.Product;
 import com.team45.util.Page;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 

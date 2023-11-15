@@ -18,7 +18,7 @@ import java.util.List;
 public class ProductCtrl {
     @Autowired
     private ProductService productService;
-
+/*
     @GetMapping("list")
     public String productList(HttpServletRequest request, Model model){
         Page page = Page.pageStart(request, model);
@@ -41,5 +41,5 @@ public class ProductCtrl {
 
         model.addAttribute("productList", productList);
         return "product/productList";
-    }
+    }*/
 }

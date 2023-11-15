@@ -24,27 +24,32 @@ public class MemberCtrl {
 
     @GetMapping("list")
     public String memberList(HttpServletRequest request, Model model){
-        Page page = Page.pageStart(request, model);
+        Page page = new Page();
+
+        String searchType = request.getParameter("type");
+        String searchKeyword = request.getParameter("keyword");
+        int pageNow = request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")) : 1;
+
+        page.setSearchType(searchType);
+        page.setSearchKeyword(searchKeyword);
+        page.setPageNow(pageNow);
+        System.out.println(page.getPageNow());
+
+        model.addAttribute("type", searchType);
+        model.addAttribute("keyword", searchKeyword);
+        model.addAttribute("page", pageNow);
+
+        page.setPostTotal(memberService.memberCount(page));
+        page.makePage();
+
+        model.addAttribute("page", page);
+
         List<Member> memberList = memberService.memberList(page);
-
-        int total = memberList.size();
-        Page.pageEnd(request, model, page, total);
-
         model.addAttribute("memberList", memberList);
+
         return "member/memberList";
     }
 
-    @PostMapping("list")
-    public String memberListPost(HttpServletRequest request, Model model){
-        Page page = Page.pageStart(request, model);
-        List<Member> memberList = memberService.memberList(page);
-
-        int total = memberList.size();
-        Page.pageEnd(request, model, page, total);
-
-        model.addAttribute("memberList", memberList);
-        return "member/memberList";
-    }
 
     @GetMapping("login")
     public String login(){

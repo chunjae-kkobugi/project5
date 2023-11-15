@@ -17,6 +17,10 @@ public class MemberServiceImpl implements MemberService{
     public List<Member> memberList(Page page) {
         return memberMapper.memberList(page);
     }
+    @Override
+    public int memberCount(Page page) {
+        return memberMapper.memberCount(page);
+    }
 
     @Override
     public Member memberGet(String id) {
