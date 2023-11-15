@@ -19,6 +19,11 @@ public class ProductServiceImpl implements ProductService{
     }
 
     @Override
+    public List<Product> productListBySeller(String seller) {
+        return productMapper.productListBySeller(seller);
+    }
+
+    @Override
     public Product productGet(Long pno) {
         return productMapper.productGet(pno);
     }

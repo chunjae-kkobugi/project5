@@ -12,7 +12,7 @@ public interface MemberMapper {
     @Select({"<script>","SELECT * FROM member WHERE",
             "<if test='searchType != null and searchType != \"\"'> ${searchType} LIKE CONCAT('%', #{searchKeyword}, '%') AND</if>",
             "status!='REMOVE'"+
-                    "ORDER BY createAt ASC LIMIT #{postStart}, #{postCount}","</script>"})
+                    " ORDER BY createAt ASC LIMIT #{postStart}, #{postCount}","</script>"})
     public List<Member> memberList(Page page);
 
     @Select("SELECT * FROM member WHERE id=#{id}")

@@ -14,6 +14,8 @@ public interface ProductMapper {
             "status!='REMOVE'"+
                     "ORDER BY createAt ASC LIMIT #{postStart}, #{postCount}","</script>"})
     public List<Product> productList(Page page);
+    @Select("SELECT * FROM product WHERE seller=#{seller}")
+    public List<Product> productListBySeller(String seller);
     @Select("SELECT * FROM product WHERE pno=#{pno}")
     public Product productGet(Long pno);
 

@@ -1,7 +1,9 @@
 package com.team45.ctrl;
 
 import com.team45.entity.Member;
+import com.team45.entity.Product;
 import com.team45.service.MemberService;
+import com.team45.service.ProductService;
 import com.team45.util.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,6 +21,8 @@ import java.util.List;
 public class MemberCtrl {
     @Autowired
     private MemberService memberService;
+    @Autowired
+    private ProductService productService;
     @Autowired
     private HttpSession session;
 
@@ -108,4 +112,34 @@ public class MemberCtrl {
         boolean result = memberService.idCheck(id);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
+
+    @GetMapping("mypage")
+    public String myPage() {
+        return "redirect:mypage/products";
+    }
+
+    @GetMapping("mypage/products")
+    public String myProducts(Model model) {
+        String sid = (String) session.getAttribute("sid");
+        Member member = memberService.memberGet(sid);
+        model.addAttribute("member", member);
+        List<Product> products = productService.productListBySeller(sid);
+        //System.out.println("내 상품 : " + products);
+        model.addAttribute("products", products);
+
+        return "/member/myProducts";
+    }
+
+    @GetMapping("mypage/wish")
+    public String myWish(Model model) {
+        String sid = (String) session.getAttribute("sid");
+        Member member = memberService.memberGet(sid);
+        model.addAttribute("member", member);
+        //List<Product> products = productService.productListBySeller(sid);
+        //System.out.println("내 상품 : " + products);
+        //model.addAttribute("products", products);
+        //List<Product> wishlist = productService.
+        return "/member/myWish";
+    }
+
 }
