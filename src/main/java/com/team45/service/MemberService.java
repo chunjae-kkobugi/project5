@@ -7,16 +7,22 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 public interface MemberService {
     public List<Member> memberList(Page page);
     public Member memberGet(String id);
-    public int memberInsert(Member member);
-    public int memberUpdate(Member member);
-    public int memberRemoveUpdate(String id);
-    public int memberDelete(String id);
+    public void memberInsert(Member member);
+    public void memberUpdate(Member member);
+    public void memberRemoveUpdate(String id);
+    public void memberDelete(String id);
     public boolean idCheck (String id);
-    public boolean loginPro(String id, String pw);
+    public int loginPro(String id, String pw);
+    public void memberactive(String id);
+    void memberOutside(String id);
+    void statuschange();
+    void change(String id, LocalDateTime createAt);
+
 
 }
