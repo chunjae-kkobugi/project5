@@ -9,11 +9,11 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Product {
+public class ProductVO {
     private Long pno;
     private String pname;
     private String content;
-    private String cate;
+    private String cateName;
     private String seller;
     private int price = 0;
     private String proaddr;
