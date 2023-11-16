@@ -28879,6 +28879,7 @@ div.tagsinput span.tag a {
   }
 }
 
+<<<<<<< HEAD
 .sidebar-icon-only #toggle-btn {
     transform: rotate(180deg);
 }
@@ -28891,12 +28892,17 @@ div.tagsinput span.tag a {
     transition: transform 0.3s linear;
 }
 
+=======
+>>>>>>> f2731de520cb394afc6ef1e51faaf87536f3b0c5
 .sidebar-icon-only .navbar .navbar-menu-wrapper .navbar-toggler:not(.navbar-toggler-right) {
   transform: rotate(180deg);
 }
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> f2731de520cb394afc6ef1e51faaf87536f3b0c5
 @media (max-width: 991px) {
   .navbar .navbar-menu-wrapper .navbar-toggler.navbar-toggler-right {
     padding-left: 15px;

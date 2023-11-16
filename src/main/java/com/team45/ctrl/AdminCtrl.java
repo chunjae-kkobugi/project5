@@ -11,4 +11,12 @@ public class AdminCtrl {
     public String adminhome(){
         return "admin/home";
     }
+<<<<<<< HEAD
+=======
+
+    @GetMapping("memberList")
+    public String memberList(){
+        return "admin/memberList";
+    }
+>>>>>>> f2731de520cb394afc6ef1e51faaf87536f3b0c5
 }

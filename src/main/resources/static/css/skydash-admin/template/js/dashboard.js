@@ -629,8 +629,12 @@
           '</tr>'+
       '</table>';
   }
+<<<<<<< HEAD
 
  /* var table = $('#example').DataTable( {
+=======
+  var table = $('#example').DataTable( {
+>>>>>>> f2731de520cb394afc6ef1e51faaf87536f3b0c5
     "ajax": "js/data.txt",
     "columns": [
         { "data": "Quote" },
@@ -677,6 +681,10 @@ $('#example tbody').on('click', 'td.details-control', function () {
       tr.addClass('shown');
   }
 } );
+<<<<<<< HEAD
   */
+=======
+  
+>>>>>>> f2731de520cb394afc6ef1e51faaf87536f3b0c5
   });
 })(jQuery);

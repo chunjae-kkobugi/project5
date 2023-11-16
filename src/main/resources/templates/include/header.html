@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-md-12">
                 <nav class="navbar navbar-expand-lg navbar-light navigation">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" th:href="@{/}">
                         <img th:src="@{/images/main_logo.png}" alt="티셀파 로고" style="max-height: 43px;">
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -42,18 +42,35 @@
                                 <a class="nav-link login-button" th:href="@{/member/login}">Login</a>
                             </li>
                             <li class="nav-item">
+<<<<<<< HEAD
                                 <a class="nav-link text-white add-button" th:href="@{/member/join}">Join</a>
+=======
+                                <a class="nav-link text-white add-button" th:href="@{/member/joinTerm}">Join</a>
+>>>>>>> f2731de520cb394afc6ef1e51faaf87536f3b0c5
                             </li>
                         </ul>
                         </th:block>
                         <th:block th:if="${session.sid!=null}">
                             <ul class="navbar-nav ml-auto mt-10">
                                 <li class="nav-item">
+<<<<<<< HEAD
                                     <a class="nav-link login-button" th:href="@{/member/login}">Logout</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link text-white add-button" th:href="@{/member/mypage}">MyPage</a>
                                 </li>
+=======
+                                    <a class="nav-link login-button" th:href="@{/member/logout}">Logout</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white add-button" th:href="@{/member/myPage(id = ${session.sid})}">MyPage</a>
+                                </li>
+                                <th:block th:if="${session.sid eq 'admin'}">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-white add-button" th:href="@{/admin/home(id = ${session.sid})}">관리자페이지</a>
+                                    </li>
+                                </th:block>
+>>>>>>> f2731de520cb394afc6ef1e51faaf87536f3b0c5
                             </ul>
                         </th:block>
                     </div>
