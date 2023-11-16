@@ -15,13 +15,23 @@ CREATE TABLE member(
     addr3 VARCHAR(100),                             -- 주요 직거래 주소
     postcode VARCHAR(10),                           -- 우편 번호
     status VARCHAR(50) DEFAULT 'ACTIVE',            -- REMOVE(삭제), DORMANT(휴면), ACTIVE(활동)
-    createAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP    -- 회원 등록일
+    createAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,    -- 회원 등록일
+    loginAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP    -- 마지막 로그인
 );
 
 INSERT INTO member (id, pw, name, tel) VALUES ('admin', '$2a$10$oS1.3wpbnpIanIW4RoXxSOea/vGIijBMpLUBxZqurQqNjjMiJHgGa', 'admin', '010-1111-1111');
 INSERT INTO member (id, pw, name, tel) VALUES ('teacher1', '$2a$10$oS1.3wpbnpIanIW4RoXxSOea/vGIijBMpLUBxZqurQqNjjMiJHgGa', '김쌤1', '010-1111-1111');
 INSERT INTO member (id, pw, name, tel) VALUES ('teacher2', '$2a$10$oS1.3wpbnpIanIW4RoXxSOea/vGIijBMpLUBxZqurQqNjjMiJHgGa', '김쌤2', '010-1111-1111');
 INSERT INTO member (id, pw, name, tel) VALUES ('teacher3', '$2a$10$oS1.3wpbnpIanIW4RoXxSOea/vGIijBMpLUBxZqurQqNjjMiJHgGa', '김쌤3', '010-1111-1111');
+
+CREATE EVENT daily_update_status
+    ON SCHEDULE
+    EVERY 60 SECOND
+    STARTS CURRENT_TIMESTAMP
+            DO
+UPDATE member
+SET status = 'REST'
+WHERE loginAt <= DATE_SUB(NOW(), INTERVAL 30 DAY);
 
 
 -- 중고거래 상품
