@@ -4,8 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <th:block th:replace="/include/head :: head" ></th:block>
-  <th:block th:replace="/include/head2 :: head2" ></th:block>
-
   <title>마이페이지</title>
 </head>
 <body>
@@ -25,7 +23,7 @@
           <div class="widget user-dashboard-profile">
             <!-- User Image -->
             <div class="profile-thumb">
-              <img th:src="@{/images/classimage/user/user-thumb.jpg}" alt="회원사진" class="rounded-circle">
+              <img th:src="@{/images/empty_profile.png}" alt="프로필 사진" class="rounded-circle">
             </div>
             <!-- User Name -->
             <!--<td th:text="${#dates.format(board.createAt, 'yyyy-MM-dd')}"></td>-->
