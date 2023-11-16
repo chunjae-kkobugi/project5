@@ -219,8 +219,8 @@ public class MemberCtrl {
         model.addAttribute("page", page);
 
         List<Product> products = productService.productListBySeller(sid, page);
+        //System.out.println("total:"+page.getPostTotal());
         model.addAttribute("products", products);
-        //System.out.println("내 상품 : " + products);
         return "/member/myProducts";
     }
 
