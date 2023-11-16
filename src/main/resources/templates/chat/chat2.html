@@ -40,7 +40,7 @@
             <div class="col-6">
                 <h4>채팅방 목록</h4>
                 <ul class="list-group" id="roomList" style="margin: 10px 0;" th:each="room : ${chatRooms}">
-                    <li class="list-group-item"><a th:onclick="joinRoom(this.getAttribute('roomno'))" th:roomno="${room.roomNo}" th:text="${room.userId}"></a></li>
+                    <li class="list-group-item"><a th:onclick="joinRoom(this.getAttribute('roomno'))" th:roomno="${room.roomNo}" th:text="${room.memId}"></a></li>
                 </ul>
                 <div class="input-group mb-3">
                     <button class="btn btn-outline-secondary" onclick="createRoom()">Create Chat Room</button>
@@ -96,7 +96,7 @@
         $.ajax({
             type: "POST",
             url: "/chat/createRoom",
-            data: { userId: username, usedNo: 0 }, // 파라미터로 채팅방 이름 전달
+            data: { memId: username, pno: 0 }, // 파라미터로 채팅방 이름 전달
             success: function (data) {
                 let newRoom = `<li class="list-group-item"><a th:onclick="joinRoom(this.getAttribute('roomNo'))" th:roomNo="${room.roomNo}" th:text="${room.username}"></a></li>`;
                 $("#roomList").append(newRoom);
@@ -131,7 +131,7 @@
         $.ajax({
             type: "POST",
             url: "/chat/getRoom",
-            data: {roomNo: roomNo, userId: username},
+            data: {roomNo: roomNo, memId: username},
             success: function (data) {
                 data.forEach(function (msg) {
                     let newMsg = ``;
@@ -176,7 +176,7 @@
         $("#chat-roomNo").val(roomNo);
 
 
-        ws = new WebSocket("ws://"+location.host+"/socket?roomNo="+roomNo+"&userId="+username);
+        ws = new WebSocket("ws://"+location.host+"/socket?roomNo="+roomNo+"&memId="+username);
 
         ws.onopen = function(e){ // 연결 시 실행
             /*var str = username + "님이 입장하셨습니다.";

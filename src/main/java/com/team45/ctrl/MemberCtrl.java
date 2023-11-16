@@ -62,7 +62,7 @@ public class MemberCtrl {
         String pw = request.getParameter("pw");
         boolean keepId = Boolean.parseBoolean(request.getParameter("keepId"));
 
-
+        session.setAttribute("sid", id);
 
         return "index";
     }

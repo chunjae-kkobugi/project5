@@ -629,7 +629,8 @@
           '</tr>'+
       '</table>';
   }
-  var table = $('#example').DataTable( {
+
+ /* var table = $('#example').DataTable( {
     "ajax": "js/data.txt",
     "columns": [
         { "data": "Quote" },
@@ -676,6 +677,6 @@ $('#example tbody').on('click', 'td.details-control', function () {
       tr.addClass('shown');
   }
 } );
-  
+  */
   });
 })(jQuery);

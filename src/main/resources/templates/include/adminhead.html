@@ -29,23 +29,23 @@
 
     <!-- 파비콘 설정 :32X32 자주 사용 -->
     <!-- 표준 파비콘 -->
-    <link rel="shortcut icon" th:href="@{images/favicon/favicon-16x16.png}">
+    <link rel="shortcut icon" th:href="@{/images/favicon/favicon-16x16.png}">
     <!-- 애플 계열 모바일 -->
-    <link rel="apple-touch-ico-precomposed" th:href="@{images/favicon/apple-touch-icon.png}">
+    <link rel="apple-touch-ico-precomposed" th:href="@{/images/favicon/apple-touch-icon.png}">
     <!-- IE 계열 브라우저 -->
     <meta name="msapplication-TileColor" content="#fff">
-    <meta name="msapplication-TileImage" th:attr="content=@{images/favicon/favicon-32x32.png}">
+    <meta name="msapplication-TileImage" th:attr="content=@{/images/favicon/favicon-32x32.png}">
 
     <!-- 파이어폭스, 오페라 또는 구형 크롬/사파리 -->
-    <link rel="icon" th:href="@{images/favicon/favicon-16x16.png}" sizes="16x16">
-    <link rel="icon" th:href="@{images/favicon/favicon-32x32.png}" sizes="32x32">
-    <link rel="icon" th:href="@{images/favicon/favicon-48x48.png}" sizes="48x48">
-    <link rel="icon" th:href="@{images/favicon/favicon-64x64.png}" sizes="64x64">
-    <link rel="icon" th:href="@{images/favicon/favicon-96x96.png}" sizes="96x96">
+    <link rel="icon" th:href="@{/images/favicon/favicon-16x16.png}" sizes="16x16">
+    <link rel="icon" th:href="@{/images/favicon/favicon-32x32.png}" sizes="32x32">
+    <link rel="icon" th:href="@{/images/favicon/favicon-48x48.png}" sizes="48x48">
+    <link rel="icon" th:href="@{/images/favicon/favicon-64x64.png}" sizes="64x64">
+    <link rel="icon" th:href="@{/images/favicon/favicon-96x96.png}" sizes="96x96">
 
     <!--  CLEditor  -->
     <script type="text/javascript" th:src="@{/js/cleditor/jquery.cleditor.js}"></script>
-    <link rel="stylesheet" th:href="@{js/cleditor/jquery.cleditor.css}"/>
+    <link rel="stylesheet" th:href="@{/js/cleditor/jquery.cleditor.css}"/>
     <link rel="stylesheet" th:href="@{/css/common.css}"/>
     
     <!--  skydash  -->
@@ -75,10 +75,5 @@
     <script th:src="@{/css/skydash-admin/template/js/dashboard.js}"></script>
     <script th:src="@{/css/skydash-admin/template/js/Chart.roundedBarCharts.js}"></script>
     <!-- End custom js for this page-->
-
-    <script
-            src="https://code.jquery.com/jquery-3.7.1.min.js"
-            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-            crossorigin="anonymous"></script>
 </head>
 </html>

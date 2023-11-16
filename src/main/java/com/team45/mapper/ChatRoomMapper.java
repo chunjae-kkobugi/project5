@@ -16,14 +16,14 @@ public interface ChatRoomMapper {
     @Select("SELECT * FROM chatRoom where roomNo=#{roomNo}")
     public ChatRoom chatRoomGet(int roomNo);
 
-    @Select("SELECT * FROM chatRoom WHERE pno=#{pno} AND userId=#{userId}")
-    public ChatRoom chatRoomGetId(int pno, String userId);
+    @Select("SELECT * FROM chatRoom WHERE pno=#{pno} AND memId=#{memId}")
+    public ChatRoom chatRoomGetId(int pno, String memId);
 
-    @Select("SELECT COUNT(*) FROM chatRoom WHERE userId=#{userId} AND pno=#{pno}")
-    public int chatRoomGetUnique(String userId, int pno);
+    @Select("SELECT COUNT(*) FROM chatRoom WHERE memId=#{memId} AND pno=#{pno}")
+    public int chatRoomGetUnique(String memId, int pno);
 
-    @Insert("INSERT INTO chatRoom(userId, pno) VALUES(#{userId}, #{pno})")
-    public void chatRoomInsert(String userId, int pno);
+    @Insert("INSERT INTO chatRoom(memId, pno) VALUES(#{memId}, #{pno})")
+    public void chatRoomInsert(String memId, int pno);
     @Update("UPDATE chatRoom SET status='BLOCK' WHERE roomNo=#{roomNo}")
     public int chatRoomBlockUpdate(int roomNo);
 

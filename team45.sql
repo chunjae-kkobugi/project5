@@ -56,10 +56,10 @@ CREATE TABLE fileData(
 -- 채팅방
 CREATE TABLE chatRoom (
     roomNo BIGINT PRIMARY KEY AUTO_INCREMENT,  -- 고유 번호
-    userId VARCHAR(20) NOT NULL,            -- member.id
+    memId VARCHAR(20) NOT NULL,            -- member.id
     pno INT NOT NULL,                       -- product.pno
     status VARCHAR(50) DEFAULT 'ON',        -- ON(진행), OFF(차단)
-    UNIQUE (userId, pno)                    -- userId와 usedNo를 묶어서 UNIQUE 제약 설정
+    UNIQUE (memId, pno)                    -- memId와 pno를 묶어서 UNIQUE 제약 설정
 );
 
 -- 채팅 메시지
