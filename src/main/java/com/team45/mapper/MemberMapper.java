@@ -17,6 +17,9 @@ public interface MemberMapper {
                     "ORDER BY createAt ASC LIMIT #{postStart}, #{postCount}","</script>"})
     List<Member> memberList(Page page);
 
+    @Select("SELECT * FROM member")
+    List<Member> memberList2();
+
     @Select("SELECT * FROM member WHERE id=#{id}")
     Member memberGet(String id);
 
@@ -41,9 +44,10 @@ public interface MemberMapper {
     @Update("UPDATE member SET status='OUTSIDE' WHERE id=#{id}")
     void memberOutside(String id);
 
-    List<Member> statuschange(String status, LocalDateTime createAt);
-
     @Update("UPDATE member SET status='REST' WHERE id=#{id}")
     void change(String id);
+
+    @Update("UPDATE member SET loginAt=default WHERE id=#{id}")
+    void loginAt(String id);
 
 }

@@ -169,11 +169,7 @@ public class MemberCtrl {
                model.addAttribute("msg", "해당 계정은 탈퇴한 계정입니다.");
                model.addAttribute("url", "/member/active");
                return "/member/alert";
-           } else if(pass == 4) {
-               model.addAttribute("msg", "축하합니다요 휴면이다 휴면");
-               model.addAttribute("url", "/");
-               return "/member/alert";
-           }else {
+           } else {
                model.addAttribute("msg", "회원 정보가 맞지 않습니다.");
                model.addAttribute("url", "/member/active");
                return "/member/alert";
