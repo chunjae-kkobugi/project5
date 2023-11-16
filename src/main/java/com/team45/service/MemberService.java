@@ -8,12 +8,8 @@ import java.util.List;
 
 public interface MemberService {
     public List<Member> memberList(Page page);
-<<<<<<< HEAD
-    public int memberCount(Page page);
-=======
     List<Member> memberList2();
 //    public void checkloginAt();
->>>>>>> f2731de520cb394afc6ef1e51faaf87536f3b0c5
     public Member memberGet(String id);
     public void memberInsert(Member member);
     public void memberUpdate(Member member);
@@ -25,5 +21,5 @@ public interface MemberService {
     public void memberOutside(String id);
     public void change(String id, LocalDateTime createAt);
     public void loginAt(String id);
-
+    public int memberCount(Page page);
 }

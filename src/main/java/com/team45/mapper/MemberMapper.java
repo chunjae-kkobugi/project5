@@ -14,7 +14,6 @@ public interface MemberMapper {
     @Select({"<script>","SELECT * FROM member WHERE",
             "<if test='searchType != null and searchType != \"\"'> ${searchType} LIKE CONCAT('%', #{searchKeyword}, '%') AND</if>",
             "status!='REMOVE'"+
-<<<<<<< HEAD
                     "ORDER BY createAt ASC LIMIT #{postStart}, #{postScreen}","</script>"})
     public List<Member> memberList(Page page);
     // LIMIT (시작 인덱스), (가져올 갯수)
@@ -28,20 +27,10 @@ public interface MemberMapper {
     public int memberCount(Page page);
 
     @Select("SELECT * FROM member WHERE id=#{id}")
-    public Member memberGet(String id);
-=======
-                    "ORDER BY createAt ASC LIMIT #{postStart}, #{postCount}","</script>"})
-    List<Member> memberList(Page page);
-
-    @Select("SELECT * FROM member")
-    List<Member> memberList2();
-
-    @Select("SELECT * FROM member WHERE id=#{id}")
     Member memberGet(String id);
 
     @Insert("INSERT INTO member VALUES (default, #{id}, #{pw}, #{name}, #{tel}, #{email}, #{addr1}, #{addr2}, #{addr3}, #{postcode}, default, default)")
     void memberInsert(Member member);
->>>>>>> f2731de520cb394afc6ef1e51faaf87536f3b0c5
 
     @Update("UPDATE member SET pw=#{pw}, name=#{name}, tel=#{tel}, email=#{email}, addr1=#{addr1}, addr2=#{addr2}, addr3=#{addr3}, postcode=#{postcode} WHERE id=#{id}")
     void memberUpdate(Member member);

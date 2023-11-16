@@ -58,6 +58,22 @@ public class MemberServiceImpl implements MemberService{
 //    }
 
     @Override
+    public List<Member> memberList2() {
+        return memberMapper.memberList2();
+    }
+//
+//    public void checkloginAt() {
+//            List<Member> acc= memberMapper.memberList2();
+//            logger.info("답 ㅡㅡㅡㅡ" + acc);
+//            Timestamp date1 = Timestamp.valueOf(LocalDateTime.now().minusDays(30));
+//            for (Member mem : acc) {
+//                if (date1.after(mem.getLoginAt())) {
+//                mem.setStatus("REST");
+//            }
+//        }
+//    }
+
+    @Override
     public Member memberGet(String id) {
         return memberMapper.memberGet(id);
     }
