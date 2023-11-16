@@ -11,6 +11,8 @@ import java.util.List;
 
 public interface ProductService {
     public List<Product> productList(Page page);
+    public List<Product> productListBySeller(String seller, Page page);
+    public int productCountBySeller(String seller, Page page);
     public Product productGet(Long pno);
     public int productInsert(Product product);
     public int productUpdate(Product product);
