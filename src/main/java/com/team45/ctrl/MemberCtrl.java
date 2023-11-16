@@ -19,6 +19,7 @@ import javax.servlet.http.HttpSession;
 import java.time.LocalDateTime;
 import java.util.List;
 
+
 @Log4j2
 @Controller
 @RequestMapping("/member/**")
@@ -60,23 +61,6 @@ public class MemberCtrl {
         return "member/memberList";
     }
 
-
-    @GetMapping("login")
-    public String login(){
-        return "member/login";
-    }
-
-    @PostMapping("login")
-    public String login(HttpServletRequest request, Model model){
-        String id = request.getParameter("id");
-        String pw = request.getParameter("pw");
-        boolean keepId = Boolean.parseBoolean(request.getParameter("keepId"));
-
-        session.setAttribute("sid", id);
-
-        return "index";
-    }
-
     @GetMapping("login")
     public String login(){
         return "member/login";
@@ -93,22 +77,22 @@ public class MemberCtrl {
 
 
     @PostMapping("loginpro")
-        public String loginPro(String id, String pw, Model model) {
+    public String loginPro(String id, String pw, Model model) {
         int pass = memberService.loginPro(id, pw);
-            if (pass == 1) {
-                session.setAttribute("sid", id);
-                model.addAttribute("msg", "로그인 되었습니다.");
-                model.addAttribute("url", "/");
-                return "/member/alert";
-            } else if (pass == 2) {
-                model.addAttribute("msg", "해당 계정은 휴면계정입니다. 휴면을 풀어주세요.");
-                model.addAttribute("url", "/member/active");
-                return "/member/alert";
-            } else if (pass==3){
-                model.addAttribute("msg", "해당 계정은 탈퇴한 계정입니다.");
-                model.addAttribute("url", "/");
-                return "/member/alert";
-            } else {
+        if (pass == 1) {
+            session.setAttribute("sid", id);
+            model.addAttribute("msg", "로그인 되었습니다.");
+            model.addAttribute("url", "/");
+            return "/member/alert";
+        } else if (pass == 2) {
+            model.addAttribute("msg", "해당 계정은 휴면계정입니다. 휴면을 풀어주세요.");
+            model.addAttribute("url", "/member/active");
+            return "/member/alert";
+        } else if (pass==3){
+            model.addAttribute("msg", "해당 계정은 탈퇴한 계정입니다.");
+            model.addAttribute("url", "/");
+            return "/member/alert";
+        } else {
             model.addAttribute("msg", "로그인 정보가 맞지 않습니다.");
             model.addAttribute("url", "/member/login");
             return "/member/alert";
@@ -139,7 +123,7 @@ public class MemberCtrl {
         model.addAttribute("msg", "가족이 되신걸 환영합니다.");
         model.addAttribute("url", "/member/login");
         return "/member/alert";
-          }
+    }
 
     @PostMapping("idCheckPro")
     public ResponseEntity idCheck(@RequestBody Member member) throws Exception {
@@ -176,155 +160,30 @@ public class MemberCtrl {
         int pass = memberService.loginPro(id, pw);
         Member mem = memberService.memberGet(id);
 
-       if(mem.getEmail().equals(email)) {
-           if (pass == 1) {
-               model.addAttribute("msg", "해당 아이디는 휴면 계정이 아닙니다.");
-               model.addAttribute("url", "/member/active");
-               return "/member/alert";
-           } else if (pass == 2) {
-               memberService.memberactive(id);
-               model.addAttribute("msg", "휴면이 해제되었습니다. 환영합니다.");
-               model.addAttribute("url", "/member/login");
-               return "/member/alert";
-           } else if (pass == 3) {
-               model.addAttribute("msg", "해당 계정은 탈퇴한 계정입니다.");
-               model.addAttribute("url", "/member/active");
-               return "/member/alert";
-           } else {
-               model.addAttribute("msg", "회원 정보가 맞지 않습니다.");
-               model.addAttribute("url", "/member/active");
-               return "/member/alert";
-           }
-       }else {
-           model.addAttribute("msg", "회원 정보가 맞지 않습니다.");
-           model.addAttribute("url", "/member/active");
-           return "/member/alert";
-       }
-    }
-
-    @GetMapping("login")
-    public String login(){
-        return "member/login";
-    }
-
-    @PostMapping("login")
-    public String login(HttpServletRequest request, Model model){
-        String id = request.getParameter("id");
-        String pw = request.getParameter("pw");
-        boolean keepId = Boolean.parseBoolean(request.getParameter("keepId"));
-
-        return "index";
-    }
-
-
-    @PostMapping("loginpro")
-        public String loginPro(String id, String pw, Model model) {
-        int pass = memberService.loginPro(id, pw);
+        if(mem.getEmail().equals(email)) {
             if (pass == 1) {
-                session.setAttribute("sid", id);
-                model.addAttribute("msg", "로그인 되었습니다.");
-                model.addAttribute("url", "/");
-                return "/member/alert";
-            } else if (pass == 2) {
-                model.addAttribute("msg", "해당 계정은 휴면계정입니다. 휴면을 풀어주세요.");
+                model.addAttribute("msg", "해당 아이디는 휴면 계정이 아닙니다.");
                 model.addAttribute("url", "/member/active");
                 return "/member/alert";
-            } else if (pass==3){
+            } else if (pass == 2) {
+                memberService.memberactive(id);
+                model.addAttribute("msg", "휴면이 해제되었습니다. 환영합니다.");
+                model.addAttribute("url", "/member/login");
+                return "/member/alert";
+            } else if (pass == 3) {
                 model.addAttribute("msg", "해당 계정은 탈퇴한 계정입니다.");
-                model.addAttribute("url", "/");
+                model.addAttribute("url", "/member/active");
                 return "/member/alert";
             } else {
-            model.addAttribute("msg", "로그인 정보가 맞지 않습니다.");
-            model.addAttribute("url", "/member/login");
+                model.addAttribute("msg", "회원 정보가 맞지 않습니다.");
+                model.addAttribute("url", "/member/active");
+                return "/member/alert";
+            }
+        }else {
+            model.addAttribute("msg", "회원 정보가 맞지 않습니다.");
+            model.addAttribute("url", "/member/active");
             return "/member/alert";
         }
-    }
-
-    @GetMapping("/logout")
-    public String logout(Model model) {
-        session.invalidate();
-        model.addAttribute("msg", "로그아웃 되었습니다.");
-        model.addAttribute("url", "/");
-        return "/member/alert";
-    }
-
-    @GetMapping("joinTerm")
-    public String joinTerm(){
-        return "member/joinTerm";
-    }
-
-    @GetMapping("join")
-    public String join(){
-        return "member/join";
-    }
-
-    @PostMapping("joinPro")
-    public String joinPro(Member member, Model model) {
-        memberService.memberInsert(member);
-        model.addAttribute("msg", "가족이 되신걸 환영합니다.");
-        model.addAttribute("url", "/member/login");
-        return "/member/alert";
-          }
-
-    @PostMapping("idCheckPro")
-    public ResponseEntity idCheck(@RequestBody Member member) throws Exception {
-        String id = member.getId();
-        boolean result = memberService.idCheck(id);
-        return new ResponseEntity<>(result, HttpStatus.OK);
-
-    }
-
-    @GetMapping("myPage")
-    public String myPage(@RequestParam String id, Model model){
-        Member mem = memberService.memberGet(id);
-        model.addAttribute("member", mem);
-        return "member/myPage";
-    }
-
-    @GetMapping("remove")
-    public String remove(@RequestParam String id, Model model){
-        session.invalidate();
-        memberService.memberOutside(id);
-        model.addAttribute("msg", "회원 탈퇴가 정상적으로 이루어졌습니다. 감사합니다.");
-        model.addAttribute("url", "/");
-        return "/member/alert";
-    }
-
-    @GetMapping("active")
-    public String active(){
-        return "/member/active";
-    }
-
-
-    @PostMapping("active")
-    public String activePro(String email, String id, String pw,Model model) {
-        int pass = memberService.loginPro(id, pw);
-        Member mem = memberService.memberGet(id);
-
-       if(mem.getEmail().equals(email)) {
-           if (pass == 1) {
-               model.addAttribute("msg", "해당 아이디는 휴면 계정이 아닙니다.");
-               model.addAttribute("url", "/member/active");
-               return "/member/alert";
-           } else if (pass == 2) {
-               memberService.memberactive(id);
-               model.addAttribute("msg", "휴면이 해제되었습니다. 환영합니다.");
-               model.addAttribute("url", "/member/login");
-               return "/member/alert";
-           } else if (pass == 3) {
-               model.addAttribute("msg", "해당 계정은 탈퇴한 계정입니다.");
-               model.addAttribute("url", "/member/active");
-               return "/member/alert";
-           } else {
-               model.addAttribute("msg", "회원 정보가 맞지 않습니다.");
-               model.addAttribute("url", "/member/active");
-               return "/member/alert";
-           }
-       }else {
-           model.addAttribute("msg", "회원 정보가 맞지 않습니다.");
-           model.addAttribute("url", "/member/active");
-           return "/member/alert";
-       }
     }
 
 }

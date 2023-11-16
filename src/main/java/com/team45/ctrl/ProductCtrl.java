@@ -19,27 +19,4 @@ public class ProductCtrl {
     @Autowired
     private ProductService productService;
 
-    @GetMapping("list")
-    public String productList(HttpServletRequest request, Model model){
-        Page page = Page.pageStart(request, model);
-        List<Product> productList = productService.productList(page);
-
-        int total = productList.size();
-        Page.pageEnd(request, model, page, total);
-
-        model.addAttribute("productList", productList);
-        return "product/productList";
-    }
-
-    @PostMapping("list")
-    public String productListPost(HttpServletRequest request, Model model){
-        Page page = Page.pageStart(request, model);
-        List<Product> productList = productService.productList(page);
-
-        int total = productList.size();
-        Page.pageEnd(request, model, page, total);
-
-        model.addAttribute("productList", productList);
-        return "product/productList";
-    }
 }

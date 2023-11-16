@@ -21,6 +21,12 @@ public interface MemberMapper {
     // 이때 시작 인덱스는 실제 데이터베이스의 row 기준으로 0부터 시작함. int primary key 와는 관계 없음.
     // 마지막 인덱스가 8이고, 시작인덱스가 6인데 10개를 가져오라고 하면 6, 7, 8만 가져온다.
 
+    @Select("SELECT * FROM member")
+    List<Member> memberList2();
+
+    @Select("SELECT Date(createAt) as createAt, COUNT(*) as mno FROM member GROUP BY DATE(createAt)")
+    List<Member> memberCreateStats();
+
     @Select({"<script>","SELECT COUNT(*) FROM member WHERE",
             "<if test='searchType != null and searchType != \"\"'> ${searchType} LIKE CONCAT('%', #{searchKeyword}, '%') AND</if>",
             "status!='REMOVE'","</script>"})

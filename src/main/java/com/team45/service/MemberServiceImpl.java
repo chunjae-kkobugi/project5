@@ -2,7 +2,6 @@ package com.team45.service;
 
 import com.team45.entity.Member;
 import com.team45.mapper.MemberMapper;
-import com.team45.mapper.MemberRepository;
 import com.team45.util.Page;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
@@ -11,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -22,8 +20,6 @@ public class MemberServiceImpl implements MemberService{
 
     @Autowired
     private MemberMapper memberMapper;
-
-    private MemberRepository memberRepository;
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -45,22 +41,7 @@ public class MemberServiceImpl implements MemberService{
     public List<Member> memberList2() {
         return memberMapper.memberList2();
     }
-//
-//    public void checkloginAt() {
-//            List<Member> acc= memberMapper.memberList2();
-//            logger.info("답 ㅡㅡㅡㅡ" + acc);
-//            Timestamp date1 = Timestamp.valueOf(LocalDateTime.now().minusDays(30));
-//            for (Member mem : acc) {
-//                if (date1.after(mem.getLoginAt())) {
-//                mem.setStatus("REST");
-//            }
-//        }
-//    }
 
-    @Override
-    public List<Member> memberList2() {
-        return memberMapper.memberList2();
-    }
 //
 //    public void checkloginAt() {
 //            List<Member> acc= memberMapper.memberList2();
@@ -151,6 +132,11 @@ public class MemberServiceImpl implements MemberService{
     @Override
     public void loginAt(String id) {
         memberMapper.loginAt(id);
+    }
+
+    @Override
+    public List<Member> memberCreateStats() {
+        return memberMapper.memberCreateStats();
     }
 }
 

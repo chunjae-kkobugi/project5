@@ -15,8 +15,8 @@ CREATE TABLE member(
     addr3 VARCHAR(100),                             -- 주요 직거래 주소
     postcode VARCHAR(10),                           -- 우편 번호
     status VARCHAR(50) DEFAULT 'ACTIVE',            -- REMOVE(삭제), DORMANT(휴면), ACTIVE(활동)
-    createAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,    -- 회원 등록일
-    loginAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP    -- 마지막 로그인
+    createAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,   -- 회원 등록일
+    loginAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP     -- 마지막 로그인
 );
 
 INSERT INTO member (id, pw, name, tel) VALUES ('admin', '$2a$10$oS1.3wpbnpIanIW4RoXxSOea/vGIijBMpLUBxZqurQqNjjMiJHgGa', 'admin', '010-1111-1111');
