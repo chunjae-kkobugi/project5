@@ -36,7 +36,6 @@ public class MemberCtrl {
     public String memberList(HttpServletRequest request, Model model){
         Page page = Page.pageStart(request, model);
         List<Member> memberList = memberService.memberList(page);
-
         int total = memberList.size();
         Page.pageEnd(request, model, page, total);
 
