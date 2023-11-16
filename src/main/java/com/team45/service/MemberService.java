@@ -2,16 +2,14 @@ package com.team45.service;
 
 import com.team45.entity.Member;
 import com.team45.util.Page;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
 public interface MemberService {
     public List<Member> memberList(Page page);
+    List<Member> memberList2();
+//    public void checkloginAt();
     public Member memberGet(String id);
     public void memberInsert(Member member);
     public void memberUpdate(Member member);
@@ -20,9 +18,8 @@ public interface MemberService {
     public boolean idCheck (String id);
     public int loginPro(String id, String pw);
     public void memberactive(String id);
-    void memberOutside(String id);
-    void statuschange();
-    void change(String id, LocalDateTime createAt);
-
+    public void memberOutside(String id);
+    public void change(String id, LocalDateTime createAt);
+    public void loginAt(String id);
 
 }

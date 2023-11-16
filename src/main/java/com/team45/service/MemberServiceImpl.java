@@ -9,13 +9,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.sql.Date;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -26,7 +23,10 @@ public class MemberServiceImpl implements MemberService{
     @Autowired
     private MemberMapper memberMapper;
 
+    private MemberRepository memberRepository;
+
     private Logger logger = LoggerFactory.getLogger(this.getClass());
+
 
     BCryptPasswordEncoder pwEncoder = new BCryptPasswordEncoder();
 
@@ -36,6 +36,22 @@ public class MemberServiceImpl implements MemberService{
     public List<Member> memberList(Page page) {
         return memberMapper.memberList(page);
     }
+
+    @Override
+    public List<Member> memberList2() {
+        return memberMapper.memberList2();
+    }
+//
+//    public void checkloginAt() {
+//            List<Member> acc= memberMapper.memberList2();
+//            logger.info("답 ㅡㅡㅡㅡ" + acc);
+//            Timestamp date1 = Timestamp.valueOf(LocalDateTime.now().minusDays(30));
+//            for (Member mem : acc) {
+//                if (date1.after(mem.getLoginAt())) {
+//                mem.setStatus("REST");
+//            }
+//        }
+//    }
 
     @Override
     public Member memberGet(String id) {
@@ -76,18 +92,24 @@ public class MemberServiceImpl implements MemberService{
     public int loginPro(String id, String pw) {
         int pass = 0;
         Member mem = memberMapper.memberGet(id);
-        // 임시로 수정해둠
-        if (mem != null && pwEncoder.matches(pw, mem.getPw())) {
-            if (mem.getStatus().equals("ACTIVE")) {
-                pass = 1;
-            } else if (mem.getStatus().equals("REST")) {
-                pass = 2;
-            } else if (mem.getStatus().equals("OUTSIDE")) {
-                pass = 3;
+//        Timestamp date1 = Timestamp.valueOf(LocalDateTime.now().minusDays(30));
+//        if (mem != null && date1.after(mem.getLoginAt())) {
+//            memberMapper.change(id);
+//            pass = 2;
+//        } else {
+            if (mem != null && pwEncoder.matches(pw, mem.getPw())) {
+                if (mem.getStatus().equals("ACTIVE")) {
+                    memberMapper.loginAt(id);
+                    pass = 1;
+                } else if (mem.getStatus().equals("REST")) {
+                    pass = 2;
+                } else if (mem.getStatus().equals("OUTSIDE")) {
+                    pass = 3;
+                }
+            } else {
+                pass = 0;
             }
-        } else {
-            pass = 0;
-        }
+
         return pass;
     }
 
@@ -107,13 +129,8 @@ public class MemberServiceImpl implements MemberService{
     }
 
     @Override
-    public void statuschange() {
-        List<Member> dormantAccounts = memberMapper.statuschange("ACTIVE", LocalDateTime.now().minusDays(30));
-
-        for (Member account : dormantAccounts) {
-            // 휴면 상태로 변경
-            account.setStatus("REST");
-        }
+    public void loginAt(String id) {
+        memberMapper.loginAt(id);
     }
 }
 
