@@ -81,13 +81,17 @@
                     </h3>
                   </a>
 
+                  <!--<span th:with="formattedPrice=${#numbers.formatDecimal(product.price, 3, 'COMMA')}">
+                    <strong>가격</strong>[[${formattedPrice}]]원
+                  </span>-->
+                  <span><strong>가격</strong>[[${#numbers.formatInteger(product.price, 0, 'COMMA')}]]원</span>
                   <span><strong>등록일</strong><time th:text="${#dates.format(product.createAt, 'yyyy-MM-dd')}"></time></span>
                   <div th:switch="${product.status}">
                     <span th:case="'SALE'" class="status text-success"><strong>상태</strong>판매중</span>
                     <span th:case="'RESERVED'" class="status text-warning"><strong>상태</strong>예약중</span>
                     <span th:case="'OUT'" class="status text-danger"><strong>상태</strong>판매완료</span>
                   </div>
-                  <span class="location"><strong>주소</strong>[[${product.proaddr}]]</span>
+                  <!--<span class="location"><strong>주소</strong>[[${product.proaddr}]]</span>-->
                 </td>
                 <td class="product-category"><span class="categories" th:text="${product.category}"></span></td>
                 <td class="action" data-title="Action">
