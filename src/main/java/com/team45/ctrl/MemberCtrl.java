@@ -1,7 +1,9 @@
 package com.team45.ctrl;
 
 import com.team45.entity.Member;
+import com.team45.entity.Product;
 import com.team45.service.MemberService;
+import com.team45.service.ProductService;
 import com.team45.util.Page;
 import lombok.extern.log4j.Log4j2;
 import org.slf4j.Logger;
@@ -31,7 +33,10 @@ public class MemberCtrl {
     @Autowired
     private MemberService memberService;
     @Autowired
+    private ProductService productService;
+    @Autowired
     private HttpSession session;
+
 
     @GetMapping("list")
     public String memberList(HttpServletRequest request, Model model){
@@ -184,6 +189,18 @@ public class MemberCtrl {
             model.addAttribute("url", "/member/active");
             return "/member/alert";
         }
+    }
+
+    @GetMapping("myshop/wish")
+    public String myWish(Model model) {
+        String sid = (String) session.getAttribute("sid");
+        Member member = memberService.memberGet(sid);
+        model.addAttribute("member", member);
+        //List<Product> products = productService.productListBySeller(sid);
+        //System.out.println("내 상품 : " + products);
+        //model.addAttribute("products", products);
+        //List<Product> wishlist = productService.
+        return "/member/myWish";
     }
 
 }
