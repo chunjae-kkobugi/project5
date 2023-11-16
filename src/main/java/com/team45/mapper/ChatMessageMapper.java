@@ -7,7 +7,8 @@ import java.util.List;
 
 @Mapper
 public interface ChatMessageMapper {
-    @Select("SELECT * FROM chatMessage WHERE roomNo=#{roomNo} AND status!='REMOVE'")
+    // 과거 보낸 채팅부터 정렬
+    @Select("SELECT * FROM chatMessage WHERE roomNo=#{roomNo} AND status!='REMOVE' ORDER BY time ASC")
     public List<ChatMessage> chatMessageList(int roomNo);
 
     @Select("SELECT COUNT(*) FROM chatMessage WHERE roomNo=#{roomNo} AND status='UNREAD'")
@@ -21,6 +22,7 @@ public interface ChatMessageMapper {
     @Update("UPDATE chatMessage SET status='READ' WHERE chatNo=#{chatNo} AND sender!=#{sender}")
     public int chatMessageReadUpdate(int chatNo, String sender);
 
+    // 상대방이 보낸 메시지만 읽음 처리
     @Update("UPDATE chatMessage SET status='READ' WHERE roomNo=#{roomNo} AND sender!=#{sender}")
     public int chatMessageReadUpdates(int roomNo, String sender);
 

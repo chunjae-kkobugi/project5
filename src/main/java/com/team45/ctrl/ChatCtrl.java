@@ -35,7 +35,7 @@ public class ChatCtrl {
 
         ChatMessage chat = mapper.readValue(message, ChatMessage.class);
         System.out.println(chat);
-        sendRoomMessage(message, roomNo, chat);
+        sendRoomMessage(message, roomNo);
 
         /*ChatMessage chatReturn = service.chatMessageInsert(chat);
 
@@ -69,7 +69,7 @@ public class ChatCtrl {
         }
     }
 
-    private void sendRoomMessage(String msg, int roomNo, ChatMessage chat){
+    private void sendRoomMessage(String msg, int roomNo){
         try {
             for(Session s : ChatCtrl.sessionList){
                 Map<String, List<String>> requetParameter = s.getRequestParameterMap();
