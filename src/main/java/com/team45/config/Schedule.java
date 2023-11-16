@@ -12,14 +12,15 @@ public class Schedule {
 
     private MemberService memberService;
 
-        @Autowired
-        public Schedule(MemberService memberService) {
-            this.memberService = memberService;
-        }
+    @Autowired
+    public Schedule(MemberService memberService) {
+        this.memberService = memberService;
+    }
 
-        @Scheduled(cron = "0 0 0 * * *") // 매일 자정에 실행
-        public void scheduleDormantAccountCheck() {
-            memberService.statuschange();
-        }
+    @Scheduled(cron = "0 0 0 * * *") // 매일 자정에 실행
+    public void scheduleDormantAccountCheck() {
+        // 임시 주석 처리
+        //memberService.statuschange();
+    }
 }
 
