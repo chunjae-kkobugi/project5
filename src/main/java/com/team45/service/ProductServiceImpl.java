@@ -1,12 +1,15 @@
 package com.team45.service;
 
 import com.team45.entity.Category;
+import com.team45.entity.FileData;
 import com.team45.entity.Product;
 import com.team45.entity.ProductVO;
+import com.team45.mapper.FileDataMapper;
 import com.team45.mapper.ProductMapper;
 import com.team45.util.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Map;
@@ -15,6 +18,8 @@ import java.util.Map;
 public class ProductServiceImpl implements ProductService{
     @Autowired
     private ProductMapper productMapper;
+    @Autowired
+    private FileDataMapper fileDataMapper;
 
     @Override
     public List<ProductVO> productList(Page page) {
@@ -43,33 +48,43 @@ public class ProductServiceImpl implements ProductService{
 
 
     @Override
+    @Transactional
     public int productInsert(Product product) {
+        int productNo = productMapper.productGetLast();
+
+        fileDataMapper.fileDataUpdate(productNo);
+
+        for (FileData f : product.getFileDataList()) {
+            f.setTableName("product");
+            f.setColumnNo((long) productNo);
+            fileDataMapper.fileDataInsert(f);
+        }
         return productMapper.productInsert(product);
     }
 
     @Override
-    public int productUpdate(Product product) {
-        return productMapper.productUpdate(product);
+    public void productUpdate(Product product) {
+        productMapper.productUpdate(product);
     }
 
     @Override
-    public int productReserved(Long pno) {
-        return productMapper.productReserved(pno);
+    public void productReserved(Long pno) {
+        productMapper.productReserved(pno);
     }
 
     @Override
-    public int productOut(Long pno) {
-        return productMapper.productOut(pno);
+    public void productOut(Long pno) {
+        productMapper.productOut(pno);
     }
 
     @Override
-    public int productSale(Long pno) {
-        return productMapper.productSale(pno);
+    public void productSale(Long pno) {
+        productMapper.productSale(pno);
     }
 
     @Override
-    public int productRemove(Long pno) {
-        return productMapper.productRemove(pno);
+    public void productRemove(Long pno) {
+        productMapper.productRemove(pno);
     }
 
     @Override

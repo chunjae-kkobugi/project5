@@ -109,4 +109,8 @@
     <select id="getCateProCnt" resultType="java.util.Map">
         SELECT cateName, COUNT(p.cate) AS cnt FROM product p RIGHT OUTER JOIN category c ON (p.cate=c.cate) GROUP BY c.cate
     </select>
+
+    <select id="productGetLast" resultType="com.team45.entity.Product">
+        SELECT pno FROM product ORDER BY pno DESC LIMIT 1
+    </select>
 </mapper>
