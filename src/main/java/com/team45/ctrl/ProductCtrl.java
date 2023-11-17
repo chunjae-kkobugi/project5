@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import java.text.ParseException;
@@ -62,5 +63,12 @@ public class ProductCtrl {
         model.addAttribute("page", page);
 
         return "product/productList";
+    }
+
+    @GetMapping("detail")
+    public String productDetial(@RequestParam Long pno, HttpServletRequest request, Model model) {
+        ProductVO detail = productService.productDetail(pno);
+        model.addAttribute("detail", detail);
+        return "product/productDetail";
     }
 }

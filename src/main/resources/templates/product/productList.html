@@ -49,7 +49,7 @@
                                 <a th:href="@{/product/list}" th:text="전체"></a>
                             </li>
                             <li th:each="cate : ${categories}">
-                                <button class="cateBtn" th:value="${cate.cate}" th:text="${cate.cateName}" th:style="${cate.cate eq curCategory ? 'color : blue' : ''}"></button>
+                                <a class="cateBtn" th:value="${cate.cate}" th:text="${cate.cateName}" th:style="${cate.cate eq curCategory ? 'color : blue' : ''}"></a>
                             </li>
                         </ul>
                     </div>

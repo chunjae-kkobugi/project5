@@ -7643,3 +7643,80 @@ org.apache.ibatis.reflection.ReflectionException: There is no getter for propert
 2023-11-16 20:52:55.259 WARN  [http-nio-8080-exec-2] [o.s.web.servlet.PageNotFound] - No mapping for GET /product/js/cleditor/jquery.cleditor.css
 2023-11-16 20:53:36.918 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown initiated...
 2023-11-16 20:53:36.920 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown completed.
+2023-11-16 20:53:51.588 INFO  [background-preinit] [o.h.validator.internal.util.Version] - HV000001: Hibernate Validator 6.2.5.Final
+2023-11-16 20:53:51.592 INFO  [restartedMain] [com.team45.Team45Application] - Starting Team45Application using Java 17.0.7 on FULL8-018 with PID 16672 (D:\kim\project\tproj\project05\team45\build\classes\java\main started by db400tea in D:\kim\project\tproj\project05\team45)
+2023-11-16 20:53:51.593 INFO  [restartedMain] [com.team45.Team45Application] - No active profile set, falling back to 1 default profile: "default"
+2023-11-16 20:53:51.621 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-11-16 20:53:51.621 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-11-16 20:53:52.242 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8080 (http)
+2023-11-16 20:53:52.259 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8080"]
+2023-11-16 20:53:52.259 INFO  [restartedMain] [org.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2023-11-16 20:53:52.259 INFO  [restartedMain] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/9.0.82]
+2023-11-16 20:53:52.308 INFO  [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2023-11-16 20:53:52.308 INFO  [restartedMain] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 687 ms
+2023-11-16 20:53:52.709 INFO  [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] - LiveReload server is running on port 35729
+2023-11-16 20:53:52.728 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8080"]
+2023-11-16 20:53:52.740 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8080 (http) with context path ''
+2023-11-16 20:53:52.742 INFO  [restartedMain] [com.team45.Team45Application] - Started Team45Application in 1.367 seconds (JVM running for 1.8)
+2023-11-16 20:53:53.009 INFO  [http-nio-8080-exec-1] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-16 20:53:53.009 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+2023-11-16 20:53:53.009 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 0 ms
+2023-11-16 20:53:53.027 INFO  [http-nio-8080-exec-1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Starting...
+2023-11-16 20:53:53.076 INFO  [http-nio-8080-exec-1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Start completed.
+2023-11-16 20:53:53.289 WARN  [http-nio-8080-exec-10] [o.s.web.servlet.PageNotFound] - No mapping for GET /product/js/cleditor/jquery.cleditor.css
+2023-11-16 20:53:56.229 WARN  [http-nio-8080-exec-1] [o.s.web.servlet.PageNotFound] - No mapping for GET /product/js/cleditor/jquery.cleditor.css
+2023-11-16 20:55:16.380 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown initiated...
+2023-11-16 20:55:16.396 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown completed.
+2023-11-17 09:33:06.755 INFO  [background-preinit] [o.h.validator.internal.util.Version] - HV000001: Hibernate Validator 6.2.5.Final
+2023-11-17 09:33:06.756 INFO  [restartedMain] [com.team45.Team45Application] - Starting Team45Application using Java 17.0.7 on FULL8-018 with PID 4152 (D:\kim\project\tproj\project05\team45\build\classes\java\main started by db400tea in D:\kim\project\tproj\project05\team45)
+2023-11-17 09:33:06.757 INFO  [restartedMain] [com.team45.Team45Application] - No active profile set, falling back to 1 default profile: "default"
+2023-11-17 09:33:06.781 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-11-17 09:33:06.781 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-11-17 09:33:07.338 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8080 (http)
+2023-11-17 09:33:07.342 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8080"]
+2023-11-17 09:33:07.343 INFO  [restartedMain] [org.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2023-11-17 09:33:07.343 INFO  [restartedMain] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/9.0.82]
+2023-11-17 09:33:07.385 INFO  [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2023-11-17 09:33:07.385 INFO  [restartedMain] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 603 ms
+2023-11-17 09:33:07.770 INFO  [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] - LiveReload server is running on port 35729
+2023-11-17 09:33:07.784 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8080"]
+2023-11-17 09:33:07.795 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8080 (http) with context path ''
+2023-11-17 09:33:07.801 INFO  [restartedMain] [com.team45.Team45Application] - Started Team45Application in 1.23 seconds (JVM running for 1.701)
+2023-11-17 09:33:40.654 INFO  [http-nio-8080-exec-1] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-17 09:33:40.654 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+2023-11-17 09:33:40.655 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 1 ms
+2023-11-17 09:33:40.737 INFO  [http-nio-8080-exec-1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Starting...
+2023-11-17 09:33:40.889 INFO  [http-nio-8080-exec-1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Start completed.
+2023-11-17 09:33:41.348 WARN  [http-nio-8080-exec-7] [o.s.web.servlet.PageNotFound] - No mapping for GET /product/js/cleditor/jquery.cleditor.css
+2023-11-17 09:33:41.461 WARN  [http-nio-8080-exec-9] [o.s.web.servlet.PageNotFound] - No mapping for GET /product/images/favicon/favicon-16x16.png
+2023-11-17 09:33:41.465 WARN  [http-nio-8080-exec-10] [o.s.web.servlet.PageNotFound] - No mapping for GET /product/images/favicon/favicon-32x32.png
+2023-11-17 09:33:41.469 WARN  [http-nio-8080-exec-8] [o.s.web.servlet.PageNotFound] - No mapping for GET /product/images/favicon/favicon-48x48.png
+2023-11-17 09:33:41.473 WARN  [http-nio-8080-exec-5] [o.s.web.servlet.PageNotFound] - No mapping for GET /product/images/favicon/favicon-64x64.png
+2023-11-17 09:33:41.476 WARN  [http-nio-8080-exec-4] [o.s.web.servlet.PageNotFound] - No mapping for GET /product/images/favicon/favicon-96x96.png
+2023-11-17 09:33:42.541 WARN  [http-nio-8080-exec-3] [o.s.web.servlet.PageNotFound] - No mapping for GET /product/js/cleditor/jquery.cleditor.css
+2023-11-17 09:33:47.375 WARN  [http-nio-8080-exec-1] [o.s.web.servlet.PageNotFound] - No mapping for GET /product/js/cleditor/jquery.cleditor.css
+2023-11-17 09:34:07.481 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown initiated...
+2023-11-17 09:34:07.483 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown completed.
+2023-11-17 09:34:21.251 INFO  [background-preinit] [o.h.validator.internal.util.Version] - HV000001: Hibernate Validator 6.2.5.Final
+2023-11-17 09:34:21.251 INFO  [restartedMain] [com.team45.Team45Application] - Starting Team45Application using Java 17.0.7 on FULL8-018 with PID 7852 (D:\kim\project\tproj\project05\team45\build\classes\java\main started by db400tea in D:\kim\project\tproj\project05\team45)
+2023-11-17 09:34:21.253 INFO  [restartedMain] [com.team45.Team45Application] - No active profile set, falling back to 1 default profile: "default"
+2023-11-17 09:34:21.279 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-11-17 09:34:21.279 INFO  [restartedMain] [o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor] - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-11-17 09:34:21.856 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8080 (http)
+2023-11-17 09:34:21.860 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Initializing ProtocolHandler ["http-nio-8080"]
+2023-11-17 09:34:21.860 INFO  [restartedMain] [org.apache.catalina.core.StandardService] - Starting service [Tomcat]
+2023-11-17 09:34:21.861 INFO  [restartedMain] [org.apache.catalina.core.StandardEngine] - Starting Servlet engine: [Apache Tomcat/9.0.82]
+2023-11-17 09:34:21.906 INFO  [restartedMain] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring embedded WebApplicationContext
+2023-11-17 09:34:21.906 INFO  [restartedMain] [o.s.b.w.s.c.ServletWebServerApplicationContext] - Root WebApplicationContext: initialization completed in 627 ms
+2023-11-17 09:34:22.287 INFO  [restartedMain] [o.s.b.d.a.OptionalLiveReloadServer] - LiveReload server is running on port 35729
+2023-11-17 09:34:22.303 INFO  [restartedMain] [o.apache.coyote.http11.Http11NioProtocol] - Starting ProtocolHandler ["http-nio-8080"]
+2023-11-17 09:34:22.314 INFO  [restartedMain] [o.s.b.w.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8080 (http) with context path ''
+2023-11-17 09:34:22.321 INFO  [restartedMain] [com.team45.Team45Application] - Started Team45Application in 1.266 seconds (JVM running for 1.677)
+2023-11-17 09:34:27.000 INFO  [http-nio-8080-exec-1] [o.a.c.c.C.[Tomcat].[localhost].[/]] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-11-17 09:34:27.000 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+2023-11-17 09:34:27.000 INFO  [http-nio-8080-exec-1] [o.s.web.servlet.DispatcherServlet] - Completed initialization in 0 ms
+2023-11-17 09:34:27.024 INFO  [http-nio-8080-exec-1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Starting...
+2023-11-17 09:34:27.078 INFO  [http-nio-8080-exec-1] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Start completed.
+2023-11-17 09:34:27.336 WARN  [http-nio-8080-exec-9] [o.s.web.servlet.PageNotFound] - No mapping for GET /product/js/cleditor/jquery.cleditor.css
+2023-11-17 09:35:45.481 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown initiated...
+2023-11-17 09:35:45.483 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown completed.
