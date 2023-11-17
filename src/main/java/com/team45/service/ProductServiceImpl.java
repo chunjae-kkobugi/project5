@@ -5,6 +5,7 @@ import com.team45.entity.FileData;
 import com.team45.entity.Product;
 import com.team45.entity.ProductVO;
 import com.team45.mapper.FileDataMapper;
+import com.team45.mapper.MyShopMapper;
 import com.team45.mapper.ProductMapper;
 import com.team45.util.Page;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,9 @@ public class ProductServiceImpl implements ProductService{
     private ProductMapper productMapper;
     @Autowired
     private FileDataMapper fileDataMapper;
+    @Autowired
+    private MyShopMapper myShopMapper;
+
 
     @Override
     public List<ProductVO> productList(Page page) {
@@ -37,13 +41,13 @@ public class ProductServiceImpl implements ProductService{
         return productMapper.productDetail(pno);
     }
     @Override
-    public List<Product> productListBySeller(String seller, Page page) {
-        return productMapper.productListBySeller(seller, page);
+    public List<ProductVO> productListBySeller(String seller, Page page) {
+        return myShopMapper.productListBySeller(seller, page);
     }
 
     @Override
     public int productCountBySeller(String seller, Page page) {
-        return productMapper.productCountBySeller(seller, page);
+        return myShopMapper.productCountBySeller(seller, page);
     }
 
 

@@ -14,8 +14,6 @@ public interface ProductMapper {
     List<ProductVO> productList(Page page);
     int getCount(Page page);
     ProductVO productDetail(Long pno);
-    List<Product> productListBySeller(String seller, Page page);
-    int productCountBySeller(String seller, Page page);
     int productInsert(Product product);
     void productUpdate(Product product);
     void productReserved(Long pno);

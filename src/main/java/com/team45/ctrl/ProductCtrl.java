@@ -50,6 +50,8 @@ public class ProductCtrl {
 
         // 페이징에 필요한 데이터 저장
         int total = productService.getCount(page);
+        page.setPageTotal(total);
+        page.makePage();
 
         List<ProductVO> productList = productService.productList(page);
         List<Category> categories = productService.categories();
@@ -191,24 +193,21 @@ public class ProductCtrl {
 //        return "redirect:list";
 //    }
 
+    @GetMapping("edit")
+    public String productEditForm(HttpServletRequest request, @RequestParam("pno") Long pno, Model model) {
+        ProductVO product = productService.productDetail(pno);
+        List<Category> categories = productService.categories();
+
+        model.addAttribute("detail", product);
+        model.addAttribute("cateList", categories);
+
+        return "product/productEdit";
+    }
+
+    @GetMapping("delete")
+    public String productDelete (@RequestParam("pno") Long pno) {
+        productService.productRemove(pno);
+        return "redirect:list";
+    }
 }
 
-
-//        if ( files != null) {
-//            ServletContext application = request.getSession().getServletContext();
-//            String realPath = "";                                                     //application.yml location 적용시 폴더
-//            String realPath2 = "D:/kim/project/tproj/project05/team45/src/main/resources/static/images";      //application.yml 미적용시 폴더
-//
-//            SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-//            Date date = new Date();
-//            String dateFolder = sdf.format(date);
-//            String originalThumbname = files.getOriginalFilename();
-//            UUID uuid = UUID.randomUUID();
-//            String uploadThumbname = uuid.toString() + "_" + originalThumbname;
-//
-//            fileData.setColumnNo(pno);
-//            fileData.setTableName("product");
-//            fileData.setOriginName(originalThumbname);
-//            fileData.setSaveName(uploadThumbname);
-//            fileData.setSavePath(realPath2);
-//        }

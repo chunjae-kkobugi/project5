@@ -33,7 +33,7 @@ UPDATE member
 SET status = 'REST'
 WHERE loginAt <= DATE_SUB(NOW(), INTERVAL 30 DAY);
 
--- 상품 카테고리
+-- 상품 카테고리 (추가됨)
 CREATE TABLE category(
 	cate VARCHAR(50) NOT NULL PRIMARY KEY, 	-- 카테고리 코드
 	cateName VARCHAR(100) NOT NULL);				-- 카테고리 이름
