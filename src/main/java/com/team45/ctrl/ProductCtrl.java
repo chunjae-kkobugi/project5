@@ -43,6 +43,8 @@ public class ProductCtrl {
 
         // 페이징에 필요한 데이터 저장
         int total = productService.getCount(page);
+        page.setPageTotal(total);
+        page.makePage();
 
         List<ProductVO> productList = productService.productList(page);
         List<Category> categories = productService.categories();
