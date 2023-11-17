@@ -1,8 +1,10 @@
 package com.team45.ctrl;
 
 import com.team45.entity.Category;
+import com.team45.entity.ChatRoom;
 import com.team45.entity.Product;
 import com.team45.entity.ProductVO;
+import com.team45.service.ChatService;
 import com.team45.service.ProductService;
 import com.team45.util.Page;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -24,6 +27,12 @@ import java.util.List;
 public class ProductCtrl {
     @Autowired
     private ProductService productService;
+
+    @Autowired
+    private HttpSession session;
+
+    @Autowired
+    private ChatService chatService;
 
     // 전체 상품 리스트
     @GetMapping("list")
@@ -71,6 +80,13 @@ public class ProductCtrl {
     public String productDetial(@RequestParam Long pno, HttpServletRequest request, Model model) {
         ProductVO detail = productService.productDetail(pno);
         model.addAttribute("detail", detail);
+
+        String sid = (String) session.getAttribute("sid");
+        if(sid.equals(detail.getSeller())){
+            List<ChatRoom> roomList = chatService.chatRoomProductList(pno);
+            model.addAttribute("roomList", roomList);
+        }
+
         return "product/productDetail";
     }
 }

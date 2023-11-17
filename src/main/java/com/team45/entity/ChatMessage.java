@@ -16,11 +16,11 @@ public class ChatMessage {
         ENTER, TALK, LEAVE, NOTICE
     }
 
-    private int chatNo;
+    private Long chatNo;
     @NotNull
     private MessageType type;           // 메시지 타입
     @NotNull
-    private int roomNo;              // 방 번호
+    private Long roomNo;              // 방 번호
     @NotNull
     private String sender;              // 채팅을 보낸 사람
     @NotNull

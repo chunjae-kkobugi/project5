@@ -9,10 +9,10 @@ import java.util.List;
 public interface ChatMessageMapper {
     // 과거 보낸 채팅부터 정렬
     @Select("SELECT * FROM chatMessage WHERE roomNo=#{roomNo} AND status!='REMOVE' ORDER BY time ASC")
-    public List<ChatMessage> chatMessageList(int roomNo);
+    public List<ChatMessage> chatMessageList(Long roomNo);
 
     @Select("SELECT COUNT(*) FROM chatMessage WHERE roomNo=#{roomNo} AND status='UNREAD'")
-    public int chatMessageUnread(int roomNo);
+    public int chatMessageUnread(Long roomNo);
     @Select("SELECT * FROM chatMessage ORDER BY chatNo DESC LIMIT 1")
     public ChatMessage chatMessageGetLast();
 
@@ -20,15 +20,15 @@ public interface ChatMessageMapper {
     public int chatMessageInsert(ChatMessage chatMessage);
 
     @Update("UPDATE chatMessage SET status='READ' WHERE chatNo=#{chatNo} AND sender!=#{sender}")
-    public int chatMessageReadUpdate(int chatNo, String sender);
+    public int chatMessageReadUpdate(Long chatNo, String sender);
 
     // 상대방이 보낸 메시지만 읽음 처리
     @Update("UPDATE chatMessage SET status='READ' WHERE roomNo=#{roomNo} AND sender!=#{sender}")
-    public int chatMessageReadUpdates(int roomNo, String sender);
+    public int chatMessageReadUpdates(Long roomNo, String sender);
 
     @Update("UPDATE chatMessage SET status='REMOVE' WHERE chatNo=#{chatNo}")
-    public int chatMessageRemoveUpdate(int chatNo);
+    public int chatMessageRemoveUpdate(Long chatNo);
 
     @Delete("DELETE FROM chatMessage WHERE chatNo=#{chatNo}")
-    public int chatMessageDelete(int chatNo);
+    public int chatMessageDelete(Long chatNo);
 }

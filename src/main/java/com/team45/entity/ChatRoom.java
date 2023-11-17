@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ChatRoom {
-    private int roomNo;
+    private Long roomNo;
     private String memId;
-    private int pno;
+    private Long pno;
     private String status = "ON";
 }
