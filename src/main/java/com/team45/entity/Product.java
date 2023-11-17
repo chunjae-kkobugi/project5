@@ -13,7 +13,7 @@ public class Product {
     private Long pno;
     private String pname;
     private String content;
-    private String category;
+    private String cate;
     private String seller;
     private int price = 0;
     private String proaddr;

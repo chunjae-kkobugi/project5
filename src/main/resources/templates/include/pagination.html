@@ -28,14 +28,19 @@
     </ul>
     <script th:inline="javascript">
         /*<![CDATA[*/
+
         function paging(page){
             const form = document.createElement('form');
             form.method = "GET";
             form.action = /*[[${pageLink}]]*/ 'default';
             let searchtype = /*[[${page.searchType}]]*/ 'default';
             let searchkeyword = /*[[${page.searchKeyword}]]*/ 'default';
+            let category = /*[[${page.category}]]*/ 'default';
+            let proaddr = /*[[${page.proaddr}]]*/ 'default';
+            let status = /*[[${page.status}]]*/ 'default';
+            let pno = /*[[${page.pno}]]*/ 'default';
 
-            let params = {type: searchtype, keyword: searchkeyword, page: page};
+            let params = {type: searchtype, keyword: searchkeyword, page: page, category: category, proaddr: proaddr, status: status, pno: pno};
 
             for (const key in params) {
                 if (params.hasOwnProperty(key)) {
@@ -43,9 +48,12 @@
                     hiddenField.type = 'hidden';
                     hiddenField.name = key;
                     hiddenField.value = params[key];
-                    form.appendChild(hiddenField);
+                    if(hiddenField.value!=""){
+                        form.appendChild(hiddenField);
+                    }
                 }
             }
+
             document.body.appendChild(form);
             form.submit();
         }

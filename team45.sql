@@ -33,13 +33,21 @@ UPDATE member
 SET status = 'REST'
 WHERE loginAt <= DATE_SUB(NOW(), INTERVAL 30 DAY);
 
+-- 상품 카테고리 (추가됨)
+CREATE TABLE category(
+	cate VARCHAR(50) NOT NULL PRIMARY KEY, 	-- 카테고리 코드
+	cateName VARCHAR(100) NOT NULL);				-- 카테고리 이름
+	
+INSERT INTO category VALUES('A', '국어');
+INSERT INTO category VALUES('B', '수학');
+INSERT INTO category VALUES('C', '영어');
 
 -- 중고거래 상품
 CREATE TABLE product(
     pno BIGINT PRIMARY KEY AUTO_INCREMENT,
     pname VARCHAR(300) NOT NULL,                                -- 상품 이름
     content VARCHAR(2000),                                      -- 상품 설명
-    category VARCHAR(100),                                      -- 상품 카테고리
+    cate VARCHAR(100),                                      	 -- 상품 카테고리
     seller VARCHAR(20) NOT NULL,                                -- 판매자 member.id
     price INT NOT NULL DEFAULT 0,                               -- 상품 가격
     proaddr VARCHAR(100),                                       -- 직거래 동네
@@ -48,8 +56,9 @@ CREATE TABLE product(
     baseAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,        -- 끌어올리기 날짜
     status VARCHAR(50) DEFAULT 'SALE',                          -- REMOVE(삭제), 'SALE' 판매중, 'RESERVED' 예약중, 'OUT' 거래 완료
     visited INT DEFAULT 0                                       -- 조회수
-
 );
+
+INSERT INTO product VALUES(DEFAULT, '상품1', '상품1 내용', 'A', 'kimbk111', 1000, '가산동', null, DEFAULT, NULL, 'SALE', DEFAULT);
 
 -- 업로드 파일 관리
 CREATE TABLE fileData(
