@@ -2,6 +2,7 @@ package com.team45.ctrl;
 
 import com.team45.entity.Member;
 import com.team45.entity.Product;
+import com.team45.entity.ProductVO;
 import com.team45.service.MemberService;
 import com.team45.service.ProductService;
 import com.team45.util.Page;
@@ -220,7 +221,7 @@ public class MemberCtrl {
         page.makePage();
         model.addAttribute("page", page);
 
-        List<Product> products = productService.productListBySeller(sid, page);
+        List<ProductVO> products = productService.productListBySeller(sid, page);
         //System.out.println("total:"+page.getPostTotal());
         model.addAttribute("products", products);
         return "/member/myProducts";

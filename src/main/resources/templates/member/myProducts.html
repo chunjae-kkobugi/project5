@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <th:block th:replace="include/head :: head" ></th:block>
-  <th:block th:replace="include/head2 :: head2" ></th:block>
+  <th:block th:replace="/include/head :: head" ></th:block>
   <title>마이페이지</title>
 </head>
 <body>
@@ -48,7 +47,7 @@
                   <!--<img th:src="@{/images/classimage/user/user-thumb.jpg}" alt="회원사진" class="rounded-circle">-->
                   <img width="80px" height="auto" th:src="@{/images/classimage/products/products-1.jpg}" alt="image description"></td>
                 <td class="product-details">
-                  <a th:href="@{/product/productGet(pno=${product.pno})}">
+                  <a th:href="@{/product/detail(pno=${product.pno})}">
                     <h3 class="title" th:text="${product.pname}">
                     </h3>
                   </a>
@@ -65,7 +64,7 @@
                   </div>
                   <!--<span class="location"><strong>주소</strong>[[${product.proaddr}]]</span>-->
                 </td>
-                <td class="product-category"><span class="categories" th:text="${product.category}"></span></td>
+                <td class="product-category"><span class="categories" th:text="${product.cateName}"></span></td>
                 <td class="action" data-title="Action">
                   <div class="">
                     <ul class="list-inline justify-content-center">
