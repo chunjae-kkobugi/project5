@@ -239,4 +239,13 @@ public class MemberCtrl {
         return "/member/myWish";
     }
 
+    @GetMapping("myshop/keyword")
+    public String myKeywords(Model model) {
+        String sid = (String) session.getAttribute("sid");
+        Member member = memberService.memberGet(sid);
+        model.addAttribute("member", member);
+        return "/member/myKeywords";
+    }
+
+
 }
