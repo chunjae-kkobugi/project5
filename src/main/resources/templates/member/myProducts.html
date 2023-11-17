@@ -19,58 +19,7 @@
     <!-- Row Start -->
     <div class="row">
       <div class="col-lg-4">
-        <div class="sidebar">
-          <!-- User Widget -->
-          <div class="widget user-dashboard-profile">
-            <!-- User Image -->
-            <div class="profile-thumb">
-              <img th:src="@{/images/empty_profile.png}" alt="프로필 사진" class="rounded-circle">
-            </div>
-            <!-- User Name -->
-            <!--<td th:text="${#dates.format(board.createAt, 'yyyy-MM-dd')}"></td>-->
-            <h5 class="mt-2 text-center" th:text="${member.name}">회원 이름</h5>
-            <p th:text="|${#dates.format(member.createAt, 'yyyy-MM-dd')} 가입|"></p>
-            <a href="user-profile.html" class="btn btn-main-sm">프로필 수정</a>
-          </div>
-          <!-- Dashboard Links -->
-          <div class="widget user-dashboard-menu">
-            <ul>
-              <li class="active">
-                <a th:href="@{/member/myshop/products}">
-                  <i class="fa fa-user"></i> 상품
-                </a>
-              </li>
-              <li>
-                <a th:href="@{/member/myshop/wish}">
-                  <i class="fa fa-heart"></i> 찜
-                </a>
-              </li>
-              <li>
-                <a href="dashboard-archived-ads.html">
-                  <i class="fa fa-file-archive-o"></i> Archived Ads
-                </a>
-              </li>
-              <li>
-                <a href="dashboard-pending-ads.html">
-                  <i class="fa fa-bolt"></i> Pending Approval
-                </a>
-              </li>
-              <li>
-                <a href="index.html">
-                  <i class="fa fa-cog"></i> Logout
-                </a>
-              </li>
-              <li>
-                <a href="#!" data-toggle="modal" data-target="#deleteaccount"><i class="fa fa-power-off"></i> 회원탈퇴
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <!-- delete account popup modal end-->
-          <!-- delete-account modal -->
-
-        </div>
+        <th:block th:replace="/include/sidebar :: sidebar('products')"></th:block>
       </div>
       <div class="col-lg-8">
         <!-- Recently Favorited -->
