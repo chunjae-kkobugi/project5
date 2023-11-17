@@ -8,20 +8,23 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class RecommentService {
+public class RecommentServiceImpl implements RecommentService{
 
     @Autowired
     private RecommentMapper recommentMapper;
 
-    public List<Recomment> recommentList(){
-     return recommentMapper.recommentList();
+    @Override
+    public List<Recomment> recommentList(String mem_id) {
+        return recommentMapper.recommentList(mem_id);
     }
 
-    public void recommentAdd(Recomment recomment){
+    @Override
+    public void recommentAdd(Recomment recomment) {
         recommentMapper.recommentAdd(recomment);
+    }
 
-    };
-    public void recommentDel(int no){
+    @Override
+    public void recommentDel(int no) {
         recommentMapper.recommentDel(no);
-    };
+    }
 }

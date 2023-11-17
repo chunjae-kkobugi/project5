@@ -1,4 +1,4 @@
-package com.team45.mapper;
+package com.team45.service;
 
 
 import com.team45.entity.Recomment;
@@ -10,16 +10,10 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Component
-@Mapper
-public interface RecommentMapper {
-    @Select("select * from recomment where mem_id")
+
+public interface RecommentService {
     List<Recomment> recommentList(String mem_id);
-
-    @Insert("insert into recomment values(default, #{mem_id}, #{comment})")
     void recommentAdd(Recomment recomment);
-
-    @Delete("delete from recomment where no=#{no}")
     void recommentDel(int no);
 
 

@@ -3,15 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" th:href="@{/images/logo.png}">
-    <link rel="stylesheet" href="/css/pure-min.css">
-    <link rel="stylesheet" href="/css/grids-responsive-min.css">
-    <link rel="stylesheet" href="/css/styles.css">
-    <meta id="_csrf" name="_csrf" content="${_csrf.token}"/>
-    <meta id="_csrf_header" name="_csrf_header" content="${_csrf.headerName}"/>
+    <th:block th:replace="include/head :: head" ></th:block>
+    <th:block th:replace="include/head2 :: head2" ></th:block>
     <title>메인 페이지</title>
 </head>
 <body>
+<th:block th:replace="include/header :: header" ></th:block>
 
 <table>
     <thead>
@@ -36,5 +33,7 @@
 <div>
     <a th:href="@{/notice/Add}">공지등록</a>
 </div>
+<th:block th:replace="/include/footer :: footer"></th:block>
+
 </body>
 </html>
