@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ChatRoom {
     private int roomNo;
-    private String userId;
+    private String memId;
     private int pno;
     private String status = "ON";
 }

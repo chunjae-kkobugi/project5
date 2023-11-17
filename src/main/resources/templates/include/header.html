@@ -2,7 +2,8 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <body>
-<header th:fragment="header">
+<th:block th:fragment="header">
+    <header>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -28,7 +29,7 @@
                                 <a class="nav-link dropdown-toggle" data-toggle="dropdown">커뮤니티<span><i class="fa fa-angle-down"></i></span>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item @@dashboardPage" th:href="@{/board/notice/list}">공지사항</a></li>
+                                    <li><a class="dropdown-item @@dashboardPage" th:href="@{/notice/List}">공지사항</a></li>
                                     <li><a class="dropdown-item @@dashboardMyAds" th:href="@{/board/free/list}">자유게시판</a></li>
                                     <li><a class="dropdown-item @@dashboardFavouriteAds" th:href="@{/board/faq/list}">FAQ</a></li>
                                 </ul>
@@ -66,7 +67,37 @@
             </div>
         </div>
     </div>
+    <div id="chatMenu" >
+    </div>
+    <div id="chatList" style="display: none;">
+        <ul>
+            <li></li>
+            <br>
+            <li></li>
+            <br>
+            <li></li>
+            <br>
+            <li></li>
+            <br>
+            <li></li>
+        </ul>
+    </div>
+    <script th:inline="javascript">
+        $(document).ready(function () {
+            var sw = true;
+            sw=!sw
+            $("#chatMenu").click(function () {
+                $("#chatList").slideToggle()
+                if(sw==true){
+                    sw = false
+                }else if(sw==false) {
+                    sw = true
+                }
+            });
+        });
+    </script>
 </header>
+</th:block>
 </body>
 
 </html>
