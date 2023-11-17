@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div th:replace="/include/head.html :: head"></div>
+    <title>타이틀</title>
+</head>
+<body>
+<div th:replace="/include/header.html :: header"></div>
+<div class="container contenter">
+    <h1>공지사항 목록</h1>
+    <div th:replace="/include/searchList.html :: fragment-search('/board/noticeList', 'title:제목,content:내용,author:작성자')"></div>
+    <table class="table text-center" th:if="${not #lists.isEmpty(boardList)}">
+        <thead>
+        <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>작성자</th>
+            <th>등록일</th>
+            <th>조회수</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="board, about : ${boardList}">
+            <td th:text="${about.count}"></td>
+            <td><a th:text="${board.title}" th:href="@{/board/noticeGet(boardNo=${board.boardNo})}" /></td>
+            <td th:text="${board.author}"></td>
+            <td th:text="${#dates.format(board.createAt, 'yyyy-MM-dd')}"></td>
+            <td th:text="${board.visited}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <th:block th:if="${not #lists.isEmpty(boardList)}"><div th:replace="/include/pagination.html :: fragment-pagination('/board/noticeList')"></div></th:block>
+    <div th:if="${#lists.isEmpty(boardList)}" class="text-center">목록이 비어있습니다.</div>
+    <a th:href="@{/board/noticeWrite}" class="btn btn-primary">추가</a>
+</div>
+</body>
+</html>
