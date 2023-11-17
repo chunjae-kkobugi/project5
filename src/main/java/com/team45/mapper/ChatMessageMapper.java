@@ -14,10 +14,13 @@ public interface ChatMessageMapper {
     @Select("SELECT COUNT(*) FROM chatMessage WHERE roomNo=#{roomNo} AND status='UNREAD'")
     public int chatMessageUnread(Long roomNo);
 
+    @Select("SELECT COUNT(*) FROM chatMessage WHERE receiver=#{receiver} AND status='UNREAD'")
+    public int chatMessageUnreadAll(String receiver);
+
     @Select("SELECT * FROM chatMessage ORDER BY chatNo DESC LIMIT 1")
     public ChatMessage chatMessageGetLast();
 
-    @Insert("INSERT INTO chatMessage(type, roomNo, sender, message) VALUES(#{type}, #{roomNo}, #{sender}, #{message})")
+    @Insert("INSERT INTO chatMessage(type, roomNo, sender, receiver, message) VALUES(#{type}, #{roomNo}, #{sender}, #{message})")
     public int chatMessageInsert(ChatMessage chatMessage);
 
     @Update("UPDATE chatMessage SET status='READ' WHERE chatNo=#{chatNo} AND sender!=#{sender}")

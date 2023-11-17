@@ -12,4 +12,5 @@ public class ChatRoom {
     private String memId;
     private Long pno;
     private String status = "ON";
+    private String seller;
 }

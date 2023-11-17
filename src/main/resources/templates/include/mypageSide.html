@@ -24,7 +24,7 @@
                 <a th:href="@{/}"><i class="fa fa-gift"></i> 나의 상품 <span>12</span></a>
             </li>
             <li>
-                <a th:href="@{/member/chatList}"><i class="fa fa-comment"></i> 채팅<span>23</span></a>
+                <a th:href="@{/member/myChat}"><i class="fa fa-comment"></i> 채팅<span id="unreadCount"></span></a>
             </li>
             <li>
                 <a th:href="@{/}"><i class="fa fa-cog"></i> Logout</a>
@@ -43,8 +43,17 @@
             }
         }
 
-        $.ready(function(){
-
+        $(document).ready(function(){
+            $.ajax({
+                url: "/chat/unreadAll",
+                data: {receiver: /*[[${member.id}]]*/ 'default'},
+                type: "get",
+                success: function(response){
+                    if(response>0){
+                        $("#unreadCount").text(response);
+                    }
+                }
+            });
         })
     </script>
 </div>

@@ -29,4 +29,7 @@ public interface ChatRoomMapper {
 
     @Delete("DELETE FROM chatroom WHERE roomNo=#{roomNo}")
     public int chatRoomDelete(Long roomNo);
+
+    @Select("SELECT chatroom.*, product.seller FROM chatRoom JOIN product ON (chatroom.pno = product.pno) WHERE seller = #{id} OR memId=#{id}")
+    public List<ChatRoom> chatRoomMy(String id);
 }

@@ -16,4 +16,7 @@ public interface ChatService {
     public int chatMessageReadUpdate(Long chatNo, String sender);
     public int chatMessageReadUpdates(Long roomNo, String sender);
     public int chatMessageRemoveUpdate(Long chatNo);
+
+    public int chatMessageUnreadAll(String receiver);
+    public List<ChatRoom> chatRoomMy(String id);
 }

@@ -126,4 +126,10 @@ public class ChatRoomCtrl {
 
         return "readChat Completed";
     }
+
+    @GetMapping("unreadAll")
+    @ResponseBody
+    public int unreadAll(@RequestParam String receiver){
+        return chatService.chatMessageUnreadAll(receiver);
+    }
 }

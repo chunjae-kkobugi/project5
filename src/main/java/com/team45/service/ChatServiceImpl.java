@@ -70,4 +70,14 @@ public class ChatServiceImpl implements ChatService {
     public int chatMessageRemoveUpdate(Long chatNo) {
         return chatMapper.chatMessageRemoveUpdate(chatNo);
     }
+
+    @Override
+    public int chatMessageUnreadAll(String receiver) {
+        return chatMapper.chatMessageUnreadAll(receiver);
+    }
+
+    @Override
+    public List<ChatRoom> chatRoomMy(String id) {
+        return roomMapper.chatRoomMy(id);
+    }
 }
