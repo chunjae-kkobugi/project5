@@ -10,3 +10,10 @@ a {
     text-decoration: none;
     cursor: pointer;
 }
+
+a:focus,
+a:hover {
+    text-decoration: none;
+    outline: 0;
+    color: #5672f9;
+}

@@ -145,6 +145,13 @@ public class MemberCtrl {
         return "member/myPage";
     }
 
+    @GetMapping("myPage2")
+    public String myPage2(@RequestParam String id, Model model){
+        Member mem = memberService.memberGet(id);
+        model.addAttribute("member", mem);
+        return "member/dashboard-my-ads";
+    }
+
     @GetMapping("remove")
     public String remove(@RequestParam String id, Model model){
         session.invalidate();

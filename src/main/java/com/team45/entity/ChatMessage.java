@@ -23,6 +23,7 @@ public class ChatMessage {
     private Long roomNo;              // 방 번호
     @NotNull
     private String sender;              // 채팅을 보낸 사람
+    private String receiver;            // 채팅을 받는 사람
     @NotNull
     private String message;             // 메시지
     private String status = "UNREAD";   // 읽음 여부

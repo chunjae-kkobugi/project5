@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -63,7 +62,7 @@ public class AdminCtrl {
         List<Member> memberList = memberService.memberList(page);
         model.addAttribute("memberList", memberList);
 
-        return "admin/memberList";
+        return "admin/member/memberList.html";
     }
 
     @GetMapping("productList")
