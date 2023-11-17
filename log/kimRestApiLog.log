@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 2023-11-16 09:04:13.413 INFO  [background-preinit] [o.h.validator.internal.util.Version] - HV000001: Hibernate Validator 6.2.5.Final
 2023-11-16 09:04:13.416 INFO  [restartedMain] [com.team45.Team45Application] - Starting Team45Application using Java 17.0.7 on FULL8-019 with PID 6824 (D:\kyo\team45\build\classes\java\main started by db400tea in D:\kyo\team45)
 2023-11-16 09:04:13.417 INFO  [restartedMain] [com.team45.Team45Application] - No active profile set, falling back to 1 default profile: "default"
@@ -2453,3 +2454,5 @@ java.sql.SQLSyntaxErrorException: (conn=2143) Table 'team45.board' doesn't exist
 2023-11-16 17:52:42.591 WARN  [http-nio-8080-exec-4] [o.s.web.servlet.PageNotFound] - No mapping for GET /notice/resource/$%7Bnotice.img%20%7D
 2023-11-16 17:52:47.645 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown initiated...
 2023-11-16 17:52:47.645 INFO  [SpringApplicationShutdownHook] [com.zaxxer.hikari.HikariDataSource] - HikariPool-1 - Shutdown completed.
+=======
+>>>>>>> d354fb091cc70cf859a6a9528aaf11a98fb53701

@@ -17,8 +17,8 @@ public class ChatServiceImpl implements ChatService {
     ChatMessageMapper chatMapper;
 
     @Override
-    public List<ChatRoom> chatRoomProductList(int usedNo) {
-        return roomMapper.chatRoomProductList(usedNo);
+    public List<ChatRoom> chatRoomProductList(int pno) {
+        return roomMapper.chatRoomProductList(pno);
     }
 
     @Override
@@ -27,13 +27,12 @@ public class ChatServiceImpl implements ChatService {
     }
 
     @Override
-    public ChatRoom chatRoomInsert(String userId, int usedNo) {
-        if(roomMapper.chatRoomGetUnique(userId, usedNo)>0){
-            return null;
+    public ChatRoom chatRoomInsert(String memId, int pno) {
+        if(roomMapper.chatRoomGetUnique(memId, pno)<1){
+            roomMapper.chatRoomInsert(memId, pno);
         }
-        
-        roomMapper.chatRoomInsert(userId, usedNo);
-        return roomMapper.chatRoomGetId(usedNo, userId);
+
+        return roomMapper.chatRoomGetId(pno, memId);
     }
 
     @Override
@@ -42,8 +41,7 @@ public class ChatServiceImpl implements ChatService {
     }
 
     @Override
-    public List<ChatMessage> chatMessageList(int roomNo, String sender) {
-        chatMapper.chatMessageReadUpdates(roomNo, sender);
+    public List<ChatMessage> chatMessageList(int roomNo) {
         return chatMapper.chatMessageList(roomNo);
     }
 

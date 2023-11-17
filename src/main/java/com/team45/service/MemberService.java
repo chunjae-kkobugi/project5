@@ -21,5 +21,6 @@ public interface MemberService {
     public void memberOutside(String id);
     public void change(String id, LocalDateTime createAt);
     public void loginAt(String id);
-
+    public int memberCount(Page page);
+    List<Member> memberCreateStats();
 }

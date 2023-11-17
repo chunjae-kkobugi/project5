@@ -7,9 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ChatRoom {
-    private int roomNo;
-    private String memId;
-    private int pno;
-    private String status = "ON";
+public class Wish {
+    private Long wno;
+    private Long pno;
+    private String uid;
+    private int status;
 }
