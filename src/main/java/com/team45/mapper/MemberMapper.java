@@ -24,7 +24,7 @@ public interface MemberMapper {
     @Select("SELECT * FROM member")
     List<Member> memberList2();
 
-    @Select("SELECT Date(createAt) as createAt, COUNT(*) as mno FROM member GROUP BY DATE(createAt)")
+    @Select("SELECT Date(createAt) as createAt, COUNT(*) as mno FROM member GROUP BY DATE(createAt) ORDER BY createAt DESC LIMIT 7")
     List<Member> memberCreateStats();
 
     @Select({"<script>","SELECT COUNT(*) FROM member WHERE",
