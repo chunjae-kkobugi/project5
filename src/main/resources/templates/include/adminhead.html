@@ -74,5 +74,19 @@
     <script th:src="@{/css/skydash-admin/js/dashboard.js}"></script>
     <script th:src="@{/css/skydash-admin/js/Chart.roundedBarCharts.js}"></script>
     <!-- End custom js for this page-->
+
+    <style>
+        .sidebar-icon-only #toggle-btn {
+            transform: rotate(180deg);
+        }
+
+        #toggle-btn:not(.sidebar-icon-only) {
+            -webkit-transition: transform 0.3s linear;
+            -moz-transition: transform 0.3s linear;
+            -ms-transition: transform 0.3s linear;
+            -o-transition: transform 0.3s linear;
+            transition: transform 0.3s linear;
+        }
+    </style>
 </head>
 </html>
