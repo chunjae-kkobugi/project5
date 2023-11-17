@@ -16,7 +16,7 @@ public interface ProductService {
     public List<ProductVO> productList(Page page);
     public int getCount(Page page);
     public ProductVO productDetail(Long pno);
-    public List<Product> productListBySeller(String seller, Page page);
+    public List<ProductVO> productListBySeller(String seller, Page page);
     public int productCountBySeller(String seller, Page page);
     public int productInsert(Product product);
     public int productUpdate(Product product);
