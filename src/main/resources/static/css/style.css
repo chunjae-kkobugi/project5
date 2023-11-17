@@ -2301,3 +2301,32 @@ form textarea {
   }
 }
 /*# sourceMappingURL=style.css.map */
+
+
+/* header 알림창 */
+
+ #chatMenu {
+   background-color: gray;
+   margin: 0;
+   position: fixed;
+   top: 2%;
+   right: 2%;
+   width: 30px;
+   height: 30px;
+   text-align: center;
+   border: 1px solid black;
+   border-radius: 50%;
+ }
+
+#chatList {
+  background-color:gray;
+  margin: 0;
+  position: fixed;
+  top: 8%;
+  right: 2%;
+  width: 300px;
+  height: 400px;
+  text-align: center;
+  border: 0.5px solid black;
+  border-radius: 5%;
+}
