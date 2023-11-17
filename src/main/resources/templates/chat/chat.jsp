@@ -8,7 +8,7 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>HEABEOP::서브</title>
+    <title>TSellpa::서브</title>
     <jsp:include page="../layout/head.jsp" />
     <link rel="stylesheet" href="${path }/resources/css/sub.css">
     <style>
@@ -39,13 +39,13 @@
 <jsp:include page="../layout/header.jsp" />
 <div class="container-fluid bg-primary mb-5">
     <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
-        <h3 class="display-3 font-weight-bold text-white">해법 톡톡</h3>
+        <h3 class="display-3 font-weight-bold text-white">TSellpa 톡톡</h3>
         <div class="d-inline-flex text-white">
             <p class="m-0"><a class="text-white" href="${path}/">Home</a></p>
             <p class="m-0 px-2">/</p>
-            <p class="m-0"><a class="text-white" href="#">해법 톡톡</a></p>
+            <p class="m-0"><a class="text-white" href="#">TSellpa 톡톡</a></p>
             <p class="m-0 px-2">/</p>
-            <p class="m-0">해법 톡톡</p>
+            <p class="m-0">TSellpa 톡톡</p>
         </div>
     </div>
 </div>

@@ -12,10 +12,7 @@ import java.util.Map;
 @Mapper
 public interface ProductMapper {
     List<ProductVO> productList(Page page);
-    List<ProductVO> saleProductList(Page page);
-    List<ProductVO> productRegionList(Page page);
     int getCount(Page page);
-    int getRegionCount(Page page);
     ProductVO productDetail(Long pno);
     int productInsert(Product product);
     int productUpdate(Product product);
@@ -25,4 +22,5 @@ public interface ProductMapper {
     int productRemove(Long pno);
     List<Category> categories();
     List<Map<String, Integer>> getCateProCnt();
+
 }

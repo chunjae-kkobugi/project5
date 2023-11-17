@@ -1,9 +1,6 @@
 package com.team45.config;
 
-import com.team45.service.MemberService;
-import com.team45.service.MemberServiceImpl;
-import com.team45.service.ProductService;
-import com.team45.service.ProductServiceImpl;
+import com.team45.service.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -40,6 +37,9 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Bean
     public ProductService productService() {return new ProductServiceImpl();}
+
+    @Bean
+    public NoticeSerivce noticeSerivce() {return new NoticeServiceImpl();}
 
 
 }

@@ -14,11 +14,10 @@ import java.util.Map;
 
 public interface ProductService {
     public List<ProductVO> productList(Page page);
-    public List<ProductVO> saleProductList(Page page);
-    public List<ProductVO> productRegionList(Page page);
     public int getCount(Page page);
-    public int getRegionCount(Page page);
     public ProductVO productDetail(Long pno);
+    public List<Product> productListBySeller(String seller, Page page);
+    public int productCountBySeller(String seller, Page page);
     public int productInsert(Product product);
     public int productUpdate(Product product);
     public int productReserved(Long pno);

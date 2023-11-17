@@ -11,4 +11,5 @@ public class HomeCtrl {
     public String home(Model model){
         return "index";
     }
+
 }

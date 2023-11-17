@@ -15,8 +15,8 @@ CREATE TABLE member(
     addr3 VARCHAR(100),                             -- 주요 직거래 주소
     postcode VARCHAR(10),                           -- 우편 번호
     status VARCHAR(50) DEFAULT 'ACTIVE',            -- REMOVE(삭제), DORMANT(휴면), ACTIVE(활동)
-    createAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,    -- 회원 등록일
-    loginAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP    -- 마지막 로그인
+    createAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,   -- 회원 등록일
+    loginAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP     -- 마지막 로그인
 );
 
 INSERT INTO member (id, pw, name, tel) VALUES ('admin', '$2a$10$oS1.3wpbnpIanIW4RoXxSOea/vGIijBMpLUBxZqurQqNjjMiJHgGa', 'admin', '010-1111-1111');
@@ -75,10 +75,10 @@ CREATE TABLE fileData(
 -- 채팅방
 CREATE TABLE chatRoom (
     roomNo BIGINT PRIMARY KEY AUTO_INCREMENT,  -- 고유 번호
-    userId VARCHAR(20) NOT NULL,            -- member.id
+    memId VARCHAR(20) NOT NULL,            -- member.id
     pno INT NOT NULL,                       -- product.pno
     status VARCHAR(50) DEFAULT 'ON',        -- ON(진행), OFF(차단)
-    UNIQUE (userId, pno)                    -- userId와 usedNo를 묶어서 UNIQUE 제약 설정
+    UNIQUE (memId, pno)                    -- memId와 pno를 묶어서 UNIQUE 제약 설정
 );
 
 -- 채팅 메시지

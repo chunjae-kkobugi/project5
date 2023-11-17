@@ -22,4 +22,5 @@ public class Member {
     private String postcode;
     private String status = "ACTIVE";
     private Date createAt;
+    private Date loginAt;
 }

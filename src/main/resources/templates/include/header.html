@@ -2,12 +2,13 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <body>
-<header th:fragment="header">
+<th:block th:fragment="header">
+    <header>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <nav class="navbar navbar-expand-lg navbar-light navigation">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" th:href="@{/}">
                         <img th:src="@{/images/main_logo.png}" alt="티셀파 로고" style="max-height: 43px;">
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -28,7 +29,7 @@
                                 <a class="nav-link dropdown-toggle" data-toggle="dropdown">커뮤니티<span><i class="fa fa-angle-down"></i></span>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item @@dashboardPage" th:href="@{/board/notice/list}">공지사항</a></li>
+                                    <li><a class="dropdown-item @@dashboardPage" th:href="@{/notice/List}">공지사항</a></li>
                                     <li><a class="dropdown-item @@dashboardMyAds" th:href="@{/board/free/list}">자유게시판</a></li>
                                     <li><a class="dropdown-item @@dashboardFavouriteAds" th:href="@{/board/faq/list}">FAQ</a></li>
                                 </ul>
@@ -42,18 +43,23 @@
                                 <a class="nav-link login-button" th:href="@{/member/login}">Login</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-white add-button" th:href="@{/member/join}">Join</a>
+                                <a class="nav-link text-white add-button" th:href="@{/member/joinTerm}">Join</a>
                             </li>
                         </ul>
                         </th:block>
                         <th:block th:if="${session.sid!=null}">
                             <ul class="navbar-nav ml-auto mt-10">
                                 <li class="nav-item">
-                                    <a class="nav-link login-button" th:href="@{/member/login}">Logout</a>
+                                    <a class="nav-link login-button" th:href="@{/member/logout}">Logout</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-white add-button" th:href="@{/member/mypage}">MyPage</a>
+                                    <a class="nav-link text-white add-button" th:href="@{/member/myPage(id = ${session.sid})}">MyPage</a>
                                 </li>
+                                <th:block th:if="${session.sid eq 'admin'}">
+                                    <li class="nav-item">
+                                        <a class="nav-link text-white add-button" th:href="@{/admin/home(id = ${session.sid})}">관리자페이지</a>
+                                    </li>
+                                </th:block>
                             </ul>
                         </th:block>
                     </div>
@@ -61,7 +67,37 @@
             </div>
         </div>
     </div>
+    <div id="chatMenu" >
+    </div>
+    <div id="chatList" style="display: none;">
+        <ul>
+            <li></li>
+            <br>
+            <li></li>
+            <br>
+            <li></li>
+            <br>
+            <li></li>
+            <br>
+            <li></li>
+        </ul>
+    </div>
+    <script th:inline="javascript">
+        $(document).ready(function () {
+            var sw = true;
+            sw=!sw
+            $("#chatMenu").click(function () {
+                $("#chatList").slideToggle()
+                if(sw==true){
+                    sw = false
+                }else if(sw==false) {
+                    sw = true
+                }
+            });
+        });
+    </script>
 </header>
+</th:block>
 </body>
 
 </html>

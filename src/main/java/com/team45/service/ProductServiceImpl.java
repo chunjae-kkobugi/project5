@@ -22,29 +22,25 @@ public class ProductServiceImpl implements ProductService{
     }
 
     @Override
-    public List<ProductVO> saleProductList(Page page) {
-        return productMapper.saleProductList(page);
-    }
-
-    @Override
-    public List<ProductVO> productRegionList(Page page) {
-        return productMapper.productRegionList(page);
-    }
-
-    @Override
     public int getCount(Page page) {
         return productMapper.getCount(page);
     }
 
-    @Override
-    public int getRegionCount(Page page) {
-        return productMapper.getRegionCount(page);
-    }
 
     @Override
     public ProductVO productDetail(Long pno) {
         return productMapper.productDetail(pno);
     }
+    @Override
+    public List<Product> productListBySeller(String seller, Page page) {
+        return productMapper.productListBySeller(seller, page);
+    }
+
+    @Override
+    public int productCountBySeller(String seller, Page page) {
+        return productMapper.productCountBySeller(seller, page);
+    }
+
 
     @Override
     public int productInsert(Product product) {
