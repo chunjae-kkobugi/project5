@@ -13,7 +13,7 @@ public interface WishMapper {
     @Select("SELECT count(*) FROM wish WHERE pno=#{pno} AND uid=#{uid}")
     int wishFind(@Param("pno") Long pno, @Param("uid") String uid);
 
-    @Select("SELECT count(*) FROM wish WHERE pno=#{pno}")
+    @Select("SELECT heart FROM product WHERE pno=#{pno}")
     int wishCount(Long pno);
 
     @Insert("INSERT INTO wish VALUES (default, #{pno}, #{uid}, 1)")
