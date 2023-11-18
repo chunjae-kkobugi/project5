@@ -109,3 +109,18 @@ CREATE TABLE notification (
     uid VARCHAR(20) NOT NULL,                   -- member.id
     status VARCHAR(50) DEFAULT 'UNREAD'         -- 읽음 여부
 );
+
+CREATE TABLE notice(
+                       no INT PRIMARY KEY AUTO_INCREMENT,
+                       title VARCHAR(500) NOT NULL,
+                       content VARCHAR(1000) NOT NULL,
+                       author VARCHAR(50),
+                       img VARCHAR(1000),
+                       resdate timestamp DEFAULT CURRENT_TIMESTAMP
+)
+
+CREATE TABLE recomment(
+                          NO INT PRIMARY KEY AUTO_INCREMENT,
+                          mem_id VARCHAR(100) NOT NULL,
+                          COMMENT VARCHAR(300) NOT null
+)

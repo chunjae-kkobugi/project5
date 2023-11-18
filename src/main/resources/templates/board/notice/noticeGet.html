@@ -3,15 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" th:href="@{/images/logo.png}">
-    <link rel="stylesheet" href="/css/pure-min.css">
-    <link rel="stylesheet" href="/css/grids-responsive-min.css">
-    <link rel="stylesheet" href="/css/styles.css">
-    <meta id="_csrf" name="_csrf" content="${_csrf.token}"/>
-    <meta id="_csrf_header" name="_csrf_header" content="${_csrf.headerName}"/>
+    <th:block th:replace="include/head :: head" ></th:block>
+    <th:block th:replace="include/head2 :: head2" ></th:block>
     <title>메인 페이지</title>
 </head>
 <body>
+<th:block th:replace="include/header :: header" ></th:block>
 
 <table>
     <tbody>
@@ -25,12 +22,9 @@
             <th>날짜</th>
             <td th:utext="${notice.resdate}"></td>
             <th>파일</th>
-            <img th:src="@{resource/1.jpg}" width="400" height="225">
-            <img th:src="@{resource/${notice.img }}" width="400" height="225">
-            <img src="../../static/images/[[${notice.img }]]" width="400" height="225">
-            <img src="D:\kyo\team45\src\main\resource\1.jpg" width="400" height="225">
+            <img th:src="@{/upload/} + ${notice.img}" width="400" height="225">
             <br>
-            <a href="C:/upload/[[${notice.img }]]" th:download="${notice.img }" >[[${notice.img }]]</a>
+            <a th:href="@{/upload/} + ${notice.img}" th:download="${notice.img }" >[[${notice.img }]]</a>
 
     </tbody>
 </table>
@@ -42,5 +36,7 @@
 <div>
     <a th:href="@{/notice/Del(no=${notice.no})}">삭제하기</a>
 </div>
+<th:block th:replace="/include/footer :: footer"></th:block>
+
 </body>
 </html>
