@@ -112,16 +112,24 @@ CREATE TABLE notification (
 );
 
 CREATE TABLE notice(
-                       no INT PRIMARY KEY AUTO_INCREMENT,
-                       title VARCHAR(500) NOT NULL,
-                       content VARCHAR(1000) NOT NULL,
-                       author VARCHAR(50),
-                       img VARCHAR(1000),
-                       resdate timestamp DEFAULT CURRENT_TIMESTAMP
+    no INT PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(500) NOT NULL,
+    content VARCHAR(1000) NOT NULL,
+    author VARCHAR(50),
+    img VARCHAR(1000),
+    resdate timestamp DEFAULT CURRENT_TIMESTAMP
 )
 
 CREATE TABLE recomment(
-                          NO INT PRIMARY KEY AUTO_INCREMENT,
-                          mem_id VARCHAR(100) NOT NULL,
-                          COMMENT VARCHAR(300) NOT null
+    NO INT PRIMARY KEY AUTO_INCREMENT,
+    mem_id VARCHAR(100) NOT NULL,
+    COMMENT VARCHAR(300) NOT null
 )
+
+-- 찜
+CREATE TABLE wish (
+    wno BIGINT AUTO_INCREMENT PRIMARY KEY,      -- 고유 번호
+    pno BIGINT                                  -- 상품 번호
+    uid VARCHAR(20) NOT NULL,                   -- member.id
+    status INT DEFAULT 0                        -- 찜 여부
+);
