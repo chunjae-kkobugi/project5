@@ -108,4 +108,4 @@ CREATE TABLE notification (
     message VARCHAR(2000),                      -- 알림 내용
     uid VARCHAR(20) NOT NULL,                   -- member.id
     status VARCHAR(50) DEFAULT 'UNREAD'         -- 읽음 여부
-);
+team45);

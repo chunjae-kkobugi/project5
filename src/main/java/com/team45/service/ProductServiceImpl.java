@@ -1,5 +1,6 @@
 package com.team45.service;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.team45.entity.Category;
 import com.team45.entity.FileData;
 import com.team45.entity.Product;
@@ -12,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -23,11 +25,19 @@ public class ProductServiceImpl implements ProductService{
     private FileDataMapper fileDataMapper;
     @Autowired
     private MyShopMapper myShopMapper;
+    @Autowired
+    private ObjectMapper mapper;
 
 
     @Override
     public List<ProductVO> productList(Page page) {
-        return productMapper.productList(page);
+        List<ProductVO> productList = new ArrayList<>();
+        for (ProductVO p : productMapper.productList(page)) {
+            p.setFileDataList(fileDataMapper.fileDataBoardList("product", p.getPno()));
+            productList.add(p);
+        }
+
+        return productList;
     }
 
     @Override
@@ -38,7 +48,10 @@ public class ProductServiceImpl implements ProductService{
 
     @Override
     public ProductVO productDetail(Long pno) {
-        return productMapper.productDetail(pno);
+        List<FileData> fileDataList = fileDataMapper.fileDataBoardList("product", pno);
+        ProductVO product = productMapper.productDetail(pno);
+        product.setFileDataList(fileDataList);
+        return product;
     }
     @Override
     public List<ProductVO> productListBySeller(String seller, Page page) {
@@ -54,21 +67,30 @@ public class ProductServiceImpl implements ProductService{
     @Override
     @Transactional
     public int productInsert(Product product) {
+        int returnNo = productMapper.productInsert(product);
         int productNo = productMapper.productGetLast();
-
-        fileDataMapper.fileDataUpdate(productNo);
 
         for (FileData f : product.getFileDataList()) {
             f.setTableName("product");
             f.setColumnNo((long) productNo);
             fileDataMapper.fileDataInsert(f);
         }
-        return productMapper.productInsert(product);
+        ProductVO pvo = productMapper.productDetail((long)productNo);
+        FileData thumb = fileDataMapper.fileDataGetLast();
+        pvo.setImage(thumb.getFileNo());
+
+        Product p = mapper.convertValue(pvo, Product.class);
+        System.out.println(p);
+
+        productMapper.productUpdate(p);
+
+        return returnNo;
     }
 
     @Override
-    public void productUpdate(Product product) {
-        productMapper.productUpdate(product);
+    @Transactional
+    public int productUpdate(Product product) {
+        return productMapper.productUpdate(product);
     }
 
     @Override

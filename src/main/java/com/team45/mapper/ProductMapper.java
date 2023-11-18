@@ -15,7 +15,7 @@ public interface ProductMapper {
     int getCount(Page page);
     ProductVO productDetail(Long pno);
     int productInsert(Product product);
-    void productUpdate(Product product);
+    int productUpdate(Product product);
     void productReserved(Long pno);
     void productOut(Long pno);
     void productSale(Long pno);

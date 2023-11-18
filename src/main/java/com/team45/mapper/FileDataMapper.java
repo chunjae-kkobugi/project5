@@ -15,8 +15,8 @@ public interface FileDataMapper {
 
     @Insert("INSERT INTO fileData (tableName, columnNo, originName, saveName, savePath, fileType, status) VALUES (#{tableName}, #{columnNo}, #{originName}, #{saveName}, #{savePath}, #{fileType}, #{status})")
     public int fileDataInsert(FileData fileData);
-    @Select("SELECT fileNo FROM fileData ORDER BY fileNo DESC LIMIT 1")
-    public int fileDataGetLast();
+    @Select("SELECT * FROM fileData ORDER BY fileNo DESC LIMIT 1")
+    public FileData fileDataGetLast();
 
     @Update("UPDATE fileData SET tableName=#{tableName}, columnNo=#{columnNo} WHERE fileNo=#{fileNo}")
     public int fileDataUpdate(int fileData);

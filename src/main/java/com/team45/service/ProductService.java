@@ -20,7 +20,7 @@ public interface ProductService {
     public List<ProductVO> productListBySeller(String seller, Page page);
     public int productCountBySeller(String seller, Page page);
     public int productInsert(Product product);
-    public void productUpdate(Product product);
+    public int productUpdate(Product product);
     public void productReserved(Long pno);
     public void productOut(Long pno);
     public void productSale(Long pno);

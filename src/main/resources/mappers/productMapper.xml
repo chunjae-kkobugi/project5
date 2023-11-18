@@ -68,7 +68,7 @@
 
     <!-- 게시글 상세보기 -->
     <select id="productDetail" resultType="com.team45.entity.ProductVO">
-        select pno, cateName, pname, content, seller, price, proaddr, image, createAt, p.status, visited from product p join category c on(p.cate=c.cate) where pno=#{pno}
+        select pno, p.cate, cateName, pname, content, seller, price, proaddr, image, createAt, p.status, visited from product p join category c on(p.cate=c.cate) where pno=#{pno}
     </select>
 
     <!-- 상품 등록하기 -->
@@ -110,7 +110,7 @@
         SELECT cateName, COUNT(p.cate) AS cnt FROM product p RIGHT OUTER JOIN category c ON (p.cate=c.cate) GROUP BY c.cate
     </select>
 
-    <select id="productGetLast" resultType="com.team45.entity.Product">
+    <select id="productGetLast" resultType="integer">
         SELECT pno FROM product ORDER BY pno DESC LIMIT 1
     </select>
 </mapper>

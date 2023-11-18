@@ -54,12 +54,9 @@ public class ProductCtrl {
         page.makePage();
 
         List<ProductVO> productList = productService.productList(page);
+        System.out.println(productList);
         List<Category> categories = productService.categories();
 
-
-        // 로그인한 회원의 주소 정보 불러오기
-        model.addAttribute("proaddr", request.getAttribute("addr3"));
-        // 상품의 판매상태 불러오기
         String status = request.getParameter("status");
 
         model.addAttribute("status", status);
@@ -91,107 +88,49 @@ public class ProductCtrl {
     }
 
     @PostMapping("insert")
-    public String productInsertPro(HttpServletRequest request, Product product,
-                                   MultipartHttpServletRequest files) {
+    public String productInsertPro(Product product, @RequestParam("upfile") MultipartFile[] files, HttpServletRequest request, Model model, RedirectAttributes rttr) throws IOException {
         HttpSession session = request.getSession();
-        String realFolder = "D:/kim/project/tproj/project05/team45/src/main/resources/static/images";
 
-        Enumeration<String> e = files.getParameterNames();
-        Map map = new HashMap();
-        while (e.hasMoreElements()){
-            String name = e.nextElement();
-            String value = files.getParameter(name);
-            map.put(name, value);
-        }
-
+        String realPath = "C://upload/";
+//        String realPath = "D:/kim/project/tproj/project05/team45/src/main/resources/static/images";
         String today = new SimpleDateFormat("yyMMdd").format(new Date());
-        String saveFolder = realFolder + File.separator + today;
-        File folder = new File(saveFolder);
+        String saveFolder = realPath + today;
+        System.out.println(saveFolder);
 
-        if (!folder.exists()) {     // 폴더가 없으면 새로 생성
+        File folder = new File(saveFolder);
+        if (!folder.exists()) {        // 폴더가 존재하지 않으면 폴더 생성
             folder.mkdirs();
         }
 
-        List<MultipartFile> fileList = files.getFiles("uploadFiles");
         List<FileData> fileDataList = new ArrayList<>();
-        FileData productImg = new FileData();
 
-        int i = 0;
-        for (MultipartFile multipartFile : fileList) {
-            String originalName = multipartFile.getOriginalFilename();
-            if (!originalName.isEmpty()) {
-                String saveName = UUID.randomUUID().toString() + "_" + originalName;
+        for (MultipartFile file : files) {
+            FileData fileData = new FileData();
+            String originalFileName = file.getOriginalFilename();   // 첨부파일의 실제 이름
 
-                FileData f = new FileData();
-                f.setOriginName(originalName);
-                f.setSaveName(saveName);
-                f.setSavePath(today);
-                f.setFileType(multipartFile.getContentType());
+            if (!file.isEmpty()) { // 파일이 비어있지 않은 경우에만 처리
 
-                if (i == 0 ){
-                    productImg = f;
-                } else {
-                    fileDataList.add(f);
-                }
-
-                File savefile = new File(saveFolder, saveName);
-                i++;
-
-                try {
-                    multipartFile.transferTo(savefile);
-                } catch (IOException ex) {
-                    System.out.println(ex.getMessage());
-                }
+                String saveFilename = UUID.randomUUID().toString() + "_" + originalFileName;
+                fileData.setTableName("product");
+                fileData.setColumnNo(product.getPno());
+                fileData.setOriginName(originalFileName);
+                fileData.setSaveName(saveFilename);
+                fileData.setSavePath(today);
+                fileData.setFileType(" ");
+                fileData.setStatus("ACTIVE");
+                file.transferTo(new File(saveFolder, saveFilename)); // 파일을 업로드 폴더에 저장
             }
+            fileDataList.add(fileData);
         }
-        product.setSeller(session.getId());
+
+        product.setFileDataList(fileDataList);
+        String sid = (String) session.getAttribute("sid");
+        product.setSeller(sid);
+        product.setImage((long) fileDataList.size());
+
         productService.productInsert(product);
         return "redirect:list";
     }
-
-//    @PostMapping("insert")
-//    public String productInsertPro(Product product, @RequestParam("upfile") MultipartFile[] files,
-//                                   HttpServletRequest request, Model model, RedirectAttributes rttr) throws IOException {
-//        HttpSession session = request.getSession();
-//
-//        String realPath = "C://upload/";
-////        String realPath = "D:/kim/project/tproj/project05/team45/src/main/resources/static/images";
-//        String today = new SimpleDateFormat("yyMMdd").format(new Date());
-//        String saveFolder = realPath + today;
-//
-//        File folder = new File(saveFolder);
-//        if (!folder.exists()) {        // 폴더가 존재하지 않으면 폴더 생성
-//            folder.mkdirs();
-//        }
-//
-//        List<FileData> fileDataList = new ArrayList<>();
-//
-//        for (MultipartFile file : files) {
-//            FileData fileData = new FileData();
-//            String originalFileName = file.getOriginalFilename();   // 첨부파일의 실제 이름
-//
-//            if (!file.isEmpty()) { // 파일이 비어있지 않은 경우에만 처리
-//
-//                String saveFilename = UUID.randomUUID().toString() + "_" + originalFileName;
-//                fileData.setTableName("product");
-//                fileData.setColumnNo(product.getPno());
-//                fileData.setOriginName(originalFileName);
-//                fileData.setSaveName(saveFilename);
-//                fileData.setSavePath(saveFolder);
-//                fileData.setFileType(" ");
-//                fileData.setStatus("ACTIVE");
-//                file.transferTo(new File(folder, saveFilename)); // 파일을 업로드 폴더에 저장
-//            }
-//            fileDataList.add(fileData);
-//        }
-//
-//        product.setFileDataList(fileDataList);
-//        product.setSeller(session.getId());
-//        product.setImage((long) fileDataList.size());
-//
-//        productService.productInsert(product);
-//        return "redirect:list";
-//    }
 
     @GetMapping("edit")
     public String productEditForm(HttpServletRequest request, @RequestParam("pno") Long pno, Model model) {
@@ -202,6 +141,28 @@ public class ProductCtrl {
         model.addAttribute("cateList", categories);
 
         return "product/productEdit";
+    }
+
+    @PostMapping("edit")
+    public String productEditPro(Product product, @RequestParam("upfile") MultipartFile[] files, HttpServletRequest request, Model model, RedirectAttributes rttr) throws IOException {
+        HttpSession session = request.getSession();
+
+        String realPath = "C://upload/";
+//        String realPath = "D:/kim/project/tproj/project05/team45/src/main/resources/static/images";
+        String today = new SimpleDateFormat("yyMMdd").format(new Date());
+        String saveFolder = realPath + today;
+        System.out.println(saveFolder);
+
+        File folder = new File(saveFolder);
+        if (!folder.exists()) {        // 폴더가 존재하지 않으면 폴더 생성
+            folder.mkdirs();
+        }
+
+        // 파일이 새롭게 업로드 되지 않았다면 삭제하지 않도록 처리
+        if (files[0].getSize() != 0) {
+            List<FileData> fileDataList = null;
+        }
+        return  null;
     }
 
     @GetMapping("delete")

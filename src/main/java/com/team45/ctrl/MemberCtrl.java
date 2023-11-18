@@ -72,11 +72,12 @@ public class MemberCtrl {
 
 
     @PostMapping("loginpro")
-    public String loginPro(String id, String pw, String addr3, Model model) {
+    public String loginPro(String id, String pw, Model model) {
         int pass = memberService.loginPro(id, pw);
         if (pass == 1) {
             session.setAttribute("sid", id);
-            session.setAttribute("proaddr", addr3);
+            String proaddr = memberService.memberGet(id).getAddr3();
+            session.setAttribute("proaddr", proaddr);
             model.addAttribute("msg", "로그인 되었습니다.");
             model.addAttribute("url", "/");
             return "/member/alert";
