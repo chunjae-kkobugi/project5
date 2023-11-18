@@ -1,18 +1,13 @@
 package com.team45.ctrl;
 
-import com.team45.entity.Category;
-import com.team45.entity.FileData;
-import com.team45.entity.Product;
-import com.team45.entity.ProductVO;
+import com.team45.entity.*;
 import com.team45.service.ProductService;
+import com.team45.service.WishService;
 import com.team45.util.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -31,6 +26,8 @@ import java.util.*;
 public class ProductCtrl {
     @Autowired
     private ProductService productService;
+    @Autowired
+    private WishService wishService;
 
     // 전체 상품 리스트
     @GetMapping("list")
@@ -75,6 +72,14 @@ public class ProductCtrl {
     public String productDetial(@RequestParam Long pno, HttpServletRequest request, Model model) {
         ProductVO detail = productService.productDetail(pno);
         model.addAttribute("detail", detail);
+
+        HttpSession session = request.getSession();
+        String userId = (String) session.getAttribute("sid");
+        int flag = wishService.wishFind(pno, userId);
+        model.addAttribute("flag", flag);
+        System.out.println("flag : " + flag);
+
+        model.addAttribute("uid", userId);
         return "product/productDetail";
     }
 
@@ -169,6 +174,18 @@ public class ProductCtrl {
     public String productDelete (@RequestParam("pno") Long pno) {
         productService.productRemove(pno);
         return "redirect:list";
+    }
+
+    @PostMapping("wish")
+    @ResponseBody
+    public Map<String, Integer> wishProduct(@ModelAttribute Wish wish) {
+        int result = wishService.checkWish(wish);
+        System.out.println("result : " + result);
+
+        Map<String, Integer> resultMap = new HashMap<>();
+        resultMap.put("res", result);
+        resultMap.put("heartCnt", wishService.wishCount(wish.getPno()));
+        return resultMap;
     }
 }
 

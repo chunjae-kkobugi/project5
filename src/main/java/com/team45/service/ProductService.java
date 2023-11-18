@@ -1,9 +1,6 @@
 package com.team45.service;
 
-import com.team45.entity.Category;
-import com.team45.entity.FileData;
-import com.team45.entity.Product;
-import com.team45.entity.ProductVO;
+import com.team45.entity.*;
 import com.team45.util.Page;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;

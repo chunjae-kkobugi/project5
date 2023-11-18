@@ -3,7 +3,7 @@
 <mapper namespace="com.team45.mapper.ProductMapper">
     <!-- 상품 목록 -->
     <select id="productList" resultType="com.team45.entity.ProductVO">
-        SELECT pno, cateName, pname, content, seller, price, proaddr, image, createAt, p.status, visited
+        SELECT pno, cateName, pname, content, seller, price, proaddr, image, createAt, p.status, visited, heart
         FROM product p
         JOIN category c ON (p.cate = c.cate)
         <where>
@@ -68,7 +68,7 @@
 
     <!-- 게시글 상세보기 -->
     <select id="productDetail" resultType="com.team45.entity.ProductVO">
-        select pno, p.cate, cateName, pname, content, seller, price, proaddr, image, createAt, p.status, visited from product p join category c on(p.cate=c.cate) where pno=#{pno}
+        select pno, p.cate, cateName, pname, content, seller, price, proaddr, image, createAt, p.status, visited, heart from product p join category c on(p.cate=c.cate) where pno=#{pno}
     </select>
 
     <!-- 상품 등록하기 -->

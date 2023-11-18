@@ -55,10 +55,11 @@ CREATE TABLE product(
     createAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,      -- 등록일
     baseAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,        -- 끌어올리기 날짜
     status VARCHAR(50) DEFAULT 'SALE',                          -- REMOVE(삭제), 'SALE' 판매중, 'RESERVED' 예약중, 'OUT' 거래 완료
-    visited INT DEFAULT 0                                       -- 조회수
+    visited INT DEFAULT 0,                                      -- 조회수
+    heart INT DEFAULT 0,                                        -- 찜한 수
 );
 
-INSERT INTO product VALUES(DEFAULT, '상품1', '상품1 내용', 'A', 'kimbk111', 1000, '가산동', null, DEFAULT, NULL, 'SALE', DEFAULT);
+INSERT INTO product VALUES(DEFAULT, '상품1', '상품1 내용', 'A', 'kimbk111', 1000, '가산동', null, DEFAULT, NULL, 'SALE', DEFAULT, DEFAULT);
 
 -- 업로드 파일 관리
 CREATE TABLE fileData(
