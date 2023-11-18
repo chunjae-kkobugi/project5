@@ -70,21 +70,14 @@ public class MemberCtrl {
         return "member/login";
     }
 
-    @PostMapping("login")
-    public String login(HttpServletRequest request, Model model){
-        String id = request.getParameter("id");
-        String pw = request.getParameter("pw");
-        boolean keepId = Boolean.parseBoolean(request.getParameter("keepId"));
-
-        return "index";
-    }
-
 
     @PostMapping("loginpro")
     public String loginPro(String id, String pw, Model model) {
         int pass = memberService.loginPro(id, pw);
         if (pass == 1) {
             session.setAttribute("sid", id);
+            String proaddr = memberService.memberGet(id).getAddr3();
+            session.setAttribute("proaddr", proaddr);
             model.addAttribute("msg", "로그인 되었습니다.");
             model.addAttribute("url", "/");
             return "/member/alert";

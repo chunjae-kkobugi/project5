@@ -27,7 +27,7 @@ public class Page {
         this.postStart = (this.pageNow - 1) * this.postScreen;
 
         if(this.postTotal <= 1){
-        // 게시글 개수가 1인 경우에는 총 페이지를 1로 제한(DivideByZeroException 방지)
+            // 게시글 개수가 1인 경우에는 총 페이지를 1로 제한(DivideByZeroException 방지)
             this.pageTotal = 1;
         } else {
             // ex. 페이지당 게시글 개수 10개일 때, 게시글 개수가 10개인 경우 총 페이지는 1개
