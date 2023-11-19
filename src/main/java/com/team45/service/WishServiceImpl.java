@@ -1,7 +1,9 @@
 package com.team45.service;
 
+import com.team45.entity.ProductVO;
 import com.team45.entity.Wish;
 import com.team45.mapper.WishMapper;
+import com.team45.util.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +17,16 @@ public class WishServiceImpl implements WishService {
     @Override
     public List<Wish> wishList(String uid) {
         return wishMapper.wishList(uid);
+    }
+
+    @Override
+    public List<ProductVO> wishProductList(String uid, Page page) {
+        return wishMapper.wishProductList(uid, page);
+    }
+
+    @Override
+    public int wishProductCount(String uid, Page page) {
+        return wishMapper.wishProductCount(uid, page);
     }
 
     @Override

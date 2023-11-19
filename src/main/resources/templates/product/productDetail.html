@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <div th:replace="/include/head.html :: head"></div>
-    <div th:replace="/include/head2.html :: head2"></div>
+    <th:block th:replace="/include/head :: head" ></th:block>
     <title>상품 목록</title>
 </head>
 <body>
-<div th:replace="/include/header.html :: header"></div>
+<th:block th:replace="/include/header :: header"></th:block>
 <section class="section bg-gray">
     <!-- Container Start -->
     <div class="container">
@@ -132,7 +131,6 @@
                 }
             });
         });
-
     });
 
 </script>

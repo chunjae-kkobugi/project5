@@ -133,3 +133,10 @@ CREATE TABLE wish (
     uid VARCHAR(20) NOT NULL,                   -- member.id
     status INT DEFAULT 0                        -- 찜 여부
 );
+
+-- 상품의 카테고리 이름을 같이 가져오기 위한 view
+CREATE VIEW productWithCate AS (
+    SELECT pno, pname, seller, price, proaddr, image, createAt, baseAt, status, visited, cateName, heart
+    FROM product p
+    JOIN category c ON (p.cate = c.cate)
+);

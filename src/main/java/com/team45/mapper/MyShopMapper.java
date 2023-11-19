@@ -12,7 +12,7 @@ import java.util.List;
 public interface MyShopMapper {
     @Select({
             "<script>",
-            "SELECT pno, pname, seller, price, proaddr, image, createAt, baseAt, status, visited, cateName FROM product p JOIN category c ON (p.cate = c.cate)",
+            "SELECT * from productWithCate",
             "WHERE seller = #{seller}",
             "<if test='page.searchType != null and page.searchType != \"\"'>",
             "   AND ${page.searchType} LIKE CONCAT('%', #{page.searchKeyword}, '%')",
