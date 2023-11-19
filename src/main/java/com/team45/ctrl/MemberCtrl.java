@@ -1,5 +1,6 @@
 package com.team45.ctrl;
 
+import com.team45.entity.Keyword;
 import com.team45.entity.Member;
 import com.team45.entity.ProductVO;
 import com.team45.service.MemberService;
@@ -33,14 +34,10 @@ public class MemberCtrl {
     @Autowired
     private MemberService memberService;
     @Autowired
-    private ProductService productService;
-    @Autowired
-    private WishService wishService;
-    @Autowired
     private HttpSession session;
 
     @GetMapping("list")
-    public String memberList(HttpServletRequest request, Model model){
+    public String memberList(HttpServletRequest request, Model model) {
         Page page = new Page();
 
         String searchType = request.getParameter("type");
@@ -68,7 +65,7 @@ public class MemberCtrl {
     }
 
     @GetMapping("login")
-    public String login(){
+    public String login() {
         return "member/login";
     }
 
@@ -87,7 +84,7 @@ public class MemberCtrl {
             model.addAttribute("msg", "해당 계정은 휴면계정입니다. 휴면을 풀어주세요.");
             model.addAttribute("url", "/member/active");
             return "/member/alert";
-        } else if (pass==3){
+        } else if (pass == 3) {
             model.addAttribute("msg", "해당 계정은 탈퇴한 계정입니다.");
             model.addAttribute("url", "/");
             return "/member/alert";
@@ -107,12 +104,12 @@ public class MemberCtrl {
     }
 
     @GetMapping("joinTerm")
-    public String joinTerm(){
+    public String joinTerm() {
         return "member/joinTerm";
     }
 
     @GetMapping("join")
-    public String join(){
+    public String join() {
         return "member/join";
     }
 
@@ -133,14 +130,14 @@ public class MemberCtrl {
     }
 
     @GetMapping("myPage")
-    public String myPage(@RequestParam String id, Model model){
+    public String myPage(@RequestParam String id, Model model) {
         Member mem = memberService.memberGet(id);
         model.addAttribute("member", mem);
         return "member/myPage";
     }
 
     @GetMapping("remove")
-    public String remove(@RequestParam String id, Model model){
+    public String remove(@RequestParam String id, Model model) {
         session.invalidate();
         memberService.memberOutside(id);
         model.addAttribute("msg", "회원 탈퇴가 정상적으로 이루어졌습니다. 감사합니다.");
@@ -149,115 +146,39 @@ public class MemberCtrl {
     }
 
     @GetMapping("active")
-    public String active(){
+    public String active() {
         return "/member/active";
     }
 
 
     @PostMapping("active")
-    public String activePro(String email, String id, String pw,Model model) {
+    public String activePro(String email, String id, String pw, Model model) {
         int pass = memberService.loginPro(id, pw);
         Member mem = memberService.memberGet(id);
 
-       if(mem.getEmail().equals(email)) {
-           if (pass == 1) {
-               model.addAttribute("msg", "해당 아이디는 휴면 계정이 아닙니다.");
-               model.addAttribute("url", "/member/active");
-               return "/member/alert";
-           } else if (pass == 2) {
-               memberService.memberactive(id);
-               model.addAttribute("msg", "휴면이 해제되었습니다. 환영합니다.");
-               model.addAttribute("url", "/member/login");
-               return "/member/alert";
-           } else if (pass == 3) {
-               model.addAttribute("msg", "해당 계정은 탈퇴한 계정입니다.");
-               model.addAttribute("url", "/member/active");
-               return "/member/alert";
-           } else {
-               model.addAttribute("msg", "회원 정보가 맞지 않습니다.");
-               model.addAttribute("url", "/member/active");
-               return "/member/alert";
-           }
-       }else {
-           model.addAttribute("msg", "회원 정보가 맞지 않습니다.");
-           model.addAttribute("url", "/member/active");
-           return "/member/alert";
-       }
+        if (mem.getEmail().equals(email)) {
+            if (pass == 1) {
+                model.addAttribute("msg", "해당 아이디는 휴면 계정이 아닙니다.");
+                model.addAttribute("url", "/member/active");
+                return "/member/alert";
+            } else if (pass == 2) {
+                memberService.memberactive(id);
+                model.addAttribute("msg", "휴면이 해제되었습니다. 환영합니다.");
+                model.addAttribute("url", "/member/login");
+                return "/member/alert";
+            } else if (pass == 3) {
+                model.addAttribute("msg", "해당 계정은 탈퇴한 계정입니다.");
+                model.addAttribute("url", "/member/active");
+                return "/member/alert";
+            } else {
+                model.addAttribute("msg", "회원 정보가 맞지 않습니다.");
+                model.addAttribute("url", "/member/active");
+                return "/member/alert";
+            }
+        } else {
+            model.addAttribute("msg", "회원 정보가 맞지 않습니다.");
+            model.addAttribute("url", "/member/active");
+            return "/member/alert";
+        }
     }
-
-    @GetMapping("myshop")
-    public String myShop() {
-        return "redirect:myshop/products";
-    }
-
-    @GetMapping("myshop/products")
-    public String myProducts(HttpServletRequest request, Model model) {
-        String sid = (String) session.getAttribute("sid");
-        Member member = memberService.memberGet(sid);
-        model.addAttribute("member", member);
-
-        // 페이징 처리
-        Page page = new Page();
-        String searchType = request.getParameter("type");
-        String searchKeyword = request.getParameter("keyword");
-        int pageNow = request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")) : 1;
-
-        page.setSearchType(searchType);
-        page.setSearchKeyword(searchKeyword);
-        page.setPageNow(pageNow);
-        //System.out.println(page.getPageNow());
-
-        model.addAttribute("type", searchType);
-        model.addAttribute("keyword", searchKeyword);
-        //model.addAttribute("page", pageNow);
-        // 추가해야됨
-        page.setPostTotal(productService.productCountBySeller(sid, page));
-        page.makePage();
-        model.addAttribute("page", page);
-
-        List<ProductVO> products = productService.productListBySeller(sid, page);
-        //System.out.println("total:"+page.getPostTotal());
-        model.addAttribute("products", products);
-        return "/member/myProducts";
-    }
-
-    @GetMapping("myshop/wish")
-    public String myWish(HttpServletRequest request, Model model) {
-        String sid = (String) session.getAttribute("sid");
-        Member member = memberService.memberGet(sid);
-        model.addAttribute("member", member);
-
-        // 페이징 처리
-        Page page = new Page();
-        String searchType = request.getParameter("type");
-        String searchKeyword = request.getParameter("keyword");
-        int pageNow = request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")) : 1;
-
-        page.setSearchType(searchType);
-        page.setSearchKeyword(searchKeyword);
-        page.setPageNow(pageNow);
-        //System.out.println(page.getPageNow());
-
-        model.addAttribute("type", searchType);
-        model.addAttribute("keyword", searchKeyword);
-        page.setPostTotal(wishService.wishProductCount(sid, page));
-        page.makePage();
-        model.addAttribute("page", page);
-
-        List<ProductVO> wishProductList = wishService.wishProductList(sid, page);
-        //System.out.println("찜 상품 : " + wishProductList);
-        //System.out.println("total:" + page.getPostTotal());
-
-        model.addAttribute("wishProductList", wishProductList);
-        return "/member/myWish";
-    }
-
-    @GetMapping("myshop/keyword")
-    public String myKeywords(Model model) {
-        String sid = (String) session.getAttribute("sid");
-        Member member = memberService.memberGet(sid);
-        model.addAttribute("member", member);
-        return "/member/myKeywords";
-    }
-
 }
