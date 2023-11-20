@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Log4j2
@@ -249,7 +250,12 @@ public class MemberCtrl {
         Member mem = memberService.memberGet(sid);
         model.addAttribute("member", mem);
 
-        List<ChatRoom> rooms = chatService.chatRoomMy(sid);
+        List<ChatRoom> rooms = new ArrayList<>();
+        for(ChatRoom r: chatService.chatRoomMy(sid)){
+            r.setUnread(chatService.chatMessageUnread(r.getRoomNo()));
+            rooms.add(r);
+        }
+
         model.addAttribute("rooms", rooms);
 
         return "member/myChat";
