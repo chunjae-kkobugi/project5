@@ -2,8 +2,10 @@ package com.team45.ctrl;
 
 import com.team45.entity.Category;
 import com.team45.entity.Member;
+import com.team45.entity.Notice;
 import com.team45.entity.ProductVO;
 import com.team45.service.MemberService;
+import com.team45.service.NoticeSerivce;
 import com.team45.service.ProductService;
 import com.team45.util.Page;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,8 @@ public class AdminCtrl {
     private MemberService memberService;
     @Autowired
     private ProductService productService;
+    @Autowired
+    private NoticeSerivce noticeSerivce;
 
     @GetMapping("home")
     public String adminhome(Model model){
@@ -113,6 +117,9 @@ public class AdminCtrl {
 
     @GetMapping("noticeList")
     public String noticeList(HttpServletRequest request, Model model){
+        List<Notice> noticeList = noticeSerivce.boardList();
+        model.addAttribute("noticeList", noticeList);
+
         return "admin/noticeList";
     }
 

@@ -112,16 +112,18 @@ CREATE TABLE notification (
 );
 
 CREATE TABLE notice(
-                       no INT PRIMARY KEY AUTO_INCREMENT,
-                       title VARCHAR(500) NOT NULL,
-                       content VARCHAR(1000) NOT NULL,
-                       author VARCHAR(50),
-                       img VARCHAR(1000),
-                       resdate timestamp DEFAULT CURRENT_TIMESTAMP
-)
+   no INT PRIMARY KEY AUTO_INCREMENT,
+   title VARCHAR(500) NOT NULL,
+   content VARCHAR(1000) NOT NULL,
+   author VARCHAR(50),
+   img VARCHAR(1000),
+   resdate timestamp DEFAULT CURRENT_TIMESTAMP
+);
+
+INSERT INTO notice (title, content, author) VALUES ('제목', '내용', 'admin');
 
 CREATE TABLE recomment(
                           NO INT PRIMARY KEY AUTO_INCREMENT,
                           mem_id VARCHAR(100) NOT NULL,
                           COMMENT VARCHAR(300) NOT null
-)
+);
