@@ -13,14 +13,14 @@ import java.util.List;
 @Component
 @Mapper
 public interface RecommentMapper {
-    @Select("select * from recomment")
-    public List<Recomment> recommentList();
+    @Select("select * from recomment where mem_id")
+    List<Recomment> recommentList(String mem_id);
 
-    @Insert("insert into recomment values(default, #{id_no}, #{comment})")
-    public void recommentAdd(Recomment recomment);
+    @Insert("insert into recomment values(default, #{mem_id}, #{comment})")
+    void recommentAdd(Recomment recomment);
 
     @Delete("delete from recomment where no=#{no}")
-    public void recommentDel(int no);
+    void recommentDel(int no);
 
 
 }

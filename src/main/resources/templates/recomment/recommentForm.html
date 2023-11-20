@@ -4,16 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원가입 폼</title>
-    <script type="text/javascript" src="/static/cleditor/jquery.cleditor.js"></script>
-    <link rel="stylesheet" href="/static/cleditor/jquery.cleditor.css">
+    <th:block th:replace="include/head :: head" ></th:block>
+    <th:block th:replace="include/head2 :: head2" ></th:block>
 </head>
 <body>
     <div class="container">
         <h2>보드 등록</h2>
-        <form th:action="@{/recomment/Add}" autocomplete="off" method="post">
+        <form th:action="@{/recomment/Add}" method="post">
             <div>
-                <label th:for="id_no">번호</label>
-                <input type="number" name="id_no" placeholder="id_no" required>
+                <input type="text" name="mem_id" th:value="${mem.id}">
             </div>
             <div>
                 <label th:for="comment">내용</label>

@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원가입 폼</title>
-    <script type="text/javascript" src="/static/cleditor/jquery.cleditor.js"></script>
-    <link rel="stylesheet" href="/static/cleditor/jquery.cleditor.css">
+    <th:block th:replace="include/head :: head" ></th:block>
+    <th:block th:replace="include/head2 :: head2" ></th:block>
 </head>
 <body>
+<th:block th:replace="include/header :: header" ></th:block>
+
     <div class="container">
         <h2>보드 등록</h2>
         <form th:action="@{/notice/Add}" name="fm" method="post" enctype="multipart/form-data">
@@ -44,10 +46,12 @@
 
         function reco() {
             let popupOption = "width=650px, height=550px, top=150px, left=300px, scrollbar=yes";
-            let popupUrl = "/recomment/List";
-            window.open(popupUrl, 'child', popupOption);
+            let popupUrl = "/recomment/List?id=[[${session.sid }]]";
+           window.open(popupUrl, 'child', popupOption);
         }
 
     </script>
+<th:block th:replace="/include/footer :: footer"></th:block>
+
 </body>
 </html>
