@@ -132,6 +132,7 @@ public class ProductServiceImpl implements ProductService{
     }
 
     @Override
+
     public void productRemove(Long pno) {
         productMapper.productRemove(pno);
     }

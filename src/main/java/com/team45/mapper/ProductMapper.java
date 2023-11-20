@@ -25,4 +25,5 @@ public interface ProductMapper {
     List<Map<String, Integer>> getCateProCnt();
     int productGetLast();
     int fileDataDelete(Long fileNo);
+
 }
