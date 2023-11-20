@@ -49,15 +49,15 @@
                                 <a th:href="@{/product/list}" th:text="전체"></a>
                             </li>
                             <li th:each="cate : ${categories}">
-                                <a class="cateBtn" th:value="${cate.cate}" th:text="${cate.cateName}" th:data-value="${cate.cate}" th:style="${cate.cate eq curCategory ? 'color : blue' : ''}"></a>
+                                <a th:href="@{product/list(cate=${cate.cate})}" th:value="${cate.cate}" th:text="${cate.cateName}" th:data-value="${cate.cate}" th:style="${cate.cate eq curCategory ? 'color : blue' : ''}"></a>
                             </li>
                         </ul>
                     </div>
                     <div class="widget category-list">
-                        <h4 class="widget-header">Nearby</h4>
+                        <h4 class="widget-header">조건</h4>
                         <ul class="category-list">
                             <li th:style="${proaddr != null ? 'color : blue' : ''}">
-                                <input type="hidden" id="proaddrVal" th:value="${session.proaddr}">
+                                <input type="hidden" id="proaddrVal" th:data-value="${session.proaddr}">
                                 <a id="proaddrBtn"> 내 지역만 보기 </a>
                             </li>
                             <li th:style="${status != null ? 'color : blue' : ''}">
@@ -75,46 +75,54 @@
                             <div class="product-item bg-light">
                                 <div class="card">
                                     <div class="thumb-content">
-                                        <div class="price" th:text="${list.price}"></div>
+                                        <div class="price" th:if="${list.price eq 0}" th:text="나눔"></div>
+                                        <div class="price" th:if="${list.price ne 0}">[[${list.price}]] 원</div>
                                         <a th:href="@{/product/detail(pno=${list.pno})}">
-                                            <img class="card-img-top img-fluid" src="" alt="Card image cap">
+                                            <th:block th:if="${!list.fileDataList.isEmpty()}">
+                                                <img class="card-img-top img-fluid" style="width: 255px; height: 255px;" th:src="@{/upload/} + ${list.fileDataList[0].savePath}+'/'+${list.fileDataList[0].saveName}">
+                                            </th:block>
                                         </a>
                                     </div>
                                     <div class="card-body">
                                         <h4 class="card-title"><a th:href="@{/product/detail(pno=${list.pno})}" th:text="${list.pname}"></a></h4>
                                         <ul class="list-inline product-meta">
                                             <li class="list-inline-item">
-                                                <a th:href="@{/product/detail(pno=${list.pno})}" th:text="${list.cateName}"><i class="fa fa-folder-open-o"></i></a>
+                                                <p th:text="${list.cateName}"><i class="fa fa-folder-open-o"></i></p>
                                             </li>
                                             <li class="list-inline-item">
-                                                <a th:href="@{/product/detail(pno=${list.pno})}" th:text="${list.createAt}"><i class="fa fa-calendar"></i></a>
+                                                <p th:text="${#dates.format(list.createAt, 'yyyy-MM-dd')}"><i class="fa fa-calendar"></i></p>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <p class="card-text" th:if="${list.status eq 'SALE'}">판매 중</p>
+                                                <p class="card-text" th:if="${list.status eq 'RESERVED'}">예약 중</p>
+                                                <p class="card-text" th:if="${list.status eq 'OUT'}">판매 완료</p>
+                                            </li>
+
+                                            <li class="list-inline-item">
+                                                <p class="card-text" th:text="${list.seller}"></p>
                                             </li>
                                         </ul>
-                                        <p class="card-text" th:text="${list.seller}"></p>
-                                        <p class="card-text" th:text="${list.status}"></p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <th:block th:if="${not #lists.isEmpty(productList)}"><div th:replace="/include/pagination.html :: fragment-pagination('/product/list')"></div></th:block>
             </div>
         </div>
     </div>
 </section>
 <script>
-    $(document).ready(function (){
-        // 내 주소만 보기 버튼
-        $("#proaddrBtn").click(function (){
-            // 로그인 한 유저의 addr3 정보
-            var proaddrVal = $("#proaddrVal").val();
+    // 내 주소만 보기 버튼
+    $("#proaddrBtn").click(function () {
+        // 로그인 한 유저의 addr3 정보
+        var proaddrVal = $("#proaddrVal").data("value");
 
-            // 로그인을 하지 않았으면 로그인 알림창 띄우기
-            // if (!proaddrVal) {
-            //     alert("로그인을 해주세요");
-            // } else {
+        // 로그인을 하지 않았으면 로그인 알림창 띄우기
+        if (!proaddrVal) {
+            alert("로그인을 해주세요");
+        } else {
             // 현재 URL
             var currentUrl = new URL(window.location.href);
 
@@ -125,8 +133,7 @@
             currentUrl.searchParams.set('page', '1');
 
             window.location.href = currentUrl.href;
-            // }
-        });
+        }
 
         $("#statusBtn").click(function () {
             // 현재 URL
@@ -172,30 +179,27 @@
         });
 
         // 카테고리
-        $(document).ready(function (){
-            $(".cateBtn").click(function (){
-                // 버튼의 cate 의 값
-                var newCateValue = $(this).data("value");
-
-                // 현재 Url
-                var currentUrl = window.location.href;
-
-                // Url에 cate의 값이 존재하는 지 확인
-                if (currentUrl.indexOf('?cate=') !== -1 || currentUrl.indexOf('&cate=') !== -1) {
-                    // cate의 값을 다른 값으로 변경
-                    var updatedUrl = currentUrl.replace(/([&?]cate=)[^&]+/, '$1' + newCateValue);
-                    window.location.href = updatedUrl;
-                } else {
-                    // cate의 값이 없으면 추가
-                    var separator = currentUrl.indexOf('?') !== -1 ? '&' : '?';
-                    var newUrl = currentUrl + separator + 'cate=' + newCateValue;
-                    window.location.href = newUrl;
-                }
-            });
-        });
-    })
-
-</script>
+        // $(".cateBtn").on("click", function () {
+        //     // 버튼의 cate 의 값
+        //     var newCateValue = $(this).data("value");
+        //
+        //     // 현재 Url
+        //     var currentUrl = window.location.href;
+        //
+        //     // Url에 cate의 값이 존재하는 지 확인
+        //     if (currentUrl.indexOf('?cate=') !== -1 || currentUrl.indexOf('&cate=') !== -1) {
+        //         // cate의 값을 다른 값으로 변경
+        //         var updatedUrl = currentUrl.replace(/([&?]cate=)[^&]+/, '$1' + newCateValue);
+        //         window.location.href = updatedUrl;
+        //     } else {
+        //         // cate의 값이 없으면 추가
+        //         var separator = currentUrl.indexOf('?') !== -1 ? '&' : '?';
+        //         var newUrl = currentUrl + separator + 'cate=' + newCateValue;
+        //         window.location.href = newUrl;
+        //     }
+        // });
+    });
+    </script>
 <th:block th:replace="/include/footer.html :: footer"></th:block>
 
 </body>
