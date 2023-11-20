@@ -6,18 +6,18 @@
         SELECT pno, cateName, pname, content, seller, price, proaddr, image, createAt, p.status, visited
         FROM product p
         JOIN category c ON (p.cate = c.cate)
-        where p.status = 'SALE' or p.status = 'RESERVED'
         <where>
+            p.status='SALE' or p.status = 'RESERVED'
             <if test="searchType != null">
                 <trim prefixOverrides="OR">
                     <choose>
-                        <when test="searchType == 'pname'.toString()">
+                        <when test="searchType == 'P'.toString()">
                             pname LIKE concat('%', #{searchKeyword}, '%')
                         </when>
-                        <when test="searchType == 'content'.toString()">
+                        <when test="searchType == 'C'.toString()">
                             content LIKE concat('%', #{searchKeyword}, '%')
                         </when>
-                        <when test="searchType == 'seller'.toString()">
+                        <when test="searchType == 'S'.toString()">
                             seller LIKE concat('%', #{searchKeyword}, '%')
                         </when>
                     </choose>
@@ -43,13 +43,13 @@
             <if test="searchType != null">
                 <trim prefixOverrides="OR">
                     <choose>
-                        <when test="searchType == 'pname'.toString()">
+                        <when test="searchType == 'P'.toString()">
                             pname LIKE concat('%', #{searchKeyword}, '%')
                         </when>
-                        <when test="searchType == 'content'.toString()">
+                        <when test="searchType == 'C'.toString()">
                             content LIKE concat('%', #{searchKeyword}, '%')
                         </when>
-                        <when test="searchType == 'seller'.toString()">
+                        <when test="searchType == 'S'.toString()">
                             seller LIKE concat('%', #{searchKeyword}, '%')
                         </when>
                     </choose>
@@ -69,7 +69,7 @@
 
     <!-- 게시글 상세보기 -->
     <select id="productDetail" resultType="com.team45.entity.ProductVO">
-        select pno, p.cate, cateName, pname, content, seller, price, proaddr, image, createAt, p.status, visited from product p join category c on(p.cate=c.cate) where pno=#{pno}
+        select pno, cateName, pname, content, seller, price, proaddr, image, createAt, p.status, visited from product p join category c on(p.cate=c.cate) where pno=#{pno}
     </select>
 
     <!-- 상품 등록하기 -->
@@ -109,9 +109,5 @@
     <!-- 카테고리 개수 -->
     <select id="getCateProCnt" resultType="java.util.Map">
         SELECT cateName, COUNT(p.cate) AS cnt FROM product p RIGHT OUTER JOIN category c ON (p.cate=c.cate) GROUP BY c.cate
-    </select>
-
-    <select id="productGetLast" resultType="integer">
-        SELECT pno FROM product ORDER BY pno DESC LIMIT 1
     </select>
 </mapper>

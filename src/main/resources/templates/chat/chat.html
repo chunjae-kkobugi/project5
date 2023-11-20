@@ -23,7 +23,10 @@
             color: inherit;
         }
         .chat-message-me {
-            border-radius: 15px; background-color: green; color: white; float: right; width: fit-content; max-width: 450px;
+            border-radius: 15px; background-color: green; float: right; width: fit-content; max-width: 450px;
+        }
+        .chat-message-me p {
+            color: white;
         }
         .chat-message-other{
             border-radius: 15px; background-color: rgba(57, 192, 237,.2); max-width: 450px;
@@ -34,70 +37,69 @@
     </style>
 </head>
 <body>
-
-<section>
-    <div class="container py-5">
-        <div class="row d-flex justify-content-center">
-            <div class="col">
-                <div class="card" style="border-radius: 15px;">
-                    <div class="card-header d-flex justify-content-center align-items-center p-3 bg-info text-white border-bottom-0" style="border-top-left-radius: 15px; border-top-right-radius: 15px;">
-                        <p class="mb-0 fw-bold" id="roomName">채팅방 이름</p>
-                        <input type="hidden" id="roomNo" >
-                    </div>
 <div th:replace="/include/header.html :: header"></div>
 <div class="container contenter">
     <h1>채팅하기</h1>
     <div class="container">
         <div class="row">
-            <div class="col-6">
-                <h4>채팅방 목록</h4>
-                <ul class="list-group" id="roomList" style="margin: 10px 0;" th:each="room : ${chatRooms}">
-                    <li class="list-group-item"><a th:onclick="joinRoom(this.getAttribute('roomno'))" th:roomno="${room.roomNo}" th:text="${room.userId}"></a></li>
-                </ul>
-                <div class="input-group mb-3">
-                    <button class="btn btn-outline-secondary" onclick="createRoom()">Create Chat Room</button>
-                </div>
-            </div>
+            <div id="chatRoom" class="col-6">
+                <section>
+                    <div class="container py-5">
+                        <div class="row d-flex justify-content-center">
+                            <div class="col">
+                                <div class="card" style="border-radius: 15px;">
+                                    <div class="card-header d-flex justify-content-center align-items-center p-3 bg-info text-white border-bottom-0" style="border-top-left-radius: 15px; border-top-right-radius: 15px;">
+                                        <p class="mb-0 fw-bold" id="roomName" th:text="${roomName}" />
+                                        <input type="hidden" id="roomNo" th:value="${room.roomNo}">
+                                    </div>
+                                    <div class="card-body">
+                                        <div id="msgArea" style="height: 500px; overflow-y: auto;">
+                                            <th:block th:each="c : ${chats}">
+                                                <div class="d-flex flex-row justify-content-end mb-4" th:if="${c.sender eq session.sid}">
+                                                    <div class="chat-box text-end">
+                                                        <div class="chat-author m-0 p-1" th:text="${c.sender}"><p class="chat-time" th:text="${c.time}" /></div>
+                                                        <div class="p-3 chat-message-me">
+                                                            <p class="chat-message small mb-0" th:text="${c.message}" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="d-flex flex-row justify-content-start mb-4" th:if="${c.sender != session.sid}">
+                                                    <div class="chat-box">
+                                                        <div class="chat-author m-0 p-1" th:text="${c.sender}"><p class="chat-time" th:text="${c.time}" /></div>
+                                                        <div class="p-3 chat-message-other">
+                                                            <p class="chat-message small mb-0" th:text="${c.message}" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </th:block>
+                                        </div>
 
-                    <div class="card-body">
-                        <div id="msgArea" style="height: 500px; overflow-y: auto;">
-                            <th:block th:each="c : ${chats}">
-                                <div class="d-flex flex-row justify-content-end mb-4" th:if="${c.sender == session.sid}">
-                                    <div class="chat-box text-end">
-                                        <div class="chat-author m-0 p-1" th:text="c.sender"><p class="chat-time" th:text="${c.time}" /></div>
-                                        <div class="p-3 chat-message-me">
-                                            <p class="chat-message small mb-0" th:text="${c.message}" />
-                                        </div>
+                                        <textarea class="form-control" id="chat-input" placeholder="Type Your message and Enter" aria-label="chat input" rows="3"></textarea>
+                                        <div class="d-flex justify-content-end mt-2"><button class="btn btn-primary" id="chat-send">Send</button></div>
                                     </div>
                                 </div>
-                                <div class="d-flex flex-row justify-content-start mb-4" th:if="${c.sender != session.sid}">
-                                    <div class="chat-box">
-                                        <div class="chat-author m-0 p-1" th:text="${c.sender}"><p class="chat-time" th:text="${c.time}" /></div>
-                                        <div class="p-3 chat-message-other">
-                                            <p class="chat-message small mb-0" th:text="${c.message}" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </th:block>
+                            </div>
                         </div>
-
-                        <textarea class="form-control" id="chat-input" placeholder="Type Your message and Enter" aria-label="chat input" rows="3"></textarea>
-                        <div class="d-flex justify-content-end mt-2"><button class="btn btn-primary" id="chat-send">Send</button></div>
                     </div>
-                </div>
+                </section>
             </div>
         </div>
     </div>
-</section>
+</div>
 </body>
 
 
 <script th:inline="javascript">
+    let roomNo = /*[[${room.roomNo}]]*/ 'default';
+
     let ws;
-    let username = "admin";
+
+    // 사용자 이름 설정. session에 저장된 이름
+    let username = /*[[${session.sid}]]*/ 'default';
     if (username === "null") {
         username = "guest";
     }
+
 
     // 자동 스크롤 함수
     function scrollToBottom() {
@@ -105,13 +107,15 @@
         chatDiv.scrollTop = chatDiv.scrollHeight;
     }
 
-    function makeChat(type, room, username, message){
+    // Ctrl 에서 ObjectMapper 를 사용하여 ChatMessage 형태로 바꾸므로, chat 필드를 가진 json 으로 만들어 보내기
+    function makeChat(chatNo, type, room, username, message){
         var currentTime = new Date();
         var options = { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' };
         var time = new Intl.DateTimeFormat('ko-KR', options).format(currentTime);
 
         let chat = {
             "chatNo": chatNo,
+            "receiver": roomName,
             "type": type,
             "roomNo": room,
             "sender": username,
@@ -128,14 +132,6 @@
     }
 
     $(document).ready(async function(){
-        await closeRoom();
-
-        $("#chatRoom").css("visibility", "visible");
-        getRoom(roomNo);
-
-        $("#roomNo").val(roomNo);
-
-
         ws = new WebSocket("ws://"+location.host+"/socket?roomNo="+roomNo+"&memId="+username);
 
         ws.onopen = function(e){ // 연결 시 실행
@@ -150,7 +146,6 @@
                 url: "/chat/readChat",
                 data: {message: response.data, user: username},
                 success: function (data) {
-                    console.log(data);
                 }
             });
 
@@ -159,7 +154,7 @@
             if(msg.roomNo===roomNo){
                 let newMsg = ``;
 
-                if(msg.type=="TALK"){
+                if(msg.type==="TALK"){
                     if(msg.sender===username){
                         newMsg = `<div class="d-flex flex-row justify-content-end mb-4">
                                                         <div class="chat-box text-end">
@@ -191,7 +186,7 @@
         }
 
         ws.onclose = function(e){ // 연결 종료 시 실행
-            // console.log("info : connection closed");
+            console.log("info : connection closed");
         };
 
         ws.onerror = function(e){
@@ -201,20 +196,23 @@
 
 
     $("#chat-send").on("click", function() {
-        let roomNo = $("#roomNo").val();
         let msg = $("#chat-input").val();
 
         if(msg===""){
             return false;
         } else {
+            // 일단 데이터베이스 채팅 저장
             var jsonstr = makeChat(0, "TALK", roomNo, username, msg);
             $.ajax({
                 type: "POST",
                 url: "/chat/insertChat",
                 data: {message: jsonstr},
                 success: function (response) {
-                    console.log(response);
+                    // 데이터베이스에 채팅이 제대로 저장된 경우에만 send
                     send(makeChat(response.chatNo, "TALK", roomNo, username, msg));
+                },
+                error: function(error){
+                    console.log(error);
                 }
             });
         }
@@ -222,30 +220,6 @@
         $("#chat-input").val("");
     });
 
-
-    let closeRoom = async function(){
-        $("#chatRoom").css("visibility", "hidden");
-        $("#msgArea").html("");
-        let roomNo = $("#roomNo").val();
-
-        if(ws !== undefined) {
-            // await leave(ws, roomNo)
-            // setTimeout(function(){ws.close(1000, username);}, 500);
-            ws.close(1000, username);
-        }
-    }
-
-    let leave = function(ws, roomNo){
-        return new Promise((resolve, reject) => {
-            if(ws !== undefined){
-                var str = username + "님이 방을 나가셨습니다.";
-                send(makeChat("LEAVE", roomNo, username, str));
-            }
-
-            // 작업 완료 후 resolve 호출
-            resolve();
-        });
-    }
 
     window.addEventListener('beforeunload', async function (e) {
         await closeRoom();

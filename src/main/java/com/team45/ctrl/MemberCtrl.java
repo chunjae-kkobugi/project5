@@ -1,8 +1,10 @@
 package com.team45.ctrl;
 
+import com.team45.entity.ChatRoom;
 import com.team45.entity.Member;
 import com.team45.entity.Product;
 import com.team45.entity.ProductVO;
+import com.team45.service.ChatService;
 import com.team45.service.MemberService;
 import com.team45.service.ProductService;
 import com.team45.util.Page;
@@ -35,6 +37,8 @@ public class MemberCtrl {
     @Autowired
     private ProductService productService;
     @Autowired
+    private ChatService chatService;
+    @Autowired
     private HttpSession session;
 
     @GetMapping("list")
@@ -52,7 +56,7 @@ public class MemberCtrl {
 
         model.addAttribute("type", searchType);
         model.addAttribute("keyword", searchKeyword);
-        model.addAttribute("page", pageNow);
+
 
         page.setPostTotal(memberService.memberCount(page));
         page.makePage();
@@ -230,6 +234,18 @@ public class MemberCtrl {
         //model.addAttribute("products", products);
         //List<Product> wishlist = productService.
         return "/member/myWish";
+    }
+
+    @GetMapping("myChat")
+    public String myChat(HttpServletRequest request, Model model){
+        String sid = (String) session.getAttribute("sid");
+        Member mem = memberService.memberGet(sid);
+        model.addAttribute("member", mem);
+
+        List<ChatRoom> rooms = chatService.chatRoomMy(sid);
+        model.addAttribute("rooms", rooms);
+
+        return "member/myChat";
     }
 
     @GetMapping("myshop/keyword")

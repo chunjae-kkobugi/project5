@@ -4,30 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <div th:replace="/include/head.html :: head"></div>
-    <div th:replace="/include/head2.html :: head2"></div>
     <title>상품 목록</title>
 </head>
 <body>
 <div th:replace="/include/header.html :: header"></div>
-<!--<section class="page-search">-->
-<!--    <div class="d-flex justify-content-center">-->
-<!--        <form class="d-flex mb-3" role="search" method="get" style="max-width: 60%;" th:action="@{/product/list}">-->
-<!--            <div class="input-group">-->
-<!--                <input class="form-control" type="text" placeholder="검색어 입력" aria-label="search" id="searchKeyword" name="searchKeyword" required>-->
-<!--                <select class="form-select" id="searchType" name="searchType" required>-->
-<!--                    <option value="P">상품명</option>-->
-<!--                    <option value="C">내용</option>-->
-<!--                    <option value="S">판매자</option>-->
-<!--                </select>-->
-<!--                <button class="btn btn-outline-success" type="submit">검색</button>-->
-<!--            </div>-->
-<!--        </form>-->
-<!--    </div>-->
-<!--</section>-->
 
 <section class="page-search">
-    <div th:replace="/include/searchList.html :: fragment-search('/product/list', 'pname:상품명,content:내용,seller:판매자')"></div>
-    <p th:text="${type}"></p>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <!--  Search -->
+                <div class="advance-search nice-select-white">
+                    <form th:action="@{/product/list}" method="get">
+                        <div class="form-row align-items-center">
+                            <div class="form-group col-lg-3 col-md-6">
+                                <select class="w-100 form-control my-2 my-lg-0" id="type" name="type">
+                                    <option value="P" id="P">상품명</option>
+                                    <option value="C" id="C">내용</option>
+                                    <option value="S" id="S">판매자</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-lg-3 col-md-6">
+                                <input type="text" class="form-control my-2 my-lg-0" id="searchKeyword" name="searchKeyword" placeholder="Location">
+                            </div>
+                            <div class="form-group col-xl-2 col-lg-3 col-md-6">
+                                <button type="submit" class="btn btn-primary active w-100">검색</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 <section class="section-sm">
     <div class="container">
@@ -46,7 +54,7 @@
                         </ul>
                     </div>
                     <div class="widget category-list">
-                        <h4 class="widget-header">조건</h4>
+                        <h4 class="widget-header">Nearby</h4>
                         <ul class="category-list">
                             <li th:style="${proaddr != null ? 'color : blue' : ''}">
                                 <input type="hidden" id="proaddrVal" th:value="${session.proaddr}">
@@ -67,43 +75,31 @@
                             <div class="product-item bg-light">
                                 <div class="card">
                                     <div class="thumb-content">
-                                        <div class="price" th:if="${list.price eq 0}" th:text="나눔"></div>
-                                         <div class="price" th:if="${list.price ne 0}">[[${list.price}]] 원</div>
+                                        <div class="price" th:text="${list.price}"></div>
                                         <a th:href="@{/product/detail(pno=${list.pno})}">
-                                            <th:block th:if="${!list.fileDataList.isEmpty()}">
-                                                <img class="card-img-top img-fluid" style="width: 255px; height: 255px;" th:src="@{/upload/} + ${list.fileDataList[0].savePath}+'/'+${list.fileDataList[0].saveName}">
-                                            </th:block>
+                                            <img class="card-img-top img-fluid" src="" alt="Card image cap">
                                         </a>
                                     </div>
                                     <div class="card-body">
                                         <h4 class="card-title"><a th:href="@{/product/detail(pno=${list.pno})}" th:text="${list.pname}"></a></h4>
                                         <ul class="list-inline product-meta">
                                             <li class="list-inline-item">
-                                                <p th:text="${list.cateName}"><i class="fa fa-folder-open-o"></i></p>
+                                                <a th:href="@{/product/detail(pno=${list.pno})}" th:text="${list.cateName}"><i class="fa fa-folder-open-o"></i></a>
                                             </li>
                                             <li class="list-inline-item">
-                                                <p th:text="${#dates.format(list.createAt, 'yyyy-MM-dd')}"><i class="fa fa-calendar"></i></p>
-                                            </li>
-                                            <li class="list-inline-item">
-                                                <p class="card-text" th:if="${list.status eq 'SALE'}">판매 중</p>
-                                                <p class="card-text" th:if="${list.status eq 'RESERVED'}">예약 중</p>
-                                                <p class="card-text" th:if="${list.status eq 'OUT'}">판매 완료</p>
-                                            </li>
-
-                                            <li class="list-inline-item">
-                                                <p class="card-text" th:text="${list.seller}"></p>
+                                                <a th:href="@{/product/detail(pno=${list.pno})}" th:text="${list.createAt}"><i class="fa fa-calendar"></i></a>
                                             </li>
                                         </ul>
+                                        <p class="card-text" th:text="${list.seller}"></p>
+                                        <p class="card-text" th:text="${list.status}"></p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="product-grid-list" th:if="${productList.isEmpty()}">
-                    <p class="text-center"> 등록된 상품이 없습니다. </p>
-                </div>
-<!--                <th:block th:if="${not #lists.isEmpty(productList)}"><div th:replace="/include/pagination.html :: fragment-pagination('/product/list')"></div></th:block>-->
+
+                <th:block th:if="${not #lists.isEmpty(productList)}"><div th:replace="/include/pagination.html :: fragment-pagination('/product/list')"></div></th:block>
             </div>
         </div>
     </div>
@@ -197,54 +193,6 @@
                 }
             });
         });
-        // // 페이징
-        // // prev Btn
-        // $("#prevBtn").click(function (){
-        //     // 버튼의 페이지 값
-        //     var curPage = $(this).data("value"); // 페이지 값을 정수로 변환
-        //
-        //     // URL에서 페이지 값 변경
-        //     var currentUrl = window.location.href;
-        //     var updatedUrl = currentUrl.replace(/([&?]page=)[^&]+/, '$1' + (curPage -1));
-        //
-        //     // 변경된 URL로 이동
-        //     window.location.href = updatedUrl;
-        // });
-        // // next Btn
-        // $("#nextBtn").click(function (){
-        //     // 버튼의 페이지 값
-        //     var curPage = $(this).data("value"); // 페이지 값을 정수로 변환
-        //
-        //     // URL에서 페이지 값 변경
-        //     var currentUrl = window.location.href;
-        //     var updatedUrl = currentUrl.replace(/([&?]page=)[^&]+/, '$1' + (curPage +1));
-        //
-        //     // 변경된 URL로 이동
-        //     window.location.href = updatedUrl;
-        // });
-        //
-        //
-        //
-        // // 숫자버튼
-        // $(".pageBtn").click(function (){
-        //     // 버튼의 page 의 값
-        //     var curPage = $(this).data("value");
-        //
-        //     // 현재 Url
-        //     var currentUrl = window.location.href;
-        //
-        //     // Url에 page의 값이 존재하는 지 확인
-        //     if (currentUrl.indexOf('?page=') !== -1 || currentUrl.indexOf('&page=') !== -1) {
-        //         // page의 값을 다른 값으로 변경
-        //         var updatedUrl = currentUrl.replace(/([&?]page=)[^&]+/, '$1' + curPage);
-        //         window.location.href = updatedUrl;
-        //     } else {
-        //         // page의 값이 없으면 추가
-        //         var separator = currentUrl.indexOf('?') !== -1 ? '&' : '?';
-        //         var newUrl = currentUrl + separator + 'page=' + curPage;
-        //         window. location.href = newUrl;
-        //     }
-        // });
     })
 
 </script>
