@@ -1,6 +1,7 @@
 package com.team45.config;
 
 import com.team45.service.*;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -10,6 +11,7 @@ import org.springframework.web.socket.server.standard.ServerEndpointExporter;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+@Log4j2
 @Configuration
 @EnableWebMvc
 public class WebConfig implements WebMvcConfigurer {
@@ -41,6 +43,9 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Bean
     public NoticeSerivce noticeSerivce() {return new NoticeServiceImpl();}
+
+    @Bean
+    public RecommentService recommentService() {return new RecommentServiceImpl();}
 
 
 }

@@ -11,13 +11,13 @@
             <if test="searchType != null">
                 <trim prefixOverrides="OR">
                     <choose>
-                        <when test="searchType == 'P'.toString()">
+                        <when test="searchType == 'pname'.toString()">
                             pname LIKE concat('%', #{searchKeyword}, '%')
                         </when>
-                        <when test="searchType == 'C'.toString()">
+                        <when test="searchType == 'content'.toString()">
                             content LIKE concat('%', #{searchKeyword}, '%')
                         </when>
-                        <when test="searchType == 'S'.toString()">
+                        <when test="searchType == 'seller'.toString()">
                             seller LIKE concat('%', #{searchKeyword}, '%')
                         </when>
                     </choose>
@@ -43,13 +43,13 @@
             <if test="searchType != null">
                 <trim prefixOverrides="OR">
                     <choose>
-                        <when test="searchType == 'P'.toString()">
+                        <when test="searchType == 'pname'.toString()">
                             pname LIKE concat('%', #{searchKeyword}, '%')
                         </when>
-                        <when test="searchType == 'C'.toString()">
+                        <when test="searchType == 'content'.toString()">
                             content LIKE concat('%', #{searchKeyword}, '%')
                         </when>
-                        <when test="searchType == 'S'.toString()">
+                        <when test="searchType == 'seller'.toString()">
                             seller LIKE concat('%', #{searchKeyword}, '%')
                         </when>
                     </choose>

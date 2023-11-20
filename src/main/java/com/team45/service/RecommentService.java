@@ -1,27 +1,20 @@
 package com.team45.service;
 
+
 import com.team45.entity.Recomment;
-import com.team45.mapper.RecommentMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Service
-public class RecommentService {
 
-    @Autowired
-    private RecommentMapper recommentMapper;
+public interface RecommentService {
+    List<Recomment> recommentList(String mem_id);
+    void recommentAdd(Recomment recomment);
+    void recommentDel(int no);
 
-    public List<Recomment> recommentList(){
-     return recommentMapper.recommentList();
-    }
 
-    public void recommentAdd(Recomment recomment){
-        recommentMapper.recommentAdd(recomment);
-
-    };
-    public void recommentDel(int no){
-        recommentMapper.recommentDel(no);
-    };
 }
