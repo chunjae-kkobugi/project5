@@ -19,6 +19,11 @@ public class RecommentServiceImpl implements RecommentService{
     }
 
     @Override
+    public Recomment recommentOne(int no) {
+        return recommentMapper.recommentOne(no);
+    }
+
+    @Override
     public void recommentAdd(Recomment recomment) {
         recommentMapper.recommentAdd(recomment);
     }

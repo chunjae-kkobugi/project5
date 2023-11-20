@@ -12,7 +12,6 @@
     <thead>
         <tr>
             <th>번호</th>
-            <th>순번</th>
             <th>내용</th>
             <th>아이디 넘버</th>
             <th>사용</th>
@@ -20,25 +19,29 @@
         </tr>
     </thead>
     <tbody>
-    <tr th:each="reco, num : ${recommentList }">
-        <td th:text="${num.count }"></td>
-        <td th:text="${reco.comment }" ></td>
-<!--        <td th:text="${reco.mem_id }"></td>-->
-        <td><button type="button" th:comm="${reco.getComment() }" onclick="choice(this.getAttribute('comm'))">사용</button></td>
-        <td><a th:href="@{/recomment/Del(no=${reco.getNo()}) }">삭제하기</a></td>
-    </tr>
+        <tr th:each="reco, num : ${recommentList }">
+            <td th:text="${num.count }"></td>
+            <td th:text="${reco.comment }" ></td>
+            <td th:text="${reco.mem_id }"></td>
+            <td><button type="button" th:com="${reco.getComment() }" onclick="choice(this.getAttribute('com'))">사용</button></td>
+            <td><a th:href="@{/recomment/Del(no=${reco.getNo()}, id=${session.sid}) }" onclick="eventremove()">삭제하기</a></td>
+        </tr>
     </tbody>
 </table>
 
-<div th:if="${recommentList.size() < 5}">
+<th:block th:if="${recommentList.size() < 5}">
     <a th:href="@{/recomment/Add(id=${session.sid })}">자주 쓰는 글 등록</a>
-</div>
-<script >
+</th:block>
+<script>
     function choice(comment){
         if(window.confirm("문구를 사용할 경우 현재 작성한 문구는 사라집니다.")) {
-            opener.document.fm.content.value = comment;
+            window.opener.document.getElementById('content').value = comment;
             window.close();
         }
+    }
+
+    function eventremove(){
+        confirm("삭제하시겠습니까?")
     }
 
 </script>

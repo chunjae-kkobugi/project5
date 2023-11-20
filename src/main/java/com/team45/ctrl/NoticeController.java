@@ -1,7 +1,9 @@
 package com.team45.ctrl;
 
 
+import com.team45.entity.Member;
 import com.team45.entity.Notice;
+import com.team45.service.MemberService;
 import com.team45.service.NoticeSerivce;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
@@ -32,8 +34,12 @@ import java.util.UUID;
 public class NoticeController {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
+
     @Autowired
     private NoticeSerivce noticeSerivce;
+
+    @Autowired
+    private MemberService memberService;
 
     @GetMapping("/List")
     public String NoticeList(Model model) {
@@ -55,13 +61,16 @@ public class NoticeController {
     ;
 
     @GetMapping("/Add")
-    public String Noticeform() {
+    public String Noticeform(String id, Model model) {
+        Member mem = memberService.memberGet(id);
+        model.addAttribute("mem", mem);
         return "/board/notice/noticeForm";
     }
 
 
     @PostMapping("/Add")
     public String NoticeAdd(Notice notice, MultipartFile uploadFiles, HttpServletRequest request, Model model) throws Exception {
+
         String title = request.getParameter("title");
         String content = request.getParameter("content");
         notice.setTitle(title);
