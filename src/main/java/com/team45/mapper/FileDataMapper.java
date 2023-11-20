@@ -29,4 +29,5 @@ public interface FileDataMapper {
     public int fileDataBoardRemoveUpdate(Long columnNo);
     @Delete("DELETE FROM fileData WHERE fileNo=#{fileNo}")
     public int fileDataDelete(Long fileNo);
+
 }

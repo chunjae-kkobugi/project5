@@ -6,6 +6,7 @@
         SELECT pno, cateName, pname, content, seller, price, proaddr, image, createAt, p.status, visited
         FROM product p
         JOIN category c ON (p.cate = c.cate)
+        where p.status = 'SALE' or p.status = 'RESERVED'
         <where>
             <if test="searchType != null">
                 <trim prefixOverrides="OR">

@@ -90,7 +90,30 @@ public class ProductServiceImpl implements ProductService{
     @Override
     @Transactional
     public int productUpdate(Product product) {
-        return productMapper.productUpdate(product);
+        Long pno = product.getPno();
+        int returnNo = productMapper.productUpdate(product);
+
+        for (FileData f : product.getFileDataList()) {
+            f.setTableName("product");
+            f.setColumnNo(pno);
+            fileDataMapper.fileDataInsert(f);
+        }
+        ProductVO pvo = productMapper.productDetail(pno);
+        FileData thumb = fileDataMapper.fileDataGetLast();
+        pvo.setImage(thumb.getFileNo());
+
+        Product p = mapper.convertValue(pvo, Product.class);
+        System.out.println(p);
+
+        productMapper.productUpdate(p);
+
+        return returnNo;
+
+    }
+
+    @Override
+    public int fileDataDelete(Long fileNo) {
+        return fileDataMapper.fileDataDelete(fileNo);
     }
 
     @Override
