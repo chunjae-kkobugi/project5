@@ -45,11 +45,11 @@
                     <div class="widget category-list">
                         <h4 class="widget-header">카테고리</h4>
                         <ul class="category-list">
-                            <li th:style="${curCategory eq null ? 'color : blue' : ''}">
+                            <li th:style="${curCategory ne null ? '' : 'color : blue'}" style="color: blue">
                                 <a th:href="@{/product/list}" th:text="전체"></a>
                             </li>
                             <li th:each="cate : ${categories}">
-                                <a th:href="@{product/list(cate=${cate.cate})}" th:value="${cate.cate}" th:text="${cate.cateName}" th:data-value="${cate.cate}" th:style="${cate.cate eq curCategory ? 'color : blue' : ''}"></a>
+                                <a th:href="@{/product/list(cate=${cate.cate})}" th:value="${cate.cate}" th:text="${cate.cateName}" th:style="${cate.cate eq curCategory ? 'color : blue' : ''}"></a>
                             </li>
                         </ul>
                     </div>
@@ -177,27 +177,6 @@
             // 새 URL로 이동
             window.location.href = updatedUrl;
         });
-
-        // 카테고리
-        // $(".cateBtn").on("click", function () {
-        //     // 버튼의 cate 의 값
-        //     var newCateValue = $(this).data("value");
-        //
-        //     // 현재 Url
-        //     var currentUrl = window.location.href;
-        //
-        //     // Url에 cate의 값이 존재하는 지 확인
-        //     if (currentUrl.indexOf('?cate=') !== -1 || currentUrl.indexOf('&cate=') !== -1) {
-        //         // cate의 값을 다른 값으로 변경
-        //         var updatedUrl = currentUrl.replace(/([&?]cate=)[^&]+/, '$1' + newCateValue);
-        //         window.location.href = updatedUrl;
-        //     } else {
-        //         // cate의 값이 없으면 추가
-        //         var separator = currentUrl.indexOf('?') !== -1 ? '&' : '?';
-        //         var newUrl = currentUrl + separator + 'cate=' + newCateValue;
-        //         window.location.href = newUrl;
-        //     }
-        // });
     });
     </script>
 <th:block th:replace="/include/footer.html :: footer"></th:block>
