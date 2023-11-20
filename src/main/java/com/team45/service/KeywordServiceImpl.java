@@ -20,6 +20,11 @@ public class KeywordServiceImpl implements KeywordService {
     }
 
     @Override
+    public int keywordCountByUid(String uid, Page page) {
+        return keywordMapper.keywordCountByUid(uid, page);
+    }
+
+    @Override
     public void keywordInsert(Keyword keyword) {
         keywordMapper.keywordInsert(keyword);
     }
