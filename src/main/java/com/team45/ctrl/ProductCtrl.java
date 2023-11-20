@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.File;
@@ -159,16 +158,6 @@ public class ProductCtrl {
         if (!folder.exists()) {        // 폴더가 존재하지 않으면 폴더 생성
             folder.mkdirs();
         }
-        // 파일이 새롭게 업로드되지 않았다면 삭제하지 않도록 처리
-        if (files[0].getSize() != 0){
-            List<FileData> fileDataList = productService.productDetail(product.getPno()).getFileDataList();
-            for (FileData f : fileDataList) {
-                File oldFile = new File(realPath + f.getSavePath() +'/'+ f.getSaveName());
-                if (oldFile.exists()){
-                    oldFile.delete();
-                }
-            }
-        }
 
         List<FileData> fileDataList = new ArrayList<>();
 
@@ -187,8 +176,8 @@ public class ProductCtrl {
                 fileData.setFileType(" ");
                 fileData.setStatus("ACTIVE");
                 file.transferTo(new File(saveFolder, saveFilename)); // 파일을 업로드 폴더에 저장
+                fileDataList.add(fileData);
             }
-            fileDataList.add(fileData);
         }
 
         product.setFileDataList(fileDataList);
@@ -212,4 +201,3 @@ public class ProductCtrl {
         return "redirect:list";
     }
 }
-
