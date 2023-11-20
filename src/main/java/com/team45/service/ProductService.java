@@ -1,8 +1,6 @@
 package com.team45.service;
 
-import com.team45.entity.Category;
-import com.team45.entity.Product;
-import com.team45.entity.ProductVO;
+import com.team45.entity.*;
 import com.team45.util.Page;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
@@ -20,10 +18,10 @@ public interface ProductService {
     public int productCountBySeller(String seller, Page page);
     public int productInsert(Product product);
     public int productUpdate(Product product);
-    public int productReserved(Long pno);
-    public int productOut(Long pno);
-    public int productSale(Long pno);
-    public int productRemove(Long pno);
+    public void productReserved(Long pno);
+    public void productOut(Long pno);
+    public void productSale(Long pno);
+    public void productRemove(Long pno);
     public List<Category> categories();
     public List<Map<String, Integer>> getCateProCnt();
 }

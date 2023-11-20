@@ -8,9 +8,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class FileData {
-    private int fileNo;
+    private Long fileNo;
     private String tableName;
-    private int columnNo;
+    private Long columnNo;
     private String originName;
     private String saveName;
     private String savePath;
