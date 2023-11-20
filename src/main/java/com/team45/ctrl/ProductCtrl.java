@@ -44,6 +44,7 @@ public class ProductCtrl {
         String category = request.getParameter("cate");
 
         Page page = new Page();
+        page.setPageNow(curPage);
         page.setCategory(category);                                        // 카테고리 데이터
         page.setSearchKeyword(request.getParameter("keyword"));     // 검색 키워드
         page.setSearchType(request.getParameter("type"));           // 검색 타입
@@ -52,7 +53,7 @@ public class ProductCtrl {
 
         // 페이징에 필요한 데이터 저장
         int total = productService.getCount(page);
-        page.setPageTotal(total);
+        page.setPostTotal(total);
         page.makePage();
 
         List<ProductVO> productList = productService.productList(page);

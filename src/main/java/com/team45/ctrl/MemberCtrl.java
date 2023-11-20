@@ -1,7 +1,10 @@
 package com.team45.ctrl;
 
+import com.team45.entity.ChatRoom;
 import com.team45.entity.Member;
 import com.team45.entity.Product;
+import com.team45.entity.ProductVO;
+import com.team45.service.ChatService;
 import com.team45.service.MemberService;
 import com.team45.service.ProductService;
 import com.team45.util.Page;
@@ -53,7 +56,7 @@ public class MemberCtrl {
 
         model.addAttribute("type", searchType);
         model.addAttribute("keyword", searchKeyword);
-        model.addAttribute("page", pageNow);
+
 
         page.setPostTotal(memberService.memberCount(page));
         page.makePage();
