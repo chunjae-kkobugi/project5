@@ -12,7 +12,8 @@ public class Page {
     private int postScreen = 10; // 한 화면(페이지) 당 게시글 개수
     private int postStart; // 현재 페이지블록의 첫 번째 게시글 인덱스
     private int postTotal; // 전체 게시글 개수
-    private String searchType; // 검색 타입(컬럼명과 일치해야 함) ex. 제목(title), 내용(content) 등
+    private String searchType;
+    // 검색 타입(컬럼명과 일치해야 함) ex. 제목(title), 내용(content) 등
     private String searchKeyword; // 검색 키워드
 
     // Product

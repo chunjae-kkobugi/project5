@@ -82,12 +82,13 @@ CREATE TABLE chatRoom (
     UNIQUE (memId, pno)                    -- memId와 pno를 묶어서 UNIQUE 제약 설정
 );
 
--- 채팅 메시지
+-- 채팅 메시지 ( receiver 추가됨)
 CREATE TABLE chatMessage(
     chatNo BIGINT PRIMARY KEY AUTO_INCREMENT,   -- 채팅 번호
     type VARCHAR(20) NOT NULL,                  -- 채팅 타입: ENTER, TALK, LEAVE, NOTICE
     roomNo INT NOT NULL,                        -- 채팅방 번호
     sender VARCHAR(20) NOT NULL,                -- 송신자
+    receiver VARCHAR(20) NOT NULL,              -- 수신자
     message VARCHAR(2000) NOT NULL,             -- 채팅 메시지
     status VARCHAR(50) DEFAULT 'UNREAD',        -- 읽음 여부
     time TIMESTAMP DEFAULT CURRENT_TIMESTAMP    -- 채팅 발송 시간

@@ -49,6 +49,10 @@
                                 <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile"
                                    aria-selected="false">Specifications</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="pills-chat-tab" data-toggle="pill" href="#pills-chat" role="tab" aria-controls="pills-chat"
+                                   aria-selected="false">채팅</a>
+                            </li>
                         </ul>
                         <div class="tab-content" id="pills-tabContent">
                             <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
@@ -75,6 +79,14 @@
                                     </tr>
                                     </tbody>
                                 </table>
+                            </div>
+                            <div class="tab-pane fade" id="pills-chat" role="tabpanel" aria-labelledby="pills-chat">
+                                <a th:unless="${session.sid eq detail.seller}" class="btn btn-primary" th:href="@{/chat/roomEnter(memId=${session.sid}, pno=${detail.pno})}">채팅하기</a>
+                                <th:block th:if="${session.sid eq detail.seller}">
+                                    <ul th:each="room : ${roomList}">
+                                        <li><a th:href="@{/chat/roomEnter(memId=${room.memId}, pno=${detail.pno})}" th:text="${room.memId}" /></li>
+                                    </ul>
+                                </th:block>
                             </div>
                         </div>
                     </div>

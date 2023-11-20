@@ -1,8 +1,10 @@
 package com.team45.ctrl;
 
 import com.team45.entity.Keyword;
+import com.team45.entity.ChatRoom;
 import com.team45.entity.Member;
 import com.team45.entity.ProductVO;
+import com.team45.service.ChatService;
 import com.team45.service.MemberService;
 import com.team45.service.ProductService;
 import com.team45.service.WishService;
@@ -34,6 +36,10 @@ public class MemberCtrl {
     @Autowired
     private MemberService memberService;
     @Autowired
+    private ProductService productService;
+    @Autowired
+    private ChatService chatService;
+    @Autowired
     private HttpSession session;
 
     @GetMapping("list")
@@ -51,7 +57,7 @@ public class MemberCtrl {
 
         model.addAttribute("type", searchType);
         model.addAttribute("keyword", searchKeyword);
-        model.addAttribute("page", pageNow);
+
 
         page.setPostTotal(memberService.memberCount(page));
         page.makePage();
@@ -69,14 +75,21 @@ public class MemberCtrl {
         return "member/login";
     }
 
+    @PostMapping("login")
+    public String login(HttpServletRequest request, Model model){
+        String id = request.getParameter("id");
+        String pw = request.getParameter("pw");
+        boolean keepId = Boolean.parseBoolean(request.getParameter("keepId"));
+
+        return "index";
+    }
+
 
     @PostMapping("loginpro")
     public String loginPro(String id, String pw, Model model) {
         int pass = memberService.loginPro(id, pw);
         if (pass == 1) {
             session.setAttribute("sid", id);
-            String proaddr = memberService.memberGet(id).getAddr3();
-            session.setAttribute("proaddr", proaddr);
             model.addAttribute("msg", "로그인 되었습니다.");
             model.addAttribute("url", "/");
             return "/member/alert";
