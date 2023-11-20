@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en"
+	  xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<th:block th:replace="include/head :: head" ></th:block>
+	<th:block th:replace="include/head2 :: head2" ></th:block>
+	<title>TSellpa::마이페이지</title>
+</head>
+<body class="myPage">
+<th:block th:replace="include/header :: header" ></th:block>
+
+<section class="dashboard section">
+	<!-- Container Start -->
+	<div class="container">
+		<!-- Row Start -->
+		<div class="row">
+			<div class="col-lg-4">
+				<th:block th:replace="include/mypageSide :: side" ></th:block>
+			</div>
+
+			<div class="col-lg-8">
+				<ul th:each="room: ${rooms}">
+					<li><a th:if="${room.seller eq session.sid}" th:text="${room.memId}"></a></li>
+					<li><a th:unless="${room.seller eq session.sid}" th:text="${room.seller}"></a></li>
+				</ul>
+			</div>
+		</div>
+		<!-- Row End -->
+	</div>
+	<!-- Container End -->
+</section>
+
+<th:block th:replace="include/footer :: footer" ></th:block>
+
+</body>
+</html>

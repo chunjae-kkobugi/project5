@@ -1,8 +1,10 @@
 package com.team45.ctrl;
 
 import com.team45.entity.Category;
+import com.team45.entity.ChatRoom;
 import com.team45.entity.Product;
 import com.team45.entity.ProductVO;
+import com.team45.service.ChatService;
 import com.team45.service.ProductService;
 import com.team45.util.Page;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -25,6 +28,12 @@ public class ProductCtrl {
     @Autowired
     private ProductService productService;
 
+    @Autowired
+    private HttpSession session;
+
+    @Autowired
+    private ChatService chatService;
+
     // 전체 상품 리스트
     @GetMapping("list")
     public String productList(HttpServletRequest request, Model model) throws Exception {
@@ -35,6 +44,7 @@ public class ProductCtrl {
         String category = request.getParameter("cate");
 
         Page page = new Page();
+        page.setPageNow(curPage);
         page.setCategory(category);                                        // 카테고리 데이터
         page.setSearchKeyword(request.getParameter("keyword"));     // 검색 키워드
         page.setSearchType(request.getParameter("type"));           // 검색 타입
@@ -43,7 +53,7 @@ public class ProductCtrl {
 
         // 페이징에 필요한 데이터 저장
         int total = productService.getCount(page);
-        page.setPageTotal(total);
+        page.setPostTotal(total);
         page.makePage();
 
         List<ProductVO> productList = productService.productList(page);
@@ -71,6 +81,13 @@ public class ProductCtrl {
     public String productDetial(@RequestParam Long pno, HttpServletRequest request, Model model) {
         ProductVO detail = productService.productDetail(pno);
         model.addAttribute("detail", detail);
+
+        String sid = (String) session.getAttribute("sid");
+        if(sid.equals(detail.getSeller())){
+            List<ChatRoom> roomList = chatService.chatRoomProductList(pno);
+            model.addAttribute("roomList", roomList);
+        }
+
         return "product/productDetail";
     }
 }

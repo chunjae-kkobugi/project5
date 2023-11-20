@@ -31,7 +31,7 @@ public class ChatCtrl {
     public void onMessage (String message, Session session) throws IOException {
         // 다른 사람에게 메세지 보내기
         Map<String, List<String>> requestParameter = session.getRequestParameterMap();
-        int roomNo = Integer.parseInt(requestParameter.get("roomNo").get(0));
+        Long roomNo = Long.valueOf(requestParameter.get("roomNo").get(0));
 
         ChatMessage chat = mapper.readValue(message, ChatMessage.class);
         System.out.println(chat);
@@ -69,7 +69,7 @@ public class ChatCtrl {
         }
     }
 
-    private void sendRoomMessage(String msg, int roomNo){
+    private void sendRoomMessage(String msg, Long roomNo){
         try {
             for(Session s : ChatCtrl.sessionList){
                 Map<String, List<String>> requetParameter = s.getRequestParameterMap();
