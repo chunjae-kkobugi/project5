@@ -138,5 +138,12 @@ public class MemberServiceImpl implements MemberService{
     public List<Member> memberCreateStats() {
         return memberMapper.memberCreateStats();
     }
+
+    @Override
+    public void changePw(Member member) {
+        String ppw = pwEncoder.encode(member.getPw());
+        member.setPw(ppw);
+        memberMapper.changePw(member);
+    }
 }
 

@@ -38,7 +38,7 @@ public interface MemberMapper {
     @Insert("INSERT INTO member VALUES (default, #{id}, #{pw}, #{name}, #{tel}, #{email}, #{addr1}, #{addr2}, #{addr3}, #{postcode}, default, default)")
     void memberInsert(Member member);
 
-    @Update("UPDATE member SET pw=#{pw}, name=#{name}, tel=#{tel}, email=#{email}, addr1=#{addr1}, addr2=#{addr2}, addr3=#{addr3}, postcode=#{postcode} WHERE id=#{id}")
+    @Update("UPDATE member SET name=#{name}, tel=#{tel}, email=#{email}, addr1=#{addr1}, addr2=#{addr2}, addr3=#{addr3}, postcode=#{postcode} WHERE id=#{id}")
     void memberUpdate(Member member);
 
     @Update("UPDATE member SET status='REMOVE' WHERE id=#{id}")
@@ -62,4 +62,6 @@ public interface MemberMapper {
     @Update("UPDATE member SET loginAt=default WHERE id=#{id}")
     void loginAt(String id);
 
+    @Update("UPDATE member SET pw=#{pw} WHERE id=#{id}")
+    void changePw(Member member);
 }
