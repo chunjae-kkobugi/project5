@@ -1,10 +1,12 @@
 package com.team45.ctrl;
 
+import com.team45.entity.ProductVO;
 import com.team45.service.ChatService;
 import com.team45.entity.ChatMessage;
 import com.team45.entity.ChatRoom;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.team45.service.ProductService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,18 +28,22 @@ public class ChatRoomCtrl {
     @Autowired
     private ChatService chatService;
 
+    @Autowired
+    private ProductService productService;
+
     // 채팅방 입장
     @GetMapping("roomEnter")
     public String roomEnter(HttpServletRequest request, Model model){
+        String sid = (String) session.getAttribute("sid");
         String memId = request.getParameter("memId");
-        int pno = Integer.parseInt(request.getParameter("pno"));
+        Long pno = Long.valueOf(request.getParameter("pno"));
 
         // 없으면 새로 추가, 있으면 가져오기
         ChatRoom room = chatService.chatRoomInsert(memId, pno);
         model.addAttribute("room", room);
 
         // 기존의 채팅 내역 가져오기
-        int roomNo = room.getRoomNo();
+        Long roomNo = room.getRoomNo();
         List<ChatMessage> chats = chatService.chatMessageList(roomNo);
         model.addAttribute("chats", chats);
 
@@ -48,17 +54,28 @@ public class ChatRoomCtrl {
                 break;
             }
         }
-        chatService.chatMessageReadUpdates(roomNo, memId);
+        chatService.chatMessageReadUpdates(roomNo, sid);
 
         // 채팅방 상대 이름 띄우기
         // 채팅방은 구매자 기준으로 저장되므로, 구매자인 경우 product 에서 seller 가져오기
+        ProductVO product =  productService.productDetail(pno);
+        model.addAttribute("product", product); // 상품 정보
+        if(sid.equals(memId)){
+            // 구매자인 경우 판매자의 이름
+            model.addAttribute("roomName", product.getSeller());
+        } else {
+            // 판매자인 경우 구매자의 이름
+            model.addAttribute("roomName", room.getMemId());
+        }
+
+
 
         return "chat/chat";
     }
 
     @GetMapping("roomList")
     public String roomList(HttpServletRequest request, Model model){
-        int pno = Integer.parseInt(request.getParameter("pno"));
+        Long pno = Long.valueOf(request.getParameter("pno"));
         model.addAttribute("pno", pno);
 
         List<ChatRoom> chatRooms = chatService.chatRoomProductList(pno);
@@ -70,7 +87,7 @@ public class ChatRoomCtrl {
     @PostMapping("blockRoom")
     @ResponseBody
     public String blockRoom(HttpServletRequest request){
-        int roomNo = Integer.parseInt(request.getParameter("roomNo"));
+        Long roomNo = Long.valueOf(request.getParameter("pno"));
         int returnNo = chatService.chatRoomBlockUpdate(roomNo);
         if(returnNo>0){
             return "Block Successfully";
@@ -82,7 +99,7 @@ public class ChatRoomCtrl {
     @PostMapping("readRoom")
     @ResponseBody
     public String readRoom(HttpServletRequest request){
-        int roomNo = Integer.parseInt(request.getParameter("roomNo"));
+        Long roomNo = Long.valueOf(request.getParameter("pno"));
         String sender = request.getParameter("memId");
 
         int returnNo = chatService.chatMessageReadUpdates(roomNo, sender);
@@ -105,9 +122,15 @@ public class ChatRoomCtrl {
     @ResponseBody
     public String readChat(@RequestParam String message, @RequestParam String user) throws JsonProcessingException {
         ChatMessage chat = mapper.readValue(message, ChatMessage.class);
-        System.out.println(chat);
+
         chatService.chatMessageReadUpdate(chat.getChatNo(), user);
 
         return "readChat Completed";
+    }
+
+    @GetMapping("unreadAll")
+    @ResponseBody
+    public int unreadAll(@RequestParam String receiver){
+        return chatService.chatMessageUnreadAll(receiver);
     }
 }

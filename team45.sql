@@ -55,10 +55,11 @@ CREATE TABLE product(
     createAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,      -- 등록일
     baseAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,        -- 끌어올리기 날짜
     status VARCHAR(50) DEFAULT 'SALE',                          -- REMOVE(삭제), 'SALE' 판매중, 'RESERVED' 예약중, 'OUT' 거래 완료
-    visited INT DEFAULT 0                                       -- 조회수
+    visited INT DEFAULT 0,                                      -- 조회수
+    heart INT DEFAULT 0                                         -- 찜한 수
 );
 
-INSERT INTO product VALUES(DEFAULT, '상품1', '상품1 내용', 'A', 'kimbk111', 1000, '가산동', null, DEFAULT, NULL, 'SALE', DEFAULT);
+INSERT INTO product VALUES(DEFAULT, '상품1', '상품1 내용', 'A', 'kimbk111', 1000, '가산동', null, DEFAULT, NULL, 'SALE', DEFAULT, DEFAULT);
 
 -- 업로드 파일 관리
 CREATE TABLE fileData(
@@ -81,12 +82,13 @@ CREATE TABLE chatRoom (
     UNIQUE (memId, pno)                    -- memId와 pno를 묶어서 UNIQUE 제약 설정
 );
 
--- 채팅 메시지
+-- 채팅 메시지 ( receiver 추가됨)
 CREATE TABLE chatMessage(
     chatNo BIGINT PRIMARY KEY AUTO_INCREMENT,   -- 채팅 번호
     type VARCHAR(20) NOT NULL,                  -- 채팅 타입: ENTER, TALK, LEAVE, NOTICE
     roomNo INT NOT NULL,                        -- 채팅방 번호
     sender VARCHAR(20) NOT NULL,                -- 송신자
+    receiver VARCHAR(20) NOT NULL,              -- 수신자
     message VARCHAR(2000) NOT NULL,             -- 채팅 메시지
     status VARCHAR(50) DEFAULT 'UNREAD',        -- 읽음 여부
     time TIMESTAMP DEFAULT CURRENT_TIMESTAMP    -- 채팅 발송 시간
@@ -111,16 +113,31 @@ CREATE TABLE notification (
 );
 
 CREATE TABLE notice(
-                       no INT PRIMARY KEY AUTO_INCREMENT,
-                       title VARCHAR(500) NOT NULL,
-                       content VARCHAR(1000) NOT NULL,
-                       author VARCHAR(50),
-                       img VARCHAR(1000),
-                       resdate timestamp DEFAULT CURRENT_TIMESTAMP
+    no INT PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(500) NOT NULL,
+    content VARCHAR(1000) NOT NULL,
+    author VARCHAR(50),
+    img VARCHAR(1000),
+    resdate timestamp DEFAULT CURRENT_TIMESTAMP
 )
 
 CREATE TABLE recomment(
-                          NO INT PRIMARY KEY AUTO_INCREMENT,
-                          mem_id VARCHAR(100) NOT NULL,
-                          COMMENT VARCHAR(300) NOT null
-)
+    NO INT PRIMARY KEY AUTO_INCREMENT,
+    mem_id VARCHAR(100) NOT NULL,
+    COMMENT VARCHAR(300) NOT null
+);
+
+-- 찜
+CREATE TABLE wish (
+    wno BIGINT AUTO_INCREMENT PRIMARY KEY,      -- 고유 번호
+    pno BIGINT,                                 -- 상품 번호
+    uid VARCHAR(20) NOT NULL,                   -- member.id
+    status INT DEFAULT 0                        -- 찜 여부
+);
+
+-- 상품의 카테고리 이름을 같이 가져오기 위한 view
+CREATE VIEW productWithCate AS (
+    SELECT pno, pname, seller, price, proaddr, image, createAt, baseAt, status, visited, cateName, heart
+    FROM product p
+    JOIN category c ON (p.cate = c.cate)
+);

@@ -52,19 +52,12 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" data-toggle="collapse" href="#nav-board" aria-expanded="false" aria-controls="ui-basic">
+                <a class="nav-link" th:href="@{/admin/noticeList}">
                     <i class="icon-layout menu-icon"></i>
-                    <span class="menu-title">게시판</span>
-                    <i class="menu-arrow"></i>
+                    <span class="menu-title">공지사항</span>
                 </a>
-                <div class="collapse" id="nav-board">
-                    <ul class="nav flex-column sub-menu">
-                        <li class="nav-item"> <a class="nav-link" th:href="@{/admin/noticeList}">공지사항</a></li>
-                        <li class="nav-item"> <a class="nav-link" th:href="@{/admin/faqList}">FAQ</a></li>
-                        <li class="nav-item"> <a class="nav-link" th:href="@{/admin/freeList}">자유게시판</a></li>
-                    </ul>
-                </div>
             </li>
+
         </ul>
     </nav>
 </header>

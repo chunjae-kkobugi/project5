@@ -12,7 +12,8 @@ public class Page {
     private int postScreen = 10; // 한 화면(페이지) 당 게시글 개수
     private int postStart; // 현재 페이지블록의 첫 번째 게시글 인덱스
     private int postTotal; // 전체 게시글 개수
-    private String searchType; // 검색 타입(컬럼명과 일치해야 함) ex. 제목(title), 내용(content) 등
+    private String searchType;
+    // 검색 타입(컬럼명과 일치해야 함) ex. 제목(title), 내용(content) 등
     private String searchKeyword; // 검색 키워드
 
     // Product
@@ -27,7 +28,7 @@ public class Page {
         this.postStart = (this.pageNow - 1) * this.postScreen;
 
         if(this.postTotal <= 1){
-        // 게시글 개수가 1인 경우에는 총 페이지를 1로 제한(DivideByZeroException 방지)
+            // 게시글 개수가 1인 경우에는 총 페이지를 1로 제한(DivideByZeroException 방지)
             this.pageTotal = 1;
         } else {
             // ex. 페이지당 게시글 개수 10개일 때, 게시글 개수가 10개인 경우 총 페이지는 1개

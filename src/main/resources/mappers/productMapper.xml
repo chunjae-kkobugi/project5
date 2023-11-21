@@ -3,7 +3,7 @@
 <mapper namespace="com.team45.mapper.ProductMapper">
     <!-- 상품 목록 -->
     <select id="productList" resultType="com.team45.entity.ProductVO">
-        SELECT pno, cateName, pname, content, seller, price, proaddr, image, createAt, p.status, visited
+        SELECT pno, cateName, pname, content, seller, price, proaddr, image, createAt, p.status, visited, heart
         FROM product p
         JOIN category c ON (p.cate = c.cate)
         <where>
@@ -23,7 +23,7 @@
                 </trim>
             </if>
             <if test="category != null">
-                AND c.cate = #{category}
+                AND p.cate = #{category}
             </if>
             <if test="proaddr != null">
                 AND proaddr = #{proaddr}
@@ -31,6 +31,7 @@
             <if test="status == 'SALE'">
                 AND p.status='SALE'
             </if>
+        AND p.status='SALE' or p.status = 'RESERVED'
         </where>
         order by pno desc limit #{postStart}, #{postScreen}
     </select>
@@ -55,7 +56,7 @@
                 </trim>
             </if>
             <if test="category != null">
-                AND c.cate = #{category}
+                AND p.cate = #{category}
             </if>
             <if test="proaddr != null">
                 AND proaddr = #{proaddr}
@@ -63,12 +64,13 @@
             <if test="status == 'SALE'">
                 AND p.status='SALE'
             </if>
+            AND p.status='SALE' or p.status = 'RESERVED'
         </where>
     </select>
 
     <!-- 게시글 상세보기 -->
     <select id="productDetail" resultType="com.team45.entity.ProductVO">
-        select pno, cateName, pname, content, seller, price, proaddr, image, createAt, p.status, visited from product p join category c on(p.cate=c.cate) where pno=#{pno}
+        select pno, p.cate, cateName, pname, content, seller, price, proaddr, image, createAt, p.status, visited, heart from product p join category c on(p.cate=c.cate) where pno=#{pno}
     </select>
 
     <!-- 상품 등록하기 -->
@@ -109,4 +111,9 @@
     <select id="getCateProCnt" resultType="java.util.Map">
         SELECT cateName, COUNT(p.cate) AS cnt FROM product p RIGHT OUTER JOIN category c ON (p.cate=c.cate) GROUP BY c.cate
     </select>
+    <select id="productGetLast" resultType="integer">
+        SELECT pno FROM product ORDER BY pno DESC LIMIT 1
+    </select>
 </mapper>
+
+

@@ -47,5 +47,12 @@ public class WebConfig implements WebMvcConfigurer {
     @Bean
     public RecommentService recommentService() {return new RecommentServiceImpl();}
 
+    @Bean
+    public WishService wishService() {return new WishServiceImpl();}
+
+    @Bean
+    public KeywordService keywordService() {
+        return new KeywordServiceImpl();
+    }
 
 }

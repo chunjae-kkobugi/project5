@@ -23,16 +23,8 @@
                             <li class="nav-item">
                                 <a class="nav-link" th:href="@{/product/list}">중고거래</a>
                             </li>
-
-                            <!-- Dropdown list -->
-                            <li class="nav-item dropdown dropdown-slide @@dashboard">
-                                <a class="nav-link dropdown-toggle" data-toggle="dropdown">커뮤니티<span><i class="fa fa-angle-down"></i></span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item @@dashboardPage" th:href="@{/notice/List}">공지사항</a></li>
-                                    <li><a class="dropdown-item @@dashboardMyAds" th:href="@{/board/free/list}">자유게시판</a></li>
-                                    <li><a class="dropdown-item @@dashboardFavouriteAds" th:href="@{/board/faq/list}">FAQ</a></li>
-                                </ul>
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{/notice/List}">공지사항</a>
                             </li>
                         </ul>
 
@@ -53,6 +45,7 @@
                                     <a class="nav-link login-button" th:href="@{/member/logout}">Logout</a>
                                 </li>
                                 <li class="nav-item">
+                                    <a class="nav-link text-white add-button" th:href="@{/myshop/products}">MyPage</a>
                                     <a class="nav-link text-white add-button" th:href="@{/member/myPage}">MyPage</a>
                                 </li>
                                 <th:block th:if="${session.sid eq 'admin'}">

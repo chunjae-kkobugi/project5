@@ -3,60 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <div th:replace="/include/head.html :: head"></div>
+    <div th:replace="/include/head :: head"></div>
     <title>상품 목록</title>
+    <style>
+        p {
+            margin-bottom: 0;}
+        .btn {
+            background-color: inherit;
+            color: inherit;
+            padding: 0 3.5rem;
+            line-height: 3;
+        }
+    </style>
 </head>
 <body>
 <div th:replace="/include/header.html :: header"></div>
-
-<section class="page-search">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <!--  Search -->
-                <div class="advance-search nice-select-white">
-                    <form th:action="@{/product/list}" method="get">
-                        <div class="form-row align-items-center">
-                            <div class="form-group col-lg-3 col-md-6">
-                                <select class="w-100 form-control my-2 my-lg-0" id="type" name="type">
-                                    <option value="P" id="P">상품명</option>
-                                    <option value="C" id="C">내용</option>
-                                    <option value="S" id="S">판매자</option>
-                                </select>
-                            </div>
-                            <div class="form-group col-lg-3 col-md-6">
-                                <input type="text" class="form-control my-2 my-lg-0" id="searchKeyword" name="searchKeyword" placeholder="Location">
-                            </div>
-                            <div class="form-group col-xl-2 col-lg-3 col-md-6">
-                                <button type="submit" class="btn btn-primary active w-100">검색</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 <section class="section-sm">
     <div class="container">
+        <div class="btn-group mb-2" style="margin-left: 1000px">
+            <a th:href="@{/product/insert}" th:if="${session.sid != null}"
+               class="add-button nav-link text-white" style="background-color: #5672f9; border: none;">상품 등록</a>
+        </div>
+        <div th:replace="/include/searchList :: fragment-search('/product/list', 'pname:상품명,content:내용,seller:판매자')"></div>
         <div class="row">
             <div class="col-lg-3 col-md-4">
                 <div class="category-sidebar">
                     <div class="widget category-list">
                         <h4 class="widget-header">카테고리</h4>
                         <ul class="category-list">
-                            <li th:style="${curCategory eq null ? 'color : blue' : ''}">
+                            <li th:style="${curCategory ne null ? '' : 'color : blue'}" style="color: blue">
                                 <a th:href="@{/product/list}" th:text="전체"></a>
                             </li>
                             <li th:each="cate : ${categories}">
-                                <a class="cateBtn" th:value="${cate.cate}" th:text="${cate.cateName}" th:style="${cate.cate eq curCategory ? 'color : blue' : ''}"></a>
+                                <a th:href="@{/product/list(cate=${cate.cate})}" th:value="${cate.cate}" th:text="${cate.cateName}" th:style="${cate.cate eq curCategory ? 'color : blue' : ''}"></a>
                             </li>
                         </ul>
                     </div>
                     <div class="widget category-list">
-                        <h4 class="widget-header">Nearby</h4>
+                        <h4 class="widget-header">조건</h4>
                         <ul class="category-list">
                             <li th:style="${proaddr != null ? 'color : blue' : ''}">
+                                <input type="hidden" id="proaddrVal" th:data-value="${session.proaddr}">
                                 <a id="proaddrBtn"> 내 지역만 보기 </a>
                             </li>
                             <li th:style="${status != null ? 'color : blue' : ''}">
@@ -74,46 +61,62 @@
                             <div class="product-item bg-light">
                                 <div class="card">
                                     <div class="thumb-content">
-                                         <div class="price" th:text="${list.price}"></div>
+                                        <div class="price" th:if="${list.price eq 0}" th:text="나눔"></div>
+                                        <div class="price" th:if="${list.price ne 0}">[[${list.price}]] 원</div>
                                         <a th:href="@{/product/detail(pno=${list.pno})}">
-                                            <img class="card-img-top img-fluid" src="" alt="Card image cap">
+                                            <th:block th:if="${!list.fileDataList.isEmpty()}">
+                                                <img class="card-img-top img-fluid" style="width: 255px; height: 255px;" th:src="@{/upload/} + ${list.fileDataList[0].savePath}+'/'+${list.fileDataList[0].saveName}">
+                                            </th:block>
+                                            <th:block th:if="${list.fileDataList.isEmpty()}">
+                                                <img class="card-img-top img-fluid" style="width: 255px; height: 255px;" th:src="@{../static/images/heart_after.png}">
+                                            </th:block>
                                         </a>
                                     </div>
                                     <div class="card-body">
                                         <h4 class="card-title"><a th:href="@{/product/detail(pno=${list.pno})}" th:text="${list.pname}"></a></h4>
                                         <ul class="list-inline product-meta">
                                             <li class="list-inline-item">
-                                                <a th:href="@{/product/detail(pno=${list.pno})}" th:text="${list.cateName}"><i class="fa fa-folder-open-o"></i></a>
+                                                <p><i class="fa fa-folder-open-o mr-1" aria-hidden="true"></i>[[${list.cateName}]]</p>
                                             </li>
                                             <li class="list-inline-item">
-                                                <a th:href="@{/product/detail(pno=${list.pno})}" th:text="${list.createAt}"><i class="fa fa-calendar"></i></a>
+                                                <p><i class="fa fa-calendar mr-1" aria-hidden="true"></i>[[${#dates.format(list.createAt, 'yyyy-MM-dd')}]]</p>
+                                            </li>
+                                            <li class="list-inline-item" th:if="${!list.proaddr.isEmpty()}">
+                                                <p><i class="fa fa-location-arrow mr-1" aria-hidden="true" ></i>[[${list.proaddr}]]</p>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <p><i class="fa fa-user mr-1" aria-hidden="true"></i>[[${list.seller}]]</p>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <p th:if="${list.status eq 'SALE'}"><i class="fa fa-bookmark mr-1" aria-hidden="true"></i>판매 중</p>
+                                                <p th:if="${list.status eq 'RESERVED'}" style="color: #5672f9"><i class="fa fa-bookmark mr-1" aria-hidden="true"></i>예약 중</p>
+                                                <p th:if="${list.status eq 'OUT'}" style="color: #ff3333"><i class="fa fa-bookmark mr-1" aria-hidden="true"></i>판매 완료</p>
                                             </li>
                                         </ul>
-                                        <p class="card-text" th:text="${list.seller}"></p>
-                                        <p class="card-text" th:text="${list.status}"></p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
+                <div class="product-grid-list" th:if="${productList.isEmpty()}">
+                    <p class="text-center"> 등록된 상품이 없습니다. </p>
+                </div>
                 <th:block th:if="${not #lists.isEmpty(productList)}"><div th:replace="/include/pagination.html :: fragment-pagination('/product/list')"></div></th:block>
             </div>
         </div>
     </div>
 </section>
 <script>
-    $(document).ready(function (){
-        // 내 주소만 보기 버튼
-        $("#proaddrBtn").click(function (){
-            // 로그인 한 유저의 addr3 정보
-            var proaddrVal = $("#proaddrVal").val();
+    // 내 주소만 보기 버튼
+    $("#proaddrBtn").click(function () {
+        // 로그인 한 유저의 addr3 정보
+        var proaddrVal = $("#proaddrVal").data("value");
 
-            // 로그인을 하지 않았으면 로그인 알림창 띄우기
-            // if (!proaddrVal) {
-            //     alert("로그인을 해주세요");
-            // } else {
+        // 로그인을 하지 않았으면 로그인 알림창 띄우기
+        if (!proaddrVal) {
+            alert("로그인을 해주세요");
+        } else {
             // 현재 URL
             var currentUrl = new URL(window.location.href);
 
@@ -124,126 +127,54 @@
             currentUrl.searchParams.set('page', '1');
 
             window.location.href = currentUrl.href;
-            // }
-        });
+        }
 
-        $("#statusBtn").click(function () {
-            // 현재 URL
-            var currentUrl = window.location.href;
-            var newStatus = 'SALE';
-            var newPage = '1';
+    });
 
-            // URL에서 status 매개변수 확인
-            var hasStatusParameter = currentUrl.indexOf('status=') !== -1;
+    $("#statusBtn").click(function () {
+        // 현재 URL
+        var currentUrl = window.location.href;
+        var newStatus = 'SALE';
+        var newPage = '1';
 
-            if (hasStatusParameter) {
-                // status 매개변수 값을 SALE로 변경
-                var updatedUrl = currentUrl.replace(/([&?]status=)[^&]+/, '$1' + newStatus);
+        // URL에서 status 매개변수 확인
+        var hasStatusParameter = currentUrl.indexOf('status=') !== -1;
+
+        if (hasStatusParameter) {
+            // status 매개변수 값을 SALE로 변경
+            var updatedUrl = currentUrl.replace(/([&?]status=)[^&]+/, '$1' + newStatus);
+        } else {
+            // status 매개변수가 없으면 URL에서 해당 부분 삭제
+            var separator = currentUrl.indexOf('?') !== -1 ? '&' : '?';
+            var newUrl = currentUrl + separator + 'status=' + newStatus;
+
+            // 기존 페이지 값이 있는지 확인 후 새 URL로 이동
+            if (currentUrl.indexOf('page=') !== -1) {
+                window.location.href = newUrl.replace(/([&?]page=)[^&]+/, '$1' + newPage);
             } else {
-                // status 매개변수가 없으면 URL에서 해당 부분 삭제
-                var separator = currentUrl.indexOf('?') !== -1 ? '&' : '?';
-                var newUrl = currentUrl + separator + 'status=' + newStatus;
-
-                // 기존 페이지 값이 있는지 확인 후 새 URL로 이동
-                if (currentUrl.indexOf('page=') !== -1) {
-                    window.location.href = newUrl.replace(/([&?]page=)[^&]+/, '$1' + newPage);
-                } else {
-                    window.location.href = newUrl + '&page=' + newPage;
-                }
-                return;
+                window.location.href = newUrl + '&page=' + newPage;
             }
+            return;
+        }
 
-            // 버튼 비활성화
-            $(this).prop('disabled', true);
+        // 버튼 비활성화
+        $(this).prop('disabled', true);
 
-            // URL에서 page 매개변수 확인
-            if (updatedUrl.indexOf('page=') !== -1) {
-                // page 매개변수 값이 있으면 값을 1로 변경
-                updatedUrl = updatedUrl.replace(/([&?]page=)[^&]+/, '$1' + newPage);
-            } else {
-                // page 매개변수가 없으면 새로 추가
-                var separator = updatedUrl.indexOf('?') !== -1 ? '&' : '?';
-                updatedUrl += separator + 'page=' + newPage;
-            }
-
+        // URL에서 page 매개변수 확인
+        if (updatedUrl.indexOf('page=') !== -1) {
+            // page 매개변수 값이 있으면 값을 1로 변경
+            updatedUrl = updatedUrl.replace(/([&?]page=)[^&]+/, '$1' + newPage);
+        } else {
+            // page 매개변수가 없으면 새로 추가
+            var separator = updatedUrl.indexOf('?') !== -1 ? '&' : '?';
+            updatedUrl += separator + 'page=' + newPage;
+        }
             // 새 URL로 이동
             window.location.href = updatedUrl;
-        });
-
-        // 카테고리
-        $(document).ready(function (){
-            $(".cateBtn").click(function (){
-                // 버튼의 cate 의 값
-                var newCateValue = $(this).val();
-
-                // 현재 Url
-                var currentUrl = window.location.href;
-
-                // Url에 cate의 값이 존재하는 지 확인
-                if (currentUrl.indexOf('?cate=') !== -1 || currentUrl.indexOf('&cate=') !== -1) {
-                    // cate의 값을 다른 값으로 변경
-                    var updatedUrl = currentUrl.replace(/([&?]cate=)[^&]+/, '$1' + newCateValue);
-                    window.location.href = updatedUrl;
-                } else {
-                    // cate의 값이 없으면 추가
-                    var separator = currentUrl.indexOf('?') !== -1 ? '&' : '?';
-                    var newUrl = currentUrl + separator + 'cate=' + newCateValue;
-                    window.location.href = newUrl;
-                }
-            });
-        });
-        // 페이징
-        // prev Btn
-        $("#prevBtn").click(function (){
-            // 버튼의 페이지 값
-            var curPage = $(this).data("value"); // 페이지 값을 정수로 변환
-
-            // URL에서 페이지 값 변경
-            var currentUrl = window.location.href;
-            var updatedUrl = currentUrl.replace(/([&?]page=)[^&]+/, '$1' + (curPage -1));
-
-            // 변경된 URL로 이동
-            window.location.href = updatedUrl;
-        });
-        // next Btn
-        $("#nextBtn").click(function (){
-            // 버튼의 페이지 값
-            var curPage = $(this).data("value"); // 페이지 값을 정수로 변환
-
-            // URL에서 페이지 값 변경
-            var currentUrl = window.location.href;
-            var updatedUrl = currentUrl.replace(/([&?]page=)[^&]+/, '$1' + (curPage +1));
-
-            // 변경된 URL로 이동
-            window.location.href = updatedUrl;
-        });
-
-
-
-        // 숫자버튼
-        $(".pageBtn").click(function (){
-            // 버튼의 page 의 값
-            var curPage = $(this).data("value");
-
-            // 현재 Url
-            var currentUrl = window.location.href;
-
-            // Url에 page의 값이 존재하는 지 확인
-            if (currentUrl.indexOf('?page=') !== -1 || currentUrl.indexOf('&page=') !== -1) {
-                // page의 값을 다른 값으로 변경
-                var updatedUrl = currentUrl.replace(/([&?]page=)[^&]+/, '$1' + curPage);
-                window.location.href = updatedUrl;
-            } else {
-                // page의 값이 없으면 추가
-                var separator = currentUrl.indexOf('?') !== -1 ? '&' : '?';
-                var newUrl = currentUrl + separator + 'page=' + curPage;
-                window. location.href = newUrl;
-            }
-        });
-    })
-
-</script>
+    });
+    </script>
 <th:block th:replace="/include/footer.html :: footer"></th:block>
+<th:block th:replace="/include/script :: script"></th:block>
 
 </body>
 </html>

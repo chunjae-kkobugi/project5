@@ -11,22 +11,25 @@ public interface ChatRoomMapper {
     public List<ChatRoom> chatRoomList();
 
     @Select("SELECT * FROM chatRoom WHERE pno=#{pno} AND status!='BLOCK'")
-    public List<ChatRoom> chatRoomProductList(int pno);
+    public List<ChatRoom> chatRoomProductList(Long pno);
 
     @Select("SELECT * FROM chatRoom where roomNo=#{roomNo}")
-    public ChatRoom chatRoomGet(int roomNo);
+    public ChatRoom chatRoomGet(Long roomNo);
 
     @Select("SELECT * FROM chatRoom WHERE pno=#{pno} AND memId=#{memId}")
-    public ChatRoom chatRoomGetId(int pno, String memId);
+    public ChatRoom chatRoomGetId(Long pno, String memId);
 
     @Select("SELECT COUNT(*) FROM chatRoom WHERE memId=#{memId} AND pno=#{pno}")
-    public int chatRoomGetUnique(String memId, int pno);
+    public int chatRoomGetUnique(String memId, Long pno);
 
     @Insert("INSERT INTO chatRoom(memId, pno) VALUES(#{memId}, #{pno})")
-    public void chatRoomInsert(String memId, int pno);
+    public void chatRoomInsert(String memId, Long pno);
     @Update("UPDATE chatRoom SET status='BLOCK' WHERE roomNo=#{roomNo}")
-    public int chatRoomBlockUpdate(int roomNo);
+    public int chatRoomBlockUpdate(Long roomNo);
 
     @Delete("DELETE FROM chatroom WHERE roomNo=#{roomNo}")
-    public int chatRoomDelete(int roomNo);
+    public int chatRoomDelete(Long roomNo);
+
+    @Select("SELECT chatroom.*, product.seller FROM chatRoom JOIN product ON (chatroom.pno = product.pno) WHERE seller = #{id} OR memId=#{id}")
+    public List<ChatRoom> chatRoomMy(String id);
 }
