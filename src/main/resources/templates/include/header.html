@@ -29,66 +29,67 @@
                             </ul>
 
 
-                            <th:block th:if="${session.sid==null}">
-                                <ul class="navbar-nav ml-auto mt-10">
+                        <th:block th:if="${session.sid==null}">
+                        <ul class="navbar-nav ml-auto mt-10">
+                            <li class="nav-item">
+                                <a class="nav-link login-button" th:href="@{/member/login}">Login</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-white add-button" th:href="@{/member/joinTerm}">Join</a>
+                            </li>
+                        </ul>
+                        </th:block>
+                        <th:block th:if="${session.sid!=null}">
+                            <ul class="navbar-nav ml-auto mt-10">
+                                <li class="nav-item">
+                                    <a class="nav-link login-button" th:href="@{/member/logout}">Logout</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-white add-button" th:href="@{/myshop/products}">MyPage</a>
+                                    <!--<a class="nav-link text-white add-button" th:href="@{/member/myPage}">MyPage</a>-->
+                                </li>
+                                <th:block th:if="${session.sid eq 'admin'}">
                                     <li class="nav-item">
-                                        <a class="nav-link login-button" th:href="@{/member/login}">Login</a>
+                                        <a class="nav-link text-white add-button" th:href="@{/admin/home(id = ${session.sid})}">관리자페이지</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link text-white add-button" th:href="@{/member/joinTerm}">Join</a>
-                                    </li>
-                                </ul>
-                            </th:block>
-                            <th:block th:if="${session.sid!=null}">
-                                <ul class="navbar-nav ml-auto mt-10">
-                                    <li class="nav-item">
-                                        <a class="nav-link login-button" th:href="@{/member/logout}">Logout</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link text-white add-button" th:href="@{/myshop/products}">MyPage</a>
-                                    </li>
-                                    <th:block th:if="${session.sid eq 'admin'}">
-                                        <li class="nav-item">
-                                            <a class="nav-link text-white add-button" th:href="@{/admin/home(id = ${session.sid})}">관리자페이지</a>
-                                        </li>
-                                    </th:block>
-                                </ul>
-                            </th:block>
-                        </div>
-                    </nav>
-                </div>
+                                </th:block>
+                            </ul>
+                        </th:block>
+                    </div>
+                </nav>
             </div>
         </div>
-        <div id="chatMenu" >
-        </div>
-        <div id="chatList" style="display: none;">
-            <ul>
-                <li></li>
-                <br>
-                <li></li>
-                <br>
-                <li></li>
-                <br>
-                <li></li>
-                <br>
-                <li></li>
-            </ul>
-        </div>
-        <script th:inline="javascript">
-            $(document).ready(function () {
-                var sw = true;
-                sw=!sw
-                $("#chatMenu").click(function () {
-                    $("#chatList").slideToggle()
-                    if(sw==true){
-                        sw = false
-                    }else if(sw==false) {
-                        sw = true
-                    }
-                });
+    </div>
+<!--    <div id="chatMenu" >
+    </div>
+    <div id="chatList" style="display: none;">
+        <ul>
+            <li></li>
+            <br>
+            <li></li>
+            <br>
+            <li></li>
+            <br>
+            <li></li>
+            <br>
+            <li></li>
+        </ul>
+    </div>-->
+    <script th:inline="javascript">
+        $(document).ready(function () {
+            var sw = true;
+            sw=!sw
+            $("#chatMenu").click(function () {
+                $("#chatList").slideToggle()
+                if(sw==true){
+                    sw = false
+                }else if(sw==false) {
+                    sw = true
+                }
             });
-        </script>
-    </header>
+        });
+    </script>
+</header>
 </th:block>
 </body>
 
