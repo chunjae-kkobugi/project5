@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <th:block th:replace="include/head :: head" ></th:block>
+    <th:block th:replace="include/head2 :: head2" ></th:block>
+    <title>자주쓰는 답변</title>
+</head>
+<body>
+<table>
+    <form th:action="@{/member/changePw}" method="post" onsubmit="return joinCheck(this)">
+        <div class="form-outline mb-1">
+            <label class="form-label blind" for="pw">변경할 비밀번호</label>
+            <input type="password" name="pw" id="pw" placeholder="변경할 비밀번호 입력" class="form-control" maxlength="16" required />
+            <br>
+            <p class="info mb-0" ><i class="fas fa-check"></i> 비밀번호는 최소 8자리에서 최대 16자리까지 숫자, 영문, 특수문자 각 1개 이상 포함</p>
+        </div>
+
+        <div class="form-outline mb-4">
+            <label class="form-label blind" for="pw2">비밀번호 확인</label>
+            <input type="password" name="pw2" id="pw2" placeholder="비밀번호 확인 입력" class="form-control" maxlength="16" required />
+        </div>
+
+        <button type="submit">비밀번호 변경</button>
+    </form>
+</table>
+
+<script>
+    function joinCheck(f){
+        if(f.pw.value != f.pw2.value){
+            alert("변경할 비밀번호와 비밀번호 확인이 맞지 않습니다.")
+            f.pw.focus();
+            return false;
+        }
+    }
+
+
+</script>
+</body>
+</html>
