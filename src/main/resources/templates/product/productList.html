@@ -24,7 +24,7 @@
             <a th:href="@{/product/insert}" th:if="${session.sid != null}"
                class="add-button nav-link text-white" style="background-color: #5672f9; border: none;">상품 등록</a>
         </div>
-        <div th:replace="/include/searchList :: fragment-search('/product/list', 'pname:상품명,content:내용,seller:판매자')"></div>
+        <div th:replace="/include/searchList :: fragment-search('/product/list', 'P:상품명,C:내용,S:판매자')"></div>
         <div class="row">
             <div class="col-lg-3 col-md-4">
                 <div class="category-sidebar">
@@ -44,10 +44,10 @@
                         <ul class="category-list">
                             <li th:style="${proaddr != null ? 'color : blue' : ''}">
                                 <input type="hidden" id="proaddrVal" th:data-value="${session.proaddr}">
-                                <a id="proaddrBtn"> 내 지역만 보기 </a>
+                                <a id="proaddrBtn" style="cursor: pointer"> 내 지역만 보기 </a>
                             </li>
                             <li th:style="${status != null ? 'color : blue' : ''}">
-                                <a id="statusBtn"> 판매중인 상품 보기 </a>
+                                <a id="statusBtn" style="cursor: pointer"> 판매중인 상품 보기 </a>
                             </li>
                         </ul>
                     </div>
@@ -68,7 +68,7 @@
                                                 <img class="card-img-top img-fluid" style="width: 255px; height: 255px;" th:src="@{/upload/} + ${list.fileDataList[0].savePath}+'/'+${list.fileDataList[0].saveName}">
                                             </th:block>
                                             <th:block th:if="${list.fileDataList.isEmpty()}">
-                                                <img class="card-img-top img-fluid" style="width: 255px; height: 255px;" th:src="@{../static/images/heart_after.png}">
+                                                <img class="card-img-top img-fluid" style="width: 255px; height: 255px;" th:src="@{/images/no_image.png}">
                                             </th:block>
                                         </a>
                                     </div>

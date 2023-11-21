@@ -1,5 +1,7 @@
 package com.team45.ctrl;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.team45.entity.Product;
 import com.team45.entity.ProductVO;
 import com.team45.service.ChatService;
 import com.team45.entity.ChatMessage;
@@ -132,5 +134,20 @@ public class ChatRoomCtrl {
     @ResponseBody
     public int unreadAll(@RequestParam String receiver){
         return chatService.chatMessageUnreadAll(receiver);
+    }
+
+    @GetMapping("productUpdate")
+    @ResponseBody
+    public int productUpdate(@RequestParam Long pno, @RequestParam String status) throws JsonProcessingException {
+        ProductVO pv = productService.productDetail(pno);
+        pv.setStatus(status);
+
+        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+
+        // Product p = mapper.readValue(mapper.writeValueAsString(pv), Product.class);
+        Product p = mapper.convertValue(pv, Product.class);
+
+
+        return productService.productUpdate(p);
     }
 }

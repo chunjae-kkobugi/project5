@@ -1,7 +1,10 @@
 package com.team45.ctrl;
 
+import com.team45.entity.ChatRoom;
 import com.team45.entity.Member;
+import com.team45.entity.Product;
 import com.team45.entity.ProductVO;
+import com.team45.service.ChatService;
 import com.team45.service.MemberService;
 import com.team45.service.ProductService;
 import com.team45.util.Page;
@@ -18,6 +21,8 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Log4j2
@@ -32,6 +37,8 @@ public class MemberCtrl {
     private MemberService memberService;
     @Autowired
     private ProductService productService;
+    @Autowired
+    private ChatService chatService;
     @Autowired
     private HttpSession session;
 
@@ -140,7 +147,7 @@ public class MemberCtrl {
         String id = (String) session.getAttribute("sid");
         Member mem = memberService.memberGet(id);
         model.addAttribute("member", mem);
-        return "/member/myPage";
+        return "member/myPage";
     }
 
     @GetMapping("remove")
@@ -250,13 +257,13 @@ public class MemberCtrl {
     public String Editform(@RequestParam String id, Model model){
         Member mem = memberService.memberGet(id);
         model.addAttribute("member", mem);
-        return "/member/myPageEdit";
+        return "member/myPageEdit";
     }
 
     @PostMapping("Edit")
     public String Edit(Member member, Model model){
         memberService.memberUpdate(member);
-        return "/member/myPage";
+        return "member/myPage";
     }
 
     @GetMapping("changePw")
@@ -267,7 +274,30 @@ public class MemberCtrl {
         return "member/changePw";
     }
 
-    @PostMapping("changePw")
+    @GetMapping("myChat")
+    public String myChat(HttpServletRequest request, Model model){
+        String sid = (String) session.getAttribute("sid");
+        Member mem = memberService.memberGet(sid);
+        model.addAttribute("member", mem);
+
+        List<ChatRoom> rooms = new ArrayList<>();
+        for(ChatRoom r: chatService.chatRoomMy(sid)){
+            r.setUnread(chatService.chatMessageUnread(r.getRoomNo()));
+            rooms.add(r);
+        }
+
+        model.addAttribute("rooms", rooms);
+
+        return "/myshop/myChat";
+    }
+
+    @GetMapping("alert")
+    public String alrert(HttpServletRequest request, Model model){
+        model.addAttribute("msg", request.getAttribute("msg"));
+        model.addAttribute("url", request.getAttribute("url"));
+        return "/member/alert";
+    }
+      @PostMapping("changePw")
     public String myPage(Member member, Model model){
         String id = (String) session.getAttribute("sid");
         member.setId(id);
@@ -275,5 +305,4 @@ public class MemberCtrl {
         model.addAttribute("msg", "비밀번호가 변경되었습니다.");
         model.addAttribute("url", 1);
         return "/member/alert";
-    }
-}
+}}

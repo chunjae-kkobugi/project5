@@ -17,7 +17,7 @@ public interface MyShopMapper {
             "<if test='page.searchType != null and page.searchType != \"\"'>",
             "   AND ${page.searchType} LIKE CONCAT('%', #{page.searchKeyword}, '%')",
             "</if>",
-            "ORDER BY createAt ASC LIMIT #{page.postStart}, #{page.postScreen}",
+            "ORDER BY pno DESC LIMIT #{page.postStart}, #{page.postScreen}",
             "</script>"
     })
     List<ProductVO> productListBySeller(@Param("seller") String seller, @Param("page") Page page);
@@ -28,8 +28,11 @@ public interface MyShopMapper {
             "<if test='page.searchType != null and page.searchType != \"\"'>",
             "   AND ${page.searchType} LIKE CONCAT('%', #{page.searchKeyword}, '%')",
             "</if>",
-            "ORDER BY createAt ASC LIMIT #{page.postStart}, #{page.postScreen}",
+            "ORDER BY pno DESC LIMIT #{page.postStart}, #{page.postScreen}",
             "</script>"
     })
     int productCountBySeller(@Param("seller") String seller, @Param("page") Page page);
+
+    @Select("SELECT * FROM productWithCate WHERE status='SALE' ORDER BY heart DESC LIMIT 9;")
+    List<ProductVO> popularProducts();
 }

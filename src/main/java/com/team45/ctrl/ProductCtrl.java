@@ -55,12 +55,8 @@ public class ProductCtrl {
         page.setPostTotal(total);
         page.makePage();
 
-        System.out.println(total);
-        System.out.println(page);
-
         List<ProductVO> productList = productService.productList(page);
         List<Category> categories = productService.categories();
-
 
         // 로그인한 회원의 주소 정보 불러오기
         model.addAttribute("proaddr", request.getAttribute("addr3"));
@@ -86,7 +82,10 @@ public class ProductCtrl {
         model.addAttribute("detail", detail);
 
         HttpSession session = request.getSession();
-        String sid = (String) session.getAttribute("sid");
+        //String sid = (String) session.getAttribute("sid");
+        Object sidObeject = session.getAttribute("sid");
+        String sid = sidObeject == null ? "" : (String) sidObeject;
+
         int flag = wishService.wishFind(pno, sid);
         model.addAttribute("flag", flag);
         //System.out.println("flag : " + flag);
@@ -101,6 +100,14 @@ public class ProductCtrl {
     @GetMapping("insert")
     public String productInsertForm(HttpServletRequest request, Model model, Product product) {
         HttpSession session = request.getSession();
+        Object sidObeject = session.getAttribute("sid");
+        //String sid = sidObeject == null ? "" : (String) sidObeject;
+        if (sidObeject == null) {
+            model.addAttribute("msg", "상품 판매는 로그인 후에 가능합니다.");
+            model.addAttribute("url", "/member/login");
+            return "/member/alert";
+        }
+
         List<Category> categories = productService.categories();
         model.addAttribute("categories", categories);
         model.addAttribute("proaddr", session.getAttribute("proaddr"));

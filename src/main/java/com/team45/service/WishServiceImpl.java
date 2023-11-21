@@ -1,18 +1,22 @@
 package com.team45.service;
 
-import com.team45.entity.ProductVO;
 import com.team45.entity.Wish;
+import com.team45.entity.WishProduct;
+import com.team45.mapper.FileDataMapper;
 import com.team45.mapper.WishMapper;
 import com.team45.util.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class WishServiceImpl implements WishService {
     @Autowired
     private WishMapper wishMapper;
+    @Autowired
+    private FileDataMapper fileDataMapper;
 
     @Override
     public List<Wish> wishList(String uid) {
@@ -20,8 +24,19 @@ public class WishServiceImpl implements WishService {
     }
 
     @Override
-    public List<ProductVO> wishProductList(String uid, Page page) {
-        return wishMapper.wishProductList(uid, page);
+    public Wish wishGet(Long wno) {
+        return wishMapper.wishGet(wno);
+    }
+
+    @Override
+    public List<WishProduct> wishProductList(String uid, Page page) {
+        List<WishProduct> list = new ArrayList<>();
+        for (WishProduct p : wishMapper.wishProductList(uid, page)) {
+            p.setFileDataList(fileDataMapper.fileDataBoardList("product", p.getPno()));
+            list.add(p);
+        }
+        //return wishMapper.wishProductList(uid, page);
+        return list;
     }
 
     @Override
@@ -57,6 +72,11 @@ public class WishServiceImpl implements WishService {
     @Override
     public void decreaseWish(Long pno) {
         wishMapper.decreaseWish(pno);
+    }
+
+    @Override
+    public void wishRemove(Long wno) {
+        wishMapper.wishRemove(wno);
     }
 
     @Override

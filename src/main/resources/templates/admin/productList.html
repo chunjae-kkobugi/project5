@@ -17,7 +17,8 @@
             <div class="content-wrapper">
                 <h1>상품목록</h1>
                 <div class="card p-3">
-                    <table class="table text-center" th:if="${not #lists.isEmpty(productList)}">
+                    <div th:replace="/include/searchList :: fragment-search('/admin/productList', 'P:상품명,C:내용,S:판매자')"></div>
+                    <table class="table text-center mb-3" th:if="${not #lists.isEmpty(productList)}">
                         <thead>
                         <tr>
                             <th>번호</th>

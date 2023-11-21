@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <th:block th:replace="/include/head :: head" ></th:block>
   <title>마이페이지</title>
+  <style>
+    .dashboard-container .btn {
+      background-color: inherit;
+      color: inherit;
+      padding: 0 3.5rem;
+      line-height: 3;
+    }
+  </style>
 </head>
 <body>
 <th:block th:replace="/include/header :: header"></th:block>
@@ -45,7 +53,15 @@
               <tr th:each="product : ${products}">
                 <td class="product-thumb">
                   <!--<img th:src="@{/images/classimage/user/user-thumb.jpg}" alt="회원사진" class="rounded-circle">-->
-                  <img width="80px" height="auto" th:src="@{/images/classimage/products/products-1.jpg}" alt="image description"></td>
+                  <!--th:src="@{/upload/} + ${list.fileDataList[0].savePath}+'/'+${list.fileDataList[0].saveName}-->
+                  <th:block th:if="${!product.fileDataList.isEmpty()}">
+                    <img width="80px" height="auto" th:src="@{|/upload/${product.fileDataList[0].savePath}/${product.fileDataList[0].saveName}|}" alt="Card image cap">
+                  </th:block>
+
+                  <th:block th:if="${product.fileDataList.isEmpty()}">
+                    <img width="80px" height="auto" th:src="@{/images/no_image.png}">
+                  </th:block>
+                  <!--<img width="80px" height="auto" th:src="@{|/upload/${product.fileDataList[0].savePath}/${product.fileDataList[0].saveName}|}" alt="image description"></td>-->
                 <td class="product-details">
                   <a th:href="@{/product/detail(pno=${product.pno})}">
                     <h3 class="title" th:text="${product.pname}">
@@ -69,12 +85,12 @@
                   <div class="">
                     <ul class="list-inline justify-content-center">
                       <li class="list-inline-item">
-                        <a th:href="@{/product/productEdit(pno=${product.pno})}" class="edit" data-toggle="tooltip" data-placement="top" title="수정" >
+                        <a th:href="@{/product/edit(pno=${product.pno})}" class="edit" data-toggle="tooltip" data-placement="top" title="수정" >
                           <i class="fa fa-pencil"></i>
                         </a>
                       </li>
                       <li class="list-inline-item">
-                        <a th:href="@{/product/productRemove(pno=${product.pno})}" class="delete" data-toggle="tooltip" data-placement="top" title="삭제" >
+                        <a th:href="@{/product/delete(pno=${product.pno})}" class="delete" data-toggle="tooltip" data-placement="top" title="삭제" >
                           <i class="fa fa-trash"></i>
                         </a>
                       </li>
