@@ -2,10 +2,6 @@ package com.team45.service;
 
 import com.team45.entity.*;
 import com.team45.util.Page;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 import java.util.Map;
@@ -24,4 +20,5 @@ public interface ProductService {
     public void productRemove(Long pno);
     public List<Category> categories();
     public List<Map<String, Integer>> getCateProCnt();
+    int fileDataDelete(Long fileNo);
 }

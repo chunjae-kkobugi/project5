@@ -21,7 +21,7 @@
                             <!-- 상품명 -->
                             <div class="form-group">
                                 <label for="pname"> 상품명 </label>
-                                <input type="text" class="form-control" id="pname" name="pname">
+                                <input type="text" class="form-control" id="pname" name="pname" maxlength="100" required>
                             </div>
                             <!-- 카테고리 -->
                             <div class="form-group">
@@ -35,25 +35,25 @@
                             <!-- 가격 -->
                             <div class="form-group">
                                 <label for="price"> 가격 </label>
-                                <input type="text" class="form-control" id="price" name="price">
+                                <input type="text" class="form-control" id="price" name="price" maxlength="20" required>
                             </div>
                             <!-- 거래지역 -->
                             <div class="form-group">
                                 <label for="proaddr"> 거래 지역 </label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" id="proaddr" name="proaddr">
+                                    <input type="text" class="form-control" id="proaddr" name="proaddr" maxlength="10">
                                     <button type="button" id="post_btn" onclick="findAddr()" class="btn btn-outline-primary mb-2" style="width:35%; display:inline-block;">주소 검색</button>
                                 </div>
                             </div>
                             <!-- 상품 내용 -->
                             <div class="form-group">
                                 <label for="content"> 상품 설명 </label>
-                                <textarea name="content" id="content" cols="100" rows="8" maxlength="1000"></textarea>
+                                <textarea name="content" id="content" cols="100" rows="8" maxlength="1000" required placeholder="상품 설명을 입력해주세요"></textarea>
                             </div>
                             <!-- 사진 첨부 -->
                             <div class="form-group">
                                 <label for="upfile"> 사진 첨부 </label>
-                                <input type="file" class="file-input" name="upfile" id="upfile" multiple="multiple">
+                                <input type="file" class="file-input" name="upfile" id="upfile" multiple="multiple" required>
                                 <span class="file-cta">
                                             <span class="file-icon mb-0">
                                                 <i class="fas fa-upload mb-0"></i>
