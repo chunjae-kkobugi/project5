@@ -6,44 +6,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <div th:replace="/include/head.html :: head"></div>
-    <title>타이틀</title>
-    <style>
-        .chat-box {
-            margin: 0;
-        }
-        .chat-time {
-            display: inline;
-            margin-left: 10px;
-            color: gray;
-            font-size: 10px;
-        }
-        .close-tag {
-            color: inherit;
-        }
-        .chat-message-me {
-            border-radius: 15px; background-color: green; color: white; float: right; width: fit-content; max-width: 450px;
-        }
-        .chat-message-other{
-            border-radius: 15px; background-color: rgba(57, 192, 237,.2); max-width: 450px;
-        }
-        .chat-message{
-            white-space: pre-wrap;
-        }
-    </style>
+    <title>채팅</title>
 </head>
 <body>
-<div th:replace="/include/header.html :: header"></div>
-<div class="container contenter">
-    <div class="container">
-        <div class="row">
-            <div class="col-6">
-                <h4>채팅방 목록</h4>
-                <ul class="list-group" id="roomList" style="margin: 10px 0;" th:each="room : ${rooms}">
-                    <li class="list-group-item"><a th:href="@{/chat/roomEnter(memId=${room.memId}, pno=${pno})}" th:text="${room.memId}"></a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
+
+<div class="m-2">
+    <h4>채팅방 목록</h4>
+    <table class="table product-dashboard-table">
+        <thead>
+        <tr>
+            <th>번호</th>
+            <th>채팅 상대</th>
+            <th>입장</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="room, roomstat: ${rooms}">
+            <td th:text="${roomstat.count}"></td>
+            <td th:text="${room.memId}"></td>
+            <td><a th:href="@{/chat/roomEnter(memId=${room.memId}, pno=${room.pno})}"><i class="fa fa-comment"></i> 채팅하기<span th:if="${room.unread>0}" th:text="${room.unread}"></span></a></td>
+        </tr>
+        </tbody>
+    </table>
+    <div th:if="${#lists.isEmpty(rooms)}" class="text-center">목록이 비어있습니다.</div>
 </div>
 </body>
 </html>
