@@ -628,7 +628,7 @@ ul.pagination .active a {
 }
 
 .bg-3 {
-  background: url(cta-background.jpg);
+  background: url(../images/classimage/call-to-action/cta-background.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }

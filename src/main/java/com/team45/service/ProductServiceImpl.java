@@ -18,7 +18,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class ProductServiceImpl implements ProductService{
+public class ProductServiceImpl implements ProductService {
     @Autowired
     private ProductMapper productMapper;
     @Autowired
@@ -53,6 +53,7 @@ public class ProductServiceImpl implements ProductService{
         product.setFileDataList(fileDataList);
         return product;
     }
+
     @Override
     public List<ProductVO> productListBySeller(String seller, Page page) {
         List<ProductVO> productList = new ArrayList<>();
@@ -80,7 +81,7 @@ public class ProductServiceImpl implements ProductService{
             f.setColumnNo((long) productNo);
             fileDataMapper.fileDataInsert(f);
         }
-        ProductVO pvo = productMapper.productDetail((long)productNo);
+        ProductVO pvo = productMapper.productDetail((long) productNo);
         FileData thumb = fileDataMapper.fileDataGetLast();
         pvo.setImage(thumb.getFileNo());
 
@@ -119,6 +120,18 @@ public class ProductServiceImpl implements ProductService{
     @Override
     public int fileDataDelete(Long fileNo) {
         return fileDataMapper.fileDataDelete(fileNo);
+    }
+
+    @Override
+    public List<ProductVO> popularProducts() {
+        List<ProductVO> list = new ArrayList<>();
+        for (ProductVO p : myShopMapper.popularProducts()) {
+            if (p.getFileDataList() == null) {
+                p.setFileDataList(fileDataMapper.fileDataBoardList("product", p.getPno()));
+            }
+            list.add(p);
+        }
+        return list;
     }
 
     @Override

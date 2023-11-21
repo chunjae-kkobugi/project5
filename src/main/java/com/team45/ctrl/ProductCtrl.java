@@ -103,6 +103,14 @@ public class ProductCtrl {
     @GetMapping("insert")
     public String productInsertForm(HttpServletRequest request, Model model, Product product) {
         HttpSession session = request.getSession();
+        Object sidObeject = session.getAttribute("sid");
+        //String sid = sidObeject == null ? "" : (String) sidObeject;
+        if (sidObeject == null) {
+            model.addAttribute("msg", "상품 판매는 로그인 후에 가능합니다.");
+            model.addAttribute("url", "/member/login");
+            return "/member/alert";
+        }
+
         List<Category> categories = productService.categories();
         model.addAttribute("categories", categories);
         model.addAttribute("proaddr", session.getAttribute("proaddr"));

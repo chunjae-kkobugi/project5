@@ -46,7 +46,14 @@
                 <td class="product-thumb">
                   <!--<img th:src="@{/images/classimage/user/user-thumb.jpg}" alt="회원사진" class="rounded-circle">-->
                   <!--th:src="@{/upload/} + ${list.fileDataList[0].savePath}+'/'+${list.fileDataList[0].saveName}-->
-                  <img width="80px" height="auto" th:src="@{|/upload/${product.fileDataList[0].savePath}/${product.fileDataList[0].saveName}|}" alt="image description"></td>
+                  <th:block th:if="${!product.fileDataList.isEmpty()}">
+                    <img width="80px" height="auto" th:src="@{|/upload/${product.fileDataList[0].savePath}/${product.fileDataList[0].saveName}|}" alt="Card image cap">
+                  </th:block>
+
+                  <th:block th:if="${product.fileDataList.isEmpty()}">
+                    <img width="80px" height="auto" th:src="@{/images/no_image.png}">
+                  </th:block>
+                  <!--<img width="80px" height="auto" th:src="@{|/upload/${product.fileDataList[0].savePath}/${product.fileDataList[0].saveName}|}" alt="image description"></td>-->
                 <td class="product-details">
                   <a th:href="@{/product/detail(pno=${product.pno})}">
                     <h3 class="title" th:text="${product.pname}">
