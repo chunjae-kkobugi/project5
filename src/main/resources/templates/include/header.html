@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <body>
-<th:block th:fragment="header">
+<th:block th:fragment="header(menu)">
     <header>
     <div class="container">
         <div class="row">
@@ -17,13 +17,13 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ml-auto main-nav ">
-                            <li class="nav-item active">
+                            <li class="nav-item" th:classappend="${menu} == 'home' ? 'active' : ''">
                                 <a class="nav-link" th:href="@{/}">Home</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item" th:classappend="${menu} == 'product' ? 'active' : ''">
                                 <a class="nav-link" th:href="@{/product/list}">중고거래</a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item" th:classappend="${menu} == 'notice' ? 'active' : ''">
                                 <a class="nav-link" th:href="@{/notice/List}">공지사항</a>
                             </li>
                         </ul>
