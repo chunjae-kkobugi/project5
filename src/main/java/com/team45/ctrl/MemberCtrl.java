@@ -290,4 +290,11 @@ public class MemberCtrl {
 
         return "/myshop/myChat";
     }
+
+    @GetMapping("alert")
+    public String alrert(HttpServletRequest request, Model model){
+        model.addAttribute("msg", request.getAttribute("msg"));
+        model.addAttribute("url", request.getAttribute("url"));
+        return "/member/alert";
+    }
 }
