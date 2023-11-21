@@ -1,7 +1,7 @@
 package com.team45.service;
 
-import com.team45.entity.ProductVO;
 import com.team45.entity.Wish;
+import com.team45.entity.WishProduct;
 import com.team45.util.Page;
 
 import java.util.List;
@@ -9,7 +9,9 @@ import java.util.List;
 public interface WishService {
     List<Wish> wishList(String uid);
 
-    List<ProductVO> wishProductList(String uid, Page page);
+    Wish wishGet(Long wno);
+
+    List<WishProduct> wishProductList(String uid, Page page);
 
     int wishProductCount(String uid, Page page);
 
@@ -24,6 +26,8 @@ public interface WishService {
     void increaseWish(Long pno);
 
     void decreaseWish(Long pno);
+
+    void wishRemove(Long wno);
 
     int checkWish(Wish wish);
 }

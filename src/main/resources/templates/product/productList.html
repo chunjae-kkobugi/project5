@@ -68,7 +68,7 @@
                                                 <img class="card-img-top img-fluid" style="width: 255px; height: 255px;" th:src="@{/upload/} + ${list.fileDataList[0].savePath}+'/'+${list.fileDataList[0].saveName}">
                                             </th:block>
                                             <th:block th:if="${list.fileDataList.isEmpty()}">
-                                                <img class="card-img-top img-fluid" style="width: 255px; height: 255px;" th:src="@{../static/images/heart_after.png}">
+                                                <img class="card-img-top img-fluid" style="width: 255px; height: 255px;" th:src="@{/images/no_image.png}">
                                             </th:block>
                                         </a>
                                     </div>
