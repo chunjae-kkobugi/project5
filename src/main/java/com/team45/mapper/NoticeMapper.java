@@ -3,15 +3,11 @@ package com.team45.mapper;
 
 import com.team45.entity.Notice;
 import com.team45.util.Page;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Component
 @Mapper
 public interface NoticeMapper {
     @Select("select * from notice")
@@ -22,6 +18,9 @@ public interface NoticeMapper {
 
     @Insert("insert into notice values(default, #{title}, #{content}, #{author}, #{img}, default)")
     public void boardAdd(Notice notice);
+
+    @Update("update notice set title=#{title}, content=#{content}, img=#{img} where no=#{no}")
+    public void boardEdit(Notice notice);
 
     @Delete("delete from notice where no=#{no}")
     public void boardDel(int no);
