@@ -85,7 +85,10 @@ public class ProductCtrl {
         model.addAttribute("detail", detail);
 
         HttpSession session = request.getSession();
-        String sid = (String) session.getAttribute("sid");
+        //String sid = (String) session.getAttribute("sid");
+        Object sidObeject = session.getAttribute("sid");
+        String sid = sidObeject == null ? "" : (String) sidObeject;
+
         int flag = wishService.wishFind(pno, sid);
         model.addAttribute("flag", flag);
         //System.out.println("flag : " + flag);
