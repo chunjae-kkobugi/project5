@@ -72,7 +72,6 @@ public class MyShopCtrl {
         List<ProductVO> products = productService.productListBySeller(sid, page);
         //System.out.println("total:"+page.getPostTotal());
         model.addAttribute("products", products);
-        System.out.println("ProductCtrl의 products : " + products);
 
         return "/myshop/myProducts";
     }
@@ -133,7 +132,7 @@ public class MyShopCtrl {
         model.addAttribute("page", page);
 
         List<Keyword> keywords = keywordService.keywordsByUid(sid, page);
-        System.out.println("키워드 목록 : " + keywords);
+        //System.out.println("키워드 목록 : " + keywords);
         model.addAttribute("keywords", keywords);
         return "/myshop/myKeywords";
     }
