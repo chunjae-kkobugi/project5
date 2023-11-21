@@ -25,13 +25,14 @@
         <div class="widget dashboard-container my-adslist">
           <h3 class="widget-header">키워드</h3>
 
-          <div class="input-group mb-3">
-            <form id="form">
+          <form th:action="@{/myshop/addWord}" method="post">
+            <div class="input-group mb-3" style="width: 20rem;">
               <input type="text" class="form-control" name="word" id="word" placeholder="키워드">
-            </form>
-            <button class="btn btn-main-sm" type="button" onclick="inputData()">등록</button>
+              <button class="btn btn-main-sm" type="submit">등록</button>
+            </div>
+          </form>
+
             <!--<a href="javascript:void(0);" class="btn btn-main-sm" onclick="inputData()">등록</a>-->
-          </div>
 
           <div th:if="${#lists.isEmpty(keywords)}" class="text-center">등록한 키워드가 존재하지 않습니다.</div>
 
@@ -57,12 +58,7 @@
                   <div class="">
                     <ul class="list-inline justify-content-center">
                       <li class="list-inline-item">
-                        <a class="edit" data-toggle="tooltip" data-placement="top" title="수정" >
-                          <i class="fa fa-pencil"></i>
-                        </a>
-                      </li>
-                      <li class="list-inline-item">
-                        <a class="delete" data-toggle="tooltip" data-placement="top" title="삭제" >
+                        <a th:href="@{/myshop/keywordRemove(kno=${keyword.kno})}" class="delete" data-toggle="tooltip" data-placement="top" title="삭제" >
                           <i class="fa fa-trash"></i>
                         </a>
                       </li>
@@ -88,25 +84,5 @@
 
 <th:block th:replace="/include/footer :: footer"></th:block>
 <th:block th:replace="/include/script :: script"></th:block>
-
-<script th:inline="javascript">
-  function inputData(){
-    // var book = {title:$("#title").val(),  };
-    //var book = $("#form").serialize();
-    var keyword = {word:$("#word").val(), uid:[[${member.id}]]};
-    $.ajax({
-      url:"/myshop/addWord",
-      data:keyword,
-      type:"POST",
-      cache:false
-    }).done(function(fragment) {
-      var target = $(fragment).find("#form").length > 0 ? $("#form") : $("#list");
-      target.replaceWith(fragment);
-      $("input[type=text]").val("");
-      $(".err").text("");
-    });
-  }
-</script>
-
 </body>
 </html>

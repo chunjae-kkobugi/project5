@@ -1,7 +1,7 @@
 package com.team45.mapper;
 
-import com.team45.entity.ProductVO;
 import com.team45.entity.Wish;
+import com.team45.entity.WishProduct;
 import com.team45.util.Page;
 import org.apache.ibatis.annotations.*;
 
@@ -12,9 +12,12 @@ public interface WishMapper {
     @Select("SELECT * FROM wish WHERE uid=#{uid}")
     List<Wish> wishList(String uid);
 
+    @Select("SELECT * FROM wish WHERE wno=#{wno}")
+    Wish wishGet(Long wno);
+
     @Select({
             "<script>",
-            "SELECT p.pno, pname, seller, price, proaddr, image, createAt, baseAt, p.status, visited, cateName",
+            "SELECT p.pno, pname, seller, price, proaddr, image, createAt, baseAt, p.status, cateName, wno",
             "FROM productWithCate p",
             "JOIN wish w ON p.pno = w.pno",
             "WHERE w.uid = #{uid}",
@@ -24,7 +27,7 @@ public interface WishMapper {
             "ORDER BY wno DESC LIMIT #{page.postStart}, #{page.postScreen}",
             "</script>"
     })
-    List<ProductVO> wishProductList(@Param("uid") String uid, @Param("page") Page page);
+    List<WishProduct> wishProductList(@Param("uid") String uid, @Param("page") Page page);
 
     @Select({
             "<script>",
@@ -57,4 +60,8 @@ public interface WishMapper {
 
     @Update("UPDATE product set heart=heart-1 where pno=#{pno}")
     void decreaseWish(Long pno);
+
+    @Delete("DELETE FROM wish WHERE wno=#{wno}")
+    void wishRemove(Long wno);
+
 }

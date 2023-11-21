@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <th:block th:replace="/include/head :: head" ></th:block>
   <title>마이페이지</title>
+  <style>
+    .dashboard-container .btn {
+      background-color: inherit;
+      color: inherit;
+      padding: 0 3.5rem;
+      line-height: 3;
+    }
+  </style>
 </head>
 <body>
 <th:block th:replace="/include/header :: header"></th:block>
@@ -45,7 +53,15 @@
               <tr th:each="product : ${wishProductList}">
                 <td class="product-thumb">
                   <!--<img th:src="@{/images/classimage/user/user-thumb.jpg}" alt="회원사진" class="rounded-circle">-->
-                  <img width="80px" height="auto" th:src="@{/images/classimage/products/products-1.jpg}" alt="image description"></td>
+                  <!--<img width="80px" height="auto" th:src="@{|/upload/${product.fileDataList[0].savePath}/${product.fileDataList[0].saveName}|}" alt="image description">-->
+                  <th:block th:if="${!product.fileDataList.isEmpty()}">
+                    <img width="80px" height="auto" th:src="@{|/upload/${product.fileDataList[0].savePath}/${product.fileDataList[0].saveName}|}" alt="Card image cap">
+                  </th:block>
+                  <th:block th:if="${product.fileDataList.isEmpty()}">
+                    <img width="80px" height="auto" th:src="@{/images/no_image.png}">
+                  </th:block>
+
+                </td>
                 <td class="product-details">
                   <a th:href="@{/product/detail(pno=${product.pno})}">
                     <h3 class="title" th:text="${product.pname}">
@@ -76,7 +92,7 @@
                       </li>
                       -->
                       <li class="list-inline-item">
-                        <a th:href="@{/product/productRemove(pno=${product.pno})}" class="delete" data-toggle="tooltip" data-placement="top" title="삭제" >
+                        <a th:href="@{/myshop/wishRemove(wno=${product.wno})}" class="delete" data-toggle="tooltip" data-placement="top" title="삭제" >
                           <i class="fa fa-trash"></i>
                         </a>
                       </li>
