@@ -13,4 +13,5 @@ public class ChatRoom {
     private Long pno;
     private String status = "ON";
     private String seller;
+    private int unread;
 }

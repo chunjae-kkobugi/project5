@@ -3,18 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <div th:replace="/include/head.html :: head"></div>
-    <div th:replace="/include/head2.html :: head2"></div>
+    <div th:replace="/include/head :: head"></div>
     <title>상품 목록</title>
+    <style>
+        .btn {
+            background-color: inherit;
+            color: inherit;
+            padding: 0 3.5rem;
+            line-height: 3;
+        }
+    </style>
 </head>
 <body>
 <div th:replace="/include/header.html :: header"></div>
-
-<section class="page-search">
-    <div th:replace="/include/searchList.html :: fragment-search('/product/list', 'pname:상품명,content:내용,seller:판매자')"></div>
-</section>
 <section class="section-sm">
     <div class="container">
+        <div th:replace="/include/searchList :: fragment-search('/product/list', 'pname:상품명,content:내용,seller:판매자')"></div>
         <div class="row">
             <div class="col-lg-3 col-md-4">
                 <div class="category-sidebar">
@@ -45,7 +49,7 @@
             </div>
             <div class="col-lg-9 col-md-8">
                 <div class="btn-group float-right">
-                    <a th:href="@{/product/insert}" class="add-button nav-link text-white" style="background-color: #5672f9; border: none;">상품 등록</a>
+                    <a th:href="@{/product/insert}" class="detail-button nav-link text-white" style="background-color: #5672f9; border: none;">상품 등록</a>
                 </div>
                 <div class="product-grid-list">
                     <div class="row mt-30">
@@ -162,6 +166,7 @@
     });
     </script>
 <th:block th:replace="/include/footer.html :: footer"></th:block>
+<th:block th:replace="/include/script :: script"></th:block>
 
 </body>
 </html>

@@ -59,8 +59,7 @@ public class ChatRoomCtrl {
         // 채팅방 상대 이름 띄우기
         // 채팅방은 구매자 기준으로 저장되므로, 구매자인 경우 product 에서 seller 가져오기
         ProductVO product =  productService.productDetail(pno);
-
-
+        model.addAttribute("product", product); // 상품 정보
         if(sid.equals(memId)){
             // 구매자인 경우 판매자의 이름
             model.addAttribute("roomName", product.getSeller());
@@ -68,6 +67,8 @@ public class ChatRoomCtrl {
             // 판매자인 경우 구매자의 이름
             model.addAttribute("roomName", room.getMemId());
         }
+
+
 
         return "chat/chat";
     }
