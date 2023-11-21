@@ -69,12 +69,12 @@
                   <div class="">
                     <ul class="list-inline justify-content-center">
                       <li class="list-inline-item">
-                        <a th:href="@{/product/productEdit(pno=${product.pno})}" class="edit" data-toggle="tooltip" data-placement="top" title="수정" >
+                        <a th:href="@{/product/edit(pno=${product.pno})}" class="edit" data-toggle="tooltip" data-placement="top" title="수정" >
                           <i class="fa fa-pencil"></i>
                         </a>
                       </li>
                       <li class="list-inline-item">
-                        <a th:href="@{/product/productRemove(pno=${product.pno})}" class="delete" data-toggle="tooltip" data-placement="top" title="삭제" >
+                        <a th:href="@{/product/delete(pno=${product.pno})}" class="delete" data-toggle="tooltip" data-placement="top" title="삭제" >
                           <i class="fa fa-trash"></i>
                         </a>
                       </li>

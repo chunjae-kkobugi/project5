@@ -3,6 +3,7 @@ package com.team45.ctrl;
 import com.team45.entity.Keyword;
 import com.team45.entity.Member;
 import com.team45.entity.ProductVO;
+import com.team45.entity.WishProduct;
 import com.team45.service.KeywordService;
 import com.team45.service.MemberService;
 import com.team45.service.ProductService;
@@ -17,6 +18,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -96,8 +98,8 @@ public class MyShopCtrl {
         page.makePage();
         model.addAttribute("page", page);
 
-        List<ProductVO> wishProductList = wishService.wishProductList(sid, page);
-        //System.out.println("찜 상품 : " + wishProductList);
+        List<WishProduct> wishProductList = wishService.wishProductList(sid, page);
+        System.out.println("찜 상품 : " + wishProductList);
         //System.out.println("total:" + page.getPostTotal());
 
         model.addAttribute("wishProductList", wishProductList);
@@ -165,4 +167,13 @@ public class MyShopCtrl {
         model.addAttribute("keywords", keywords);
         return "/myshop/myKeywords :: #list";
     }
+
+    @GetMapping("wishRemove")
+    public String removeWish(@RequestParam Long wno, Model model) {
+        Long pno = wishService.wishGet(wno).getPno();
+        wishService.wishRemove(wno);
+        wishService.decreaseWish(pno);
+        return "redirect:wish";
+    }
+
 }
