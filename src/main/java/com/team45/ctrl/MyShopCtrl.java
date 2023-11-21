@@ -138,35 +138,15 @@ public class MyShopCtrl {
     }
 
     @PostMapping("addWord")
-    public String checkKeyword(HttpServletRequest request, Model model, @Valid Keyword keyword, BindingResult bindingResult) {
+    public String checkKeyword(HttpServletRequest request, Model model) {
         String uid = (String) session.getAttribute("sid");
-        Member member = memberService.memberGet(uid);
-        model.addAttribute("member", member);
 
-        if (bindingResult.hasErrors()) {
-            return "/myshop/myKeywords :: #form";
-        }
+        Keyword keyword = new Keyword();
+        keyword.setWord(request.getParameter("word"));
+        keyword.setUid(uid);
+        System.out.println("keyword : " + keyword);
         keywordService.keywordInsert(keyword);
-
-        // 페이징 처리
-        Page page = new Page();
-        String searchType = request.getParameter("type");
-        String searchKeyword = request.getParameter("keyword");
-        int pageNow = request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")) : 1;
-
-        page.setSearchType(searchType);
-        page.setSearchKeyword(searchKeyword);
-        page.setPageNow(pageNow);
-
-        model.addAttribute("type", searchType);
-        model.addAttribute("keyword", searchKeyword);
-        page.setPostTotal(keywordService.keywordCountByUid(uid, page));
-        page.makePage();
-        model.addAttribute("page", page);
-
-        List<Keyword> keywords = keywordService.keywordsByUid(uid, page);
-        model.addAttribute("keywords", keywords);
-        return "/myshop/myKeywords :: #list";
+        return "redirect:keyword";
     }
 
     @GetMapping("wishRemove")
@@ -176,5 +156,15 @@ public class MyShopCtrl {
         wishService.decreaseWish(pno);
         return "redirect:wish";
     }
+
+    @GetMapping("keywordRemove")
+    public String removeKeyword(@RequestParam Long kno, Model model) {
+        //Long pno = wishService.wishGet(wno).getPno();
+        //wishService.wishRemove(wno);
+        //wishService.decreaseWish(pno);
+        keywordService.keywordDelete(kno);
+        return "redirect:keyword";
+    }
+
 
 }
