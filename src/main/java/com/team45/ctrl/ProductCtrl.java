@@ -155,9 +155,11 @@ public class ProductCtrl {
     public String productEditForm(HttpServletRequest request, @RequestParam("pno") Long pno, Model model) {
         ProductVO product = productService.productDetail(pno);
         List<Category> categories = productService.categories();
+        int imgCount = product.getFileDataList().size();
 
         model.addAttribute("detail", product);
         model.addAttribute("cateList", categories);
+        model.addAttribute("imgCount", imgCount);
 
         return "product/productEdit";
     }
