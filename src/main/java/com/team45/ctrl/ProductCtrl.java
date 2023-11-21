@@ -4,7 +4,10 @@ import com.team45.entity.Category;
 import com.team45.entity.FileData;
 import com.team45.entity.Product;
 import com.team45.entity.ProductVO;
+import com.team45.entity.*;
+import com.team45.service.ChatService;
 import com.team45.service.ProductService;
+import com.team45.service.WishService;
 import com.team45.util.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,6 +28,10 @@ import java.util.*;
 public class ProductCtrl {
     @Autowired
     private ProductService productService;
+    @Autowired
+    private WishService wishService;
+    @Autowired
+    private ChatService chatService;
 
     // 전체 상품 리스트
     @GetMapping("list")
@@ -54,10 +61,6 @@ public class ProductCtrl {
         List<ProductVO> productList = productService.productList(page);
         List<Category> categories = productService.categories();
 
-
-        // 로그인한 회원의 주소 정보 불러오기
-        model.addAttribute("proaddr", request.getAttribute("addr3"));
-        // 상품의 판매상태 불러오기
         String status = request.getParameter("status");
 
         model.addAttribute("status", status);
@@ -77,6 +80,17 @@ public class ProductCtrl {
     public String productDetial(@RequestParam Long pno, HttpServletRequest request, Model model) {
         ProductVO detail = productService.productDetail(pno);
         model.addAttribute("detail", detail);
+
+        HttpSession session = request.getSession();
+        String sid = (String) session.getAttribute("sid");
+        int flag = wishService.wishFind(pno, sid);
+        model.addAttribute("flag", flag);
+        //System.out.println("flag : " + flag);
+        model.addAttribute("uid", sid);
+        if(sid.equals(detail.getSeller())){
+            List<ChatRoom> roomList = chatService.chatRoomProductList(pno);
+            model.addAttribute("roomList", roomList);
+        }
         return "product/productDetail";
     }
 
@@ -199,5 +213,17 @@ public class ProductCtrl {
     public String productDelete (@RequestParam("pno") Long pno) {
         productService.productRemove(pno);
         return "redirect:list";
+    }
+
+    @PostMapping("wish")
+    @ResponseBody
+    public Map<String, Integer> wishProduct(@ModelAttribute Wish wish) {
+        int result = wishService.checkWish(wish);
+        System.out.println("result : " + result);
+
+        Map<String, Integer> resultMap = new HashMap<>();
+        resultMap.put("res", result);
+        resultMap.put("heartCnt", wishService.wishCount(wish.getPno()));
+        return resultMap;
     }
 }

@@ -24,5 +24,7 @@ public interface ProductMapper {
     List<Category> categories();
     List<Map<String, Integer>> getCateProCnt();
     int productGetLast();
+
     int fileDataDelete(Long fileNo);
+
 }
