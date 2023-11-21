@@ -72,6 +72,8 @@ public class MyShopCtrl {
         List<ProductVO> products = productService.productListBySeller(sid, page);
         //System.out.println("total:"+page.getPostTotal());
         model.addAttribute("products", products);
+        System.out.println("ProductCtrl의 products : " + products);
+
         return "/myshop/myProducts";
     }
 

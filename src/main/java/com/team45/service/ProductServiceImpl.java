@@ -55,7 +55,12 @@ public class ProductServiceImpl implements ProductService{
     }
     @Override
     public List<ProductVO> productListBySeller(String seller, Page page) {
-        return myShopMapper.productListBySeller(seller, page);
+        List<ProductVO> productList = new ArrayList<>();
+        for (ProductVO p : myShopMapper.productListBySeller(seller, page)) {
+            p.setFileDataList(fileDataMapper.fileDataBoardList("product", p.getPno()));
+            productList.add(p);
+        }
+        return productList;
     }
 
     @Override

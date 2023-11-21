@@ -45,7 +45,9 @@
               <tr th:each="product : ${wishProductList}">
                 <td class="product-thumb">
                   <!--<img th:src="@{/images/classimage/user/user-thumb.jpg}" alt="회원사진" class="rounded-circle">-->
-                  <img width="80px" height="auto" th:src="@{/images/classimage/products/products-1.jpg}" alt="image description"></td>
+                  <!--<img width="80px" height="auto" th:src="@{|/upload/${product.fileDataList[0].savePath}/${product.fileDataList[0].saveName}|}" alt="image description"></td>-->
+                  <img width="80px" height="auto" th:src="@{|/upload/${product.fileDataList[0].savePath}/${product.fileDataList[0].saveName}|}" alt="image description">
+                </td>
                 <td class="product-details">
                   <a th:href="@{/product/detail(pno=${product.pno})}">
                     <h3 class="title" th:text="${product.pname}">

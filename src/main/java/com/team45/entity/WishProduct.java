@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -21,4 +22,7 @@ public class WishProduct {
     private String status;
     private String cateName;
     private Long wno;
+
+    //이미지
+    private List<FileData> fileDataList;
 }

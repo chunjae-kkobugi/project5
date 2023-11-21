@@ -60,6 +60,7 @@ public class ProductCtrl {
 
         List<ProductVO> productList = productService.productList(page);
         List<Category> categories = productService.categories();
+        System.out.println("ProductCtrl의 productList : " + productList);
 
 
         // 로그인한 회원의 주소 정보 불러오기
