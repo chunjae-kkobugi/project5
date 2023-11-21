@@ -12,9 +12,10 @@ import java.util.List;
 
 
 public interface RecommentService {
-    List<Recomment> recommentList(String mem_id);
-    void recommentAdd(Recomment recomment);
-    void recommentDel(int no);
+    public List<Recomment> recommentList(String mem_id);
+    Recomment recommentOne(int no);
+    public void recommentAdd(Recomment recomment);
+    public void recommentDel(int no);
 
 
 }

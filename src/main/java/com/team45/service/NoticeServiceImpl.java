@@ -30,6 +30,11 @@ public class NoticeServiceImpl implements NoticeSerivce {
     }
 
     @Override
+    public void boardEdit(Notice notice) {
+        noticeMapper.boardEdit(notice);
+    }
+
+    @Override
     public void boardDel(int no) {
         noticeMapper.boardDel(no);
     }
