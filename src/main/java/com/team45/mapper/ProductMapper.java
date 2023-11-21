@@ -1,6 +1,7 @@
 package com.team45.mapper;
 
 import com.team45.entity.Category;
+import com.team45.entity.FileData;
 import com.team45.entity.Product;
 import com.team45.entity.ProductVO;
 import com.team45.util.Page;
@@ -23,4 +24,7 @@ public interface ProductMapper {
     List<Category> categories();
     List<Map<String, Integer>> getCateProCnt();
     int productGetLast();
+
+    int fileDataDelete(Long fileNo);
+
 }

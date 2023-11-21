@@ -1,5 +1,9 @@
 package com.team45.ctrl;
 
+import com.team45.entity.Category;
+import com.team45.entity.FileData;
+import com.team45.entity.Product;
+import com.team45.entity.ProductVO;
 import com.team45.entity.*;
 import com.team45.service.ChatService;
 import com.team45.service.ProductService;
@@ -39,7 +43,7 @@ public class ProductCtrl {
         String category = request.getParameter("cate");
 
         Page page = new Page();
-        page.setPageNow(curPage);
+        page.setPageNow(curPage);                                           // 현재 페이지
         page.setCategory(category);                                        // 카테고리 데이터
         page.setSearchKeyword(request.getParameter("keyword"));     // 검색 키워드
         page.setSearchType(request.getParameter("type"));           // 검색 타입
@@ -51,9 +55,16 @@ public class ProductCtrl {
         page.setPostTotal(total);
         page.makePage();
 
+        System.out.println(total);
+        System.out.println(page);
+
         List<ProductVO> productList = productService.productList(page);
         List<Category> categories = productService.categories();
 
+
+        // 로그인한 회원의 주소 정보 불러오기
+        model.addAttribute("proaddr", request.getAttribute("addr3"));
+        // 상품의 판매상태 불러오기
         String status = request.getParameter("status");
 
         model.addAttribute("status", status);
@@ -63,6 +74,7 @@ public class ProductCtrl {
         model.addAttribute("curCategory", category);
         model.addAttribute("type", type);
         model.addAttribute("keyword", keyword);
+
         model.addAttribute("page", page);
 
         return "product/productList";
@@ -134,7 +146,6 @@ public class ProductCtrl {
         product.setFileDataList(fileDataList);
         String sid = (String) session.getAttribute("sid");
         product.setSeller(sid);
-        product.setImage((long) fileDataList.size());
 
         productService.productInsert(product);
         return "redirect:list";
@@ -166,11 +177,39 @@ public class ProductCtrl {
             folder.mkdirs();
         }
 
-        // 파일이 새롭게 업로드 되지 않았다면 삭제하지 않도록 처리
-        if (files[0].getSize() != 0) {
-            List<FileData> fileDataList = null;
+        List<FileData> fileDataList = new ArrayList<>();
+
+        for (MultipartFile file : files) {
+            FileData fileData = new FileData();
+            String originalFileName = file.getOriginalFilename();   // 첨부파일의 실제 이름
+
+            if (!file.isEmpty()) { // 파일이 비어있지 않은 경우에만 처리
+
+                String saveFilename = UUID.randomUUID().toString() + "_" + originalFileName;
+                fileData.setTableName("product");
+                fileData.setColumnNo(product.getPno());
+                fileData.setOriginName(originalFileName);
+                fileData.setSaveName(saveFilename);
+                fileData.setSavePath(today);
+                fileData.setFileType(" ");
+                fileData.setStatus("ACTIVE");
+                file.transferTo(new File(saveFolder, saveFilename)); // 파일을 업로드 폴더에 저장
+                fileDataList.add(fileData);
+            }
         }
-        return  null;
+
+        product.setFileDataList(fileDataList);
+        String sid = (String) session.getAttribute("sid");
+        product.setSeller(sid);
+
+        productService.productUpdate(product);
+        return "redirect:list";
+    }
+
+    @GetMapping("imageDelete")
+    @ResponseBody
+    public int imageDelete (@RequestParam("fileNo") Long fileNo) {
+        return productService.fileDataDelete(fileNo);
     }
 
     @GetMapping("delete")

@@ -22,7 +22,7 @@
                             <!-- 상품명 -->
                             <div class="form-group">
                                 <label for="pname"> 상품명 </label>
-                                <input type="text" class="form-control" id="pname" name="pname" th:value="${detail.pname}">
+                                <input type="text" class="form-control" id="pname" name="pname" th:value="${detail.pname}" maxlength="100" required>
                             </div>
                             <!-- 카테고리 -->
                             <div class="form-group">
@@ -36,13 +36,13 @@
                             <!-- 가격 -->
                             <div class="form-group">
                                 <label for="price"> 가격 </label>
-                                <input type="text" class="form-control" id="price" name="price" th:value="${detail.price}">
+                                <input type="text" class="form-control" id="price" name="price" th:value="${detail.price}" maxlength="20" required>
                             </div>
                             <!-- 거래지역 -->
                             <div class="form-group">
                                 <label for="proaddr"> 거래 지역 </label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control" id="proaddr" name="proaddr" th:value="${detail.proaddr}">
+                                    <input type="text" class="form-control" id="proaddr" name="proaddr" th:value="${detail.proaddr}" required>
                                     <button type="button" id="post_btn" onclick="findAddr()" class="btn btn-outline-primary mb-2" style="width:35%; display:inline-block;">주소 검색</button>
                                 </div>
                             </div>
@@ -56,16 +56,22 @@
                                 <label for="upfile"> 사진 첨부 </label>
                                 <input type="file" class="file-input" name="upfile" id="upfile" multiple="multiple">
                                 <span class="file-cta">
-                                            <span class="file-icon mb-0">
-                                                <i class="fas fa-upload mb-0"></i>
-                                            </span>
-                                            <span class="file-label mb-0">
-                                                업로드 된 이미지 :
-                                            </span>
-                                        </span>
-                                <th:block th:each="img : ${detail.fileDataList}">
-                                    <span>[[${img.getOriginName}]]  <i class="fa fa-times-circle" style="color: #333; background: none;" aria-hidden="true"></i></span>
-                                </th:block>
+                                    <span class="file-icon mb-0">
+                                        <i class="fas fa-upload mb-0"></i>
+                                    </span>
+                                    <span class="file-label mb-0">
+                                        파일 선택
+                                    </span>
+                                </span>
+                                <span class="file-name">선택된 파일이 없습니다.</span>
+                                <div>
+                                    <span class="file-label mb-0">
+                                    업로드 된 이미지 :
+                                </span>
+                                    <th:block th:each="img, iterStat : ${detail.fileDataList}">
+                                        <span th:class="'imgName'+${iterStat.index}">[[${img.getOriginName}]]<i class="fa fa-times-circle imgDelete" style="color: #333; background: none;" aria-hidden="true" th:data-value="${img.fileNo}"></i></span>
+                                    </th:block>
+                                </div>
                             </div>
                             <!-- Submit button -->
                             <button class="btn btn-transparent">상품 등록</button>
@@ -101,6 +107,26 @@
         }).open();
     }
 
+</script>
+<script th:inline="javascript">
+    $(document).on("click", ".imgDelete", function() {
+        var fileNo = $(this).data("value"); // 이미지의 fileNo 가져오기
+        var indexToDelete = $(this).closest('span').attr('class').match(/imgName(\d+)/)[1]; // 클래스명에서 인덱스 추출
+
+        $.ajax({
+            type: "GET",
+            url: "/product/imageDelete",
+            data: { fileNo: fileNo },
+            dataType: "json",
+            success: function(res) {
+                console.log("성공");
+                $(".imgName" + indexToDelete).remove(); // 해당 인덱스의 요소를 삭제
+            },
+            error: function(err) {
+                console.log("Console:", err);
+            }
+        });
+    });
 </script>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <th:block th:replace="/include/footer.html :: footer"></th:block>
