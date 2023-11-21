@@ -12,11 +12,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.io.File;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Controller
@@ -28,6 +34,8 @@ public class AdminCtrl {
     private ProductService productService;
     @Autowired
     private NoticeSerivce noticeSerivce;
+    @Autowired
+    private HttpSession session;
 
     @GetMapping("home")
     public String adminhome(Model model){
@@ -57,7 +65,6 @@ public class AdminCtrl {
         page.setSearchType(searchType);
         page.setSearchKeyword(searchKeyword);
         page.setPageNow(pageNow);
-        System.out.println(page.getPageNow());
 
         model.addAttribute("type", searchType);
         model.addAttribute("keyword", searchKeyword);
@@ -123,13 +130,43 @@ public class AdminCtrl {
         return "admin/noticeList";
     }
 
-    @GetMapping("freeList")
-    public String freeList(HttpServletRequest request, Model model){
-        return "admin/freeList";
+    @GetMapping("/noticeInsert")
+    public String Noticeform(Model model) {
+        String id = (String) session.getAttribute("sid");
+        Member mem = memberService.memberGet(id);
+        model.addAttribute("mem", mem);
+        return "/admin/noticeInsert";
     }
 
-    @GetMapping("faqList")
-    public String faqList(HttpServletRequest request, Model model){
-        return "admin/faqList";
+    @PostMapping("/noticeInsert")
+    public String NoticeAdd(Notice notice, MultipartFile uploadFiles, HttpServletRequest request, Model model) throws Exception {
+        String title = request.getParameter("title");
+        String content = request.getParameter("content");
+        notice.setTitle(title);
+        notice.setContent(content);
+
+        if (uploadFiles != null) {
+//            ServletContext application = request.getSession().getServletContext();
+//            String realPath = application.getRealPath("classpath/static/");          // 운영 서버 저장폴더
+            String realPath = "";                                              //application.yml location 적용시 폴더
+
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+            Date date = new Date();
+            String dateFolder = sdf.format(date);
+            String originalThumbnailname = uploadFiles.getOriginalFilename();
+            UUID uuid = UUID.randomUUID();
+            String uploadThumbnailname = uuid.toString() + "_" + originalThumbnailname;
+            uploadFiles.transferTo(new File(realPath, uploadThumbnailname));     //파일 등록
+            notice.setImg(uploadThumbnailname);
+        }
+        noticeSerivce.boardAdd(notice);
+
+        return "redirect:noticeList";
+    }
+
+    @GetMapping("noticeDelete")
+    public String NoticeDel(int no) {
+        noticeSerivce.boardDel(no);
+        return "redirect:noticeList";
     }
 }
