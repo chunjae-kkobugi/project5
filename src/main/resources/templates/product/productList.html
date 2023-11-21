@@ -44,6 +44,9 @@
                 </div>
             </div>
             <div class="col-lg-9 col-md-8">
+                <div class="btn-group float-right">
+                    <a th:href="@{/product/insert}" class="add-button nav-link text-white" style="background-color: #5672f9; border: none;">상품 등록</a>
+                </div>
                 <div class="product-grid-list">
                     <div class="row mt-30">
                         <div class="col-lg-4 col-md-6"  th:each="list : ${productList}">

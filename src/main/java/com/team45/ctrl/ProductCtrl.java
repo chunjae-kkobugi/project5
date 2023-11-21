@@ -61,6 +61,10 @@ public class ProductCtrl {
         List<ProductVO> productList = productService.productList(page);
         List<Category> categories = productService.categories();
 
+
+        // 로그인한 회원의 주소 정보 불러오기
+        model.addAttribute("proaddr", request.getAttribute("addr3"));
+        // 상품의 판매상태 불러오기
         String status = request.getParameter("status");
 
         model.addAttribute("status", status);
@@ -207,7 +211,6 @@ public class ProductCtrl {
     public int imageDelete (@RequestParam("fileNo") Long fileNo) {
         return productService.fileDataDelete(fileNo);
     }
-
 
     @GetMapping("delete")
     public String productDelete (@RequestParam("pno") Long pno) {

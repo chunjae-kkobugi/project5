@@ -140,5 +140,4 @@ CREATE VIEW productWithCate AS (
     SELECT pno, pname, seller, price, proaddr, image, createAt, baseAt, status, visited, cateName, heart
     FROM product p
     JOIN category c ON (p.cate = c.cate)
->>>>>>> 5e6d6ae1076a4a592aa07ae68ad15f8618b7fd16
 );
