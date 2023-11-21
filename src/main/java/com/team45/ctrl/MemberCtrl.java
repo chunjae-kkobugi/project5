@@ -192,6 +192,6 @@ public class MemberCtrl {
 
         model.addAttribute("rooms", rooms);
 
-        return "/resources/templates/myshop/myChat.html";
+        return "/myshop/myChat";
     }
 }
