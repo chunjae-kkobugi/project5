@@ -70,7 +70,7 @@ public class AdminCtrl {
         List<Member> memberList = memberService.memberList(page);
         model.addAttribute("memberList", memberList);
 
-        return "admin/member/memberList.html";
+        return "admin/memberList";
     }
 
     @GetMapping("productList")

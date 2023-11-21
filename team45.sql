@@ -56,7 +56,7 @@ CREATE TABLE product(
     baseAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,        -- 끌어올리기 날짜
     status VARCHAR(50) DEFAULT 'SALE',                          -- REMOVE(삭제), 'SALE' 판매중, 'RESERVED' 예약중, 'OUT' 거래 완료
     visited INT DEFAULT 0,                                      -- 조회수
-    heart INT DEFAULT 0,                                        -- 찜한 수
+    heart INT DEFAULT 0                                         -- 찜한 수
 );
 
 INSERT INTO product VALUES(DEFAULT, '상품1', '상품1 내용', 'A', 'kimbk111', 1000, '가산동', null, DEFAULT, NULL, 'SALE', DEFAULT, DEFAULT);
@@ -125,12 +125,12 @@ CREATE TABLE recomment(
     NO INT PRIMARY KEY AUTO_INCREMENT,
     mem_id VARCHAR(100) NOT NULL,
     COMMENT VARCHAR(300) NOT null
-)
+);
 
 -- 찜
 CREATE TABLE wish (
     wno BIGINT AUTO_INCREMENT PRIMARY KEY,      -- 고유 번호
-    pno BIGINT                                  -- 상품 번호
+    pno BIGINT,                                 -- 상품 번호
     uid VARCHAR(20) NOT NULL,                   -- member.id
     status INT DEFAULT 0                        -- 찜 여부
 );
