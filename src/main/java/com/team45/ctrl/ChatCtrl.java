@@ -34,7 +34,6 @@ public class ChatCtrl {
         Long roomNo = Long.valueOf(requestParameter.get("roomNo").get(0));
 
         ChatMessage chat = mapper.readValue(message, ChatMessage.class);
-        System.out.println(chat);
         sendRoomMessage(message, roomNo);
 
         /*ChatMessage chatReturn = service.chatMessageInsert(chat);

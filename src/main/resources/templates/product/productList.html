@@ -3,27 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <div th:replace="/include/head.html :: head"></div>
-    <div th:replace="/include/head2.html :: head2"></div>
+    <div th:replace="/include/head :: head"></div>
     <title>상품 목록</title>
     <style>
         p {
-            margin-bottom: 0;
+            margin-bottom: 0;}
+        .btn {
+            background-color: inherit;
+            color: inherit;
+            padding: 0 3.5rem;
+            line-height: 3;
         }
     </style>
 </head>
 <body>
 <div th:replace="/include/header.html :: header"></div>
-
-<section class="page-search">
-    <div th:replace="/include/searchList.html :: fragment-search('/product/list', 'pname:상품명,content:내용,seller:판매자')"></div>
-</section>
 <section class="section-sm">
     <div class="container">
-        <div class="btn-group float-right" style="margin-left: 1000px">
+        <div class="btn-group mb-2" style="margin-left: 1000px">
             <a th:href="@{/product/insert}" th:if="${session.sid != null}"
                class="add-button nav-link text-white" style="background-color: #5672f9; border: none;">상품 등록</a>
         </div>
+        <div th:replace="/include/searchList :: fragment-search('/product/list', 'pname:상품명,content:내용,seller:판매자')"></div>
         <div class="row">
             <div class="col-lg-3 col-md-4">
                 <div class="category-sidebar">
@@ -168,12 +169,12 @@
             var separator = updatedUrl.indexOf('?') !== -1 ? '&' : '?';
             updatedUrl += separator + 'page=' + newPage;
         }
-
-        // 새 URL로 이동
-        window.location.href = updatedUrl;
+            // 새 URL로 이동
+            window.location.href = updatedUrl;
     });
     </script>
 <th:block th:replace="/include/footer.html :: footer"></th:block>
+<th:block th:replace="/include/script :: script"></th:block>
 
 </body>
 </html>

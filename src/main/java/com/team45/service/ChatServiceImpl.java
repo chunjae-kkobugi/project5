@@ -77,6 +77,11 @@ public class ChatServiceImpl implements ChatService {
     }
 
     @Override
+    public int chatMessageUnread(Long roomNo){
+        return chatMapper.chatMessageUnread(roomNo);
+    }
+
+    @Override
     public List<ChatRoom> chatRoomMy(String id) {
         return roomMapper.chatRoomMy(id);
     }

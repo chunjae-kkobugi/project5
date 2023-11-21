@@ -20,7 +20,7 @@ public interface ChatMessageMapper {
     @Select("SELECT * FROM chatMessage ORDER BY chatNo DESC LIMIT 1")
     public ChatMessage chatMessageGetLast();
 
-    @Insert("INSERT INTO chatMessage(type, roomNo, sender, receiver, message) VALUES(#{type}, #{roomNo}, #{sender}, #{message})")
+    @Insert("INSERT INTO chatMessage(type, roomNo, sender, receiver, message) VALUES(#{type}, #{roomNo}, #{sender}, #{receiver}, #{message})")
     public int chatMessageInsert(ChatMessage chatMessage);
 
     @Update("UPDATE chatMessage SET status='READ' WHERE chatNo=#{chatNo} AND sender!=#{sender}")

@@ -1,13 +1,10 @@
 package com.team45.ctrl;
 
-import com.team45.entity.Keyword;
 import com.team45.entity.ChatRoom;
 import com.team45.entity.Member;
-import com.team45.entity.ProductVO;
 import com.team45.service.ChatService;
 import com.team45.service.MemberService;
 import com.team45.service.ProductService;
-import com.team45.service.WishService;
 import com.team45.util.Page;
 import lombok.extern.log4j.Log4j2;
 import org.slf4j.Logger;
@@ -22,7 +19,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Log4j2
@@ -135,13 +132,6 @@ public class MemberCtrl {
 
     }
 
-    @GetMapping("myPage")
-    public String myPage(@RequestParam String id, Model model) {
-        Member mem = memberService.memberGet(id);
-        model.addAttribute("member", mem);
-        return "member/myPage";
-    }
-
     @GetMapping("remove")
     public String remove(@RequestParam String id, Model model) {
         session.invalidate();
@@ -186,5 +176,22 @@ public class MemberCtrl {
             model.addAttribute("url", "/member/active");
             return "/member/alert";
         }
+    }
+
+    @GetMapping("myChat")
+    public String myChat(HttpServletRequest request, Model model){
+        String sid = (String) session.getAttribute("sid");
+        Member mem = memberService.memberGet(sid);
+        model.addAttribute("member", mem);
+
+        List<ChatRoom> rooms = new ArrayList<>();
+        for(ChatRoom r: chatService.chatRoomMy(sid)){
+            r.setUnread(chatService.chatMessageUnread(r.getRoomNo()));
+            rooms.add(r);
+        }
+
+        model.addAttribute("rooms", rooms);
+
+        return "/resources/templates/myshop/myChat.html";
     }
 }
