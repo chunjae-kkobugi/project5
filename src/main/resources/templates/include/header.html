@@ -53,7 +53,7 @@
                                     <a class="nav-link login-button" th:href="@{/member/logout}">Logout</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-white add-button" th:href="@{/member/myPage(id = ${session.sid})}">MyPage</a>
+                                    <a class="nav-link text-white add-button" th:href="@{/member/myPage}">MyPage</a>
                                 </li>
                                 <th:block th:if="${session.sid eq 'admin'}">
                                     <li class="nav-item">

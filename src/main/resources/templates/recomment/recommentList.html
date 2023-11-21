@@ -24,13 +24,13 @@
             <td th:text="${reco.comment }" ></td>
             <td th:text="${reco.mem_id }"></td>
             <td><button type="button" th:com="${reco.getComment() }" onclick="choice(this.getAttribute('com'))">사용</button></td>
-            <td><a th:href="@{/recomment/Del(no=${reco.getNo()}, id=${session.sid}) }" onclick="eventremove()">삭제하기</a></td>
+            <td><a th:href="@{/recomment/Del(no=${reco.getNo()})}" onclick="eventremove()">삭제하기</a></td>
         </tr>
     </tbody>
 </table>
 
 <th:block th:if="${recommentList.size() < 5}">
-    <a th:href="@{/recomment/Add(id=${session.sid })}">자주 쓰는 글 등록</a>
+    <a th:href="@{/recomment/Add}">자주 쓰는 글 등록</a>
 </th:block>
 <script>
     function choice(comment){

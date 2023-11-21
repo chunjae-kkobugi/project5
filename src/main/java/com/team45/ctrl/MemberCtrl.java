@@ -24,7 +24,7 @@ import java.util.List;
 
 @Log4j2
 @Controller
-@RequestMapping("/member/**")
+@RequestMapping("/member/*")
 public class MemberCtrl {
 
     BCryptPasswordEncoder pwEncoder = new BCryptPasswordEncoder();
@@ -138,7 +138,8 @@ public class MemberCtrl {
     }
 
     @GetMapping("myPage")
-    public String myPage(@RequestParam String id, Model model){
+    public String myPage(Model model){
+        String id = (String) session.getAttribute("sid");
         Member mem = memberService.memberGet(id);
         model.addAttribute("member", mem);
         return "member/myPage";
@@ -247,5 +248,34 @@ public class MemberCtrl {
         return "/member/myKeywords";
     }
 
+    @GetMapping("Edit")
+    public String Editform(@RequestParam String id, Model model){
+        Member mem = memberService.memberGet(id);
+        model.addAttribute("member", mem);
+        return "member/myPageEdit";
+    }
 
+    @PostMapping("Edit")
+    public String Edit(Member member, Model model){
+        memberService.memberUpdate(member);
+        return "member/myPage";
+    }
+
+    @GetMapping("changePw")
+    public String Editform(Model model){
+        String id = (String) session.getAttribute("sid");
+        Member mem = memberService.memberGet(id);
+        model.addAttribute("member", mem);
+        return "member/changePw";
+    }
+
+    @PostMapping("changePw")
+    public String myPage(Member member, Model model){
+        String id = (String) session.getAttribute("sid");
+        member.setId(id);
+        memberService.changePw(member);
+        model.addAttribute("msg", "비밀번호가 변경되었습니다.");
+        model.addAttribute("url", 1);
+        return "/member/alert";
+    }
 }

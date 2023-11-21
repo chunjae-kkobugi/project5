@@ -21,6 +21,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.nio.file.Path;
 import java.text.SimpleDateFormat;
@@ -41,6 +42,9 @@ public class NoticeController {
     @Autowired
     private MemberService memberService;
 
+    @Autowired
+    private HttpSession session;
+
     @GetMapping("/List")
     public String NoticeList(Model model) {
         List<Notice> noticeList = noticeSerivce.boardList();
@@ -60,8 +64,47 @@ public class NoticeController {
 
     ;
 
+    @GetMapping("/Edit")
+    public String NoticeEditform(@RequestParam int no, Model model) {
+        Notice notice = noticeSerivce.boardGet(no);
+        model.addAttribute("notice", notice);
+        return "/board/notice/noticeEdit";
+    }
+
+
+    @PostMapping("/Edit")
+    public String NoticeEdit(MultipartFile uploadFiles, HttpServletRequest request, Model model) throws Exception {
+        int no = Integer.parseInt(request.getParameter("no"));
+        Notice notice = noticeSerivce.boardGet(no);
+        String title = request.getParameter("title");
+        String content = request.getParameter("content");
+        String img = request.getParameter("img");
+        notice.setTitle(title);
+        notice.setContent(content);
+
+        if (uploadFiles != null) {
+//            ServletContext application = request.getSession().getServletContext();
+//            String realPath = application.getRealPath("classpath/static/");          // 운영 서버 저장폴더
+            String realPath = "";                                              //application.yml location 적용시 폴더
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+            Date date = new Date();
+            String dateFolder = sdf.format(date);
+            String originalThumbnailname = uploadFiles.getOriginalFilename();
+            UUID uuid = UUID.randomUUID();
+            String uploadThumbnailname = uuid.toString() + "_" + originalThumbnailname;
+            uploadFiles.transferTo(new File(realPath, uploadThumbnailname));     //파일 등록
+            notice.setImg(uploadThumbnailname);
+        } else {
+            notice.setImg(img);
+        }
+
+        noticeSerivce.boardEdit(notice);
+        return "redirect:/notice/List";
+    }
+
     @GetMapping("/Add")
-    public String Noticeform(String id, Model model) {
+    public String Noticeform(Model model) {
+        String id = (String) session.getAttribute("sid");
         Member mem = memberService.memberGet(id);
         model.addAttribute("mem", mem);
         return "/board/notice/noticeForm";
@@ -70,7 +113,6 @@ public class NoticeController {
 
     @PostMapping("/Add")
     public String NoticeAdd(Notice notice, MultipartFile uploadFiles, HttpServletRequest request, Model model) throws Exception {
-
         String title = request.getParameter("title");
         String content = request.getParameter("content");
         notice.setTitle(title);
@@ -91,7 +133,6 @@ public class NoticeController {
             notice.setImg(uploadThumbnailname);
         }
         noticeSerivce.boardAdd(notice);
-        model.addAttribute("notice", notice);
         return "redirect:/notice/List";
     }
 

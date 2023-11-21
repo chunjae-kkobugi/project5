@@ -64,7 +64,7 @@
     </tbody>
 </table>
 <div th:if="${session.sid != null}">
-    <a th:href="@{/notice/Add(id=${session.sid}) }">공지등록</a>
+    <a th:href="@{/notice/Add }">공지등록</a>
 </div>
 
 <th:block th:replace="/include/footer :: footer"></th:block>

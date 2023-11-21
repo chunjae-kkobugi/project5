@@ -5,33 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원가입 폼</title>
     <th:block th:replace="include/head :: head" ></th:block>
-    <th:block th:replace="include/head2 :: head2" ></th:block>
 </head>
 <body>
 <th:block th:replace="include/header :: header" ></th:block>
 
     <div class="container">
         <h2>보드 등록</h2>
-        <form th:action="@{/notice/Add}" name="fm" method="post" enctype="multipart/form-data">
+        <form th:action="@{/notice/Edit}" name="fm" method="post" enctype="multipart/form-data">
             <div>
                 <label th:for="title">제목</label>
-                <input type="text" name="title" placeholder="title" required>
+                <input type="text" name="title" placeholder="title" th:value="${notice.title}" >
+                <input type="hidden" name="no" th:value="${notice.no}" >
             </div>
             <div>
                 <label th:for="content">내용</label>
-                <textarea name="content" id="content" class="textarea" rows="8" cols="100" maxlength="1400" required></textarea>
-<!--                <script>-->
-<!--                    $(document).ready(function() {-->
-<!--                        $("#content").cleditor();-->
-<!--                    });-->
-<!--                </script>-->
+                <textarea name="content" id="content" class="textarea" rows="8" cols="100" maxlength="1400" >[[${notice.content}]]</textarea>
             </div>
             <div>
-            <input type="hidden" name="author" placeholder="author" th:value="${mem.id}">
-           </div>
-            <div>
-                <label for="uploadFiles">파일 업로드(10MB 이하)</label>
+                <img th:src="@{/upload/} + ${notice.img}" width="400" height="225">
+                <label for="uploadFiles">기존이미지</label>
                 <input class="input" type="file" name="uploadFiles" id="uploadFiles" multiple="true">
+                <input type="hidden" name="img" id="img" th:value="${notice.img }">
             </div>
             <div>
                 <button type="submit">보드 등록</button>
@@ -42,13 +36,11 @@
     </div>
 
     <script>
-
         function reco() {
             let popupOption = "width=650px, height=550px, top=150px, left=300px, scrollbar=yes";
             let popupUrl = "/recomment/List";
            window.open(popupUrl, 'child', popupOption);
         }
-
     </script>
 <th:block th:replace="/include/footer :: footer"></th:block>
 
