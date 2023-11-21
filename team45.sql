@@ -122,11 +122,6 @@ CREATE TABLE notice(
 )
 
 CREATE TABLE recomment(
-<<<<<<< HEAD
-                          NO INT PRIMARY KEY AUTO_INCREMENT,
-                          mem_id VARCHAR(100) NOT NULL,
-                          COMMENT VARCHAR(300) NOT null
-=======
     NO INT PRIMARY KEY AUTO_INCREMENT,
     mem_id VARCHAR(100) NOT NULL,
     COMMENT VARCHAR(300) NOT null
