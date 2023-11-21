@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -22,4 +23,7 @@ public class Product {
     private Date baseAt;
     private String status = "SALE";
     private int visited = 0;
+    private int heart;
+    //이미지
+    private List<FileData> fileDataList;
 }
