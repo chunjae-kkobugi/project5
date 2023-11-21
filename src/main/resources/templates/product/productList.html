@@ -44,10 +44,10 @@
                         <ul class="category-list">
                             <li th:style="${proaddr != null ? 'color : blue' : ''}">
                                 <input type="hidden" id="proaddrVal" th:data-value="${session.proaddr}">
-                                <a id="proaddrBtn"> 내 지역만 보기 </a>
+                                <a id="proaddrBtn" style="cursor: pointer"> 내 지역만 보기 </a>
                             </li>
                             <li th:style="${status != null ? 'color : blue' : ''}">
-                                <a id="statusBtn"> 판매중인 상품 보기 </a>
+                                <a id="statusBtn" style="cursor: pointer"> 판매중인 상품 보기 </a>
                             </li>
                         </ul>
                     </div>
