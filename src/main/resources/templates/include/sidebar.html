@@ -27,19 +27,19 @@
                     <i class="fa fa-heart"></i> 찜
                 </a>
             </li>
-            <li th:classappend="${menu} == 'keywords' ? 'active' : ''">
+            <!--<li th:classappend="${menu} == 'keywords' ? 'active' : ''">
                 <a th:href="@{/myshop/keyword}">
                     <i class="fa fa-bookmark-o"></i> 키워드
                 </a>
-            </li>
+            </li>-->
             <li th:classappend="${menu} == 'chat' ? 'active' : ''">
                 <a th:href="@{/member/myChat}" id="unreadCount"><i class="fa fa-comment"></i>채팅</a>
             </li>
-            <li>
+            <!--<li>
                 <a href="index.html">
                     <i class="fa fa-cog"></i> Logout
                 </a>
-            </li>
+            </li>-->
             <li>
                 <a href="" data-toggle="modal" data-target="#deleteaccount"><i class="fa fa-power-off"></i> 회원탈퇴
                 </a>
