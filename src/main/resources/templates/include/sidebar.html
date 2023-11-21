@@ -12,7 +12,7 @@
         <!--<td th:text="${#dates.format(board.createAt, 'yyyy-MM-dd')}"></td>-->
         <h5 class="mt-2 text-center" th:text="${member.name}">회원 이름</h5>
         <p th:text="|${#dates.format(member.createAt, 'yyyy-MM-dd')} 가입|"></p>
-        <a href="user-profile.html" class="btn btn-main-sm">프로필 수정</a>
+        <a th:href="@{/member/myPage}" class="btn btn-main-sm">내 정보 보기</a>
     </div>
     <!-- Dashboard Links -->
     <div class="widget user-dashboard-menu">
@@ -35,15 +35,15 @@
             <li th:classappend="${menu} == 'chat' ? 'active' : ''">
                 <a th:href="@{/member/myChat}" id="unreadCount"><i class="fa fa-comment"></i>채팅</a>
             </li>
-            <li>
-                <a href="index.html">
-                    <i class="fa fa-cog"></i> Logout
-                </a>
-            </li>
-            <li>
-                <a href="" data-toggle="modal" data-target="#deleteaccount"><i class="fa fa-power-off"></i> 회원탈퇴
-                </a>
-            </li>
+<!--            <li>-->
+<!--                <a href="index.html">-->
+<!--                    <i class="fa fa-cog"></i> Logout-->
+<!--                </a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a href="" data-toggle="modal" data-target="#deleteaccount"><i class="fa fa-power-off"></i> 회원탈퇴-->
+<!--                </a>-->
+<!--            </li>-->
         </ul>
     </div>
 

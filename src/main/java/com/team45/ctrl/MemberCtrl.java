@@ -1,7 +1,6 @@
 package com.team45.ctrl;
 
 import com.team45.entity.Member;
-import com.team45.entity.Product;
 import com.team45.entity.ProductVO;
 import com.team45.service.MemberService;
 import com.team45.service.ProductService;
@@ -19,7 +18,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Log4j2
@@ -142,7 +140,7 @@ public class MemberCtrl {
         String id = (String) session.getAttribute("sid");
         Member mem = memberService.memberGet(id);
         model.addAttribute("member", mem);
-        return "member/myPage";
+        return "/member/myPage";
     }
 
     @GetMapping("remove")
@@ -252,13 +250,13 @@ public class MemberCtrl {
     public String Editform(@RequestParam String id, Model model){
         Member mem = memberService.memberGet(id);
         model.addAttribute("member", mem);
-        return "member/myPageEdit";
+        return "/member/myPageEdit";
     }
 
     @PostMapping("Edit")
     public String Edit(Member member, Model model){
         memberService.memberUpdate(member);
-        return "member/myPage";
+        return "/member/myPage";
     }
 
     @GetMapping("changePw")
