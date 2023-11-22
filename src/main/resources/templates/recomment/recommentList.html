@@ -18,7 +18,7 @@
         }
 
         table {
-            width: 100%;
+            width: 90%;
             margin: 20px;
             border-collapse: collapse;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -68,6 +68,7 @@
         #btn {
             display: block;
             float: right;
+            margin-right: 10%;
         }
         #colspan {
             text-align: center;
@@ -100,10 +101,10 @@
         </tr>
     </tbody>
 </table>
-
 <div th:if="${recommentList.size() < 5}" id="btn">
     <a th:href="@{/recomment/Add}">자주 쓰는 글 등록</a>
 </div>
+
 <script>
     function choice(comment){
         if(window.confirm("문구를 사용할 경우 현재 작성한 문구는 사라집니다.")) {

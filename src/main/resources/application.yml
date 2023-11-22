@@ -27,8 +27,6 @@ spring:
       enabled: true
       max-file-size: 10MB
       max-request-size: 100MB
-      location: C:/upload
-
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
@@ -36,5 +34,3 @@ mybatis:
   mapper-locations: mappers/**/*.xml
 logging:
   config: classpath:logback.xml
-
-
