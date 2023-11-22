@@ -14,9 +14,10 @@
 
 ## 💻기술 스택
 #### ✅FRONTEND : ![image](https://github.com/chunjae-kkobugi/team45/assets/139138265/9be20de0-7740-404f-957b-002a5994877b) ![image](https://github.com/chunjae-kkobugi/team45/assets/139138265/c00fee88-0527-46d5-ae6d-03cd2eab3772) ![image](https://github.com/chunjae-kkobugi/team45/assets/139138265/bfdf78b0-8232-4b8a-b512-5db94f0b67de) ![image](https://github.com/chunjae-kkobugi/team45/assets/139138265/10422a78-d798-4c7c-b92f-47d5ace85726) ![image](https://github.com/chunjae-kkobugi/team45/assets/139138265/3e3bfd04-2dbc-424b-a818-21426bad1f26)
-#### ✅BACKEND : ![image](https://github.com/chunjae-kkobugi/team45/assets/139138265/9f3919e5-d97f-49cc-853d-3474f08fff0b) ![image](https://github.com/chunjae-kkobugi/team45/assets/139138265/720fcd1f-6ee1-4c3a-b8da-3e23ea5acbce)
+#### ✅BACKEND : ![image](https://github.com/chunjae-kkobugi/team45/assets/139138265/9f3919e5-d97f-49cc-853d-3474f08fff0b) <img src="https://img.shields.io/badge/spring%20boot-6DB33F?style=for-the-badge&logo=spring%20boot&logoColor=white">
 #### ✅DATABASE : ![image](https://github.com/chunjae-kkobugi/team45/assets/139138265/ab499e8f-97e0-4a46-8435-d5242bee6c12)
 #### ✅Server : ![image](https://github.com/chunjae-kkobugi/team45/assets/139138265/208bed05-299a-43e6-8a38-e9e6627497e3)
+
 
 ---
 ## 📝프로젝트 설계

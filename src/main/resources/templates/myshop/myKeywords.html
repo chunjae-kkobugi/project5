@@ -37,7 +37,7 @@
           <div th:if="${#lists.isEmpty(keywords)}" class="text-center">등록한 키워드가 존재하지 않습니다.</div>
 
           <div th:unless="${#lists.isEmpty(keywords)}">
-            <!--<div th:replace="/include/searchList.html :: fragment-search('/myshop/keyword', 'pname:상품명')"></div>-->
+            <!--<div th:replace="/include/searchList.html :: fragment-search('myshop/keyword', 'pname:상품명')"></div>-->
             <!-- include하는 main화면에서 options를 넘겨줄 때 하나의 옵션을 ,(반점)으로 구분한다. -->
             <!-- 이때 콜론 왼쪽에는 DB 테이블의 컬럼 이름이, 오른쪽에는 사용자에게 표시될 이름을 입력한다. -->
             <p class="text-dark font-weight-bold">전체 [[${page.postTotal}]]개</p>
@@ -72,7 +72,7 @@
         </div>
 
         <th:block th:if="${not #lists.isEmpty(keywords)}">
-          <div th:replace="/include/pagination.html :: fragment-pagination('/myshop/keyword')"></div>
+          <div th:replace="/include/pagination.html :: fragment-pagination('myshop/keyword')"></div>
         </th:block>
 
       </div>

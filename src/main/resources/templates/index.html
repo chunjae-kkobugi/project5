@@ -35,7 +35,7 @@
                                 <a th:href="@{/product/detail(pno=${product.pno})}">
                                     <!--th:src="@{/images/heart_before.png}"-->
                                     <th:block th:if="${!product.fileDataList.isEmpty()}">
-                                        <img class="card-img-top img-fluid" style="height: 255px;" th:src="@{|/upload/${product.fileDataList[0].savePath}/${product.fileDataList[0].saveName}|}" alt="Card image cap">
+                                        <img class="card-img-top img-fluid" style="height: 255px;" th:src="|@{/images/}${product.fileDataList[0].saveName}|" alt="Card image cap">
                                     </th:block>
                                     <th:block th:if="${product.fileDataList.isEmpty()}">
                                         <img class="card-img-top img-fluid" style="height: 255px;" th:src="@{/images/no_image.png}">

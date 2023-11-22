@@ -35,9 +35,12 @@
                         </tr>
                         </tbody>
                     </table>
+
+                    <th:block th:if="${not #lists.isEmpty(noticeList)}"><div th:replace="/include/pagination.html :: fragment-pagination('admin/noticeList')"></div></th:block>
+
                     <div class="d-flex justify-content-end"><a class="btn btn-primary" th:href="@{/admin/noticeInsert}">공지등록</a></div>
 
-<!--                    <th:block th:if="${not #lists.isEmpty(noticeList)}"><div th:replace="/include/pagination.html :: fragment-pagination('/admin/noticeList')"></div></th:block>-->
+<!--                    <th:block th:if="${not #lists.isEmpty(noticeList)}"><div th:replace="/include/pagination.html :: fragment-pagination('admin/noticeList')"></div></th:block>-->
                 </div>
             </div>
 
@@ -54,7 +57,8 @@
 <script th:inline="javascript">
     function del(no){
         if(confirm("정말 삭제하시겠습니까?")){
-            location.href = "/admin/noticeDelete?no="+no;
+            let realpath = /*[[@{'/'}]]*/ 'default';
+            location.href = realpath+"admin/noticeDelete?no="+no;
         }
         return false;
     }

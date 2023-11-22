@@ -5,6 +5,7 @@ import com.team45.entity.Member;
 import com.team45.entity.Notice;
 import com.team45.service.MemberService;
 import com.team45.service.NoticeSerivce;
+import com.team45.util.Page;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -50,8 +51,27 @@ public class NoticeController {
 
 
     @GetMapping("/List")
-    public String NoticeList(Model model) {
-        List<Notice> noticeList = noticeSerivce.boardList();
+    public String NoticeList(Model model, HttpServletRequest request) {
+        Page page = new Page();
+
+        String searchType = request.getParameter("type");
+        String searchKeyword = request.getParameter("keyword");
+        int pageNow = request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")) : 1;
+
+        page.setSearchType(searchType);
+        page.setSearchKeyword(searchKeyword);
+        page.setPageNow(pageNow);
+
+        model.addAttribute("type", searchType);
+        model.addAttribute("keyword", searchKeyword);
+
+        page.setPostTotal(noticeSerivce.noticeCount(page));
+        page.makePage();
+
+        model.addAttribute("page", page);
+
+        List<Notice> noticeList = noticeSerivce.boardPage(page);
+
         model.addAttribute("noticeList", noticeList);
         return "/board/notice/noticeList";
     }
@@ -68,7 +88,7 @@ public class NoticeController {
 
     ;
 
-    @GetMapping("/Edit")
+    @GetMapping("Edit")
     public String NoticeEditform(@RequestParam int no, Model model) {
         Notice notice = noticeSerivce.boardGet(no);
         model.addAttribute("notice", notice);
@@ -76,7 +96,7 @@ public class NoticeController {
     }
 
 
-    @PostMapping("/Edit")
+    @PostMapping("Edit")
     public String NoticeEdit(MultipartFile uploadFiles, HttpServletRequest request, Model model) throws Exception {
         int no = Integer.parseInt(request.getParameter("no"));
         Notice notice = noticeSerivce.boardGet(no);
@@ -126,10 +146,10 @@ public class NoticeController {
         }
 
         noticeSerivce.boardEdit(notice);
-        return "redirect:/notice/List";
+        return "redirect:List";
     }
 
-    @GetMapping("/Add")
+    @GetMapping("Add")
     public String Noticeform(Model model) {
         String id = (String) session.getAttribute("sid");
         Member mem = memberService.memberGet(id);
@@ -138,7 +158,7 @@ public class NoticeController {
     }
 
 
-    @PostMapping("/Add")
+    @PostMapping("Add")
     public String NoticeAdd(Notice notice, MultipartFile uploadFiles, HttpServletRequest request, Model model) throws Exception {
         String title = request.getParameter("title");
         String content = request.getParameter("content");
@@ -191,13 +211,13 @@ public class NoticeController {
         }
 
         noticeSerivce.boardAdd(notice);
-        return "redirect:/notice/List";
+        return "redirect:List";
     }
 
-    @GetMapping("/Del")
+    @GetMapping("Del")
     public String NoticeDel(int no) {
         noticeSerivce.boardDel(no);
-        return "redirect:/notice/List";
+        return "redirect:List";
     }
 
 

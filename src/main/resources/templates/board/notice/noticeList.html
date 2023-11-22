@@ -72,6 +72,9 @@
                     </tr>
                     </tbody>
                 </table>
+
+                <th:block th:if="${not #lists.isEmpty(noticeList)}"><div th:replace="/include/pagination.html :: fragment-pagination('notice/List')"></div></th:block>
+
                 <div th:if="${session.sid != null}">
                 <div class="d-flex justify-content-end"><a class="btn btn-primary" th:href="@{/notice/Add}">공지등록</a></div>
                 </div>

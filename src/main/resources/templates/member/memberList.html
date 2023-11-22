@@ -34,7 +34,7 @@
 </section>
 
 <div class="container contenter">
-	<div th:replace="/include/searchList.html :: fragment-search('/member/list', 'id:아이디,name:이름,tel:전화번호')"></div>
+	<div th:replace="/include/searchList.html :: fragment-search('member/list', 'id:아이디,name:이름,tel:전화번호')"></div>
 	<!-- include하는 main화면에서 options를 넘겨줄 때 하나의 옵션을 ,(반점)으로 구분한다. -->
 	<!-- 이때 콜론 왼쪽에는 DB 테이블의 컬럼 이름이, 오른쪽에는 사용자에게 표시될 이름을 입력한다. -->
 	<table class="table text-center" th:if="${not #lists.isEmpty(memberList)}">
@@ -57,7 +57,7 @@
 		</tr>
 		</tbody>
 	</table>
-	<th:block th:if="${not #lists.isEmpty(memberList)}"><div th:replace="/include/pagination.html :: fragment-pagination('/member/list')"></div></th:block>
+	<th:block th:if="${not #lists.isEmpty(memberList)}"><div th:replace="/include/pagination.html :: fragment-pagination('member/list')"></div></th:block>
 	<div th:if="${#lists.isEmpty(memberList)}" class="text-center">목록이 비어있습니다.</div>
 </div>
 
