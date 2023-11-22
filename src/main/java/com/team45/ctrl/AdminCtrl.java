@@ -124,7 +124,26 @@ public class AdminCtrl {
 
     @GetMapping("noticeList")
     public String noticeList(HttpServletRequest request, Model model){
-        List<Notice> noticeList = noticeSerivce.boardList();
+        Page page = new Page();
+
+        String searchType = request.getParameter("type");
+        String searchKeyword = request.getParameter("keyword");
+        int pageNow = request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")) : 1;
+
+        page.setSearchType(searchType);
+        page.setSearchKeyword(searchKeyword);
+        page.setPageNow(pageNow);
+
+        model.addAttribute("type", searchType);
+        model.addAttribute("keyword", searchKeyword);
+
+        page.setPostTotal(noticeSerivce.noticeCount(page));
+        page.makePage();
+
+        model.addAttribute("page", page);
+
+        List<Notice> noticeList = noticeSerivce.boardPage(page);
+
         model.addAttribute("noticeList", noticeList);
 
         return "admin/noticeList";

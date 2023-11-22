@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <div class="d-flex justify-content-end" th:fragment="fragment-search(pageLink, options)">
-    <form class="d-flex mb-3" role="search" method="get" style="max-width: 60%;" th:action="${pageLink}">
+    <form id="search-form" class="d-flex mb-3" role="search" method="get" style="max-width: 60%;">
         <div class="input-group">
             <input class="form-control" type="search" placeholder="검색어 입력" aria-label="search" name="keyword" required th:value="${keyword}">
             <select class="form-select" id="type" name="type" required>
@@ -14,6 +14,12 @@
     <script th:inline="javascript">
         /*<![CDATA[*/
         // fragment-search(pageLink, options)에서 options 가 여기에 들어간다.
+        let realpath = /*[[@{'/'}]]*/ 'default';
+        let pageLink = /*[[${pageLink}]]*/ 'default';
+        $("#search-form").attr("action", realpath+pageLink);
+
+
+
         var options = /*[[${options}]]*/ 'default';
 
         // 혹시 일전에 검색을 했을 경우 해당 검색 내용을 불러온다. 이는 page 객체에 저장되어 전달된다.

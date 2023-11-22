@@ -5,6 +5,7 @@ import com.team45.entity.Member;
 import com.team45.entity.Notice;
 import com.team45.service.MemberService;
 import com.team45.service.NoticeSerivce;
+import com.team45.util.Page;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -50,8 +51,27 @@ public class NoticeController {
 
 
     @GetMapping("/List")
-    public String NoticeList(Model model) {
-        List<Notice> noticeList = noticeSerivce.boardList();
+    public String NoticeList(Model model, HttpServletRequest request) {
+        Page page = new Page();
+
+        String searchType = request.getParameter("type");
+        String searchKeyword = request.getParameter("keyword");
+        int pageNow = request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")) : 1;
+
+        page.setSearchType(searchType);
+        page.setSearchKeyword(searchKeyword);
+        page.setPageNow(pageNow);
+
+        model.addAttribute("type", searchType);
+        model.addAttribute("keyword", searchKeyword);
+
+        page.setPostTotal(noticeSerivce.noticeCount(page));
+        page.makePage();
+
+        model.addAttribute("page", page);
+
+        List<Notice> noticeList = noticeSerivce.boardPage(page);
+
         model.addAttribute("noticeList", noticeList);
         return "/board/notice/noticeList";
     }

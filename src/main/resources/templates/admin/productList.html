@@ -17,7 +17,7 @@
             <div class="content-wrapper">
                 <h1>상품목록</h1>
                 <div class="card p-3">
-                    <div th:replace="/include/searchList :: fragment-search('/admin/productList', 'P:상품명,C:내용,S:판매자')"></div>
+                    <div th:replace="/include/searchList :: fragment-search('admin/productList', 'P:상품명,C:내용,S:판매자')"></div>
                     <table class="table text-center mb-3" th:if="${not #lists.isEmpty(productList)}">
                         <thead>
                         <tr>
@@ -41,7 +41,7 @@
                         </tbody>
                     </table>
 
-                    <th:block th:if="${not #lists.isEmpty(productList)}"><div th:replace="/include/pagination.html :: fragment-pagination('/admin/productList')"></div></th:block>
+                    <th:block th:if="${not #lists.isEmpty(productList)}"><div th:replace="/include/pagination.html :: fragment-pagination('admin/productList')"></div></th:block>
                 </div>
             </div>
 

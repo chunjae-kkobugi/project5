@@ -43,11 +43,13 @@
         <div th:text="${product.pname}"></div>
         <div th:if="${product.price eq 0}" th:text="나눔"></div>
         <div th:if="${product.price ne 0}">[[${product.price}]] 원</div>
-        <select name="status" id="product-status">
-            <option value="SALE" th:selected="${product.status == 'SALE'}">판매중</option>
-            <option value="RESERVED" th:selected="${product.status == 'RESERVED'}">예약중</option>
-            <option value="OUT" th:selected="${product.status == 'OUT'}">판매완료</option>
-        </select>
+        <th:block th:if="${session.sid eq product.seller}">
+            <select name="status" id="product-status">
+                <option value="SALE" th:selected="${product.status == 'SALE'}">판매중</option>
+                <option value="RESERVED" th:selected="${product.status == 'RESERVED'}">예약중</option>
+                <option value="OUT" th:selected="${product.status == 'OUT'}">판매완료</option>
+            </select>
+        </th:block>
     </div>
 </div>
 

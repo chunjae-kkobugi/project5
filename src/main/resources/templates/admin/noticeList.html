@@ -35,9 +35,12 @@
                         </tr>
                         </tbody>
                     </table>
+
+                    <th:block th:if="${not #lists.isEmpty(noticeList)}"><div th:replace="/include/pagination.html :: fragment-pagination('admin/noticeList')"></div></th:block>
+
                     <div class="d-flex justify-content-end"><a class="btn btn-primary" th:href="@{/admin/noticeInsert}">공지등록</a></div>
 
-<!--                    <th:block th:if="${not #lists.isEmpty(noticeList)}"><div th:replace="/include/pagination.html :: fragment-pagination('/admin/noticeList')"></div></th:block>-->
+<!--                    <th:block th:if="${not #lists.isEmpty(noticeList)}"><div th:replace="/include/pagination.html :: fragment-pagination('admin/noticeList')"></div></th:block>-->
                 </div>
             </div>
 

@@ -92,6 +92,8 @@ public class MemberCtrl {
         int pass = memberService.loginPro(id, pw);
         if (pass == 1) {
             session.setAttribute("sid", id);
+            Member member = memberService.memberGet(id);
+            session.setAttribute("proaddr",member.getAddr3());
             model.addAttribute("msg", "로그인 되었습니다.");
             model.addAttribute("url", "");
             return "/member/alert";

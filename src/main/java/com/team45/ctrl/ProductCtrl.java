@@ -207,7 +207,7 @@ public class ProductCtrl {
         return "product/productEdit";
     }
 
-    @PostMapping("edit")
+   /* @PostMapping("edit")
     public String productEditPro(Product product, @RequestParam("upfile") MultipartFile[] files, HttpServletRequest request, Model model, RedirectAttributes rttr) throws IOException {
         HttpSession session = request.getSession();
 
@@ -247,6 +247,57 @@ public class ProductCtrl {
         String sid = (String) session.getAttribute("sid");
         product.setSeller(sid);
 
+        productService.productUpdate(product);
+        return "redirect:list";
+    }*/
+
+    @PostMapping("edit")
+    public String productEditPro(Product product, @RequestParam("upfile") MultipartFile[] files, HttpServletRequest request, Model model, RedirectAttributes rttr) throws IOException {
+        HttpSession session = request.getSession();
+        Resource resource = new ClassPathResource("/static/images");
+        String uploadDir = resource.getFile().getAbsolutePath();
+        String realPath = "C://upload/";
+//        String realPath = "D:/kim/project/tproj/project05/team45/src/main/resources/static/images";
+        String today = new SimpleDateFormat("yyMMdd").format(new Date());
+        String saveFolder = uploadDir + today;
+        System.out.println(saveFolder);
+        File folder = new File(saveFolder);
+        if (!folder.exists()) {        // 폴더가 존재하지 않으면 폴더 생성
+            folder.mkdirs();
+        }
+        List<FileData> fileDataList = new ArrayList<>();
+        for (MultipartFile file : files) {
+            FileData fileData = new FileData();
+            String originalFileName = file.getOriginalFilename();   // 첨부파일의 실제 이름
+            // 업로드된 파일 이름 중복 방지를 위해 유니크한 파일 이름 생성
+            String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+            String uniqueFileName = System.currentTimeMillis() + "_" + fileName;
+            // 업로드 디렉토리 경로 생성
+            Path uploadPath = Paths.get(uploadDir);
+            if (!Files.exists(uploadPath)) {
+                Files.createDirectories(uploadPath);
+            }
+            // 파일을 업로드 디렉토리로 저장
+            Path filePath = uploadPath.resolve(uniqueFileName);
+            if (!file.isEmpty()) { // 파일이 비어있지 않은 경우에만 처리
+                File dest = filePath.toFile();
+                String saveFilename = UUID.randomUUID().toString() + "_" + originalFileName;
+                fileData.setTableName("product");
+                fileData.setColumnNo(product.getPno());
+                fileData.setOriginName(originalFileName);
+//                fileData.setSaveName(saveFilename);
+                fileData.setSaveName(uniqueFileName);
+                fileData.setSavePath(today);
+                fileData.setFileType(" ");
+                fileData.setStatus("ACTIVE");
+//                file.transferTo(new File(saveFolder, saveFilename); // 파일을 업로드 폴더에 저장
+                file.transferTo(dest); // 파일을 업로드 폴더에 저장
+                fileDataList.add(fileData);
+            }
+        }
+        product.setFileDataList(fileDataList);
+        String sid = (String) session.getAttribute("sid");
+        product.setSeller(sid);
         productService.productUpdate(product);
         return "redirect:list";
     }
