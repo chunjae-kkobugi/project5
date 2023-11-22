@@ -105,7 +105,8 @@
 <script>
     function eventremove(){
         if(confirm("삭제하시겠습니까?")){
-            location.href="/notice/Del?no=[[${notice.no }]]"
+            let realpath = /*[[@{'/'}]]*/ 'default';
+            location.href=realpath+"notice/Del?no=[[${notice.no }]]"
         }
     }
 </script>

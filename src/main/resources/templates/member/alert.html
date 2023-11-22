@@ -9,11 +9,14 @@
 <script th:inline="javascript">
     var msg = [[${msg}]]
     var url = [[${url}]]
+
+    let realpath = /*[[@{'/'}]]*/ 'default';
+    console.log("realPath 아래");
+    console.log(realpath);
+
     alert(msg);
-    if(url == 1){
-        window.close();
-    }
-    location.href = url;
+    window.close();
+    location.href = realpath+url;
 </script>
 </body>
 </html>

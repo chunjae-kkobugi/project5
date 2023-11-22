@@ -112,6 +112,8 @@
 <th:block th:replace="/include/script :: script"></th:block>
 
 <script th:inline="javascript">
+    let realpath = /*[[@{'/'}]]*/ 'default';
+
     $(document).ready(function () {
         let pno =[[${detail.pno}]];
         let uid = [[${uid}]];
@@ -139,7 +141,7 @@
             }
 
             $.ajax({
-                url: '/product/wish',
+                url: realpath+'product/wish',
                 type: 'POST',
                 data: {'pno': pno, 'uid': uid},
                 success: function (response) {
@@ -160,13 +162,13 @@
     $("#buyer-chat").click(function(){
         let sid = [[${session.sid}]];
         let pno = [[${detail.pno}]];
-        let hyperlink = `/chat/roomEnter?memId=${sid}&pno=${pno}`;
+        let hyperlink = realpath+`chat/roomEnter?memId=${sid}&pno=${pno}`;
         window.open(hyperlink, "_child", "width=420, height=700, top=100, left=100, location=no, menubar=no, toolbar=no");
     });
 
     $("#seller-chat").click(function(){
         let pno = [[${detail.pno}]];
-        let hyperlink = `/chat/roomList?pno=${pno}`;
+        let hyperlink = realpath+`/chat/roomList?pno=${pno}`;
         window.open(hyperlink, "_child", "width=420, height=700, top=100, left=100, location=no, menubar=no, toolbar=no");
     });
 

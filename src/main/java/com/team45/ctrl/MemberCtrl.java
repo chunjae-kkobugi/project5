@@ -42,8 +42,6 @@ public class MemberCtrl {
     @Autowired
     private ChatService chatService;
     @Autowired
-    private ChatService chatService;
-    @Autowired
     private HttpSession session;
 
     @GetMapping("list")
@@ -85,7 +83,7 @@ public class MemberCtrl {
         String pw = request.getParameter("pw");
         boolean keepId = Boolean.parseBoolean(request.getParameter("keepId"));
 
-        return "index";
+        return "redirect:/";
     }
 
 
@@ -95,7 +93,7 @@ public class MemberCtrl {
         if (pass == 1) {
             session.setAttribute("sid", id);
             model.addAttribute("msg", "로그인 되었습니다.");
-            model.addAttribute("url", "/");
+            model.addAttribute("url", "");
             return "/member/alert";
         } else if (pass == 2) {
             model.addAttribute("msg", "해당 계정은 휴면계정입니다. 휴면을 풀어주세요.");
@@ -103,7 +101,7 @@ public class MemberCtrl {
             return "/member/alert";
         } else if (pass==3){
             model.addAttribute("msg", "해당 계정은 탈퇴한 계정입니다.");
-            model.addAttribute("url", "/");
+            model.addAttribute("url", "");
             return "/member/alert";
         } else {
             model.addAttribute("msg", "로그인 정보가 맞지 않습니다.");
@@ -116,7 +114,7 @@ public class MemberCtrl {
     public String logout(Model model) {
         session.invalidate();
         model.addAttribute("msg", "로그아웃 되었습니다.");
-        model.addAttribute("url", "/");
+        model.addAttribute("url", "");
         return "/member/alert";
     }
 
@@ -159,7 +157,7 @@ public class MemberCtrl {
         session.invalidate();
         memberService.memberOutside(id);
         model.addAttribute("msg", "회원 탈퇴가 정상적으로 이루어졌습니다. 감사합니다.");
-        model.addAttribute("url", "/");
+        model.addAttribute("url", "");
         return "/member/alert";
     }
 

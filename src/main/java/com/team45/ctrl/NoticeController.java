@@ -13,6 +13,7 @@ import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +24,9 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.io.File;
+import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -45,14 +48,14 @@ public class NoticeController {
     @Autowired
     private HttpSession session;
 
-    @GetMapping("/List")
+    @GetMapping("List")
     public String NoticeList(Model model) {
         List<Notice> noticeList = noticeSerivce.boardList();
         model.addAttribute("noticeList", noticeList);
         return "/board/notice/noticeList";
     }
 
-    @GetMapping("/Get")
+    @GetMapping("Get")
     public String Noticeget(Model model, @RequestParam int no) throws Exception {
 
         Notice notice = noticeSerivce.boardGet(no);
@@ -64,7 +67,7 @@ public class NoticeController {
 
     ;
 
-    @GetMapping("/Edit")
+    @GetMapping("Edit")
     public String NoticeEditform(@RequestParam int no, Model model) {
         Notice notice = noticeSerivce.boardGet(no);
         model.addAttribute("notice", notice);
@@ -72,7 +75,7 @@ public class NoticeController {
     }
 
 
-    @PostMapping("/Edit")
+    @PostMapping("Edit")
     public String NoticeEdit(MultipartFile uploadFiles, HttpServletRequest request, Model model) throws Exception {
         int no = Integer.parseInt(request.getParameter("no"));
         Notice notice = noticeSerivce.boardGet(no);
@@ -99,10 +102,10 @@ public class NoticeController {
         }
 
         noticeSerivce.boardEdit(notice);
-        return "redirect:/notice/List";
+        return "redirect:List";
     }
 
-    @GetMapping("/Add")
+    @GetMapping("Add")
     public String Noticeform(Model model) {
         String id = (String) session.getAttribute("sid");
         Member mem = memberService.memberGet(id);
@@ -111,7 +114,7 @@ public class NoticeController {
     }
 
 
-    @PostMapping("/Add")
+    @PostMapping("Add")
     public String NoticeAdd(Notice notice, MultipartFile uploadFiles, HttpServletRequest request, Model model) throws Exception {
         String title = request.getParameter("title");
         String content = request.getParameter("content");
@@ -119,10 +122,28 @@ public class NoticeController {
         notice.setContent(content);
 
         if (uploadFiles != null) {
-//            ServletContext application = request.getSession().getServletContext();
-//            String realPath = application.getRealPath("classpath/static/");          // 운영 서버 저장폴더
-            String realPath = "";                                              //application.yml location 적용시 폴더
+            Resource resource = new ClassPathResource("upload/");
+            String uploadDir = resource.getFile().getAbsolutePath();
 
+            // 업로드된 파일 이름 중복 방지를 위해 유니크한 파일 이름 생성
+            String fileName = StringUtils.cleanPath(uploadFiles.getOriginalFilename());
+            String uniqueFileName = System.currentTimeMillis() + "_" + fileName;
+
+            // 업로드 디렉토리 경로 생성
+            Path uploadPath = Paths.get(uploadDir);
+            if (!Files.exists(uploadPath)) {
+                Files.createDirectories(uploadPath);
+            }
+
+            // 파일을 업로드 디렉토리로 저장
+            Path filePath = uploadPath.resolve(uniqueFileName);
+            File dest = filePath.toFile();
+            uploadFiles.transferTo(dest);
+            notice.setImg(uniqueFileName);
+
+/*
+            ServletContext application = request.getSession().getServletContext();
+            String realPath = application.getRealPath("classpath:/upload"); // 운영 서버 저장폴더
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
             Date date = new Date();
             String dateFolder = sdf.format(date);
@@ -130,16 +151,18 @@ public class NoticeController {
             UUID uuid = UUID.randomUUID();
             String uploadThumbnailname = uuid.toString() + "_" + originalThumbnailname;
             uploadFiles.transferTo(new File(realPath, uploadThumbnailname));     //파일 등록
-            notice.setImg(uploadThumbnailname);
+            notice.setImg(uploadThumbnailname);*/
+
         }
+
         noticeSerivce.boardAdd(notice);
-        return "redirect:/notice/List";
+        return "redirect:List";
     }
 
-    @GetMapping("/Del")
+    @GetMapping("Del")
     public String NoticeDel(int no) {
         noticeSerivce.boardDel(no);
-        return "redirect:/notice/List";
+        return "redirect:List";
     }
 
 }

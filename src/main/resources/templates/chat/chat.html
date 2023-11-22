@@ -89,6 +89,8 @@
 
 
 <script th:inline="javascript">
+    let realpath = /*[[@{'/'}]]*/ 'default';
+
     $('#product-status').on('change', function() {
         // 기존에 선택된 옵션의 'selected' 속성을 제거
         $('#product-status option:selected').removeAttr('selected');
@@ -97,9 +99,11 @@
         let pno = [[${product.pno}]];
         let status = $(this).val();
 
+
+
         $.ajax({
             type: 'get',
-            url: '/chat/productUpdate', // 서버 URL 입력
+            url: realpath+'chat/productUpdate', // 서버 URL 입력
             data: { pno: pno, status: status}, // 전송할 데이터 설정
             success: function(response) {
                 // 성공적으로 서버에 전송된 후 실행되는 코드
@@ -154,7 +158,7 @@
 
     $(document).ready(async function(){
         scrollToBottom();
-        ws = new WebSocket("ws://"+location.host+"/socket?roomNo="+roomNo+"&memId="+username);
+        ws = new WebSocket("ws://"+location.host+realpath+"/socket?roomNo="+roomNo+"&memId="+username);
 
         ws.onopen = function(e){ // 연결 시 실행
             /*var str = username + "님이 입장하셨습니다.";
@@ -165,7 +169,7 @@
         ws.onmessage = function(response){ // 서버로부터 메세지를 받았을 때 실행
             $.ajax({
                 type: "POST",
-                url: "/chat/readChat",
+                url: realpath+"chat/readChat",
                 data: {message: response.data, user: username},
                 success: function (data) {
                 }
@@ -229,7 +233,7 @@
                 var jsonstr = makeChat(0, "TALK", username, msg);
                 $.ajax({
                     type: "POST",
-                    url: "/chat/insertChat",
+                    url: realpath+"chat/insertChat",
                     data: {message: jsonstr},
                     success: function (response) {
                         // 데이터베이스에 채팅이 제대로 저장된 경우에만 send
