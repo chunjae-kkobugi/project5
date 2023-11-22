@@ -7,6 +7,7 @@ import com.team45.entity.ProductVO;
 import com.team45.service.MemberService;
 import com.team45.service.NoticeSerivce;
 import com.team45.service.ProductService;
+import com.team45.service.WishService;
 import com.team45.util.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
@@ -34,6 +36,8 @@ public class AdminCtrl {
     private ProductService productService;
     @Autowired
     private NoticeSerivce noticeSerivce;
+    @Autowired
+    private WishService wishService;
     @Autowired
     private HttpSession session;
 
@@ -120,6 +124,24 @@ public class AdminCtrl {
         model.addAttribute("page", page);
 
         return "admin/productList";
+    }
+
+    @GetMapping("productGet")
+    public String productDetial(@RequestParam Long pno, HttpServletRequest request, Model model) {
+        ProductVO detail = productService.productDetail(pno);
+        model.addAttribute("detail", detail);
+
+        HttpSession session = request.getSession();
+        //String sid = (String) session.getAttribute("sid");
+        Object sidObeject = session.getAttribute("sid");
+        String sid = sidObeject == null ? "" : (String) sidObeject;
+
+        int flag = wishService.wishFind(pno, sid);
+        model.addAttribute("flag", flag);
+        //System.out.println("flag : " + flag);
+        model.addAttribute("uid", sid);
+
+        return "admin/productGet";
     }
 
     @GetMapping("noticeList")
