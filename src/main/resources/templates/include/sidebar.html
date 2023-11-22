@@ -12,7 +12,7 @@
         <!--<td th:text="${#dates.format(board.createAt, 'yyyy-MM-dd')}"></td>-->
         <h5 class="mt-2 text-center" th:text="${member.name}">회원 이름</h5>
         <p th:text="|${#dates.format(member.createAt, 'yyyy-MM-dd')} 가입|"></p>
-        <a href="user-profile.html" class="btn btn-main-sm">프로필 수정</a>
+        <a th:href="@{/member/myPage}" class="btn btn-main-sm">내 정보 보기</a>
     </div>
     <!-- Dashboard Links -->
     <div class="widget user-dashboard-menu">
@@ -27,23 +27,23 @@
                     <i class="fa fa-heart"></i> 찜
                 </a>
             </li>
-            <!--<li th:classappend="${menu} == 'keywords' ? 'active' : ''">
+            <li th:classappend="${menu} == 'keywords' ? 'active' : ''">
                 <a th:href="@{/myshop/keyword}">
                     <i class="fa fa-bookmark-o"></i> 키워드
                 </a>
-            </li>-->
+            </li>
             <li th:classappend="${menu} == 'chat' ? 'active' : ''">
                 <a th:href="@{/member/myChat}" id="unreadCount"><i class="fa fa-comment"></i>채팅</a>
             </li>
-            <!--<li>
-                <a href="index.html">
-                    <i class="fa fa-cog"></i> Logout
-                </a>
-            </li>-->
-            <li>
-                <a href="" data-toggle="modal" data-target="#deleteaccount"><i class="fa fa-power-off"></i> 회원탈퇴
-                </a>
-            </li>
+<!--            <li>-->
+<!--                <a href="index.html">-->
+<!--                    <i class="fa fa-cog"></i> Logout-->
+<!--                </a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--                <a href="" data-toggle="modal" data-target="#deleteaccount"><i class="fa fa-power-off"></i> 회원탈퇴-->
+<!--                </a>-->
+<!--            </li>-->
         </ul>
     </div>
 
@@ -62,8 +62,8 @@
                 <div class="modal-body text-center">
                     <!--<img src="/images/account/Account1.png"-->
                     <img th:src="@{/images/classimage/account/Account1.png}" class="img-fluid mb-2" alt="">
-                    <h6 class="py-2">회원 탈퇴</h6>
-                    <!--<p>Do you really want to delete these records? This process cannot be undone.</p>-->
+                    <h6 class="py-2">Are you sure you want to delete your account?</h6>
+                    <p>Do you really want to delete these records? This process cannot be undone.</p>
                     <textarea class="form-control w-100 rounded" name="message" id="" cols="40" rows="4"></textarea>
                 </div>
                 <div class="modal-footer border-top-0 mb-3 mx-5 justify-content-center">

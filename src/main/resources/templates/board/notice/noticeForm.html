@@ -24,8 +24,14 @@
 <!--                        $("#content").cleditor();-->
 <!--                    });-->
 <!--                </script>-->
+<!--                <script>-->
+<!--                    $(document).ready(function() {-->
+<!--                        $("#content").cleditor();-->
+<!--                    });-->
+<!--                </script>-->
             </div>
             <div>
+            <input type="hidden" name="author" placeholder="author" th:value="${mem.id}">
             <input type="hidden" name="author" placeholder="author" th:value="${mem.id}">
            </div>
             <div>
@@ -43,7 +49,7 @@
     <script>
 
         function reco() {
-            let popupOption = "width=650px, height=550px, top=150px, left=300px, scrollbar=yes";
+            let popupOption = "width=700px, height=550px, top=150px, left=300px, scrollbar=yes";
             let popupUrl = "/recomment/List";
            window.open(popupUrl, 'child', popupOption);
         }
