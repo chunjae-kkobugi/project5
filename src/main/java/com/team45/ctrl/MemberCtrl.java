@@ -297,4 +297,12 @@ public class MemberCtrl {
         model.addAttribute("url", request.getAttribute("url"));
         return "/member/alert";
     }
-}
+      @PostMapping("changePw")
+    public String myPage(Member member, Model model){
+        String id = (String) session.getAttribute("sid");
+        member.setId(id);
+        memberService.changePw(member);
+        model.addAttribute("msg", "비밀번호가 변경되었습니다.");
+        model.addAttribute("url", 1);
+        return "/member/alert";
+}}
