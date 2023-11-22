@@ -38,13 +38,12 @@
         table_set a:hover {
             color: #2980b9;
         }
-        .add-notice {
-            margin: 20px;
+        #colspan {
+            text-align: center;
         }
     </style>
 </head>
 <body>
-<th:block th:replace="include/header :: header" ></th:block>
 <th:block th:replace="include/header :: header" ></th:block>
 
 <table id="table_set">
@@ -60,6 +59,9 @@
         <td ><a th:href="@{/notice/Get(no=${notice.no})}" th:text="${notice.title}" ></a></td>
         <td th:text="${notice.author}"></td>
         <td th:text="${notice.resdate}"></td>
+    </tr>
+    <tr th:if="${noticeList.size() == 0}">
+        <td colspan="3" id="colspan">목록이 존재하지 않습니다.</td>
     </tr>
     </tbody>
 </table>

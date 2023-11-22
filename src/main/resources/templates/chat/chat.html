@@ -40,12 +40,14 @@
 
 <div class="card m-1" style="border-radius: 15px;">
     <div class="d-flex p-2" style="justify-content: space-around;">
-        <th:block th:if="${!product.fileDataList.isEmpty()}">
-            <img class="card-img-top img-fluid" style="height: 50px; max-width: 40%;" th:src="@{/upload/} + ${product.fileDataList[0].savePath}+'/'+${product.fileDataList[0].saveName}" />
-        </th:block>
         <div th:text="${product.pname}"></div>
         <div th:if="${product.price eq 0}" th:text="나눔"></div>
         <div th:if="${product.price ne 0}">[[${product.price}]] 원</div>
+        <select name="status" id="product-status">
+            <option value="SALE" th:selected="${product.status == 'SALE'}">판매중</option>
+            <option value="RESERVED" th:selected="${product.status == 'RESERVED'}">예약중</option>
+            <option value="OUT" th:selected="${product.status == 'OUT'}">판매완료</option>
+        </select>
     </div>
 </div>
 
@@ -87,6 +89,27 @@
 
 
 <script th:inline="javascript">
+    $('#product-status').on('change', function() {
+        // 기존에 선택된 옵션의 'selected' 속성을 제거
+        $('#product-status option:selected').removeAttr('selected');
+        // 변경된 옵션을 선택
+        $(this).find('option:selected').attr('selected', 'selected');
+        let pno = [[${product.pno}]];
+        let status = $(this).val();
+
+        $.ajax({
+            type: 'get',
+            url: '/chat/productUpdate', // 서버 URL 입력
+            data: { pno: pno, status: status}, // 전송할 데이터 설정
+            success: function(response) {
+                // 성공적으로 서버에 전송된 후 실행되는 코드
+            },
+            error: function(xhr, status, error) {
+                // 전송 중 오류가 발생한 경우 실행되는 코드
+            }
+        });
+    });
+
     let roomNo = /*[[${room.roomNo}]]*/ 'default';
     let roomName = /*[[${roomName}]]*/ 'default';
 

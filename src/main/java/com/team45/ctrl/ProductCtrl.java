@@ -55,9 +55,6 @@ public class ProductCtrl {
         page.setPostTotal(total);
         page.makePage();
 
-        System.out.println(total);
-        System.out.println(page);
-
         List<ProductVO> productList = productService.productList(page);
         List<Category> categories = productService.categories();
 

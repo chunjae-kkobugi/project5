@@ -1,10 +1,13 @@
 package com.team45.config;
 
 import com.team45.service.*;
+import com.team45.util.AdminInterceptor;
+import com.team45.util.UserInterceptor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.socket.server.standard.ServerEndpointExporter;
@@ -53,6 +56,18 @@ public class WebConfig implements WebMvcConfigurer {
     @Bean
     public KeywordService keywordService() {
         return new KeywordServiceImpl();
+    }
+
+    @Bean
+    public AdminInterceptor adminInterceptor() {return new AdminInterceptor();}
+
+    @Bean
+    public UserInterceptor userInterceptor() {return new UserInterceptor();}
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(adminInterceptor());
+        registry.addInterceptor(userInterceptor());
     }
 
 }

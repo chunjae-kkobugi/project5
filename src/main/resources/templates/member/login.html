@@ -21,10 +21,7 @@
                         <fieldset class="p-4">
                             <input class="form-control mb-3" type="text" placeholder="ID" name="id" required />
                             <input class="form-control mb-3" type="password" placeholder="Password" name="pw" required />
-                            <div class="loggedin-forgot">
-                                <input type="checkbox" id="keepId" name="keepId">
-                                <label for="keepId" class="pt-3 pb-2">아이디 기억하기</label>
-                            </div>
+
                             <button type="submit" class="btn btn-primary font-weight-bold mt-3">Log in</button>
                             <a class="mt-3 d-block text-primary" href="#!">Forget Password?</a>
                             <a class="mt-3 d-inline-block text-primary" th:href="@{member/register}">Register Now</a>

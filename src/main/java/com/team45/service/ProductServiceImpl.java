@@ -1,5 +1,6 @@
 package com.team45.service;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.team45.entity.Category;
 import com.team45.entity.FileData;
@@ -108,8 +109,10 @@ public class ProductServiceImpl implements ProductService {
         FileData thumb = fileDataMapper.fileDataGetLast();
         pvo.setImage(thumb.getFileNo());
 
+        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+
         Product p = mapper.convertValue(pvo, Product.class);
-        System.out.println(p);
+        /// System.out.println(p);
 
         productMapper.productUpdate(p);
 
