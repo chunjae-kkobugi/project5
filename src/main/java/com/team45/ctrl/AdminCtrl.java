@@ -7,16 +7,24 @@ import com.team45.entity.ProductVO;
 import com.team45.service.MemberService;
 import com.team45.service.NoticeSerivce;
 import com.team45.service.ProductService;
+import com.team45.service.WishService;
 import com.team45.util.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.io.File;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Controller
@@ -28,6 +36,10 @@ public class AdminCtrl {
     private ProductService productService;
     @Autowired
     private NoticeSerivce noticeSerivce;
+    @Autowired
+    private WishService wishService;
+    @Autowired
+    private HttpSession session;
 
     @GetMapping("home")
     public String adminhome(Model model){
@@ -57,7 +69,6 @@ public class AdminCtrl {
         page.setSearchType(searchType);
         page.setSearchKeyword(searchKeyword);
         page.setPageNow(pageNow);
-        System.out.println(page.getPageNow());
 
         model.addAttribute("type", searchType);
         model.addAttribute("keyword", searchKeyword);
@@ -115,21 +126,88 @@ public class AdminCtrl {
         return "admin/productList";
     }
 
+    @GetMapping("productGet")
+    public String productDetial(@RequestParam Long pno, HttpServletRequest request, Model model) {
+        ProductVO detail = productService.productDetail(pno);
+        model.addAttribute("detail", detail);
+
+        HttpSession session = request.getSession();
+        //String sid = (String) session.getAttribute("sid");
+        Object sidObeject = session.getAttribute("sid");
+        String sid = sidObeject == null ? "" : (String) sidObeject;
+
+        int flag = wishService.wishFind(pno, sid);
+        model.addAttribute("flag", flag);
+        //System.out.println("flag : " + flag);
+        model.addAttribute("uid", sid);
+
+        return "admin/productGet";
+    }
+
     @GetMapping("noticeList")
     public String noticeList(HttpServletRequest request, Model model){
-        List<Notice> noticeList = noticeSerivce.boardList();
+        Page page = new Page();
+
+        String searchType = request.getParameter("type");
+        String searchKeyword = request.getParameter("keyword");
+        int pageNow = request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")) : 1;
+
+        page.setSearchType(searchType);
+        page.setSearchKeyword(searchKeyword);
+        page.setPageNow(pageNow);
+
+        model.addAttribute("type", searchType);
+        model.addAttribute("keyword", searchKeyword);
+
+        page.setPostTotal(noticeSerivce.noticeCount(page));
+        page.makePage();
+
+        model.addAttribute("page", page);
+
+        List<Notice> noticeList = noticeSerivce.boardPage(page);
+
         model.addAttribute("noticeList", noticeList);
 
         return "admin/noticeList";
     }
 
-    @GetMapping("freeList")
-    public String freeList(HttpServletRequest request, Model model){
-        return "admin/freeList";
+    @GetMapping("/noticeInsert")
+    public String Noticeform(Model model) {
+        String id = (String) session.getAttribute("sid");
+        Member mem = memberService.memberGet(id);
+        model.addAttribute("mem", mem);
+        return "/admin/noticeInsert";
     }
 
-    @GetMapping("faqList")
-    public String faqList(HttpServletRequest request, Model model){
-        return "admin/faqList";
+    @PostMapping("/noticeInsert")
+    public String NoticeAdd(Notice notice, MultipartFile uploadFiles, HttpServletRequest request, Model model) throws Exception {
+        String title = request.getParameter("title");
+        String content = request.getParameter("content");
+        notice.setTitle(title);
+        notice.setContent(content);
+
+        if (uploadFiles != null) {
+//            ServletContext application = request.getSession().getServletContext();
+//            String realPath = application.getRealPath("classpath/static/");          // 운영 서버 저장폴더
+            String realPath = "";                                              //application.yml location 적용시 폴더
+
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+            Date date = new Date();
+            String dateFolder = sdf.format(date);
+            String originalThumbnailname = uploadFiles.getOriginalFilename();
+            UUID uuid = UUID.randomUUID();
+            String uploadThumbnailname = uuid.toString() + "_" + originalThumbnailname;
+            uploadFiles.transferTo(new File(realPath, uploadThumbnailname));     //파일 등록
+            notice.setImg(uploadThumbnailname);
+        }
+        noticeSerivce.boardAdd(notice);
+
+        return "redirect:noticeList";
+    }
+
+    @GetMapping("noticeDelete")
+    public String NoticeDel(int no) {
+        noticeSerivce.boardDel(no);
+        return "redirect:noticeList";
     }
 }

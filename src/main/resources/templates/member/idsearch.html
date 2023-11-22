@@ -33,8 +33,9 @@
 </body>
 
 <script>
+    let realpath = /*[[@{'/'}]]*/ 'default';
     let popupOption = "width=650px, height=550px, top=150px, left=300px, scrollbar=yes";
-    let popupUrl = "/recomment/List";
+    let popupUrl = realpath+"recomment/List";
     window.open(popupUrl, 'child', popupOption);
 
     function idSearch(){
@@ -49,7 +50,7 @@
         }
         var params = {"id" : $("#id").val()};
         $.ajax({
-            url:"/member/idCheckPro",	//아이디가 전송되어질 곳
+            url: realpath+"member/idCheckPro",	//아이디가 전송되어질 곳
             type:"post",
             data:JSON.stringify(params),
             dataType:"json",

@@ -21,4 +21,5 @@ public interface ProductService {
     public List<Category> categories();
     public List<Map<String, Integer>> getCateProCnt();
     int fileDataDelete(Long fileNo);
+    List<ProductVO> popularProducts();
 }

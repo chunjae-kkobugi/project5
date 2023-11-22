@@ -328,7 +328,7 @@ button {
 
 .section-title {
   position: relative;
-  margin-bottom: 75px;
+  margin-bottom: 1rem;
   text-align: center;
 }
 .section-title h2 {
@@ -336,6 +336,7 @@ button {
   letter-spacing: 0.05em;
   text-align: center;
 }
+/*
 .section-title h2:before {
   content: " ";
   display: block;
@@ -360,6 +361,7 @@ button {
   height: 5px;
   background-color: #5672f9;
 }
+*/
 .section-title p {
   font-size: 18px;
   line-height: 30px;
@@ -424,7 +426,7 @@ button {
   font-size: 15px;
   letter-spacing: 1px;
   display: inline-block;
-  padding: 15px 30px;
+  padding: 1px 20px;
   border-radius: 4px;
 }
 
@@ -439,7 +441,7 @@ button {
 
 .btn-main-sm {
   padding: 6px 20px;
-  font-size: 12px;
+  font-size: 15px;
 }
 
 .btn-secondary {
@@ -626,7 +628,7 @@ ul.pagination .active a {
 }
 
 .bg-3 {
-  background: url(cta-background.jpg);
+  background: url(../images/classimage/call-to-action/cta-background.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -2329,4 +2331,8 @@ form textarea {
   text-align: center;
   border: 0.5px solid black;
   border-radius: 5%;
+}
+
+.container_List{
+  padding: 5% 20%;
 }

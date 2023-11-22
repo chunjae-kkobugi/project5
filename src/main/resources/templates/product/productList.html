@@ -24,7 +24,7 @@
             <a th:href="@{/product/insert}" th:if="${session.sid != null}"
                class="add-button nav-link text-white" style="background-color: #5672f9; border: none;">상품 등록</a>
         </div>
-        <div th:replace="/include/searchList :: fragment-search('/product/list', 'P:상품명,C:내용,S:판매자')"></div>
+        <div th:replace="/include/searchList :: fragment-search('product/list', 'P:상품명,C:내용,S:판매자')"></div>
         <div class="row">
             <div class="col-lg-3 col-md-4">
                 <div class="category-sidebar">
@@ -65,10 +65,11 @@
                                         <div class="price" th:if="${list.price ne 0}">[[${list.price}]] 원</div>
                                         <a th:href="@{/product/detail(pno=${list.pno})}">
                                             <th:block th:if="${!list.fileDataList.isEmpty()}">
-                                                <img class="card-img-top img-fluid" style="width: 255px; height: 255px;" th:src="@{/upload/} + ${list.fileDataList[0].savePath}+'/'+${list.fileDataList[0].saveName}">
+                                                <img class="card-img-top img-fluid" style="width: 255px; height: 255px;" th:src="@{/images/} + ${list.fileDataList[0].saveName}">
+<!--                                                <img class="card-img-top img-fluid" style="width: 255px; height: 255px;" th:src="@{/images/} + ${list.fileDataList[0].savePath}+'/'+${list.fileDataList[0].saveName}">-->
                                             </th:block>
                                             <th:block th:if="${list.fileDataList.isEmpty()}">
-                                                <img class="card-img-top img-fluid" style="width: 255px; height: 255px;" th:src="@{../static/images/heart_after.png}">
+                                                <img class="card-img-top img-fluid" style="width: 255px; height: 255px;" th:src="@{/images/no_image.png}">
                                             </th:block>
                                         </a>
                                     </div>
@@ -102,7 +103,7 @@
                 <div class="product-grid-list" th:if="${productList.isEmpty()}">
                     <p class="text-center"> 등록된 상품이 없습니다. </p>
                 </div>
-                <th:block th:if="${not #lists.isEmpty(productList)}"><div th:replace="/include/pagination.html :: fragment-pagination('/product/list')"></div></th:block>
+                <th:block th:if="${not #lists.isEmpty(productList)}"><div th:replace="/include/pagination.html :: fragment-pagination('product/list')"></div></th:block>
             </div>
         </div>
     </div>

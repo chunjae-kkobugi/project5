@@ -43,4 +43,9 @@ public class NoticeServiceImpl implements NoticeSerivce {
     public List<Notice> boardPage(Page page) {
         return noticeMapper.boardPage(page);
     }
+
+    @Override
+    public int noticeCount(Page page) {
+        return noticeMapper.noticeCount(page);
+    }
 }

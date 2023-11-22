@@ -21,7 +21,7 @@
         }
         table_set th, td {
             padding: 15px;
-            text-align: left;
+            text-align: center;
             border-bottom: 1px solid #ddd;
         }
         table_set th {
@@ -38,35 +38,50 @@
         table_set a:hover {
             color: #2980b9;
         }
-        .add-notice {
-            margin: 20px;
+        #colspan {
+            text-align: center;
         }
+        .th1 {width: 60%;}
+        .th2 {width: 15%;}
+        .th3 {width: 25%}
     </style>
 </head>
 <body>
 <th:block th:replace="include/header :: header" ></th:block>
-<th:block th:replace="include/header :: header" ></th:block>
+<div class="container_List">
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <h1>공지사항 목록</h1>
+            <div class="card p-3">
+                <table class="table text-center mb-3" th:if="${not #lists.isEmpty(noticeList)}">
+                    <thead>
+                    <tr>
+                        <th class="th1">제목</th>
+                        <th class="th2">아이디</th>
+                        <th class="th3">날짜</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="notice : ${noticeList}">
+                        <td class="th1"><a th:href="@{/notice/Get(no=${notice.no})}" th:text="${notice.title}" ></a></td>
+                        <td th:text="${notice.author}" class="th2"></td>
+                        <td th:text="${notice.resdate}" class="th3"></td>
+                    </tr>
+                    <tr th:if="${noticeList.size() == 0}">
+                        <td colspan="3" id="colspan">목록이 존재하지 않습니다.</td>
+                    </tr>
+                    </tbody>
+                </table>
 
-<table id="table_set">
-    <thead>
-        <tr>
-            <th>제목</th>
-            <th>아이디</th>
-            <th>날짜</th>
-        </tr>
-    </thead>
-    <tbody>
-    <tr th:each="notice : ${noticeList}">
-        <td ><a th:href="@{/notice/Get(no=${notice.no})}" th:text="${notice.title}" ></a></td>
-        <td th:text="${notice.author}"></td>
-        <td th:text="${notice.resdate}"></td>
-    </tr>
-    </tbody>
-</table>
-<div th:if="${session.sid != null}">
-    <a th:href="@{/notice/Add }">공지등록</a>
+                <th:block th:if="${not #lists.isEmpty(noticeList)}"><div th:replace="/include/pagination.html :: fragment-pagination('notice/List')"></div></th:block>
+
+                <div th:if="${session.sid != null}">
+                <div class="d-flex justify-content-end"><a class="btn btn-primary" th:href="@{/notice/Add}">공지등록</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
 <th:block th:replace="/include/footer :: footer"></th:block>
 
 </body>

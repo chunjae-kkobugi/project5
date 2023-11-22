@@ -3,6 +3,7 @@ package com.team45.ctrl;
 import com.team45.entity.Keyword;
 import com.team45.entity.Member;
 import com.team45.entity.ProductVO;
+import com.team45.entity.WishProduct;
 import com.team45.service.KeywordService;
 import com.team45.service.MemberService;
 import com.team45.service.ProductService;
@@ -17,6 +18,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -70,6 +72,7 @@ public class MyShopCtrl {
         List<ProductVO> products = productService.productListBySeller(sid, page);
         //System.out.println("total:"+page.getPostTotal());
         model.addAttribute("products", products);
+
         return "/myshop/myProducts";
     }
 
@@ -96,8 +99,8 @@ public class MyShopCtrl {
         page.makePage();
         model.addAttribute("page", page);
 
-        List<ProductVO> wishProductList = wishService.wishProductList(sid, page);
-        //System.out.println("찜 상품 : " + wishProductList);
+        List<WishProduct> wishProductList = wishService.wishProductList(sid, page);
+        System.out.println("찜 상품 : " + wishProductList);
         //System.out.println("total:" + page.getPostTotal());
 
         model.addAttribute("wishProductList", wishProductList);
@@ -129,40 +132,39 @@ public class MyShopCtrl {
         model.addAttribute("page", page);
 
         List<Keyword> keywords = keywordService.keywordsByUid(sid, page);
-        System.out.println("키워드 목록 : " + keywords);
+        //System.out.println("키워드 목록 : " + keywords);
         model.addAttribute("keywords", keywords);
         return "/myshop/myKeywords";
     }
 
     @PostMapping("addWord")
-    public String checkKeyword(HttpServletRequest request, Model model, @Valid Keyword keyword, BindingResult bindingResult) {
+    public String checkKeyword(HttpServletRequest request, Model model) {
         String uid = (String) session.getAttribute("sid");
-        Member member = memberService.memberGet(uid);
-        model.addAttribute("member", member);
 
-        if (bindingResult.hasErrors()) {
-            return "/myshop/myKeywords :: #form";
-        }
+        Keyword keyword = new Keyword();
+        keyword.setWord(request.getParameter("word"));
+        keyword.setUid(uid);
+        System.out.println("keyword : " + keyword);
         keywordService.keywordInsert(keyword);
-
-        // 페이징 처리
-        Page page = new Page();
-        String searchType = request.getParameter("type");
-        String searchKeyword = request.getParameter("keyword");
-        int pageNow = request.getParameter("page") != null ? Integer.parseInt(request.getParameter("page")) : 1;
-
-        page.setSearchType(searchType);
-        page.setSearchKeyword(searchKeyword);
-        page.setPageNow(pageNow);
-
-        model.addAttribute("type", searchType);
-        model.addAttribute("keyword", searchKeyword);
-        page.setPostTotal(keywordService.keywordCountByUid(uid, page));
-        page.makePage();
-        model.addAttribute("page", page);
-
-        List<Keyword> keywords = keywordService.keywordsByUid(uid, page);
-        model.addAttribute("keywords", keywords);
-        return "/myshop/myKeywords :: #list";
+        return "redirect:keyword";
     }
+
+    @GetMapping("wishRemove")
+    public String removeWish(@RequestParam Long wno, Model model) {
+        Long pno = wishService.wishGet(wno).getPno();
+        wishService.wishRemove(wno);
+        wishService.decreaseWish(pno);
+        return "redirect:wish";
+    }
+
+    @GetMapping("keywordRemove")
+    public String removeKeyword(@RequestParam Long kno, Model model) {
+        //Long pno = wishService.wishGet(wno).getPno();
+        //wishService.wishRemove(wno);
+        //wishService.decreaseWish(pno);
+        keywordService.keywordDelete(kno);
+        return "redirect:keyword";
+    }
+
+
 }

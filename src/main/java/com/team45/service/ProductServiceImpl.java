@@ -1,5 +1,6 @@
 package com.team45.service;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.team45.entity.Category;
 import com.team45.entity.FileData;
@@ -18,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-public class ProductServiceImpl implements ProductService{
+public class ProductServiceImpl implements ProductService {
     @Autowired
     private ProductMapper productMapper;
     @Autowired
@@ -53,9 +54,15 @@ public class ProductServiceImpl implements ProductService{
         product.setFileDataList(fileDataList);
         return product;
     }
+
     @Override
     public List<ProductVO> productListBySeller(String seller, Page page) {
-        return myShopMapper.productListBySeller(seller, page);
+        List<ProductVO> productList = new ArrayList<>();
+        for (ProductVO p : myShopMapper.productListBySeller(seller, page)) {
+            p.setFileDataList(fileDataMapper.fileDataBoardList("product", p.getPno()));
+            productList.add(p);
+        }
+        return productList;
     }
 
     @Override
@@ -75,7 +82,7 @@ public class ProductServiceImpl implements ProductService{
             f.setColumnNo((long) productNo);
             fileDataMapper.fileDataInsert(f);
         }
-        ProductVO pvo = productMapper.productDetail((long)productNo);
+        ProductVO pvo = productMapper.productDetail((long) productNo);
         FileData thumb = fileDataMapper.fileDataGetLast();
         pvo.setImage(thumb.getFileNo());
 
@@ -102,8 +109,10 @@ public class ProductServiceImpl implements ProductService{
         FileData thumb = fileDataMapper.fileDataGetLast();
         pvo.setImage(thumb.getFileNo());
 
+        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+
         Product p = mapper.convertValue(pvo, Product.class);
-        System.out.println(p);
+        /// System.out.println(p);
 
         productMapper.productUpdate(p);
 
@@ -114,6 +123,18 @@ public class ProductServiceImpl implements ProductService{
     @Override
     public int fileDataDelete(Long fileNo) {
         return fileDataMapper.fileDataDelete(fileNo);
+    }
+
+    @Override
+    public List<ProductVO> popularProducts() {
+        List<ProductVO> list = new ArrayList<>();
+        for (ProductVO p : myShopMapper.popularProducts()) {
+            if (p.getFileDataList() == null) {
+                p.setFileDataList(fileDataMapper.fileDataBoardList("product", p.getPno()));
+            }
+            list.add(p);
+        }
+        return list;
     }
 
     @Override

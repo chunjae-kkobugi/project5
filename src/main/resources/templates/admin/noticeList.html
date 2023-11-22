@@ -17,28 +17,30 @@
             <div class="content-wrapper">
                 <h1>공지사항 목록</h1>
                 <div class="card p-3">
-                    <table class="table text-center" th:if="${not #lists.isEmpty(noticeList)}">
+                    <table class="table text-center mb-3" th:if="${not #lists.isEmpty(noticeList)}">
                         <thead>
                         <tr>
-                            <th>책 제목</th>
-                            <th>책 내용</th>
-                            <th>책 저자</th>
-                            <th>날짜</th>
-                            <th>삭제</th>
+                            <th>제목</th>
+                            <th>아이디</th>
+                            <th>등록일</th>
+                            <th></th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr th:each="notice : ${noticeList}">
                             <td ><a th:href="@{/notice/Get(no=${notice.no})}" th:text="${notice.title}" ></a></td>
-                            <td th:text="${notice.content}"></td>
                             <td th:text="${notice.author}"></td>
                             <td th:text="${notice.resdate}"></td>
-                            <td><a th:href="@{/notice/Del(no=${notice.getNo()})}">삭제하기</a></td>
+                            <td><a class="btn btn-danger" th:no="${notice.no}" th:onclick="del(this.getAttribute('no'))">삭제하기</a></td>
                         </tr>
                         </tbody>
                     </table>
 
-<!--                    <th:block th:if="${not #lists.isEmpty(noticeList)}"><div th:replace="/include/pagination.html :: fragment-pagination('/admin/noticeList')"></div></th:block>-->
+                    <th:block th:if="${not #lists.isEmpty(noticeList)}"><div th:replace="/include/pagination.html :: fragment-pagination('admin/noticeList')"></div></th:block>
+
+                    <div class="d-flex justify-content-end"><a class="btn btn-primary" th:href="@{/admin/noticeInsert}">공지등록</a></div>
+
+<!--                    <th:block th:if="${not #lists.isEmpty(noticeList)}"><div th:replace="/include/pagination.html :: fragment-pagination('admin/noticeList')"></div></th:block>-->
                 </div>
             </div>
 
@@ -52,6 +54,15 @@
     </div>
 </div>
 </body>
+<script th:inline="javascript">
+    function del(no){
+        if(confirm("정말 삭제하시겠습니까?")){
+            let realpath = /*[[@{'/'}]]*/ 'default';
+            location.href = realpath+"admin/noticeDelete?no="+no;
+        }
+        return false;
+    }
+</script>
 
 </html>
 

@@ -44,7 +44,7 @@
                             <!-- 가격 -->
                             <div class="form-group">
                                 <label for="price"> 가격 </label>
-                                <input type="text" class="form-control" id="price" name="price" th:value="${detail.price}" maxlength="20" required>
+                                <input type="text" class="form-control" id="price" name="price" th:value="${detail.price}" maxlength="8" required>
                             </div>
                             <!-- 거래지역 -->
                             <div class="form-group">
@@ -154,6 +154,7 @@
     }
 </script>
 <script th:inline="javascript">
+    let realpath = /*[[@{'/'}]]*/ 'default';
     $(document).on("click", ".imgDelete", function() {
         var fileNo = $(this).data("value"); // 이미지의 fileNo 가져오기
         var indexToDelete = $(this).closest('span').attr('class').match(/imgName(\d+)/)[1]; // 클래스명에서 인덱스 추출
@@ -161,7 +162,7 @@
         var deleteCount = $('#imgCount').val(); // #fileCount 값 가져오기
         $.ajax({
             type: "GET",
-            url: "/product/imageDelete",
+            url: realpath+"product/imageDelete",
             data: { fileNo: fileNo },
             dataType: "json",
             success: function(res) {

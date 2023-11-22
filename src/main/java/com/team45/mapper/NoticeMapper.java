@@ -28,6 +28,10 @@ public interface NoticeMapper {
     @Select({"<script>","SELECT * FROM notice" +
             "<if test='searchType != null and searchType != \"\"'> WHERE ${searchType} LIKE CONCAT('%', #{searchKeyword}, '%')" +
             "</if>" +
-            " ORDER BY resdate ASC LIMIT #{postStart}, #{postCount}", "</script>"})
+            " ORDER BY resdate DESC LIMIT #{postStart}, #{postScreen}","</script>"})
     public List<Notice> boardPage(Page page);
+
+    @Select({"<script>","SELECT COUNT(*) FROM notice",
+            "<if test='searchType != null and searchType != \"\"'> WHERE ${searchType} LIKE CONCAT('%', #{searchKeyword}, '%')</if>","</script>"})
+    public int noticeCount(Page page);
 }
