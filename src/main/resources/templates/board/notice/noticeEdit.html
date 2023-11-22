@@ -8,32 +8,37 @@
 </head>
 <body>
 <th:block th:replace="include/header :: header" ></th:block>
-
-    <div class="container">
-        <h2>보드 등록</h2>
-        <form th:action="@{/notice/Edit}" name="fm" method="post" enctype="multipart/form-data">
-            <div>
-                <label th:for="title">제목</label>
-                <input type="text" name="title" placeholder="title" th:value="${notice.title}" >
-                <input type="hidden" name="no" th:value="${notice.no}" >
+<div class="container_List">
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <h1>공지사항 수저하기</h1>
+            <div class="card p-3">
+                <form th:action="@{/notice/Edit}" name="fm" method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label th:for="title">제목</label>
+                        <input class="form-control" type="text" name="title" placeholder="title" th:value="${notice.title}" >
+                        <input type="hidden" name="no" th:value="${notice.no}" >
+                    </div>
+                    <div class="mb-3">
+                        <label th:for="content">내용</label>
+                        <textarea name="content" id="content" class="form-control textarea" rows="8" cols="100" maxlength="1400" >[[${notice.content}]]</textarea>
+                    </div>
+                    <div class="mb-3">
+                        <img th:src="@{/images/} + ${notice.img }" width="400" height="225">
+                        <label for="uploadFiles">기존이미지</label>
+                        <input class="form-control input" type="file" name="uploadFiles" id="uploadFiles" multiple="true">
+                        <input type="hidden" name="img" id="img" th:value="${notice.img }">
+                    </div>
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-primary">보드 등록</button>
+                        <button type="button" onclick="reco()" class="btn btn-info" style="float: left;">자주쓰는 답변</button>
+                    </div>
+                </form>
             </div>
-            <div>
-                <label th:for="content">내용</label>
-                <textarea name="content" id="content" class="textarea" rows="8" cols="100" maxlength="1400" >[[${notice.content}]]</textarea>
-            </div>
-            <div>
-                <img th:src="@{/upload/} + ${notice.img}" width="400" height="225">
-                <label for="uploadFiles">기존이미지</label>
-                <input class="input" type="file" name="uploadFiles" id="uploadFiles" multiple="true">
-                <input type="hidden" name="img" id="img" th:value="${notice.img }">
-            </div>
-            <div>
-                <button type="submit">보드 등록</button>
-                <button type="button" onclick="reco()">자주쓰는 답변</button>
-
-            </div>
-        </form>
+        </div>
     </div>
+</div>
+
 
     <script>
         let realpath = /*[[@{'/'}]]*/ 'default';

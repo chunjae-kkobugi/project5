@@ -68,7 +68,6 @@
                                     <input type="hidden" name="addr3" id="address3" class="form-control"/>
                                     <input type="text" name="postcode" id="postcode" placeholder="우편번호" class="form-control">
                                     <button type="button" id="post_btn" onclick="findAddr()" class="btn">우편번호 검색</button>
-                                    <label class="form-label blind" for="address1">주소</label>
                                 </div>
 
                                 <div class="d-flex justify-content-center">
@@ -77,8 +76,8 @@
 
                             </form>
 
-                            <script th:src="@{/js/jquery-3.7.1.min.js}"></script>
-
+                            <script th:src="@{js/jquery-3.7.1.min.js}"></script>
+                      
                             <script th:inline="javascript">
                                 let realpath = /*[[@{'/'}]]*/ 'default';
 
@@ -92,10 +91,11 @@
                                             $("#msg").html("아이디 입력중입니다.");
                                             $("#id").focus();
                                         } else {
-                                            $("#msg").addClass("no_check").html("<i class='fas fa-times-circle'></i> 아직 아이디 중복 체크를 하지 않으셨습니다.");
+                                            $("#msg").addClass("no_check").html("<i class=\"fa fa-times-circle\" aria-hidden=\"true\"></i> 아직 아이디 중복 체크를 하지 않으셨습니다.");
                                         }
                                     });
                                 });
+                                
                                 function idCheck(){
                                     if($("#id").val()==""){
                                         alert("아이디를 입력하지 않았습니다.");
@@ -114,16 +114,16 @@
                                             var idPass = result;
                                             if(idPass == false){
                                                 $("#idCk").val("no");
-                                                $("#msg").addClass("no_check").html("<i class='fas fa-times-circle'></i> 기존에 사용되고 있는 아이디입니다. 다시 입력하시기 바랍니다.");
+                                                $("#msg").addClass("no_check").html("<i class=\"fa fa-times-circle\" aria-hidden=\"true\"></i> 기존에 사용되고 있는 아이디입니다. 다시 입력하시기 바랍니다.");
                                                 $("#id").focus();
                                             } else if(idPass == true){
                                                 $("#idCk").val("yes");
                                                 if($("#msg").hasClass("no_check")) {
                                                     $("#msg").removeClass("no_check");
                                                 }
-                                                $("#msg").html("<i class='fas fa-check'></i> 사용 가능한 아이디입니다.");
+                                                $("#msg").html("<i class=\"fa fa-check\" aria-hidden=\"true\"></i> 사용 가능한 아이디입니다.");
                                             } else if(idPass==""){
-                                                $("#msg").addClass("no_check").text("<i class='fas fa-times-circle'></i> 아이디가 확인되지 않았습니다. 다시 시도하시기 바랍니다.");
+                                                $("#msg").addClass("no_check").text("<i class=\"fa fa-times-circle\" aria-hidden=\"true\"></i> 아이디가 확인되지 않았습니다. 다시 시도하시기 바랍니다.");
                                             }
                                         }
                                     });
@@ -144,6 +144,25 @@
 
                             <script th:src="@{/js/common.js}"></script>
                             <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+                            <script>
+                            function findAddr(){
+                                new daum.Postcode({
+                                    oncomplete:function(data){
+                                        var roadAddr = data.roadAddress;
+                                        var jibunAddr = data.jibunAddress;
+                                        var bname = data.bname;
+                                        document.getElementById("postcode").value = data.zonecode;
+                                            if(roadAddr !== ''){
+                                        document.getElementById("addr1").value = roadAddr;
+                                            } else if(jibunAddr !== ''){
+                                        document.getElementById("addr1").value = jibunAddr;
+                                            }
+                                        document.getElementById("addr3").value = bname;
+                                        document.getElementById("addr2").focus();
+                                    }
+                                }).open();
+                            }
+                            </script>
                         </div>
                     </div>
                 </div>

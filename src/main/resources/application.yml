@@ -27,8 +27,6 @@ spring:
       enabled: true
       max-file-size: 10MB
       max-request-size: 100MB
-      location: upload
-
 mybatis:
   configuration:
     map-underscore-to-camel-case: true

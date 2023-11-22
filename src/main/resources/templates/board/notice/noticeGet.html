@@ -13,35 +13,33 @@
             background-color: #f4f4f4;
             color: #333;
         }
-
+        img{
+            vertical-align: baseline;
+        }
         table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
         }
-
-        th, td {
+        th {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        td {
             padding: 12px;
             text-align: center;
             border-bottom: 1px solid #ddd;
         }
 
-        th {
-            color: #fff;
-        }
 
         .sec1 {
             max-width: 100%;
-            height: auto;
             display: inline-block;
-            margin-top: 10px;
         }
         .sec2 {
             display: inline-block;
-
         }
-
-
 
         div {
             text-align: center;
@@ -54,6 +52,8 @@
         }
 
         .btn {
+            margin-right: 10px;
+            display: inline-block;
             padding: 5px 20px;
             background-color: #4caf50;
             color: #fff;
@@ -67,48 +67,51 @@
 </head>
 <body>
 <th:block th:replace="include/header :: header" ></th:block>
-<div class="sec1">
-    <img th:src="@{/upload/} + ${notice.img}" width="500" height="225">
-</div>
-<table class="sec2">
-    <tbody>
-        <tr>
-            <th>제목</th>
-            <td th:utext="${notice.title}"></td>
-        </tr>
-        <tr>
-            <th>내용</th>
-            <td th:utext="${notice.content}"></td>
-        </tr>
-        <tr>
-            <th>아이디</th>
-            <td th:utext="${notice.author}"></td>
-        </tr>
-        <tr>
-            <th>등록 날짜</th>
-            <td th:utext="${notice.resdate}"></td>
-        </tr>
-        <tr>
-            <th>파일</th>
-            <td><a th:href="@{/upload/} + ${notice.img}" th:download="${notice.img }" >[[${notice.img }]]</a></td>
-        </tr>
-    </tbody>
-</table>
+    <div class="container_List">
+        <div class="sec1">
+            <img th:src="@{/images/} + ${notice.img }" width="500" height="500">
+        </div>
+        <div class="sec2">
+            <table >
+                <tbody>
+                    <tr>
+                        <th>제목</th>
+                        <td th:utext="${notice.title}"></td>
+                    </tr>
+                    <tr>
+                        <th>내용</th>
+                        <td th:utext="${notice.content}"></td>
+                    </tr>
+                    <tr>
+                        <th>아이디</th>
+                        <td th:utext="${notice.author}"></td>
+                    </tr>
+                    <tr>
+                        <th>등록 날짜</th>
+                        <td th:utext="${notice.resdate}"></td>
+                    </tr>
+                    <tr>
+                        <th>파일</th>
+                        <td><a th:href="@{/images/} + ${notice.img}" th:download="${notice.img }" >[[${notice.img }]]</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <th:block th:if="${session.sid == notice.getAuthor()}">
+                <a th:href="@{/notice/Edit(no=${notice.no }) }" class="btn">수정하기</a>
+                <button type="button" onclick="eventremove()" class="btn"> 삭제하기 </button>
+            </th:block>
+        </div>
+    </div>
 
-<div>
-    <th:block th:if="${session.sid == notice.getAuthor()}">
-    <a th:href="@{/notice/Edit(no=${notice.no }) }" class="btn">수정하기</a>
-    <button type="button" onclick="eventremove()" class="btn"> 삭제하기 </button>
-    </th:block>
-</div>
-<th:block th:replace="/include/footer :: footer"></th:block>
-<script>
-    function eventremove(){
-        if(confirm("삭제하시겠습니까?")){
-            let realpath = /*[[@{'/'}]]*/ 'default';
-            location.href=realpath+"notice/Del?no=[[${notice.no }]]"
+    <th:block th:replace="/include/footer :: footer"></th:block>
+    <script>
+        function eventremove(){
+            if(confirm("삭제하시겠습니까?")){
+                location.href="/notice/Del?no=[[${notice.no }]]"
+            }
         }
-    }
-</script>
+    </script>
 </body>
 </html>
