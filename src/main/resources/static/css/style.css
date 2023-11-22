@@ -426,8 +426,9 @@ button {
   font-size: 15px;
   letter-spacing: 1px;
   display: inline-block;
-  padding: 15px 30px;
+  padding: 1px 20px;
   border-radius: 4px;
+  float: right;
 }
 
 .btn-main, .btn-main-sm {
@@ -2331,4 +2332,8 @@ form textarea {
   text-align: center;
   border: 0.5px solid black;
   border-radius: 5%;
+}
+
+.container_List{
+  padding: 5% 20%;
 }
