@@ -133,14 +133,12 @@ public class ProductCtrl {
 
         Resource resource = new ClassPathResource("/static/images");
         String uploadDir = resource.getFile().getAbsolutePath();
-        Path uploadPath = Paths.get(uploadDir);
 
-        logger.info("uploadDirㅡㅡㅡㅡㅡㅡ"+ uploadPath);
 
         String realPath = "C://upload/";
 //        String realPath = "D:/kim/project/tproj/project05/team45/src/main/resources/static/images";
         String today = new SimpleDateFormat("yyMMdd").format(new Date());
-        String saveFolder = uploadPath + today;
+        String saveFolder = uploadDir + today;
         System.out.println(saveFolder);
 
         File folder = new File(saveFolder);
@@ -154,17 +152,34 @@ public class ProductCtrl {
             FileData fileData = new FileData();
             String originalFileName = file.getOriginalFilename();   // 첨부파일의 실제 이름
 
+            // 업로드된 파일 이름 중복 방지를 위해 유니크한 파일 이름 생성
+            String fileName = StringUtils.cleanPath(file.getOriginalFilename());
+            String uniqueFileName = System.currentTimeMillis() + "_" + fileName;
+
+            // 업로드 디렉토리 경로 생성
+            Path uploadPath = Paths.get(uploadDir);
+            if (!Files.exists(uploadPath)) {
+                Files.createDirectories(uploadPath);
+            }
+            logger.info("uploadPathㅡㅡㅡㅡㅡㅡ"+ uploadPath);
+
+            // 파일을 업로드 디렉토리로 저장
+            Path filePath = uploadPath.resolve(uniqueFileName);
+
             if (!file.isEmpty()) { // 파일이 비어있지 않은 경우에만 처리
+                File dest = filePath.toFile();
 
                 String saveFilename = UUID.randomUUID().toString() + "_" + originalFileName;
                 fileData.setTableName("product");
                 fileData.setColumnNo(product.getPno());
                 fileData.setOriginName(originalFileName);
-                fileData.setSaveName(saveFilename);
+//                fileData.setSaveName(saveFilename);
+                fileData.setSaveName(uniqueFileName);
                 fileData.setSavePath(today);
                 fileData.setFileType(" ");
                 fileData.setStatus("ACTIVE");
-                file.transferTo(new File(saveFolder, saveFilename)); // 파일을 업로드 폴더에 저장
+                file.transferTo(dest); // 파일을 업로드 폴더에 저장
+//                file.transferTo(new File(saveFolder, saveFilename); // 파일을 업로드 폴더에 저장
                 logger.info("upload fileㅡㅡㅡㅡㅡㅡ"+ uploadPath+today+saveFilename);
             }
             fileDataList.add(fileData);

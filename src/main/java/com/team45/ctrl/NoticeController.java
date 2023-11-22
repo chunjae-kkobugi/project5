@@ -150,9 +150,6 @@ public class NoticeController {
             Resource resource = new ClassPathResource("/static/images");
             String uploadDir = resource.getFile().getAbsolutePath();
 
-            logger.info("resourceㅡㅡㅡㅡㅡㅡ"+ resource);
-            logger.info("uploadDirㅡㅡㅡㅡㅡㅡ"+ uploadDir);
-
             // 업로드된 파일 이름 중복 방지를 위해 유니크한 파일 이름 생성
             String fileName = StringUtils.cleanPath(uploadFiles.getOriginalFilename());
             String uniqueFileName = System.currentTimeMillis() + "_" + fileName;
