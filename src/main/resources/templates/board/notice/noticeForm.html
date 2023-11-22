@@ -31,7 +31,7 @@
                     </div>
                     <div>
                         <button class="btn btn-primary" type="submit">보드 등록</button>
-                        <button class="btn btn-info" type="button" onclick="reco()">자주쓰는 답변</button>
+                        <button class="btn btn-info" type="button" onclick="reco()" style="float: left;">자주쓰는 답변</button>
                     </div>
                 </form>
             </div>
@@ -41,7 +41,6 @@
 
     <script>
         function reco() {
-            let popupOption = "width=700px, height=550px, top=150px, left=300px, scrollbar=yes";
             let popupOption = "width=700px, height=550px, top=150px, left=300px, scrollbar=yes";
             let popupUrl = "/recomment/List";
            window.open(popupUrl, 'child', popupOption);

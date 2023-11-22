@@ -4,6 +4,7 @@ import com.team45.service.*;
 import com.team45.util.AdminInterceptor;
 import com.team45.util.UserInterceptor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -14,18 +15,26 @@ import org.springframework.web.socket.server.standard.ServerEndpointExporter;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+
 @Log4j2
 @Configuration
 @EnableWebMvc
 public class WebConfig implements WebMvcConfigurer {
     // 리소스를 지정하는 세번째 방법
+
+
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/css/**").addResourceLocations("classpath:/static/css/");
         registry.addResourceHandler("/js/**").addResourceLocations("classpath:/static/js/");
         registry.addResourceHandler("/images/**").addResourceLocations("classpath:/static/images/");
         registry.addResourceHandler("/upload/**").addResourceLocations("file:///C:/upload/");
+        registry.addResourceHandler("/static/**").addResourceLocations("");
+
     }
+
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {

@@ -65,7 +65,7 @@
                                         <div class="price" th:if="${list.price ne 0}">[[${list.price}]] 원</div>
                                         <a th:href="@{/product/detail(pno=${list.pno})}">
                                             <th:block th:if="${!list.fileDataList.isEmpty()}">
-                                                <img class="card-img-top img-fluid" style="width: 255px; height: 255px;" th:src="@{/upload/} + ${list.fileDataList[0].savePath}+'/'+${list.fileDataList[0].saveName}">
+                                                <img class="card-img-top img-fluid" style="width: 255px; height: 255px;" th:src="@{/images/} + ${list.fileDataList[0].savePath}+'/'+${list.fileDataList[0].saveName}">
                                             </th:block>
                                             <th:block th:if="${list.fileDataList.isEmpty()}">
                                                 <img class="card-img-top img-fluid" style="width: 255px; height: 255px;" th:src="@{/images/no_image.png}">

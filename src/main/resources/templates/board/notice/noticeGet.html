@@ -13,7 +13,9 @@
             background-color: #f4f4f4;
             color: #333;
         }
-
+        img{
+            vertical-align: baseline;
+        }
         table {
             width: 100%;
             border-collapse: collapse;
@@ -50,6 +52,8 @@
         }
 
         .btn {
+            margin-right: 10px;
+            display: inline-block;
             padding: 5px 20px;
             background-color: #4caf50;
             color: #fff;
@@ -65,7 +69,7 @@
 <th:block th:replace="include/header :: header" ></th:block>
     <div class="container_List">
         <div class="sec1">
-            <img th:src="@{/upload/} + ${notice.img}" width="500" height="225">
+            <img th:src="@{/images/} + ${notice.img }" width="500" height="500">
         </div>
         <div class="sec2">
             <table >
@@ -88,18 +92,19 @@
                     </tr>
                     <tr>
                         <th>파일</th>
-                        <td><a th:href="@{/upload/} + ${notice.img}" th:download="${notice.img }" >[[${notice.img }]]</a></td>
+                        <td><a th:href="@{/images/} + ${notice.img}" th:download="${notice.img }" >[[${notice.img }]]</a></td>
                     </tr>
                 </tbody>
             </table>
         </div>
+        <div>
+            <th:block th:if="${session.sid == notice.getAuthor()}">
+                <a th:href="@{/notice/Edit(no=${notice.no }) }" class="btn">수정하기</a>
+                <button type="button" onclick="eventremove()" class="btn"> 삭제하기 </button>
+            </th:block>
+        </div>
     </div>
-    <div>
-        <th:block th:if="${session.sid == notice.getAuthor()}">
-        <a th:href="@{/notice/Edit(no=${notice.no }) }" class="btn">수정하기</a>
-        <button type="button" onclick="eventremove()" class="btn"> 삭제하기 </button>
-        </th:block>
-    </div>
+
     <th:block th:replace="/include/footer :: footer"></th:block>
     <script>
         function eventremove(){
