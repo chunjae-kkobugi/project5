@@ -12,7 +12,7 @@
         <!--<td th:text="${#dates.format(board.createAt, 'yyyy-MM-dd')}"></td>-->
         <h5 class="mt-2 text-center" th:text="${member.name}">회원 이름</h5>
         <p th:text="|${#dates.format(member.createAt, 'yyyy-MM-dd')} 가입|"></p>
-        <a th:href="@{/member/myPage}" class="btn btn-main-sm">내 정보 보기</a>
+        <a th:href="@{/member/myPage}" class="btn btn-main-sm" style="text-align: center">내 정보 보기</a>
     </div>
     <!-- Dashboard Links -->
     <div class="widget user-dashboard-menu">

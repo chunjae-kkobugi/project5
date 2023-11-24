@@ -161,7 +161,6 @@ public class ProductCtrl {
             if (!Files.exists(uploadPath)) {
                 Files.createDirectories(uploadPath);
             }
-            logger.info("uploadPathㅡㅡㅡㅡㅡㅡ"+ uploadPath);
 
             // 파일을 업로드 디렉토리로 저장
             Path filePath = uploadPath.resolve(uniqueFileName);
@@ -180,7 +179,6 @@ public class ProductCtrl {
                 fileData.setStatus("ACTIVE");
                 file.transferTo(dest); // 파일을 업로드 폴더에 저장
 //                file.transferTo(new File(saveFolder, saveFilename); // 파일을 업로드 폴더에 저장
-                logger.info("upload fileㅡㅡㅡㅡㅡㅡ"+ uploadPath+today+saveFilename);
             }
             fileDataList.add(fileData);
 

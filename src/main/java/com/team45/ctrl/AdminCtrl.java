@@ -169,4 +169,12 @@ public class AdminCtrl {
         noticeSerivce.boardDel(no);
         return "redirect:noticeList";
     }
+
+    @GetMapping("/memberGet")
+    public String memberGet(String id, Model model){
+        Member member = memberService.memberGet(id);
+        model.addAttribute("member", member);
+        return "/admin/memberGet";
+    }
+
 }

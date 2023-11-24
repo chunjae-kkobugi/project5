@@ -428,7 +428,6 @@ button {
   display: inline-block;
   padding: 1px 20px;
   border-radius: 4px;
-  float: right;
 }
 
 .btn-main, .btn-main-sm {
