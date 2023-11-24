@@ -41,9 +41,10 @@
 
 
     <script>
+        let realpath = /*[[@{'/'}]]*/ 'default';
         function reco() {
             let popupOption = "width=650px, height=550px, top=150px, left=300px, scrollbar=yes";
-            let popupUrl = "/recomment/List";
+            let popupUrl = realpath+"recomment/List";
            window.open(popupUrl, 'child', popupOption);
         }
     </script>

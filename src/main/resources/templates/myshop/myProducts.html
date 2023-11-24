@@ -35,7 +35,7 @@
           <div th:if="${#lists.isEmpty(products)}" class="text-center">판매 상품이 존재하지 않습니다.</div>
 
           <div th:unless="${#lists.isEmpty(products)}">
-            <div th:replace="/include/searchList.html :: fragment-search('/myshop/products', 'pname:상품명')"></div>
+            <div th:replace="/include/searchList.html :: fragment-search('myshop/products', 'pname:상품명')"></div>
             <!-- include하는 main화면에서 options를 넘겨줄 때 하나의 옵션을 ,(반점)으로 구분한다. -->
             <!-- 이때 콜론 왼쪽에는 DB 테이블의 컬럼 이름이, 오른쪽에는 사용자에게 표시될 이름을 입력한다. -->
             <p class="text-dark font-weight-bold">전체 [[${page.postTotal}]]개</p>
@@ -55,7 +55,7 @@
                   <!--<img th:src="@{/images/classimage/user/user-thumb.jpg}" alt="회원사진" class="rounded-circle">-->
                   <!--th:src="@{/upload/} + ${list.fileDataList[0].savePath}+'/'+${list.fileDataList[0].saveName}-->
                   <th:block th:if="${!product.fileDataList.isEmpty()}">
-                    <img width="80px" height="auto" th:src="@{|/upload/${product.fileDataList[0].savePath}/${product.fileDataList[0].saveName}|}" alt="Card image cap">
+                    <img width="80px" height="auto" th:src="|@{/images/}${product.fileDataList[0].saveName}|" alt="Card image cap">
                   </th:block>
 
                   <th:block th:if="${product.fileDataList.isEmpty()}">
@@ -104,7 +104,7 @@
         </div>
 
         <th:block th:if="${not #lists.isEmpty(products)}">
-          <div th:replace="/include/pagination.html :: fragment-pagination('/myshop/products')"></div>
+          <div th:replace="/include/pagination.html :: fragment-pagination('myshop/products')"></div>
         </th:block>
 
       </div>

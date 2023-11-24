@@ -77,16 +77,17 @@
     <!-- delete-account modal -->
 
     <script th:inline="javascript">
+        let realpath = /*[[@{'/'}]]*/ 'default';
         function eventRemove(){
             console.log("eventRemove activate");
             if(confirm("탈퇴하시겠습니까?")){
-                location.href="/member/remove?id="+[[${member.id }]];
+                location.href= realpath+"member/remove?id="+[[${member.id }]];
             }
         }
 
         $(document).ready(function(){
             $.ajax({
-                url: "/chat/unreadAll",
+                url: realpath+"chat/unreadAll",
                 data: {receiver: /*[[${member.id}]]*/ 'default'},
                 type: "get",
                 success: function(response){

@@ -1,26 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <div th:replace="/include/head.html :: head"></div>
-    <title th:text="${detail.pname}"></title>
-    <style>
-        .detail-button.nav-link.text-white {
-            background-color: #5672f9; border: none; margin-left: 0.5rem;
-        }
-    </style>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <th:block th:replace="/include/adminhead :: head"></th:block>
+    <title>Tsellpa : 관리자</title>
 </head>
 <body>
-<div th:replace="/include/header.html :: header"></div>
-<section class="section bg-gray">
-    <!-- Container Start -->
-    <div class="container">
-        <div class="row">
+<div class="container-scroller">
+    <div class="container-fluid page-body-wrapper">
+        <th:block th:replace="/include/adminheader :: header"></th:block>
+
+        <div class="main-panel mt-3">
             <div class="col-lg-12">
                 <div class="btn-group float-right">
-                    <a id="buyer-chat" th:unless="${session.sid eq detail.seller}" class="detail-button nav-link text-white">채팅하기</a>
-                    <a id="seller-chat" th:if="${session.sid eq detail.seller}" class="detail-button nav-link text-white">채팅하기</a>
                     <a th:href="@{/product/list}" class="detail-button nav-link text-white">목록</a>
                     <a th:href="@{/product/edit(pno=${detail.pno})}" th:if="${session.sid eq detail.seller || session.sid eq 'admin'}" class="detail-button nav-link text-white" style="background-color: #5672f9; border: none;">수정</a>
                     <a th:href="@{/product/delete(pno=${detail.pno})}" th:if="${session.sid eq detail.seller || session.sid eq 'admin'}" class="detail-button nav-link text-white" style="background-color: #5672f9; border: none;">삭제</a>
@@ -104,74 +99,16 @@
                     </div>
                 </div>
             </div>
+            <footer class="footer">
+                <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                    <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2021.  Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash. All rights reserved.</span>
+                    <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="ti-heart text-danger ml-1"></i></span>
+                </div>
+            </footer>
         </div>
     </div>
-    <!-- Container End -->
-</section>
-<th:block th:replace="/include/footer.html :: footer"></th:block>
-<th:block th:replace="/include/script :: script"></th:block>
-
-<script th:inline="javascript">
-    let realpath = /*[[@{'/'}]]*/ 'default';
-
-    $(document).ready(function () {
-        let pno =[[${detail.pno}]];
-        let uid = [[${uid}]];
-        let seller = [[${detail.seller}]];
-
-        let heartImage = document.getElementById("heart-img");
-        let heartFlag = document.getElementById('heart-check').value;
-        // 이미 찜했다면 빨간 하트
-        if (heartFlag > 0) {
-            heartImage.src = /*[[@{/images/heart_after.png}]]*/ '';
-        } else {
-            heartImage.src = /*[[@{/images/heart_before.png}]]*/ '';
-        }
-
-        // 하트를 클릭 시 실행되는 코드
-        $("#heart-img").on("click", function () {
-            //console.log('클릭한 uid:'+uid);
-            if (!uid) {
-                alert("찜은 로그인 후에 가능합니다."); // 로그인되어 있지 않으면 경고창 표시
-                return; // 함수 종료
-            }
-            if (uid === seller) {
-                alert("자신의 상품은 찜할 수 없습니다.");
-                return;
-            }
-
-            $.ajax({
-                url: realpath+'product/wish',
-                type: 'POST',
-                data: {'pno': pno, 'uid': uid},
-                success: function (response) {
-                    let res = response.res;
-                    if (res > 0) {
-                        heartImage.src = /*[[@{/images/heart_after.png}]]*/ '';
-                    } else if (res < 0) {
-                        heartImage.src = /*[[@{/images/heart_before.png}]]*/ '';
-                    }
-                    $("#heart-count").html(response.heartCnt);
-                }, error: function () {
-                    console.log('에러 발생')
-                }
-            });
-        });
-    });
-
-    $("#buyer-chat").click(function(){
-        let sid = [[${session.sid}]];
-        let pno = [[${detail.pno}]];
-        let hyperlink = realpath+`chat/roomEnter?memId=${sid}&pno=${pno}`;
-        window.open(hyperlink, "_child", "width=420, height=700, top=100, left=100, location=no, menubar=no, toolbar=no");
-    });
-
-    $("#seller-chat").click(function(){
-        let pno = [[${detail.pno}]];
-        let hyperlink = realpath+`chat/roomList?pno=${pno}`;
-        window.open(hyperlink, "_child", "width=420, height=700, top=100, left=100, location=no, menubar=no, toolbar=no");
-    });
-
-</script>
+</div>
 </body>
+
 </html>
+

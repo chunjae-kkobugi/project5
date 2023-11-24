@@ -17,7 +17,7 @@
             <div class="content-wrapper">
                 <h1>회원</h1>
                 <div class="card p-3">
-                    <div th:replace="/include/searchList :: fragment-search('/admin/memberList', 'id:아이디,name:이름,tel:전화번호')"></div>
+                    <div th:replace="/include/searchList :: fragment-search('admin/memberList', 'id:아이디,name:이름,tel:전화번호')"></div>
                     <table class="table text-center mb-3" th:if="${not #lists.isEmpty(memberList)}">
                         <thead>
                         <tr>
@@ -40,7 +40,7 @@
                         </tr>
                         </tbody>
                     </table>
-                    <th:block th:if="${not #lists.isEmpty(memberList)}"><div th:replace="/include/pagination.html :: fragment-pagination('/admin/memberList')"></div></th:block>
+                    <th:block th:if="${not #lists.isEmpty(memberList)}"><div th:replace="/include/pagination.html :: fragment-pagination('admin/memberList')"></div></th:block>
                     <div th:if="${#lists.isEmpty(memberList)}" class="text-center">목록이 비어있습니다.</div>
                 </div>
             </div>

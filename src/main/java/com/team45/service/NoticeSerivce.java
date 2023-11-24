@@ -13,4 +13,5 @@ public interface NoticeSerivce {
     public void boardEdit(Notice notice);
     public void boardDel(int no);
     public List<Notice> boardPage(Page page);
+    public int noticeCount(Page page);
 }
