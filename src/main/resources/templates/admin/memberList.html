@@ -25,15 +25,17 @@
                             <th>아이디</th>
                             <th>이름</th>
                             <th>전화번호</th>
+                            <th>상태</th>
                             <th>등록일</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr th:each="member, about : ${memberList}">
                             <td th:text="${about.count}"></td>
-                            <td><a th:text="${member.id}" th:href="@{/member/memberGet(id=${member.id})}"></a></td>
+                            <td><a th:text="${member.id}" th:href="@{/admin/memberGet(id=${member.id})}"></a></td>
                             <td th:text="${member.name}"></td>
                             <td th:text="${member.tel}"></td>
+                            <td th:text="${member.status}"></td>
                             <td th:text="${#dates.format(member.createAt, 'yyyy-MM-dd')}"></td>
                         </tr>
                         </tbody>
