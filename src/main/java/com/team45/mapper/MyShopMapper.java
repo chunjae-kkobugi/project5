@@ -13,7 +13,7 @@ public interface MyShopMapper {
     @Select({
             "<script>",
             "SELECT * from productWithCate",
-            "WHERE seller = #{seller}",
+            "WHERE seller = #{seller} AND status != 'REMOVE'",
             "<if test='page.searchType != null and page.searchType != \"\"'>",
             "   AND ${page.searchType} LIKE CONCAT('%', #{page.searchKeyword}, '%')",
             "</if>",
@@ -24,7 +24,7 @@ public interface MyShopMapper {
 
     @Select({
             "<script>",
-            "SELECT COUNT(*) FROM product WHERE seller = #{seller}",
+            "SELECT COUNT(*) FROM product WHERE seller = #{seller} AND status != 'REMOVE'",
             "<if test='page.searchType != null and page.searchType != \"\"'>",
             "   AND ${page.searchType} LIKE CONCAT('%', #{page.searchKeyword}, '%')",
             "</if>",
