@@ -55,7 +55,7 @@
                   <!--<img th:src="@{/images/classimage/user/user-thumb.jpg}" alt="회원사진" class="rounded-circle">-->
                   <!--<img width="80px" height="auto" th:src="@{|/upload/${product.fileDataList[0].savePath}/${product.fileDataList[0].saveName}|}" alt="image description">-->
                   <th:block th:if="${!product.fileDataList.isEmpty()}">
-                    <img width="80px" height="auto" th:src="@{|/upload/${product.fileDataList[0].savePath}/${product.fileDataList[0].saveName}|}" alt="Card image cap">
+                    <img width="80px" height="auto" th:src="|@{/images/}${product.fileDataList[0].saveName}|" alt="Card image cap">
                   </th:block>
                   <th:block th:if="${product.fileDataList.isEmpty()}">
                     <img width="80px" height="auto" th:src="@{/images/no_image.png}">
