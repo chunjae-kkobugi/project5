@@ -21,7 +21,7 @@ public class AdminInterceptor implements HandlerInterceptor {
 
         if(flag){
             request.setAttribute("msg", "관리자만 이용 가능합니다.");
-            request.setAttribute("url", "/");
+            request.setAttribute("url", "");
             RequestDispatcher view = request.getRequestDispatcher("/member/alert");
             view.forward(request, response);
             return false;

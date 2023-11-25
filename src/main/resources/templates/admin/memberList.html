@@ -17,7 +17,7 @@
             <div class="content-wrapper">
                 <h1>회원</h1>
                 <div class="card p-3">
-                    <div th:replace="/include/searchList :: fragment-search('/admin/memberList', 'id:아이디,name:이름,tel:전화번호')"></div>
+                    <div th:replace="/include/searchList :: fragment-search('admin/memberList', 'id:아이디,name:이름,tel:전화번호')"></div>
                     <table class="table text-center mb-3" th:if="${not #lists.isEmpty(memberList)}">
                         <thead>
                         <tr>
@@ -25,20 +25,22 @@
                             <th>아이디</th>
                             <th>이름</th>
                             <th>전화번호</th>
+                            <th>상태</th>
                             <th>등록일</th>
                         </tr>
                         </thead>
                         <tbody>
                         <tr th:each="member, about : ${memberList}">
                             <td th:text="${about.count}"></td>
-                            <td><a th:text="${member.id}" th:href="@{/member/memberGet(id=${member.id})}"></a></td>
+                            <td><a th:text="${member.id}" th:href="@{/admin/memberGet(id=${member.id})}"></a></td>
                             <td th:text="${member.name}"></td>
                             <td th:text="${member.tel}"></td>
+                            <td th:text="${member.status}"></td>
                             <td th:text="${#dates.format(member.createAt, 'yyyy-MM-dd')}"></td>
                         </tr>
                         </tbody>
                     </table>
-                    <th:block th:if="${not #lists.isEmpty(memberList)}"><div th:replace="/include/pagination.html :: fragment-pagination('/admin/memberList')"></div></th:block>
+                    <th:block th:if="${not #lists.isEmpty(memberList)}"><div th:replace="/include/pagination.html :: fragment-pagination('admin/memberList')"></div></th:block>
                     <div th:if="${#lists.isEmpty(memberList)}" class="text-center">목록이 비어있습니다.</div>
                 </div>
             </div>

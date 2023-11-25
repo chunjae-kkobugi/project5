@@ -16,6 +16,12 @@
 			color: #84919B;
 		}
 	</style>
+	<script>
+		function enter(memId, pno){
+			let hyperlink = realpath+`chat/roomEnter?memId=${memId}&pno=${pno}`;
+			window.open(hyperlink, "_child", "width=420, height=700, top=100, left=100, location=no, menubar=no, toolbar=no");
+		}
+	</script>
 </head>
 <body>
 <th:block th:replace="/include/header :: header"></th:block>
@@ -47,7 +53,7 @@
 						<td th:text="${roomstat.count}"></td>
 						<td th:if="${room.seller eq session.sid}" th:text="${room.memId}"></td>
 						<td th:unless="${room.seller eq session.sid}" th:text="${room.seller}"></td>
-						<td><a th:href="@{/chat/roomEnter(memId=${room.memId}, pno=${room.pno})}"><i class="fa fa-comment"></i> 채팅하기<span th:if="${room.unread>0}" th:text="${room.unread}"></span></a></td>
+						<td><a th:onclick="enter([[${room.memId}]], [[${room.pno}]]);" th:room="${room}"><i class="fa fa-comment"></i> 채팅하기<span th:if="${room.unread>0}" th:text="${room.unread}"></span></a></td>
 					</tr>
 					</tbody>
 				</table>
@@ -58,14 +64,17 @@
 	<!-- Container End -->
 </section>
 
+
+
 <th:block th:replace="/include/footer :: footer"></th:block>
 <th:block th:replace="/include/script :: script"></th:block>
 
 <script th:inline="javascript">
+	let realpath = /*[[@{'/'}]]*/ 'default';
 	function eventRemove(){
 		console.log("eventRemove activate");
 		if(confirm("탈퇴하시겠습니까?")){
-			location.href="/member/remove?id="+[[${member.id }]];
+			location.href = realpath+"member/remove?id="+[[${member.id }]];
 		}
 	}
 </script>

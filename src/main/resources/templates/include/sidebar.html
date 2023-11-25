@@ -12,7 +12,7 @@
         <!--<td th:text="${#dates.format(board.createAt, 'yyyy-MM-dd')}"></td>-->
         <h5 class="mt-2 text-center" th:text="${member.name}">회원 이름</h5>
         <p th:text="|${#dates.format(member.createAt, 'yyyy-MM-dd')} 가입|"></p>
-        <a th:href="@{/member/myPage}" class="btn btn-main-sm">내 정보 보기</a>
+        <a th:href="@{/member/myPage}" class="btn btn-main-sm" style="text-align: center">내 정보 보기</a>
     </div>
     <!-- Dashboard Links -->
     <div class="widget user-dashboard-menu">
@@ -77,16 +77,17 @@
     <!-- delete-account modal -->
 
     <script th:inline="javascript">
+        let realpath = /*[[@{'/'}]]*/ 'default';
         function eventRemove(){
             console.log("eventRemove activate");
             if(confirm("탈퇴하시겠습니까?")){
-                location.href="/member/remove?id="+[[${member.id }]];
+                location.href= realpath+"member/remove?id="+[[${member.id }]];
             }
         }
 
         $(document).ready(function(){
             $.ajax({
-                url: "/chat/unreadAll",
+                url: realpath+"chat/unreadAll",
                 data: {receiver: /*[[${member.id}]]*/ 'default'},
                 type: "get",
                 success: function(response){

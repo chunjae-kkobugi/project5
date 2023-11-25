@@ -74,10 +74,11 @@
 
 <th:block th:replace="/include/footer :: footer"></th:block>
 <th:block th:replace="/include/script :: script"></th:block>
-<script>
+<script th:inline="javascript">
+  let realpath = /*[[@{'/'}]]*/ 'default';
   function eventremove(){
     if(confirm("탈퇴하시겠습니까?")){
-      location.href="/member/remove?id=[[${member.id }]]"
+      location.href= realpath+"member/remove?id=[[${member.id }]]"
     }
   }
 </script>

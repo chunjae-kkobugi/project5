@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
-<nav th:fragment="fragment-pagination(pageLink)" aria-label="Page navigation">
+<nav th:fragment="fragment-pagination(pageLink2)" aria-label="Page navigation">
     <ul class="pagination justify-content-center">
         <!--    이전 페이지    -->
         <!-- 현재 페이지가 화면당 페이지 블록 갯수보다 클 때 표시 -->
@@ -29,10 +29,14 @@
     <script th:inline="javascript">
         /*<![CDATA[*/
 
+        let realpath2 = /*[[@{'/'}]]*/ 'default';
+        let pageLink2 = /*[[${pageLink2}]]*/ 'default';
+        console.log(realpath2+pageLink2);
         function paging(page){
             const form = document.createElement('form');
             form.method = "GET";
-            form.action = /*[[${pageLink}]]*/ 'default';
+            form.action = realpath2+pageLink2;
+
             let searchtype = /*[[${page.searchType}]]*/ 'default';
             let searchkeyword = /*[[${page.searchKeyword}]]*/ 'default';
             let category = /*[[${page.category}]]*/ 'default';
