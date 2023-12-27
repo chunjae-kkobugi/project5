@@ -61,3 +61,4 @@
 
 
 ## 🎥 시연 영상
+![video](./readme/team45_tsellpa.gif)
